@@ -318,7 +318,7 @@ left:32px;
 gap:14px;
 font-size:10px;
 letter-spacing:.14em;
-bottom:50px;
+bottom:40px;
 }
 
 }
@@ -367,10 +367,11 @@ margin-right:-40px;
 @media (max-width:768px){
 
   .hero-pagination{
-    right:30px;   /* ⭐ 手機貼右 */
-    bottom:85px;
-  }
 
+   display: none;
+    /* right:30px;  
+    bottom:85px; */
+  }
 }
 
 /* ===== dots ===== */
