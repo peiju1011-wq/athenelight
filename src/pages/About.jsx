@@ -119,57 +119,74 @@ export default function About() {
       {lang === "en" ? "PROJECT SHOWCASE" : "實績展示"}
     </h2>
   </div>
-
   {/* 影片 */}
-  <div className="max-w-3xl mx-auto">
+ <div className="max-w-3xl mx-auto">
 
-    <div 
-      className="group relative aspect-video w-full overflow-hidden cursor-pointer shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
-      onClick={toggleVideo2}
-    >
+  <div 
+    className="group relative aspect-video w-full overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+  >
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00000010] to-[#00000060]" />
+    {/* 未播放：黑底 + 漸層 */}
+    {!playing2 && (
+      <>
+        <img
+  src="/images/about/video-cover.png"
+  className="absolute inset-0 w-full h-full object-cover z-10"
+/>
+       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
+      </>
+    )}
 
-      <video
-        ref={videoRef2}
-        src="/images/about/about1.mp4"
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+    {/* 播放後：YouTube */}
+    {playing2 && (
+      <iframe
+        className="absolute inset-0 w-full h-full z-30"
+        src="https://www.youtube.com/embed/SJa_bat1Qxw?autoplay=1&controls=1&rel=0"
+        title="Athene Light Video"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
       />
+    )}
 
-      {!playing2 && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative w-20 h-20 flex items-center justify-center group-hover:scale-110 transition">
+    {/* 播放按鈕 */}
+    {!playing2 && (
+      <div 
+        className="absolute inset-0 flex items-center justify-center z-30 cursor-pointer"
+        onClick={() => setPlaying2(true)}
+      >
+        <div className="relative w-20 h-20 flex items-center justify-center group-hover:scale-110 transition">
 
-            <div className="absolute w-14 h-14 rounded-full border-2 border-white/40" />
+          <div className="absolute w-14 h-14 rounded-full border-2 border-white/40" />
 
-            <div className="w-10 h-10 rounded-full bg-[#c8a47a] flex items-center justify-center shadow-[0_0_20px_rgba(200,164,106,0.5)]">
-              <div className="border-l-[8px] border-l-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-[2px]" />
-            </div>
-
+          <div className="w-10 h-10 rounded-full bg-[#c8a47a] flex items-center justify-center shadow-[0_0_20px_rgba(200,164,106,0.5)]">
+            <div className="border-l-[8px] border-l-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-[2px]" />
           </div>
+
         </div>
-      )}
-
-      <div className="absolute bottom-8 left-8 text-white">
-
-        <h3 className="text-xl tracking-[0.1em] uppercase">
-          {lang === "en"
-            ? "Featured Project: Private Residence"
-            : "亮點工程案例：私人豪邸景觀"}
-        </h3>
-
-        <p className="text-white/70 mt-1 text-sm">
-          {lang === "en"
-            ? "From concept to completion"
-            : "從設計規劃到完美落成的完整紀錄"}
-        </p>
-
       </div>
+    )}
+
+    {/* 文字 */}
+    <div className="absolute bottom-8 left-8 text-white z-30">
+
+      <h3 className="text-xl tracking-[0.1em] uppercase">
+        {lang === "en"
+          ? "Featured Project: Private Residence"
+          : "亮點工程案例：私人豪邸景觀"}
+      </h3>
+
+      <p className="text-white/70 mt-1 text-sm">
+        {lang === "en"
+          ? "From concept to completion"
+          : "從設計規劃到完美落成的完整紀錄"}
+      </p>
 
     </div>
 
   </div>
+
+</div>
 
 
         </div>
