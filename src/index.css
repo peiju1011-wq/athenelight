@@ -1,0 +1,124 @@
+/* 🔥 全域背景鎖黑（防白閃） */
+html,
+body,
+#root{
+  background:#0a0a0a;
+}
+
+
+
+
+body{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* ===== HERO SLIDE ===== */
+.hero-slide{
+opacity:0;
+transition:opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active{
+opacity:1;
+}
+
+/* ===== HERO GRADIENT（加一點暖橘感） */
+.hero-gradient{
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,0.2) 0%,
+rgba(0,0,0,0) 40%,
+rgba(236,91,19,0.15) 70%,   /* 🔥 橘色光 */
+rgba(0,0,0,0.85) 100%
+);
+}
+
+/* ===== NAV 滾動（加品牌感） */
+.nav-scrolled{
+background:rgba(10,10,10,0.95);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(236,91,19,0.15); /* 🔥 橘色細線 */
+}
+
+/* ===== REVEAL（升級動畫曲線） */
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all 1s cubic-bezier(0.22,1,0.36,1);
+}
+
+.reveal.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.text-brand-gold,
+.bg-brand-gold,
+.border-brand-gold{
+  all: unset;
+}
+
+.text-brand-gold{
+  color:#ec5b13 !important;
+}
+
+body{
+  font-family: "Outfit", "Noto Sans TC", sans-serif;
+}
+
+
+/* ===== THEME SYSTEM ===== */
+
+/* 🟡 金色（首頁） */
+.theme-gold{
+  --main-color:#c9a25b;
+  --main-hover:#e3c178;
+}
+
+/* 🟠 橘色（內頁） */
+.theme-orange{
+  --main-color:#ec5b13;
+  --main-hover:#c94a0f;
+}
+
+
+
+/* 🔥 光滑動畫（關鍵） */
+.shine-wrapper{
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html{
+  scrollbar-gutter: stable;
+}
+
+body{
+  overflow-x: hidden;
+}

@@ -1,0 +1,71 @@
+/* ===== input（白底版） ===== */
+
+.contact-input{
+  width:100%;
+  border:none;
+  border-bottom:1px solid #ddd;
+  padding:12px 0;
+  outline:none;
+  transition:all .3s ease;
+  background:transparent;
+  color:#111;
+}
+
+.contact-input::placeholder{
+  color:#aaa;
+  letter-spacing:0.15em;
+  font-size:12px;
+}
+
+.contact-input:focus{
+  border-bottom:1px solid #C8A46A;
+}
+
+
+/* ===== 按鈕（淺色版） ===== */
+
+.contact-btn-light{
+  margin-top:20px;
+  padding:12px 40px;
+  border:1px solid #C8A46A;
+  color:#C8A46A;
+  background:transparent;
+  letter-spacing:0.2em;
+  cursor:pointer;
+  transition:all .3s ease;
+}
+
+.contact-btn-light:hover{
+  background:#C8A46A;
+  color:#fff;
+  box-shadow:0 8px 25px rgba(200,164,106,0.2);
+}
+
+@keyframes bouncePremium {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  /* 微下沉（重量感🔥） */
+  25% {
+    transform: translateY(3px) scale(1.02, 0.96);
+  }
+
+  /* 輕微回彈 */
+  45% {
+    transform: translateY(-4px) scale(0.98, 1.03);
+  }
+
+  /* 慢慢回穩 */
+  65% {
+    transform: translateY(-1px) scale(1);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-bouncePremium {
+  animation: bouncePremium 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}

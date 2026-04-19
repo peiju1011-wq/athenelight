@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🔥 SEO -->
+  <title>ATHENE LIGHT｜Lighting Design</title>
+
+  <meta name="description" content="專業燈光設計與照明產品，打造建築與空間光環境。" />
+
+  <!-- 🔥 Open Graph（分享用） -->
+  <meta property="og:title" content="ATHENE LIGHT｜Lighting Design" />
+  <meta property="og:description" content="Lighting Design & Products" />
+  <meta property="og:image" content="/cover.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- 🔥 Favicon（建議換品牌） -->
+  <link rel="icon" href="/logo.png" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: "#c9a25b",
+            goldSoft: "rgba(201,162,91,0.25)",
+            dark: "#0a0a0a",
+            darkSoft: "#111111",
+            textMain: "#ffffff",
+            textSub: "#a1a1aa"
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-dark text-white m-0">
+
+  <div id="root"></div>
+
+  <!-- menu portal -->
+  <div id="menu-root"></div>
+
+  <script type="module" src="/src/main.jsx"></script>
+
+</body>
+</html>

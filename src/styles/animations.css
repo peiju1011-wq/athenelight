@@ -1,0 +1,128 @@
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.reveal.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.fade-in.delay-200 { animation-delay: .2s; }
+.fade-in.delay-300 { animation-delay: .3s; }
+.fade-in.delay-500 { animation-delay: .5s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.animate-fadeUp{
+  animation:fadeUp .9s ease forwards;
+}
+
+/* ================= HERO ================= */
+
+/* 背景 */
+@keyframes heroBg{
+  from{
+    transform:scale(1.08);
+    opacity:.7;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+.animate-heroBg{
+  animation:heroBg 1.6s ease forwards;
+}
+
+
+/* 小標 */
+@keyframes heroText{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.animate-heroText{
+  animation:heroText .8s ease forwards;
+  animation-delay:.2s;
+}
+
+
+/* 主標 */
+@keyframes heroTitle{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.animate-heroTitle{
+  animation:heroTitle .9s ease forwards;
+  animation-delay:.35s;
+}
+
+
+/* 金線 */
+@keyframes heroLine{
+  to{
+    opacity:1;
+    transform:scaleX(1);
+  }
+}
+
+.animate-heroLine{
+  transform-origin:center;
+  animation:heroLine .8s ease forwards;
+  animation-delay:.6s;
+}
+
+
+/* ================= CARD ================= */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+

@@ -1,0 +1,50 @@
+/* ===== 全站重置：先把版面拉回正常座標系 ===== */
+
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* 🔥 重點：#root 不准再被限制寬度/置中/加 padding */
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  text-align: left;
+}
+
+/* 圖片保護（不會影響 absolute 背景圖） */
+img:not([class*="absolute"]) {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== 你原本特效要留，可以放下面（不影響版面） ===== */
+
+
+
+
+html{
+  scrollbar-gutter: stable;
+}
+
+body{
+  overflow-x: hidden;
+}

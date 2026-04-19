@@ -1,0 +1,52 @@
+/* ===== Layout ===== */
+
+/* ===== Layout Structure ===== */
+
+.layout-wrapper{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+background:#0a0a0a;
+}
+
+.layout-main{
+  flex:1;
+  display:block;   /* 🔥 改這行 */
+}
+
+/* ===== Container ===== */
+
+.layout-container{
+max-width:1400px;
+margin:0 auto;
+padding:60px 80px;
+}
+
+/* ===== Footer ===== */
+
+.layout-footer{
+  text-align:center;
+  padding:28px 20px;
+
+  font-size:13px;
+  letter-spacing:.08em;
+
+  color:#888;
+
+  border-top:1px solid #e7e2db; /* ⭐ 偏暖灰線 */
+  background:#f7f7f7;           /* ⭐ 加這個才會有底 */
+}
+
+.layout-footer::before{
+  content:"";
+  display:block;
+  height:1px;
+  margin-bottom:20px;
+
+  background:linear-gradient(
+    to right,
+    transparent,
+    #C8A46A,
+    transparent
+  );
+}

@@ -1,0 +1,16 @@
+html,
+body,
+#root{
+
+background:#000;
+margin:0;
+padding:0;
+height:100%;
+
+}
+
+
+/* 全域設定 */
+html, body{
+  overflow-x:hidden;
+}

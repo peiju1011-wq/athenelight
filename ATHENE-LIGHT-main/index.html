@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Light Detail</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:"Outfit", sans-serif;
+  background:#fff;
+  color:#222;
+}
+
+/* ===== layout ===== */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 24px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+
+/* ===== HERO ===== */
+.hero{
+  padding-top:160px;
+  padding-bottom:128px;
+  background:#f6f6f6;
+}
+  @media(max-width:768px){
+
+  .hero{
+    padding-top:120px;   /* 🔥 往上拉 */
+    padding-bottom:80px;
+  }
+}
+
+.left{
+  max-width:420px;
+}
+
+/* 小標 */
+.tag{
+  font-size:10px;
+  letter-spacing:.45em;
+  color:#C8A46A;
+  margin-bottom:40px;
+}
+
+/* 主標 */
+.title{
+  font-size:32px;
+  letter-spacing:.14em;
+  line-height:1.5;
+  color:#111;
+}
+
+/* 副標 */
+.subtitle{
+  margin-top:24px;
+  font-size:12px;
+  letter-spacing:.3em;
+  color:rgba(0,0,0,.4);
+}
+
+/* 🔥 分隔符（完全照你 React） */
+.divider{
+  margin-top:24px;
+  margin-bottom:40px;
+  font-size:10px;
+  letter-spacing:.12em;
+}
+
+/* 描述 */
+.desc{
+  font-size:14px;
+  color:rgba(0,0,0,.6);
+  line-height:2;
+}
+
+/* 右圖 */
+.img-wrap{
+  position:relative;
+}
+
+
+
+.img-wrap img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+  border-radius:4px;
+}
+/* =========================
+   📱 HERO 圖片可調整版本
+========================= */
+:root{
+  --hero-img-y: 20%;   /* 🔥 在這裡改（0%~50%） */
+}
+
+@media(max-width:768px){
+
+  .img-wrap img{
+    width:100%;
+    height:480px;            /* 可改高度 */
+    object-fit:cover;
+
+    transform:translateY(-60px);  /* 🔥 往上推 */
+  }
+
+}
+
+.shadow{
+  position:absolute;
+  inset:0;
+  box-shadow:0 40px 80px rgba(0,0,0,.12);
+  pointer-events:none;
+  transform:translateY(-60px);
+  border-radius:4px;
+}
+
+/* ===== DESC ===== */
+.desc-section{
+  padding:96px 24px;
+  text-align:center;
+  max-width:768px;
+  margin:auto;
+  transform:translateY(-60px);
+}
+
+/* =========================
+   🖥️ 桌機版（維持原本）
+========================= */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  padding:0 24px;
+  transform:translateY(-60px);
+}
+
+.gallery img{
+  width:100%;
+  height:420px;   /* ⭐ 桌機固定高度 */
+  object-fit:cover;
+  border-radius:4px;
+  
+}
+
+
+/* =========================
+   📱 手機版（覆蓋）
+========================= */
+@media(max-width:768px){
+
+  .gallery{
+    grid-template-columns:1fr;   /* ⭐ 改直列 */
+    gap:16px;
+    padding:0 16px;
+  }
+
+  .gallery img{
+    height:auto;   /* ⭐ 取消固定高度（關鍵） */
+    
+    transform:translateY(-70px);
+  }
+
+}
+
+/* ===== SPECS ===== */
+.spec-section{
+  padding:0 24px;
+  margin-bottom:128px;
+}
+
+.spec-title{
+  text-align:center;
+  letter-spacing:.3em;
+  font-size:14px;
+  margin-bottom:48px;
+}
+
+.spec-box{
+  max-width:800px;
+  margin:auto;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+}
+
+.spec-row{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  padding:24px 0;
+  font-size:14px;
+  border-bottom:1px solid #eee;
+}
+
+.spec-row:last-child{
+  border-bottom:0;
+}
+
+/* ===== FEATURES ===== */
+.features{
+  display:flex;
+  flex-direction:column;
+  gap:128px;
+  margin-bottom:160px;
+}
+
+.feature{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:center;
+  max-width:1200px;
+  margin:auto;
+  padding:0 24px;
+  
+}
+
+.feature img{
+  width:100%;
+  height:420px;
+  border-radius:4px;
+  object-fit:cover;
+}
+
+.feature h3{
+  font-size:20px;
+  margin-bottom:24px;
+  letter-spacing:.15em;
+}
+
+.feature p{
+  color:rgba(0,0,0,.6);
+  line-height:1.8;
+}
+
+/* ===== END ===== */
+.end{
+  text-align:center;
+  padding-bottom:160px;
+  font-size:12px;
+  letter-spacing:.3em;
+  color:rgba(0,0,0,.4);
+}
+
+/* ===== RWD ===== */
+@media(max-width:768px){
+  .grid,.feature{
+    grid-template-columns:1fr;
+  }
+
+  .title{
+    font-size:28px;
+  }
+}
+
+.lang-switch{
+  position:fixed;
+  top:24px;
+  right:40px;
+
+  font-size:13px;
+  letter-spacing:.2em;
+  color:#111;
+
+  padding:10px 6px;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(6px);
+
+  border-radius:999px;
+
+  cursor:pointer;
+  z-index:999;
+
+  transition:.3s;
+}
+
+.lang-switch:hover{
+  opacity:1;
+}
+
+/* 🔥 底線動畫（精品感） */
+.lang-switch::after{
+  content:"";
+  display:block;
+  width:0;
+  height:1px;
+  background:#C8A46A;
+  margin-top:6px;
+  transition:.4s;
+}
+
+.lang-switch:hover::after{
+  width:100%;
+}
+
+.logo{
+  position: absolute;  
+  top: 15px;          
+  
+  z-index: 9999;
+  padding: 10px 16px;
+  background: #f6f6f6;
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img{
+  height:45px;   /* 🔥 可調：26~36 最好看 */
+  object-fit:contain;
+  cursor:pointer;
+  opacity:.9;
+  transition:.3s;
+}
+
+.logo img:hover{
+  opacity:1;
+}
+
+.desc{
+  white-space: pre-line;  /* 🔥 才會換行 */
+}
+</style>
+</head>
+
+<body>
+
+<div class="logo">
+  <img src="./images/logo.png" alt="Logo">
+</div>
+
+<div class="lang-switch" onclick="toggleLang()">
+  <span id="langText">EN</span>
+</div>
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container grid">
+
+    <!-- 左 -->
+    <div class="left">
+      <p class="tag" id="tag"></p>
+      <h1 class="title" id="title"></h1>
+      <p class="subtitle" id="subtitle"></p>
+
+      <!-- 🔥 完全照 React 的 — -->
+      <div class="divider">—</div>
+
+      <p class="desc" id="desc"></p>
+    </div>
+
+    <!-- 右 -->
+    <div class="img-wrap">
+      <img id="cover">
+      <div class="shadow"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DESC -->
+<section class="desc-section">
+  <p id="desc2"></p>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery"></section>
+
+<!-- SPECS -->
+<section class="spec-section">
+  <h3 class="spec-title" id="specTitle"></h3>
+  <div class="spec-box" id="specs"></div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features"></section>
+
+<!-- END -->
+<section class="end" id="endText"></section>
+
+</main>
+
+<script>
+const data = {
+  name:{ zh:"線性吊燈", en:"LINEAR PENDANT LIGHT"},
+  subtitle:{ zh:"極簡線性吊燈", en:"Minimal Linear Pendant Light"},
+
+  /* HERO 用（短） */
+desc:{
+  zh:`極簡線性設計
+讓光回到最純粹的狀態`,
+  en:"Shaping space with light"
+},
+
+descLong:{
+  zh:`書房、客廳、餐桌
+
+一盞燈，輕鬆融入各種空間`,
+  en:`Study, living room, or dining table
+
+one light blends seamlessly into any space`
+},
+
+  cover:"./images/main-2.png",
+
+  gallery:[
+    "./images/scene1-2.png",
+    "./images/scene2-2.png",
+    "./images/scene3.png"
+  ],
+
+  specs:[
+    {
+      size:{ zh:"60CM / 600mm", en:"60CM / 600mm" },
+      power:"24W",
+      space:{ zh:"4–6坪", en:"4–6 m²" }
+    },
+    {
+      size:{ zh:"80CM / 800mm", en:"80CM / 800mm" },
+      power:"38W",
+      space:{ zh:"6–10坪", en:"6–10 m²" }
+    },
+    {
+      size:{ zh:"100CM / 1000mm", en:"100CM / 1000mm" },
+      power:"46W",
+      space:{ zh:"10–15坪", en:"10–15 m²" }
+    },
+    {
+      size:{ zh:"120CM / 1200mm", en:"120CM / 1200mm" },
+      power:"52W",
+      space:{ zh:"12–18坪", en:"12–18 m²" }
+    },
+    {
+      size:{ zh:"150CM / 1500mm", en:"150CM / 1500mm" },
+      power:"65W",
+      space:{ zh:"15–20坪", en:"15–20 m²" }
+    }
+  ],
+
+  features:[
+    {
+      title:{zh:"吊線可調",en:"Adjustable Suspension"},
+      desc:{zh:"1.5m吊線可自由調整高度",en:"1.5m adjustable cable"},
+      img:"./images/adjust.png"
+    },
+    {
+      title:{zh:"鋁材結構",en:"Aluminum Structure"},
+      desc:{zh:"厚實鋁材，防腐耐用",en:"Durable aluminum"},
+      img:"./images/material.png"
+    },
+    {
+      title:{zh:"霧面工藝",en:"Matte Finish"},
+      desc:{zh:"磨砂烤漆質感細膩",en:"Fine textured matte coating"},
+      img:"./images/detail.png"
+    }
+  ]
+};
+
+
+
+
+let lang = "zh";
+
+function getText(val){
+  return typeof val === "object" ? val[lang] : val;
+}
+
+function render(){
+
+  document.getElementById("tag").innerText =
+    lang==="en"?"LIGHTING COLLECTION":"燈具系列";
+
+  document.getElementById("title").innerText = getText(data.name);
+  document.getElementById("subtitle").innerText = getText(data.subtitle);
+  document.getElementById("desc").innerText = getText(data.desc);
+ document.getElementById("desc").innerText = getText(data.desc);
+document.getElementById("desc2").innerText = getText(data.descLong);
+
+  document.getElementById("cover").src = data.cover;
+
+  document.getElementById("specTitle").innerText =
+    lang==="en"?"SPECIFICATION":"產品規格";
+
+  document.getElementById("endText").innerText =
+    lang==="en"?"ENJOY YOUR LIGHTING MOMENT":"享受光影的每一刻。";
+
+  // 🔥 這行是你缺的（按鈕文字切換）
+  document.getElementById("langText").innerText =
+    lang === "zh" ? "EN" : "中";
+
+  document.getElementById("gallery").innerHTML =
+    data.gallery.map(img => `<img src="${img}">`).join("");
+
+  document.getElementById("specs").innerHTML = `
+    <div class="spec-row" style="font-weight:500; color:#999;">
+      <div>${lang==="en"?"SIZE":"尺寸"}</div>
+      <div>${lang==="en"?"POWER":"瓦數"}</div>
+      <div>${lang==="en"?"SPACE":"適用空間"}</div>
+    </div>
+  ` + data.specs.map(s=>`
+    <div class="spec-row">
+      <div>${getText(s.size)}</div>
+      <div>${s.power}</div>
+      <div>${getText(s.space)}</div>
+    </div>
+  `).join("");
+
+  document.getElementById("features").innerHTML =
+    data.features.map(f=>`
+      <div class="feature">
+        <img src="${f.img}">
+        <div>
+          <h3>${getText(f.title)}</h3>
+          <p>${getText(f.desc)}</p>
+        </div>
+      </div>
+    `).join("");
+}
+
+function toggleLang(){
+  lang = lang === "zh" ? "en" : "zh";
+  render();
+}
+
+// 🔥 一定要有
+render();
+
+
+</script>
+
+
+
+</body>
+</html>
