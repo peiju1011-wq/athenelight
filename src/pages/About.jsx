@@ -146,9 +146,11 @@ export default function About() {
   src="/images/about/video-cover.png"
   className="absolute inset-0 w-full h-full object-cover z-10"
 />
-       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
-      </>
-    )}
+    {/* 🔥 底部加深（重點） */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/60 z-20" />
+        </>
+      )}
+
 
     {/* 播放後：YouTube */}
     {playing2 && (
@@ -181,13 +183,13 @@ export default function About() {
     )}
 
     {/* 文字 */}
-    <div className="absolute bottom-8 left-8 text-white z-30">
+      <div className="absolute bottom-6 md:bottom-8 left-5 md:left-8 text-white z-30 max-w-[85%]">
 
-      <h3 className="text-xl tracking-[0.1em] uppercase">
-        {lang === "en"
-          ? "Featured Project: Private Residence"
-          : "亮點工程案例：私人豪邸景觀"}
-      </h3>
+        <h3 className="text-[16px] md:text-xl tracking-[0.08em] leading-[1.4]">
+          {lang === "en"
+            ? "Featured Project: Private Residence"
+            : "亮點工程案例：私人豪邸景觀"}
+        </h3>
 
       <p className="text-white/70 mt-1 text-sm">
         {lang === "en"
