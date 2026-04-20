@@ -61,23 +61,35 @@ export default function About() {
       onClick={toggleVideo1}
     >
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00000010] to-[#00000060]" />
+      {/*  封面圖（關鍵） */}
+      {!playing1 && (
+        <img
+          src="/images/about/video-cover2.png" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      )}
 
+      {/*  底部黑漸層（讓字清楚） */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/60" />
+
+      {/* 影片 */}
       <video
         ref={videoRef1}
         src="/images/about/about2.mp4"
         playsInline
-        className="absolute inset-0 w-full h-full object-cover transition duration-700"
+        className={`absolute inset-0 w-full h-full object-cover transition duration-700 ${
+          playing1 ? "opacity-100" : "opacity-0"
+        }`}
       />
 
       {/* 播放鍵 */}
       {!playing1 && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative w-20 h-20 flex items-center justify-center group-hover:scale-110 transition">
+          <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center group-hover:scale-110 transition">
 
-            <div className="absolute w-14 h-14 rounded-full border-2 border-white/40" />
+            <div className="absolute w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40" />
 
-            <div className="w-10 h-10 rounded-full bg-[#c8a47a] flex items-center justify-center shadow-[0_0_20px_rgba(200,164,106,0.5)]">
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#c8a47a] flex items-center justify-center shadow-[0_0_25px_rgba(200,164,106,0.6)]">
               <div className="border-l-[8px] border-l-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-[2px]" />
             </div>
 
@@ -85,16 +97,16 @@ export default function About() {
         </div>
       )}
 
-      {/* 下方文字 */}
-      <div className="absolute bottom-8 left-8 text-white">
+      {/*  文字（RWD 重點） */}
+      <div className="absolute bottom-6 md:bottom-8 left-5 md:left-8 text-white max-w-[85%]">
 
-        <h3 className="text-xl tracking-[0.1em] uppercase">
+        <h3 className="text-[16px] md:text-xl tracking-[0.08em] leading-[1.4]">
           {lang === "en"
             ? "Brand Film 2024: Poetry of Light"
             : "2024 年度品牌形象：光之詩"}
         </h3>
 
-        <p className="text-white/70 mt-1 text-sm">
+        <p className="text-white/80 mt-1 text-[12px] md:text-sm leading-[1.6]">
           {lang === "en"
             ? "Exploring how we blend architecture with light"
             : "探索我們如何將建築與自然光影融合"}
@@ -119,8 +131,9 @@ export default function About() {
       {lang === "en" ? "PROJECT SHOWCASE" : "實績展示"}
     </h2>
   </div>
+
   {/* 影片 */}
- <div className="max-w-3xl mx-auto">
+<div className="max-w-3xl mx-auto">
 
   <div 
     className="group relative aspect-video w-full overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
