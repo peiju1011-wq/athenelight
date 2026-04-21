@@ -30,7 +30,7 @@ export default function MenuPortal({ menuOpen, setMenuOpen }){
     <>
       {/* ===== OVERLAY ===== */}
       <div
-        className="fixed inset-0 bg-black/40 backdrop-blur-[2px] z-[9998]"
+        className="fixed inset-0 bg-black/40 backdrop-blur-[1px] z-[9998]"
         onClick={() => setMenuOpen(false)}
       />
 
