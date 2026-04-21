@@ -64,7 +64,7 @@ useEffect(() => {
     <div className="portal">
 
       {/* HERO */}
-<section className="hero bg-[#ffffff]">
+<section className="hero bg-black">
 
   {/* SLIDES */}
   <div className="hero-slides">
