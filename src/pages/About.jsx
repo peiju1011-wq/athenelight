@@ -98,7 +98,7 @@ export default function About() {
       )}
 
       {/*  文字（RWD 重點） */}
-      <div className="absolute bottom-6 md:bottom-8 left-5 md:left-8 text-white max-w-[85%]">
+   <div className={`absolute bottom-6 md:bottom-8 left-5 md:left-8 text-white max-w-[85%] ${playing2 ? "hidden" : ""}`}>
 
         <h3 className="text-[16px] md:text-xl tracking-[0.08em] leading-[1.4]">
           {lang === "en"
@@ -183,7 +183,7 @@ export default function About() {
     )}
 
     {/* 文字 */}
-      <div className="absolute bottom-6 md:bottom-8 left-5 md:left-8 text-white z-30 max-w-[85%]">
+     <div className={`absolute bottom-6 md:bottom-8 left-5 md:left-8 text-white z-30 max-w-[85%] ${playing2 ? "hidden" : ""}`}>
 
         <h3 className="text-[16px] md:text-xl tracking-[0.08em] leading-[1.4]">
           {lang === "en"
