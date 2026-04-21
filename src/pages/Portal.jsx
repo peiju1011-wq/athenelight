@@ -510,13 +510,14 @@ useEffect(() => {
 
 
     {/* VIEW ALL */}
-    <div className="text-right mt-16">
-      <a href="/projects"
-        className="text-[11px] tracking-[0.35em] text-[#222] border-b border-[#C8A46A] pb-1 hover:opacity-60 transition"
-      >
-        {lang === "zh" ? "查看全部案例" : "VIEW ALL PROJECTS"}
-      </a>
-    </div>
+<div className="text-right mt-16">
+  <Link
+    to="/projects"
+    className="text-[11px] tracking-[0.35em] text-[#222] border-b border-[#C8A46A] pb-1 hover:opacity-60 transition"
+  >
+    {lang === "zh" ? "查看全部案例" : "VIEW ALL PROJECTS"}
+  </Link>
+</div>
 
   </div>
 
@@ -640,22 +641,22 @@ useEffect(() => {
 </div>
 
     {/* VIEW ALL */}
-    <div className="text-right mt-16">
-      <a
-        href="/products"
-        className="
-          text-[11px]
-          tracking-[0.35em]
-          text-[#222]
-          border-b border-[#C8A46A]
-          pb-1
-          hover:opacity-60
-          transition
-        "
-      >
-        {t?.productsHome?.viewAll?.[lang]}
-      </a>
-    </div>
+<div className="text-right mt-16">
+  <Link
+    to="/products"
+    className="
+      text-[11px]
+      tracking-[0.35em]
+      text-[#222]
+      border-b border-[#C8A46A]
+      pb-1
+      hover:opacity-60
+      transition
+    "
+  >
+    {t?.productsHome?.viewAll?.[lang]}
+  </Link>
+</div>
 
   </div>
 
