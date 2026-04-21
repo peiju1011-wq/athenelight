@@ -36,7 +36,7 @@ export default function MenuPortal({ menuOpen, setMenuOpen }){
 
       {/* ===== MENU ===== */}
       <div className="
-        fixed top-0 right-0 h-full w-65 bg-[#0a0a0a]/60 z-[9999]
+        fixed top-0 right-0 h-full w-72 bg-[#0a0a0a]/60 z-[9999]
         flex flex-col justify-center items-center
       ">
 
