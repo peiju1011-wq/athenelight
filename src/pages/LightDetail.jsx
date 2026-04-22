@@ -41,7 +41,7 @@ const [imgLoading, setImgLoading] = useState(true);
 
       {/* ================= HERO ================= */}
       <section className="pt-[160px] pb-32 bg-[#f6f6f6]">
-        <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+       <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-10 md:gap-20 items-center">
 
           {/* 左 */}
           <div className="max-w-[420px]">
