@@ -104,15 +104,33 @@ export default function News() {
 
         <div className="absolute bottom-6 left-6 md:left-10 text-white max-w-[480px]">
 
-          <h2 className="text-[20px] md:text-[26px] tracking-[0.12em] mb-2">
-            {hero.title?.[lang]}
-          </h2>
+<h2 className="
+  text-[16px]
+  sm:text-[18px]
+  md:text-[26px]
+  tracking-[0.06em]
+  md:tracking-[0.12em]
+  leading-[1.4]
+  mb-2
+">
+  {hero.title?.[lang]}
+</h2>
 
-          <p className="text-white/70 text-[12px] leading-relaxed mb-3">
+          <p className="text-white/70 
+  text-[11px] 
+  md:text-[12px]
+  leading-relaxed 
+  mb-3">
             {hero.desc?.[lang]}
           </p>
 
-          <span className="text-[#C8A46A] text-[11px] tracking-[0.25em]">
+         <span className="
+  text-[#C8A46A] 
+  text-[10px] 
+  md:text-[11px]
+  tracking-[0.18em] 
+  md:tracking-[0.25em]
+">
             {lang === "en" ? "VIEW MORE" : "查看更多"}
           </span>
 
