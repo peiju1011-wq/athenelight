@@ -153,7 +153,7 @@ export default function ProductDetail(){
     </div>
 
     {detailImg && (
-      <div className="w-[320px]">
+      <div className="w-full md:w-[320px]">
         <img
           src={detailImg}
           onClick={()=>setLightboxIndex(1)}
