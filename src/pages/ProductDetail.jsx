@@ -110,10 +110,11 @@ export default function ProductDetail(){
       </div>
 
       {/* MAIN */}
-   <div className="
+<div className="
+  w-full
   max-w-[1100px] 
   mx-auto 
-  px-6 
+  px-0 md:px-6  
   flex flex-col 
   md:grid md:grid-cols-2 
   gap-10 md:gap-20
@@ -123,7 +124,7 @@ export default function ProductDetail(){
 <div>
 
   {/* 🔥 手機：上下排（重點） */}
-<div className="flex overflow-x-auto gap-4 md:hidden">
+<div className="flex overflow-x-auto gap-4 md:hidden -mx-6 px-6">
 
   <img
     src={mainImg}
