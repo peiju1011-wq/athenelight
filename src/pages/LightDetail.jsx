@@ -84,52 +84,53 @@ const [imgLoading, setImgLoading] = useState(true);
           </div>
 
           {/* 右 */}
-          {product.cover2 ? (
+         {/* 右 */}
+{product.cover2 ? (
 
-            <div className="flex items-start gap-5">
+  <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5 w-full">
 
-              <div className="w-[320px]">
-                <img
-                  src={product.cover}
-                  onClick={()=>{
-                   setViewerOpen(true);
-setCurrentIndex(0);
-setImgLoading(true);
-                  }}
-                  className="cursor-zoom-in w-full h-[520px] object-cover rounded-[8px]"
-                />
-              </div>
+    <div className="w-full md:w-[320px]">
+      <img
+        src={product.cover}
+        onClick={() => {
+          setViewerOpen(true);
+          setCurrentIndex(0);
+          setImgLoading(true);
+        }}
+        className="cursor-zoom-in w-full h-[240px] md:h-[520px] object-cover rounded-[8px]"
+      />
+    </div>
 
-              <div className="w-[320px] mt-[60px]">
-                <img
-                  src={product.cover2}
-                  onClick={()=>{
-                   setViewerOpen(true);
-  setCurrentIndex(1);
-  setImgLoading(true);
-                  }}
-                  className="cursor-zoom-in w-full h-[520px] object-cover rounded-[8px]"
-                />
-              </div>
+    <div className="w-full md:w-[320px] md:mt-[60px]">
+      <img
+        src={product.cover2}
+        onClick={() => {
+          setViewerOpen(true);
+          setCurrentIndex(1);
+          setImgLoading(true);
+        }}
+        className="cursor-zoom-in w-full h-[240px] md:h-[520px] object-cover rounded-[8px]"
+      />
+    </div>
 
-            </div>
+  </div>
 
-          ) : (
+) : (
 
-    <div className="relative">
-  <img
-    src={product.cover}
-    onClick={()=>{
- setViewerOpen(true);
-setCurrentIndex(0);
-setImgLoading(true);
-    }}
-    className="cursor-zoom-in w-full h-[600px] object-cover rounded-[8px]"
-  />
-              <div className="absolute inset-0 pointer-events-none shadow-[0_40px_80px_rgba(0,0,0,0.12)]"/>
-            </div>
+  <div className="relative w-full">
+    <img
+      src={product.cover}
+      onClick={() => {
+        setViewerOpen(true);
+        setCurrentIndex(0);
+        setImgLoading(true);
+      }}
+      className="cursor-zoom-in w-full h-[320px] md:h-[600px] object-cover rounded-[8px]"
+    />
+    <div className="absolute inset-0 pointer-events-none shadow-[0_40px_80px_rgba(0,0,0,0.12)]" />
+  </div>
 
-          )}
+)}
 
         </div>
       </section>
