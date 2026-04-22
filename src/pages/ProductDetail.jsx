@@ -82,7 +82,7 @@ export default function ProductDetail(){
 
   return(
 
-   <main className="pt-[120px] pb-32 bg-[#f7f7f7] min-h-screen overflow-x-hidden">
+   <main className="pt-[120px] pb-32 bg-[#f7f7f7] min-h-screen ">
 
       {/* TOP */}
       <div className="max-w-[1100px] mx-auto px-6 mb-20">
