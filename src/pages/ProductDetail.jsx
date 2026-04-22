@@ -112,28 +112,52 @@ export default function ProductDetail(){
       {/* MAIN */}
       <div className="max-w-[1100px] mx-auto px-6 grid md:grid-cols-2 gap-20">
 
-        {/* 左圖 */}
-        <div>
+{/* 左圖 */}
+<div>
 
-          <div className="aspect-square bg-white mb-6 overflow-hidden">
-            <img
-              src={mainImg}
-              onClick={()=>setLightboxIndex(0)}
-              className="w-full h-full object-cover cursor-zoom-in"
-            />
-          </div>
+  {/* 🔥 手機：2張並排 */}
+  <div className="grid grid-cols-2 gap-3 md:hidden mb-6">
 
-          {detailImg && (
-            <div className="w-[320px]">
-              <img
-                src={detailImg}
-                onClick={()=>setLightboxIndex(1)}
-                className="w-full object-cover cursor-zoom-in"
-              />
-            </div>
-          )}
+    <img
+      src={mainImg}
+      onClick={()=>setLightboxIndex(0)}
+      className="w-full h-auto object-contain bg-white cursor-zoom-in"
+    />
 
-        </div>
+    {detailImg && (
+      <img
+        src={detailImg}
+        onClick={()=>setLightboxIndex(1)}
+        className="w-full h-auto object-contain bg-white cursor-zoom-in"
+      />
+    )}
+
+  </div>
+
+  {/* 🔥 桌機：維持大圖 */}
+  <div className="hidden md:block">
+
+    <div className="aspect-square bg-white mb-6 overflow-hidden">
+      <img
+        src={mainImg}
+        onClick={()=>setLightboxIndex(0)}
+        className="w-full h-full object-cover cursor-zoom-in"
+      />
+    </div>
+
+    {detailImg && (
+      <div className="w-[320px]">
+        <img
+          src={detailImg}
+          onClick={()=>setLightboxIndex(1)}
+          className="w-full object-cover cursor-zoom-in"
+        />
+      </div>
+    )}
+
+  </div>
+
+</div>
 
         {/* 右資訊 */}
         <div>
