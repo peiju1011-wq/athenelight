@@ -115,29 +115,29 @@ export default function ProductDetail(){
 {/* 左圖 */}
 <div>
 
-  {/* 🔥 手機：2張並排 */}
-  <div className="grid grid-cols-2 gap-3 md:hidden mb-6">
+  {/* 🔥 手機：上下排（重點） */}
+  <div className="flex flex-col gap-4 md:hidden mb-6">
 
     <img
       src={mainImg}
       onClick={()=>setLightboxIndex(0)}
-      className="w-full h-auto object-contain bg-white cursor-zoom-in"
+      className="w-full h-auto object-contain bg-white rounded-xl cursor-zoom-in"
     />
 
     {detailImg && (
       <img
         src={detailImg}
         onClick={()=>setLightboxIndex(1)}
-        className="w-full h-auto object-contain bg-white cursor-zoom-in"
+        className="w-full h-auto object-contain bg-white rounded-xl cursor-zoom-in"
       />
     )}
 
   </div>
 
-  {/* 🔥 桌機：維持大圖 */}
+  {/* 🔥 桌機：維持原本 */}
   <div className="hidden md:block">
 
-    <div className="aspect-square bg-white mb-6 overflow-hidden">
+    <div className="aspect-square bg-white mb-6 overflow-hidden rounded-xl">
       <img
         src={mainImg}
         onClick={()=>setLightboxIndex(0)}
@@ -150,7 +150,7 @@ export default function ProductDetail(){
         <img
           src={detailImg}
           onClick={()=>setLightboxIndex(1)}
-          className="w-full object-cover cursor-zoom-in"
+          className="w-full object-cover cursor-zoom-in rounded-xl"
         />
       </div>
     )}
