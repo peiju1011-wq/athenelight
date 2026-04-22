@@ -82,7 +82,7 @@ export default function ProductDetail(){
 
   return(
 
-   <main className="pt-[120px] pb-32 bg-[#f7f7f7] min-h-screen ">
+    <main className="pt-[120px] pb-32 bg-[#f7f7f7] min-h-screen">
 
       {/* TOP */}
       <div className="max-w-[1100px] mx-auto px-6 mb-20">
@@ -110,40 +110,34 @@ export default function ProductDetail(){
       </div>
 
       {/* MAIN */}
-<div className="
-  w-full
-  max-w-[1100px] 
-  mx-auto 
-  px-0 md:px-6  
-  flex flex-col 
-  md:grid md:grid-cols-2 
-  gap-10 md:gap-20
-">
+      <div className="max-w-[1100px] mx-auto px-6 grid md:grid-cols-2 gap-20">
 
 {/* 左圖 */}
 <div>
 
-  {/* 🔥 手機：上下排（重點） */}
-<div className="flex overflow-x-auto gap-4 md:hidden -mx-6 px-6">
+  {/* 🔥 手機：2張並排 */}
+  <div className="grid grid-cols-2 gap-3 md:hidden mb-6">
 
-  <img
-    src={mainImg}
-    className="min-w-[85%] h-[220px] object-cover rounded-xl"
-  />
-
-  {detailImg && (
     <img
-      src={detailImg}
-      className="min-w-[85%] h-[220px] object-cover rounded-xl"
+      src={mainImg}
+      onClick={()=>setLightboxIndex(0)}
+      className="w-full h-auto object-contain bg-white cursor-zoom-in"
     />
-  )}
 
-</div>
+    {detailImg && (
+      <img
+        src={detailImg}
+        onClick={()=>setLightboxIndex(1)}
+        className="w-full h-auto object-contain bg-white cursor-zoom-in"
+      />
+    )}
 
-  {/* 🔥 桌機：維持原本 */}
+  </div>
+
+  {/* 🔥 桌機：維持大圖 */}
   <div className="hidden md:block">
 
-    <div className="aspect-square bg-white mb-6 overflow-hidden rounded-xl">
+    <div className="aspect-square bg-white mb-6 overflow-hidden">
       <img
         src={mainImg}
         onClick={()=>setLightboxIndex(0)}
@@ -152,11 +146,11 @@ export default function ProductDetail(){
     </div>
 
     {detailImg && (
-      <div className="w-full md:w-[320px]">
+      <div className="w-[320px]">
         <img
           src={detailImg}
           onClick={()=>setLightboxIndex(1)}
-          className="w-full object-cover cursor-zoom-in rounded-xl"
+          className="w-full object-cover cursor-zoom-in"
         />
       </div>
     )}
