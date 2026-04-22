@@ -115,22 +115,29 @@ export default function ProductDetail(){
         {/* 左圖 */}
         <div>
 
-<div className="aspect-square bg-white mb-6 overflow-hidden">
-  <img
-    src={mainImg}
-    onClick={()=>setLightboxIndex(0)}
-    className="
-      w-full 
-      h-full 
-      object-contain   /* 🔥 改這裡 */
-      md:object-cover
-      cursor-zoom-in
-    "
-  />
+<div className="
+  bg-white 
+  mb-6 
+  overflow-hidden 
+  aspect-auto 
+  md:aspect-square
+">
+<img
+  src={mainImg}
+  onClick={()=>setLightboxIndex(0)}
+  className="
+    w-full 
+    h-full 
+    object-contain 
+    md:object-cover
+    bg-white      /* 🔥 防黑邊 */
+    cursor-zoom-in
+  "
+/>
 </div>
 
           {detailImg && (
-            <div className="w-full md:w-[320px]">
+           <div className="w-full md:w-[320px] mt-2">
               <img
                 src={detailImg}
                 onClick={()=>setLightboxIndex(1)}
