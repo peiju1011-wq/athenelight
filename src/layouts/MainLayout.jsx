@@ -7,7 +7,7 @@ export default function MainLayout() {
 
   return (
 
-    <div className="layout-wrapper w-full ">
+    <div className="layout-wrapper w-full overflow-x-hidden">
 
       {/* Header */}
       <SiteHeader />
