@@ -123,23 +123,23 @@ export default function ProductDetail(){
 <div>
 
   {/* 🔥 手機：上下排（重點） */}
-  <div className="flex flex-col gap-4 md:hidden mb-6">
+<div className="flex flex-col gap-4 md:hidden mb-6">
 
+  <img
+    src={mainImg}
+    onClick={()=>setLightboxIndex(0)}
+    className="w-full h-[220px] object-contain bg-white rounded-xl"
+  />
+
+  {detailImg && (
     <img
-      src={mainImg}
-      onClick={()=>setLightboxIndex(0)}
-      className="w-full object-contain bg-white rounded-xl"
+      src={detailImg}
+      onClick={()=>setLightboxIndex(1)}
+      className="w-full h-[220px] object-contain bg-white rounded-xl"
     />
+  )}
 
-    {detailImg && (
-      <img
-        src={detailImg}
-        onClick={()=>setLightboxIndex(1)}
-        className="w-full object-contain bg-white rounded-xl"
-      />
-    )}
-
-  </div>
+</div>
 
   {/* 🔥 桌機：維持原本 */}
   <div className="hidden md:block">
