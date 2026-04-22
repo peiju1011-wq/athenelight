@@ -83,7 +83,7 @@ const [imgLoading, setImgLoading] = useState(true);
             )}
           </div>
 
-          {/* 右 */}
+         
          {/* 右 */}
 {product.cover2 ? (
 
