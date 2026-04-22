@@ -110,7 +110,14 @@ export default function ProductDetail(){
       </div>
 
       {/* MAIN */}
-      <div className="max-w-[1100px] mx-auto px-6 grid md:grid-cols-2 gap-20">
+   <div className="
+  max-w-[1100px] 
+  mx-auto 
+  px-6 
+  flex flex-col 
+  md:grid md:grid-cols-2 
+  gap-10 md:gap-20
+">
 
 {/* 左圖 */}
 <div>
@@ -121,14 +128,14 @@ export default function ProductDetail(){
     <img
       src={mainImg}
       onClick={()=>setLightboxIndex(0)}
-      className="w-full h-auto object-contain bg-white rounded-xl cursor-zoom-in"
+      className="w-full object-contain bg-white rounded-xl"
     />
 
     {detailImg && (
       <img
         src={detailImg}
         onClick={()=>setLightboxIndex(1)}
-        className="w-full h-auto object-contain bg-white rounded-xl cursor-zoom-in"
+        className="w-full object-contain bg-white rounded-xl"
       />
     )}
 
