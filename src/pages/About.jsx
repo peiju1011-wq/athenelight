@@ -45,13 +45,17 @@ export default function About() {
 <div className="space-y-14">
 
   {/* 標題 */}
-  <div className="flex items-center gap-4">
-    <span className="h-px w-12 bg-[#c8a46a]"></span>
+<div className="flex items-center gap-5 mb-2">
 
-    <h2 className="text-[17px] tracking-[0.35em] uppercase text-[#6b6b6b]">
-      {lang === "en" ? "BRAND FILM" : "品牌影片"}
-    </h2>
-  </div>
+  <span className="h-px w-10 bg-[#c8a46a] opacity-80"></span>
+
+<h2 className="text-[15px] md:text-[17px] tracking-[0.45em] uppercase text-[#333] font-light">
+    {lang === "en" ? "BRAND FILM" : "品牌影片"}
+  </h2>
+
+  <span className="flex-1 h-px bg-gradient-to-r from-[#c8a46a]/40 to-transparent"></span>
+
+</div>
 
   {/* 影片 */}
   <div className="max-w-3xl mx-auto">
@@ -124,13 +128,20 @@ export default function About() {
 <div className="space-y-14">
 
   {/* 標題 */}
-  <div className="flex items-center gap-4">
-    <span className="h-px w-12 bg-[#c8a46a]"></span>
+<div className="flex items-center gap-5 mb-2">
 
-    <h2 className="text-[17px] tracking-[0.35em] uppercase text-[#6b6b6b]">
-      {lang === "en" ? "PROJECT SHOWCASE" : "實績展示"}
-    </h2>
-  </div>
+  {/* 左金線 */}
+  <span className="h-px w-10 bg-[#c8a46a] opacity-80"></span>
+
+  {/* 標題 */}
+<h2 className="text-[15px] md:text-[17px] tracking-[0.45em] uppercase text-[#333] font-light">
+    {lang === "en" ? "PROJECT SHOWCASE" : "實績展示"}
+  </h2>
+
+  {/* 右延伸線（這是關鍵✨） */}
+ <span className="hidden md:block flex-1 h-px bg-gradient-to-r from-[#c8a46a]/40 to-transparent"></span>
+
+</div>
 
   {/* 影片 */}
 <div className="max-w-3xl mx-auto">
