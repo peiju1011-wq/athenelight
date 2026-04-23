@@ -74,23 +74,23 @@ export default function ProjectDetail(){
         {/* ===== BACK（完全修好🔥） ===== */}
         <button
           onClick={()=>navigate(-1)}
-          className="
-  absolute top-[110px] left-6 lg:left-12 z-[999]
+className="
+  absolute top-[100px] left-4 lg:top-[110px] lg:left-12 z-[999]
 
-            flex items-center gap-3
-            text-white text-[11px] tracking-[0.4em]
+  flex items-center gap-2 lg:gap-3
 
-            px-6 py-2 rounded-full
+  text-white text-[10px] lg:text-[11px] tracking-[0.35em]
 
-            bg-black/60 backdrop-blur-md
-            
+  px-3 py-1.5 lg:px-6 lg:py-2 rounded-full
 
-            hover:bg-black/80 hover:border-white/60
-            transition-all duration-500
-          "
+  bg-black/20 lg:bg-black/60 backdrop-blur-md
+
+  hover:bg-black/70 transition-all duration-500
+"
         >
-          <span className="text-lg leading-none">←</span>
-          BACK
+<span className="text-sm lg:text-lg leading-none">←</span>
+<span className="hidden lg:inline">BACK</span>
+<span className="lg:hidden">BACK</span>
         </button>
 
         {/* ===== dots ===== */}
