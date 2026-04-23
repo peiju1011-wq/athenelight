@@ -271,7 +271,7 @@ export default function About() {
       />
 
       {/* 白色遮罩 */}
-      <div className="absolute inset-0 bg-white/20"></div>
+    <div className="absolute inset-0 bg-black/10"></div>
 
 
       {/* ⭐ 金色卡片 */}
@@ -292,12 +292,13 @@ export default function About() {
         </div>
 
         {/* 文案 */}
-        <p className="
-          text-[#ffffff]
-          text-[19px]
-          leading-[1.8]
-          tracking-[0.14em]
-        ">
+<p className="
+  text-[#ffffff]
+  text-[19px]
+  leading-[1.8]
+  tracking-[0.14em]
+drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]
+">
           {lang === "en" ? (
             <>
               <span className="block">Drawing with light,</span>
