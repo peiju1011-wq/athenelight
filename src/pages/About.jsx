@@ -139,7 +139,7 @@ export default function About() {
   </h2>
 
   {/* 右延伸線（這是關鍵✨） */}
- <span className="hidden md:block flex-1 h-px bg-gradient-to-r from-[#c8a46a]/40 to-transparent"></span>
+ <span className="flex-1 h-px bg-gradient-to-r from-[#c8a46a]/40 to-transparent"></span>
 
 </div>
 
