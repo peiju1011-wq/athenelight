@@ -12,12 +12,16 @@ const slides = [
   "/images/hero/hero5.jpg",
   "/images/hero/hero6.jpg"
 ];
-
 export default function Portal() {
 
-const lang = useLang();
-const t = text;
-  const [index, setIndex] = useState(0);
+  const lang = useLang();
+
+  const [playing2, setPlaying2] = useState(false); // 🔥 影片控制
+
+  const [index, setIndex] = useState(0); // 🔥 slider
+
+  const t = text;
+
 
   /* HERO SLIDER */
 
@@ -252,6 +256,28 @@ useEffect(() => {
   </div>
 
 </section>
+
+<div className="max-w-[900px] mx-auto px-6 mt-10">
+
+  <h1 className="sr-only">
+    宇碩光 ATHENE LIGHT 建築照明設計
+  </h1>
+
+<p className="
+  text-[13px]
+  leading-[1.9]
+  text-[#8f8a84]   /* 🔥 比現在深一點 */
+  text-center
+  tracking-[0.08em]
+  opacity-70
+">
+  宇碩光 ATHENE LIGHT 專注於建築照明設計、景觀照明與光環境整合，
+  提供商業空間、住宅與外牆燈光規劃。
+</p>
+
+</div>
+
+
 <section className="relative bg-[#f3f0ec] py-40">
 
   <div className="
