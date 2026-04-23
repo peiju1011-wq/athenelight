@@ -170,7 +170,7 @@ return(
 
 <input
   type="email"
-  name="_replyto"
+  name="email"
   placeholder="Email"
   className="contact-input"
   required
