@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://athenelight.comm/</loc>
+    <loc>https://athenelight.com/</loc>
   </url>
 
   <url>
@@ -15,6 +15,10 @@
 
   <url>
     <loc>https://athenelight.com/about</loc>
+  </url>
+
+  <url>
+    <loc>https://athenelight.com/contact</loc>
   </url>
 
 </urlset>
