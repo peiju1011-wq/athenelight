@@ -43,10 +43,10 @@ export default function ProjectDetail(){
     : (project.location || "台灣");
 
   return(
-    <main className="flex min-h-screen bg-white">
+   <main className="flex flex-col lg:flex-row min-h-screen bg-white">
 
       {/* ================= 左圖 ================= */}
-      <div className="relative w-full lg:w-[68%] h-screen bg-black overflow-hidden">
+     <div className="relative w-full lg:w-[68%] h-[50vh] lg:h-screen bg-black overflow-hidden">
 
         {project.images.map((img,i)=>(
           <div
@@ -75,7 +75,7 @@ export default function ProjectDetail(){
         <button
           onClick={()=>navigate(-1)}
           className="
-            absolute top-[120px] left-12 z-[999]
+  absolute top-[110px] left-6 lg:left-12 z-[999]
 
             flex items-center gap-3
             text-white text-[11px] tracking-[0.4em]
@@ -94,7 +94,7 @@ export default function ProjectDetail(){
         </button>
 
         {/* ===== dots ===== */}
-        <div className="absolute bottom-12 right-14 flex gap-4 z-50">
+       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 lg:left-auto lg:right-14 flex gap-4 z-50">
 
           {project.images.map((_,i)=>(
             <div
@@ -123,13 +123,13 @@ export default function ProjectDetail(){
 
 
       {/* ================= 右文字 ================= */}
-      <div className="w-full lg:w-[32%] px-14 py-24 flex flex-col bg-[#f8f8f8]">
+  <div className="w-full lg:w-[32%] px-6 md:px-10 lg:px-14 py-16 lg:py-24 flex flex-col bg-[#f8f8f8]">
 
         <p className="text-[11px] tracking-[0.45em] text-[#6B8BD6] mb-6">
           {category}
         </p>
 
-        <h1 className="text-[32px] md:text-[36px] leading-[1.35] text-[#111] mb-6 tracking-[0.05em]">
+    <h1 className="text-[26px] md:text-[32px] lg:text-[36px] leading-[1.35] text-[#111] mb-6 tracking-[0.05em]">
           {title}
         </h1>
 
@@ -139,7 +139,7 @@ export default function ProjectDetail(){
 
         <div className="w-12 h-[1px] bg-[#ddd] mb-12"/>
 
-        <p className="text-[14px] leading-[2.2] text-[#666] mb-20 max-w-[320px]">
+       <p className="text-[14px] leading-[2] text-[#666] mb-12 lg:mb-20 max-w-full lg:max-w-[320px]">
           {desc}
         </p>
 
