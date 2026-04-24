@@ -229,12 +229,19 @@ letter-spacing:.5em;
 left:24px;
 bottom:130px;
 gap:16px;
+<<<<<<< HEAD
 }
  
+=======
+
+hero-slides{
+display:none;
+}  
+>>>>>>> a0368099d3643a6ff9104f5f2d34a8d52efb9db8
 
 }
 
-
+}
 
 /* ===== BOTTOM BAR ===== */
 
@@ -368,12 +375,19 @@ margin-right:-40px;
 @media (max-width:768px){
 
   .hero-pagination{
+<<<<<<< HEAD
 
    display: none;
     /* right:30px;  
     bottom:85px; */
   }
+=======
+>>>>>>> a0368099d3643a6ff9104f5f2d34a8d52efb9db8
 
+   display: none;
+    /* right:30px;  
+    bottom:85px; */
+  }
 }
 
 /* ===== dots ===== */

@@ -34,7 +34,11 @@ function App() {
   }
 
   return (
+<<<<<<< HEAD
     <div className="w-full ">
+=======
+    <div className="w-full">
+>>>>>>> a0368099d3643a6ff9104f5f2d34a8d52efb9db8
       <ScrollToTop />
 
       <Routes>
