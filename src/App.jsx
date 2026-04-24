@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
@@ -29,16 +29,48 @@ function App() {
     return path === "/" || path === "/en";
   });
 
+  // 🔥 加在這裡（Intro 判斷下面）
+ useEffect(() => {
+    const url = new URL(window.location.href);
+
+    const removeParams = [
+      "fbclid",
+      "gclid",
+      "utm_source",
+      "utm_medium",
+      "utm_campaign"
+    ];
+
+    let changed = false;
+
+    removeParams.forEach(p => {
+      if (url.searchParams.has(p)) {
+        url.searchParams.delete(p);
+        changed = true;
+      }
+    });
+
+    if (changed) {
+      const newUrl =
+        url.pathname +
+        (url.searchParams.toString()
+          ? "?" + url.searchParams.toString()
+          : "");
+
+      window.history.replaceState({}, "", newUrl);
+    }
+  }, []);
+
+
   if (showIntro) {
     return <Intro onFinish={() => setShowIntro(false)} />;
   }
 
   return (
-<<<<<<< HEAD
+
     <div className="w-full ">
-=======
-    <div className="w-full">
->>>>>>> a0368099d3643a6ff9104f5f2d34a8d52efb9db8
+
+
       <ScrollToTop />
 
       <Routes>
