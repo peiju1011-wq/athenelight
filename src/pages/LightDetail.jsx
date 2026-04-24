@@ -41,7 +41,7 @@ const [imgLoading, setImgLoading] = useState(true);
 
       {/* ================= HERO ================= */}
       <section className="pt-[160px] pb-32 bg-[#f6f6f6]">
-        <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+      <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-10 md:gap-20 items-center">
 
           {/* 左 */}
           <div className="max-w-[420px]">
@@ -83,53 +83,54 @@ const [imgLoading, setImgLoading] = useState(true);
             )}
           </div>
 
-          {/* 右 */}
-          {product.cover2 ? (
+    
+         {/* 右 */}
+{product.cover2 ? (
 
-            <div className="flex items-start gap-5">
+  <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5 w-full">
 
-              <div className="w-[320px]">
-                <img
-                  src={product.cover}
-                  onClick={()=>{
-                   setViewerOpen(true);
-setCurrentIndex(0);
-setImgLoading(true);
-                  }}
-                  className="cursor-zoom-in w-full h-[520px] object-cover rounded-[8px]"
-                />
-              </div>
+    <div className="w-full md:w-[320px]">
+      <img
+        src={product.cover}
+        onClick={() => {
+          setViewerOpen(true);
+          setCurrentIndex(0);
+          setImgLoading(true);
+        }}
+        className="cursor-zoom-in w-full h-[240px] md:h-[520px] object-cover rounded-[8px]"
+      />
+    </div>
 
-              <div className="w-[320px] mt-[60px]">
-                <img
-                  src={product.cover2}
-                  onClick={()=>{
-                   setViewerOpen(true);
-  setCurrentIndex(1);
-  setImgLoading(true);
-                  }}
-                  className="cursor-zoom-in w-full h-[520px] object-cover rounded-[8px]"
-                />
-              </div>
+    <div className="w-full md:w-[320px] md:mt-[60px]">
+      <img
+        src={product.cover2}
+        onClick={() => {
+          setViewerOpen(true);
+          setCurrentIndex(1);
+          setImgLoading(true);
+        }}
+        className="cursor-zoom-in w-full h-[240px] md:h-[520px] object-cover rounded-[8px]"
+      />
+    </div>
 
-            </div>
+  </div>
 
-          ) : (
+) : (
 
-    <div className="relative">
-  <img
-    src={product.cover}
-    onClick={()=>{
- setViewerOpen(true);
-setCurrentIndex(0);
-setImgLoading(true);
-    }}
-    className="cursor-zoom-in w-full h-[600px] object-cover rounded-[8px]"
-  />
-              <div className="absolute inset-0 pointer-events-none shadow-[0_40px_80px_rgba(0,0,0,0.12)]"/>
-            </div>
+  <div className="relative w-full">
+    <img
+      src={product.cover}
+      onClick={() => {
+        setViewerOpen(true);
+        setCurrentIndex(0);
+        setImgLoading(true);
+      }}
+      className="cursor-zoom-in w-full h-[320px] md:h-[600px] object-cover rounded-[8px]"
+    />
+    <div className="absolute inset-0 pointer-events-none shadow-[0_40px_80px_rgba(0,0,0,0.12)]" />
+  </div>
 
-          )}
+)}
 
         </div>
       </section>

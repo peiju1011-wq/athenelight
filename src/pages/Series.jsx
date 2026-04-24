@@ -90,24 +90,28 @@ export default function Series(){
           >
 
             {/* 主圖 */}
-            <div className="overflow-hidden relative">
+<div className="relative w-full max-w-[270px] aspect-square mx-auto overflow-hidden">
 
-              <img
-                src={item.main}
-                className="w-[270px] h-[270px] object-cover transition duration-700 group-hover:scale-[1.05]"
-              />
+<img
+  src={item.main}
+  className="w-full h-full object-cover transition duration-700 group-hover:scale-[1.05]"
+/>
 
               {/* hover 細節（只有 hover 才出現） */}
-              {item.detail && (
-                <img
-                  src={item.detail}
-                  className="
-                    absolute inset-0 w-[270px] h-[270px] object-cover
-                    opacity-0 group-hover:opacity-100
-                    transition duration-500
-                  "
-                />
-              )}
+
+              
+{item.detail && (
+  <img
+    src={item.detail}
+    className="
+      absolute inset-0
+      w-full h-full
+      object-cover
+      opacity-0 group-hover:opacity-100
+      transition duration-500
+    "
+  />
+)}
 
             </div>
 

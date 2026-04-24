@@ -45,13 +45,17 @@ export default function About() {
 <div className="space-y-14">
 
   {/* 標題 */}
-  <div className="flex items-center gap-4">
-    <span className="h-px w-12 bg-[#c8a46a]"></span>
+<div className="flex items-center gap-5 mb-2">
 
-    <h2 className="text-[17px] tracking-[0.35em] uppercase text-[#6b6b6b]">
-      {lang === "en" ? "BRAND FILM" : "品牌影片"}
-    </h2>
-  </div>
+  <span className="h-px w-10 bg-[#c8a46a] opacity-80"></span>
+
+<h2 className="text-[15px] md:text-[17px] tracking-[0.45em] uppercase text-[#333] font-light">
+    {lang === "en" ? "BRAND FILM" : "品牌影片"}
+  </h2>
+
+  <span className="flex-1 h-px bg-gradient-to-r from-[#c8a46a]/40 to-transparent"></span>
+
+</div>
 
   {/* 影片 */}
   <div className="max-w-3xl mx-auto">
@@ -61,23 +65,35 @@ export default function About() {
       onClick={toggleVideo1}
     >
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00000010] to-[#00000060]" />
+      {/*  封面圖（關鍵） */}
+      {!playing1 && (
+        <img
+          src="/images/about/video-cover2.png" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      )}
 
+      {/*  底部黑漸層（讓字清楚） */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/60" />
+
+      {/* 影片 */}
       <video
         ref={videoRef1}
         src="/images/about/about2.mp4"
         playsInline
-        className="absolute inset-0 w-full h-full object-cover transition duration-700"
+        className={`absolute inset-0 w-full h-full object-cover transition duration-700 ${
+          playing1 ? "opacity-100" : "opacity-0"
+        }`}
       />
 
       {/* 播放鍵 */}
       {!playing1 && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative w-20 h-20 flex items-center justify-center group-hover:scale-110 transition">
+          <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center group-hover:scale-110 transition">
 
-            <div className="absolute w-14 h-14 rounded-full border-2 border-white/40" />
+            <div className="absolute w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40" />
 
-            <div className="w-10 h-10 rounded-full bg-[#c8a47a] flex items-center justify-center shadow-[0_0_20px_rgba(200,164,106,0.5)]">
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#c8a47a] flex items-center justify-center shadow-[0_0_25px_rgba(200,164,106,0.6)]">
               <div className="border-l-[8px] border-l-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-[2px]" />
             </div>
 
@@ -85,16 +101,16 @@ export default function About() {
         </div>
       )}
 
-      {/* 下方文字 */}
-      <div className="absolute bottom-8 left-8 text-white">
+      {/*  文字（RWD 重點） */}
+   <div className={`absolute bottom-6 md:bottom-8 left-5 md:left-8 text-white max-w-[85%] ${playing2 ? "hidden" : ""}`}>
 
-        <h3 className="text-xl tracking-[0.1em] uppercase">
+        <h3 className="text-[16px] md:text-xl tracking-[0.08em] leading-[1.4]">
           {lang === "en"
             ? "Brand Film 2024: Poetry of Light"
             : "2024 年度品牌形象：光之詩"}
         </h3>
 
-        <p className="text-white/70 mt-1 text-sm">
+        <p className="text-white/80 mt-1 text-[12px] md:text-sm leading-[1.6]">
           {lang === "en"
             ? "Exploring how we blend architecture with light"
             : "探索我們如何將建築與自然光影融合"}
@@ -112,64 +128,91 @@ export default function About() {
 <div className="space-y-14">
 
   {/* 標題 */}
-  <div className="flex items-center gap-4">
-    <span className="h-px w-12 bg-[#c8a46a]"></span>
+<div className="flex items-center gap-5 mb-2">
 
-    <h2 className="text-[17px] tracking-[0.35em] uppercase text-[#6b6b6b]">
-      {lang === "en" ? "PROJECT SHOWCASE" : "實績展示"}
-    </h2>
-  </div>
+  {/* 左金線 */}
+  <span className="h-px w-10 bg-[#c8a46a] opacity-80"></span>
+
+  {/* 標題 */}
+<h2 className="text-[15px] md:text-[17px] tracking-[0.45em] uppercase text-[#333] font-light">
+    {lang === "en" ? "PROJECT SHOWCASE" : "實績展示"}
+  </h2>
+
+  {/* 右延伸線（這是關鍵✨） */}
+ <span className="flex-1 h-px bg-gradient-to-r from-[#c8a46a]/40 to-transparent"></span>
+
+</div>
 
   {/* 影片 */}
-  <div className="max-w-3xl mx-auto">
+<div className="max-w-3xl mx-auto">
 
-    <div 
-      className="group relative aspect-video w-full overflow-hidden cursor-pointer shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
-      onClick={toggleVideo2}
-    >
+  <div 
+    className="group relative aspect-video w-full overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+  >
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00000010] to-[#00000060]" />
-
-      <video
-        ref={videoRef2}
-        src="/images/about/about1.mp4"
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-
-      {!playing2 && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative w-20 h-20 flex items-center justify-center group-hover:scale-110 transition">
-
-            <div className="absolute w-14 h-14 rounded-full border-2 border-white/40" />
-
-            <div className="w-10 h-10 rounded-full bg-[#c8a47a] flex items-center justify-center shadow-[0_0_20px_rgba(200,164,106,0.5)]">
-              <div className="border-l-[8px] border-l-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-[2px]" />
-            </div>
-
-          </div>
-        </div>
+    {/* 未播放：黑底 + 漸層 */}
+    {!playing2 && (
+      <>
+        <img
+  src="/images/about/video-cover.png"
+  className="absolute inset-0 w-full h-full object-cover z-10"
+/>
+    {/* 🔥 底部加深（重點） */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/60 z-20" />
+        </>
       )}
 
-      <div className="absolute bottom-8 left-8 text-white">
 
-        <h3 className="text-xl tracking-[0.1em] uppercase">
+    {/* 播放後：YouTube */}
+    {playing2 && (
+      <iframe
+        className="absolute inset-0 w-full h-full z-30"
+        src="https://www.youtube.com/embed/SJa_bat1Qxw?autoplay=1&controls=1&rel=0"
+        title="Athene Light Video"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      />
+    )}
+
+    {/* 播放按鈕 */}
+    {!playing2 && (
+      <div 
+        className="absolute inset-0 flex items-center justify-center z-30 cursor-pointer"
+        onClick={() => setPlaying2(true)}
+      >
+        <div className="relative w-20 h-20 flex items-center justify-center group-hover:scale-110 transition">
+
+          <div className="absolute w-14 h-14 rounded-full border-2 border-white/40" />
+
+          <div className="w-10 h-10 rounded-full bg-[#c8a47a] flex items-center justify-center shadow-[0_0_20px_rgba(200,164,106,0.5)]">
+            <div className="border-l-[8px] border-l-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-[2px]" />
+          </div>
+
+        </div>
+      </div>
+    )}
+
+    {/* 文字 */}
+     <div className={`absolute bottom-6 md:bottom-8 left-5 md:left-8 text-white z-30 max-w-[85%] ${playing2 ? "hidden" : ""}`}>
+
+        <h3 className="text-[16px] md:text-xl tracking-[0.08em] leading-[1.4]">
           {lang === "en"
             ? "Featured Project: Private Residence"
             : "亮點工程案例：私人豪邸景觀"}
         </h3>
 
-        <p className="text-white/70 mt-1 text-sm">
-          {lang === "en"
-            ? "From concept to completion"
-            : "從設計規劃到完美落成的完整紀錄"}
-        </p>
-
-      </div>
+      <p className="text-white/70 mt-1 text-sm">
+        {lang === "en"
+          ? "From concept to completion"
+          : "從設計規劃到完美落成的完整紀錄"}
+      </p>
 
     </div>
 
   </div>
+
+</div>
 
 
         </div>
@@ -228,7 +271,7 @@ export default function About() {
       />
 
       {/* 白色遮罩 */}
-      <div className="absolute inset-0 bg-white/20"></div>
+    <div className="absolute inset-0 bg-black/10"></div>
 
 
       {/* ⭐ 金色卡片 */}
@@ -249,12 +292,13 @@ export default function About() {
         </div>
 
         {/* 文案 */}
-        <p className="
-          text-[#ffffff]
-          text-[19px]
-          leading-[1.8]
-          tracking-[0.14em]
-        ">
+<p className="
+  text-[#ffffff]
+  text-[19px]
+  leading-[1.8]
+  tracking-[0.14em]
+drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]
+">
           {lang === "en" ? (
             <>
               <span className="block">Drawing with light,</span>

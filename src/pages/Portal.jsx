@@ -12,12 +12,16 @@ const slides = [
   "/images/hero/hero5.jpg",
   "/images/hero/hero6.jpg"
 ];
-
 export default function Portal() {
 
-const lang = useLang();
-const t = text;
-  const [index, setIndex] = useState(0);
+  const lang = useLang();
+
+  const [playing2, setPlaying2] = useState(false); // 🔥 影片控制
+
+  const [index, setIndex] = useState(0); // 🔥 slider
+
+  const t = text;
+
 
   /* HERO SLIDER */
 
@@ -64,7 +68,9 @@ useEffect(() => {
     <div className="portal">
 
       {/* HERO */}
-<section className="hero bg-[#ffffff]">
+<section className="hero bg-black">
+
+
 
   {/* SLIDES */}
   <div className="hero-slides">
@@ -252,6 +258,33 @@ useEffect(() => {
   </div>
 
 </section>
+
+<div className="max-w-[900px] mx-auto px-6 mt-10">
+
+  {/* SEO（雙語隱藏標題🔥） */}
+  <h1 className="sr-only">
+    {lang === "en"
+      ? "ATHENE LIGHT | Architectural Lighting Design"
+      : "宇碩光 ATHENE LIGHT 建築照明設計"}
+  </h1>
+
+  {/* 內文 */}
+  <p className="
+    text-[13px]
+    leading-[1.9]
+    text-[#8f8a84]
+    text-center
+    tracking-[0.08em]
+    opacity-70
+  ">
+    {lang === "en"
+      ? "ATHENE LIGHT specializes in architectural lighting design, landscape lighting, and integrated lighting solutions for commercial spaces, residences, and facade lighting projects."
+      : "宇碩光 ATHENE LIGHT 專注於建築照明設計、景觀照明與光環境整合，提供商業空間、住宅與外牆燈光規劃。"}
+  </p>
+
+</div>
+
+
 <section className="relative bg-[#f3f0ec] py-40">
 
   <div className="
@@ -510,13 +543,14 @@ useEffect(() => {
 
 
     {/* VIEW ALL */}
-    <div className="text-right mt-16">
-      <a href="/projects"
-        className="text-[11px] tracking-[0.35em] text-[#222] border-b border-[#C8A46A] pb-1 hover:opacity-60 transition"
-      >
-        {lang === "zh" ? "查看全部案例" : "VIEW ALL PROJECTS"}
-      </a>
-    </div>
+<div className="text-right mt-16">
+  <Link
+    to="/projects"
+    className="text-[11px] tracking-[0.35em] text-[#222] border-b border-[#C8A46A] pb-1 hover:opacity-60 transition"
+  >
+    {lang === "zh" ? "查看全部案例" : "VIEW ALL PROJECTS"}
+  </Link>
+</div>
 
   </div>
 
@@ -640,22 +674,22 @@ useEffect(() => {
 </div>
 
     {/* VIEW ALL */}
-    <div className="text-right mt-16">
-      <a
-        href="/products"
-        className="
-          text-[11px]
-          tracking-[0.35em]
-          text-[#222]
-          border-b border-[#C8A46A]
-          pb-1
-          hover:opacity-60
-          transition
-        "
-      >
-        {t?.productsHome?.viewAll?.[lang]}
-      </a>
-    </div>
+<div className="text-right mt-16">
+  <Link
+    to="/products"
+    className="
+      text-[11px]
+      tracking-[0.35em]
+      text-[#222]
+      border-b border-[#C8A46A]
+      pb-1
+      hover:opacity-60
+      transition
+    "
+  >
+    {t?.productsHome?.viewAll?.[lang]}
+  </Link>
+</div>
 
   </div>
 

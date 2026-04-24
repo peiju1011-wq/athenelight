@@ -252,8 +252,8 @@ onClick={() => {
         <div key={groupIndex} className="space-y-6">
 
           {/* ===== 長圖 ===== */}
-          {group[0] && (
-            <Link to={`/projects/${group[0].id}`}>
+    {group[0] && (
+  <Link to={`/${lang}/projects/${group[0].id}`}>
               <div className="relative h-[300px] overflow-hidden group">
 
                 <img
@@ -292,7 +292,7 @@ onClick={() => {
               const category = lang === "en" ? p.category_en : p.category;
 
               return (
-                <Link key={p.id} to={`/projects/${p.id}`}>
+            <Link key={p.id} to={`/${lang}/projects/${p.id}`}>
 
                   <div className="relative h-[240px] overflow-hidden group">
 

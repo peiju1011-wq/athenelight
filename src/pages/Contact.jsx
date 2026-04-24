@@ -116,33 +116,43 @@ return(
   </div>
 
 <form
-onSubmit={async (e) => {
-  e.preventDefault();
+  onSubmit={async (e) => {
+    e.preventDefault();
 
-  setLoading(true); // ⭐ 開始 loading
+    if (loading) return; // 防止重複送出
+    setLoading(true);
 
-  const formData = new FormData(e.target);
+    const form = e.target;
+    const formData = new FormData(form);
 
-  try {
-    const res = await fetch("https://formspree.io/f/xqedapwz", {
-      method: "POST",
-      body: formData,
-      headers: { Accept: "application/json" }
-    });
+    try {
+      const res = await fetch("https://formspree.io/f/xqedapwz", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
 
-    if (res.ok) {
-      setSuccess(true);
-      e.target.reset();
-    } else {
-      alert("送出失敗，請稍後再試");
+      const data = await res.json(); // 🔥 抓回傳資料（debug用）
+
+      if (res.ok) {
+        console.log("✅ success:", data);
+
+        setSuccess(true);
+        form.reset();
+
+      } else {
+        console.error("❌ form error:", data);
+        alert(data?.errors?.[0]?.message || "送出失敗，請稍後再試");
+      }
+
+    } catch (err) {
+      console.error("❌ network error:", err);
+      alert("發生錯誤，請檢查網路或稍後再試");
     }
-  } catch (err) {
-    alert("發生錯誤，請稍後再試");
-  }
 
-  setLoading(false); // ⭐ 結束 loading
-}}
-className="space-y-6"
+    setLoading(false);
+  }}
+  className="space-y-6"
 >
 
   <input
@@ -158,13 +168,13 @@ className="space-y-6"
     className="contact-input"
   />
 
-  <input
-    type="email"
-    name="email"
-    placeholder="Email"
-    className="contact-input"
-    required
-  />
+<input
+  type="email"
+  name="email"
+  placeholder="Email"
+  className="contact-input"
+  required
+/>
 
   <textarea
     name="message"
@@ -177,8 +187,14 @@ className="space-y-6"
   {/* 防機器人 */}
   <input type="text" name="_gotcha" style={{ display: "none" }} />
 
+<input
+  type="hidden"
+  name="_subject"
+  value={`ATHENE 官網詢問 - ${lang === "en" ? "New Message" : "新訊息"}`}
+/>
+
   {/* 信件標題 */}
-  <input type="hidden" name="_subject" value="ATHENE 官網詢問" />
+ <input type="hidden" name="_template" value="table" />
 
 <button type="submit" className="contact-btn-light" disabled={loading}>
   {loading

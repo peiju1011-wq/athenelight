@@ -230,6 +230,7 @@ left:24px;
 bottom:130px;
 gap:16px;
 }
+ 
 
 }
 
@@ -333,7 +334,7 @@ left:24px;
 gap:10px;
 font-size:9px;
 letter-spacing:.12em;
-bottom:50px;
+bottom:30px;
 }
 
 .hero-social span{
@@ -367,8 +368,10 @@ margin-right:-40px;
 @media (max-width:768px){
 
   .hero-pagination{
-    right:30px;   /* ⭐ 手機貼右 */
-    bottom:55px;
+
+   display: none;
+    /* right:30px;  
+    bottom:85px; */
   }
 
 }
