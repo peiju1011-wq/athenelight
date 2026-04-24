@@ -168,25 +168,19 @@ useEffect(() => {
   <div className="max-w-[1200px] mx-auto px-6">
 
   {/* ===== HEADER ===== */}
-  <section className="text-center mb-20">
 
-    <p className="text-[#C8A46A] tracking-[0.4em] text-[11px] mb-4">
-      {titleText.toUpperCase()}
-    </p>
-
-    <h1 className="text-[30px] md:text-[40px] tracking-[0.12em] text-[#111]">
-      {titleText}
-    </h1>
-
-    <div className="w-10 h-[1px] bg-[#C8A46A] mx-auto mt-6"/>
-
-  </section>
 
   {/* ===== FILTER ===== */}
-<section className="flex flex-col items-center md:flex-row md:justify-between md:items-end gap-10 mb-20">
+<section className="flex flex-col items-center gap-10 mb-20 mt-10">
+
+  {/* 🔥 版心（一定要有，對齊圖片用） */}
+  <div className="w-full max-w-[1200px] flex flex-col items-center md:flex-row md:items-end md:justify-between">
 
     {/* 分類 */}
-  <div className="flex justify-center flex-wrap gap-8 text-[11px] tracking-[0.28em] w-full">
+    <div className="
+      flex flex-wrap gap-8 text-[14px] font-semibold tracking-[0.28em] font-medium
+      justify-center md:justify-start w-full md:w-auto
+    ">
 
       {categories.map(c => {
 
@@ -207,18 +201,17 @@ useEffect(() => {
         return (
           <button
             key={c.key}
-onClick={() => {
-  setActive(c.key);
+            onClick={() => {
+              setActive(c.key);
 
-  setSearchParams(prev => {
-    prev.set("cat", c.key);
-    prev.set("page", 1);
-    return prev;
-  });
+              setSearchParams(prev => {
+                prev.set("cat", c.key);
+                prev.set("page", 1);
+                return prev;
+              });
 
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}}
- 
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className={`relative pb-2 transition ${
               active===c.key ? "text-black" : "text-[#aaa] hover:text-black"
             }`}
@@ -231,18 +224,24 @@ onClick={() => {
     </div>
 
     {/* 搜尋 */}
-  <div className="relative w-full max-w-[260px] mx-auto">
+    <div className="
+      relative w-full max-w-[260px]
+      mt-6 md:mt-0
+      mx-auto md:mx-0
+    ">
 
- <input
-  value={keyword}
-  onChange={(e) => setKeyword(e.target.value)}
-  placeholder={lang==="en" ? "Search products" : "搜尋產品"}
-  className="w-full bg-transparent border-b border-[#ddd] pb-2 pr-8 text-[12px] tracking-[0.18em] text-[#333] focus:outline-none"
-/>
+      <input
+        value={keyword}
+        onChange={(e) => setKeyword(e.target.value)}
+        placeholder={lang==="en" ? "Search products" : "搜尋產品"}
+        className="w-full bg-transparent border-b border-[#ddd] pb-2 pr-8 text-[12px] tracking-[0.18em] text-[#333] focus:outline-none placeholder:text-[#aaa]"
+      />
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
   {/* ===== GRID ===== */}
   <section>
