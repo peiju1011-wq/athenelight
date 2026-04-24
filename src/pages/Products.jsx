@@ -183,10 +183,10 @@ useEffect(() => {
   </section>
 
   {/* ===== FILTER ===== */}
-  <section className="flex flex-col md:flex-row justify-between items-end gap-10 mb-20">
+ <section className="flex flex-col items-center md:flex-row md:justify-center md:items-end gap-10 mb-20">
 
     {/* 分類 */}
-    <div className="flex gap-8 text-[11px] tracking-[0.28em]">
+  <div className="flex justify-center flex-wrap gap-8 text-[11px] tracking-[0.28em] w-full">
 
       {categories.map(c => {
 
@@ -231,7 +231,7 @@ onClick={() => {
     </div>
 
     {/* 搜尋 */}
-    <div className="relative w-[260px]">
+  <div className="relative w-full max-w-[260px] mx-auto">
 
  <input
   value={keyword}
@@ -276,7 +276,7 @@ onClick={() => {
 
   ) : (
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
 
      {paginatedProducts.map(p=>{
 
