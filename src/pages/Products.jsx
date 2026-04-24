@@ -223,21 +223,33 @@ useEffect(() => {
 
     </div>
 
-    {/* 搜尋 */}
-    <div className="
-      relative w-full max-w-[260px]
-      mt-6 md:mt-0
-      mx-auto md:mx-0
-    ">
+{/* 搜尋 */}
+<div className="
+  relative w-full max-w-[260px]
+  mt-6 md:mt-0
+  mx-auto md:mx-0
+">
 
-      <input
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-        placeholder={lang==="en" ? "Search products" : "搜尋產品"}
-        className="w-full bg-transparent border-b border-[#ddd] pb-2 pr-8 text-[12px] tracking-[0.18em] text-[#333] focus:outline-none placeholder:text-[#aaa]"
-      />
+  <input
+    value={keyword}
+    onChange={(e) => setKeyword(e.target.value)}
+    placeholder={lang==="en" ? "Search products" : "搜尋產品"}
+    className="w-full bg-transparent border-b border-[#ddd] pb-2 pr-8 text-[12px] tracking-[0.18em] text-[#333] focus:outline-none placeholder:text-[#aaa]"
+  />
 
-    </div>
+  {/* 🔍 放大鏡（放這裡🔥） */}
+  <svg
+    className="absolute right-0 top-1/2 -translate-y-1/2 w-[14px] h-[14px] text-[#999] pointer-events-none"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    viewBox="0 0 24 24"
+  >
+    <circle cx="11" cy="11" r="7" />
+    <line x1="20" y1="20" x2="16.5" y2="16.5" />
+  </svg>
+
+</div>
 
   </div>
 
