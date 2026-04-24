@@ -6,9 +6,3 @@ Allow: /
 
 User-agent: Facebot
 Allow: /
-
-<<<<<<< HEAD
-Sitemap: https://athenelight.com/sitemap.xml
-=======
-Sitemap: https://athenelight.com/sitemap.xml
->>>>>>> a0368099d3643a6ff9104f5f2d34a8d52efb9db8
