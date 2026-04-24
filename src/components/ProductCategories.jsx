@@ -1,7 +1,7 @@
 export default function ProductCategories({ active, setActive }){
 
 const items = [
-{ label:"全部產品", key:"all" },
+{ label:"燈光系列", key:"Lighting" },
 { label:"室內照明", key:"indoor" },
 { label:"戶外照明", key:"outdoor" },
 { label:"智慧控制", key:"smart" }
