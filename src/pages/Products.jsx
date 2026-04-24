@@ -183,7 +183,7 @@ useEffect(() => {
   </section>
 
   {/* ===== FILTER ===== */}
- <section className="flex flex-col items-center md:flex-row md:justify-center md:items-end gap-10 mb-20">
+<section className="flex flex-col items-center md:flex-row md:justify-between md:items-end gap-10 mb-20">
 
     {/* 分類 */}
   <div className="flex justify-center flex-wrap gap-8 text-[11px] tracking-[0.28em] w-full">
@@ -276,7 +276,7 @@ onClick={() => {
 
   ) : (
 
- <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
 
      {paginatedProducts.map(p=>{
 
@@ -288,16 +288,16 @@ onClick={() => {
 
         return (
 
-          <Link
-            to={url}
-            key={p.id}
-            className="relative group overflow-hidden block"
-          >
+        <Link
+  to={url}
+  key={p.id}
+  className="relative group overflow-hidden block w-full max-w-[360px]"
+>
 
             <img
-              src={p.img}
-              className="w-full h-[260px] object-cover transition duration-700 group-hover:scale-105"
-            />
+  src={p.img}
+  className="w-full aspect-[4/3] object-cover object-center transition duration-700 group-hover:scale-105"
+/>
 
             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition"/>
 
