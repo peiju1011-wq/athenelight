@@ -1,8 +1,11 @@
-User-agent: *
-Allow: /
+/*
+  User-Agent: *
+  X-Robots-Tag: index, follow
 
-User-agent: facebookexternalhit
-Allow: /
+/*
+  User-Agent: facebookexternalhit
+  X-Robots-Tag: index, follow
 
-User-agent: Facebot
-Allow: /
+/*
+  User-Agent: Facebot
+  X-Robots-Tag: index, follow
