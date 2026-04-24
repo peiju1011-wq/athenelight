@@ -25,7 +25,7 @@ const itemsPerPage = 12;
 
   /* ===== 分類 ===== */
   const categories = [
-    { key:"ALL", zh:"全部", en:"ALL" },
+    { key:"Lighting", zh:"燈光系列", en:"Lighting" },
     { key:"INDOOR", zh:"室內", en:"INDOOR" },
     { key:"OUTDOOR", zh:"戶外", en:"OUTDOOR" },
     { key:"SMART", zh:"智慧", en:"SMART" },
