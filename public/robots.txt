@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://athenelight.com/sitemap.xml
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Facebot
+Allow: /
