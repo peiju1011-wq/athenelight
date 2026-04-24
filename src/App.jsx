@@ -51,13 +51,14 @@ function App() {
     });
 
     if (changed) {
-      const newUrl =
-        url.pathname +
-        (url.searchParams.toString()
-          ? "?" + url.searchParams.toString()
-          : "");
+const newUrl =
+  url.pathname +
+  (url.searchParams.toString()
+    ? "?" + url.searchParams.toString()
+    : "") +
+  url.hash;
 
-      window.history.replaceState({}, "", newUrl);
+window.history.replaceState({}, "", newUrl);
     }
   }, []);
 
