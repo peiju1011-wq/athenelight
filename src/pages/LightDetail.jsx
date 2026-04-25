@@ -87,11 +87,7 @@ const [imgLoading, setImgLoading] = useState(true);
             )}
           </div>
 
-<<<<<<< HEAD
-    
-=======
-         
->>>>>>> a0368099d3643a6ff9104f5f2d34a8d52efb9db8
+
          {/* 右 */}
 {product.cover2 ? (
 
