@@ -28,7 +28,6 @@ const categories = [
   { key:"ALL", zh:"燈光系列", en:"Lighting" },
   { key:"INDOOR", zh:"室內", en:"INDOOR" },
   { key:"OUTDOOR", zh:"戶外", en:"OUTDOOR" },
-  { key:"SMART", zh:"智慧", en:"SMART" },
   { key:"MIRROR", zh:"鏡類產品", en:"MIRROR" }
 ];
 
@@ -179,7 +178,7 @@ useEffect(() => {
     {/* 分類 */}
 <div className="
   w-full
-  grid grid-cols-3 gap-y-6 gap-x-8
+  grid grid-cols-4 gap-y-4 gap-x-4
 
   text-[12px] tracking-[0.25em]
 
