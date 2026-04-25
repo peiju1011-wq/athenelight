@@ -140,7 +140,7 @@ useEffect(() => {
     {/* ===== 分類（恢復你之前高級版） */}
 <div className="
   w-full
-  grid grid-cols-2 gap-y-6 gap-x-8
+  grid grid-cols-4 gap-y-6 gap-x-8
 
   text-[12px] tracking-[0.25em]
 
