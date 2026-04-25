@@ -54,6 +54,13 @@ overflow:hidden;
 z-index:5;
 }
 
+@media (max-width: 768px){
+  .hero-center-line{
+    height:65px;  
+  }
+}
+
+
 .scroll-bar{
 position:absolute;
 top:0;
