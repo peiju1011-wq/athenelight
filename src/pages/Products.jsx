@@ -177,10 +177,15 @@ useEffect(() => {
   <div className="w-full max-w-[1200px] flex flex-col items-center md:flex-row md:items-end md:justify-between">
 
     {/* 分類 */}
-    <div className="
-      flex flex-wrap gap-8 text-[14px] font-semibold tracking-[0.28em] font-medium
-      justify-center md:justify-start w-full md:w-auto
-    ">
+<div className="
+  w-full
+  grid grid-cols-4 gap-y-6 gap-x-8
+
+  text-[12px] tracking-[0.25em]
+
+  justify-items-center
+  md:flex md:flex-wrap md:gap-10 md:justify-start
+">
 
       {categories.map(c => {
 
@@ -189,9 +194,29 @@ useEffect(() => {
             <Link
               key={c.key}
               to={`/${lang}/products/mirror`}
-              className={`relative pb-2 transition ${
-                active===c.key ? "text-black" : "text-[#aaa] hover:text-black"
-              }`}
+className={`
+  group
+  relative pb-2 transition
+
+  ${active===c.key
+    ? "text-black"
+    : "text-[#aaa] hover:text-black"
+  }
+
+  after:content-['']
+  after:absolute
+  after:left-1/2
+  after:-translate-x-1/2
+  after:bottom-0
+  after:h-[1px]
+  after:bg-[#C8A46A]
+  after:transition-all
+
+  ${active===c.key
+    ? "after:w-6"
+    : "after:w-0 group-hover:after:w-6"
+  }
+`}
             >
               {lang==="en" ? c.en : c.zh}
             </Link>
@@ -212,9 +237,27 @@ useEffect(() => {
 
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className={`relative pb-2 transition ${
-              active===c.key ? "text-black" : "text-[#aaa] hover:text-black"
-            }`}
+className={`
+  relative pb-2 transition
+
+  ${active===c.key
+    ? "text-black"
+    : "text-[#aaa] hover:text-black"
+  }
+
+  after:content-['']
+  after:absolute
+  after:left-1/2
+  after:-translate-x-1/2
+  after:bottom-0
+  after:h-[1px]
+  after:bg-[#C8A46A]
+  after:transition-all
+
+  ${active===c.key && c.key !== "ALL"
+    ? "after:w-6"
+    : "after:w-0 hover:after:w-6"}
+`}
           >
             {lang==="en" ? c.en : c.zh}
           </button>
