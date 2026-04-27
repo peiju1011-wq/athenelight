@@ -140,58 +140,59 @@ useEffect(() => {
     {/* ===== 分類（恢復你之前高級版） */}
 <div className="
   w-full
-  grid grid-cols-4 gap-y-6 gap-x-8
-
-  text-[12px] tracking-[0.25em]
-
-  justify-items-center
-  md:flex md:flex-wrap md:gap-10 md:justify-start
+  flex flex-wrap
+  gap-6
+  justify-center md:justify-start
 ">
 
+  {categories.map((c) => {
+    const isActive = active === c;
 
-      {categories.map((c) => {
-        const isActive = active === c;
+    return (
+      <button
+        key={c}
+        onClick={() => {
+          setActive(c);
 
-        return (
-          <button
-            key={c}
-onClick={() => {
-  setActive(c);
+          setSearchParams(prev => {
+            prev.set("type", c);
+            prev.set("page", 1);
+            return prev;
+          });
 
-  setSearchParams(prev => {
-    prev.set("type", c);
-    prev.set("page", 1);
-    return prev;
-  });
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        className={`
+          relative transition pb-2
 
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}}
-            className={`
-              relative transition pb-2
+          ${lang === "en"
+            ? "tracking-[0.12em]"
+            : "tracking-[0.25em]"
+          }
 
-              ${isActive
-                ? "text-black"
-                : "text-[#aaa] hover:text-black"
-              }
+          ${isActive
+            ? "text-black"
+            : "text-[#aaa] hover:text-black"
+          }
 
-              after:content-['']
-              after:absolute
-              after:left-1/2
-              after:-translate-x-1/2
-              after:bottom-0
-              after:h-[1px]
-              after:bg-[#C8A46A]
-              after:transition-all
+          after:content-['']
+          after:absolute
+          after:left-1/2
+          after:-translate-x-1/2
+          after:bottom-0
+          after:h-[1px]
+          after:bg-[#C8A46A]
+          after:transition-all
 
-              ${isActive ? "after:w-6" : "after:w-0"}
-            `}
-          >
-            {c}
-          </button>
-        );
-      })}
+          ${isActive ? "after:w-6" : "after:w-0"}
+        `}
+      >
+        {c}
+      </button>
+    );
+  })}
 
-    </div>
+</div>
 
     {/* ===== 搜尋（精修版🔥） */}
     <div className="relative w-[240px]">
