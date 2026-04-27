@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import "../styles/products.css";
 import useLang from "../hooks/useLang";
+import manualSpecs from "../data/manualSpecs";
 
 export default function Products(){
 
-  const lang = useLang();
 
 const [searchParams, setSearchParams] = useSearchParams();
 
@@ -18,6 +18,7 @@ const [keyword, setKeyword] = useState(searchParam);
 
 const itemsPerPage = 12;
 
+const lang = useLang();
   const titleText =
     lang === "en"
       ? "Products"
@@ -93,35 +94,83 @@ const categories = [
   ];
 
   /* ===== 鏡系列 ===== */
-  const mirrorSeries = [
-    { key:"RF", zh:"方框鏡", en:"Rectangular Frame", img:"/images/products/mirror/rf-62.png" },
-    { key:"RL", zh:"圓角鏡", en:"Rounded Mirror", img:"/images/products/mirror/rl-106.png" },
-    { key:"CF", zh:"圓形鏡", en:"Circle Mirror", img:"/images/products/mirror/cf-146.png" },
-    { key:"CL", zh:"橢圓鏡", en:"Oval Mirror", img:"/images/products/mirror/cl-181.png" },
-    { key:"IR", zh:"不規則鏡", en:"Irregular Mirror", img:"/images/products/mirror/ir-273.png" },
-    { key:"FL", zh:"全身鏡", en:"Full Length Mirror", img:"/images/products/mirror/fl-295.png" },
-    { key:"MC", zh:"多功能鏡", en:"Smart Mirror", img:"/images/products/mirror/mc-321.png" }
-  ];
+const mirrorItems = Object.entries(manualSpecs).map(([key,item]) => {
 
-  /* ===== 篩選 ===== */
-  const filtered = products.filter(p => {
+  const specText = (item.specs || [])
+    .map(s => `${s.sku || ""} ${s.w || ""} ${s.h || ""} ${s.d || ""}`)
+    .join(" ");
 
-    const title = p.title?.[lang] || "";
-    const category = p.cat || "";
+  return {
+    id: key,
+    type: "mirror",
+    img: item.main,
+    link: `/${lang}/products/mirror/${item.series}/${key}`,
 
-    const searchText = (title + " " + category).toLowerCase();
+    text: (
+      key + " " +
+      (item.series || "") + " " +
+      specText
+    ).toLowerCase()
+  };
+});
 
-    return (
-      (active === "ALL" || p.cat === active) &&
-      searchText.includes(keyword.toLowerCase())
-    );
-  });
+/* =========================
+   🔥 全站搜尋池（核心）
+========================= */
+const allItems = [
 
-  const totalPages = Math.ceil(filtered.length / itemsPerPage);
+  ...products.map(p => ({
+    title: p.title,
+    id: p.id,
+    type: "light",
+    cat: p.cat,
+    img: p.img,
+    link: `/${lang}/lights/${p.link}`,
+
+    text: (
+      `${p.title.zh} ${p.title.en} ${p.cat} ${p.link} 60 80 100 120 150`
+    ).toLowerCase()
+  })),
+
+  ...mirrorItems
+
+];
+
+/* =========================
+   🔥 搜尋
+========================= */
+const keywordLower = keyword.toLowerCase();
+const isSearching = keyword.trim() !== "";
+
+const filteredAll = allItems.filter(item => {
+
+  if(!isSearching){
+    if(item.type === "light"){
+      return active === "ALL" || item.cat === active;
+    }
+    return active === "MIRROR";
+  }
+
+  const text = item.text.replace(/[^a-z0-9]/gi, " ");
+
+  const keywords = keywordLower
+    .replace(/[^a-z0-9]/gi, " ")
+    .split(/\s+/)
+    .filter(Boolean);
+
+  return keywords.every(k => text.includes(k));
+});
+
+/* ===== 分頁 ===== */
+const totalPages = Math.ceil(filteredAll.length / itemsPerPage);
 
 const startIndex = (currentPage - 1) * itemsPerPage;
-const paginatedProducts = filtered.slice(startIndex, startIndex + itemsPerPage);
 
+const paginatedProducts = isSearching
+  ? filteredAll
+  : filteredAll.slice(startIndex, startIndex + itemsPerPage);
+
+/* ===== effect ===== */
 useEffect(() => {
   const timer = setTimeout(() => {
     setSearchParams(prev => {
@@ -130,16 +179,10 @@ useEffect(() => {
       return prev;
     });
   }, 300);
-
   return () => clearTimeout(timer);
 }, [keyword]);
 
-  useEffect(()=>{
-    document.body.style.background = "#ffffff";
-    return ()=>{ document.body.style.background = "" };
-  },[]);
-
-  useEffect(() => {
+useEffect(() => {
   setActive(activeParam);
   setKeyword(searchParam);
 }, [activeParam, searchParam]);
@@ -149,16 +192,12 @@ useEffect(() => {
     prev.set("page", 1);
     return prev;
   });
-}, [active, lang]);  
+}, [active, lang]);
 
-useEffect(() => {
-  if (currentPage > totalPages && totalPages > 0) {
-  setSearchParams(prev => {
-  prev.set("page", totalPages);
-  return prev;
-});
-  }
-}, [currentPage, totalPages]);
+/* =========================
+   UI（完全不動🔥）
+========================= */
+
 
   return(
 
@@ -166,10 +205,7 @@ useEffect(() => {
 
   <div className="max-w-[1200px] mx-auto px-6">
 
-  {/* ===== HEADER ===== */}
-
-
-  {/* ===== FILTER ===== */}
+  
 <section className="flex flex-col items-center gap-10 mb-20 mt-10">
 
   {/* 🔥 版心（一定要有，對齊圖片用） */}
@@ -186,84 +222,60 @@ useEffect(() => {
   md:flex md:flex-wrap md:gap-10 md:justify-start
 ">
 
-      {categories.map(c => {
+{categories.map(c => {
 
-        if(c.key === "MIRROR"){
-          return (
-            <Link
-              key={c.key}
-              to={`/${lang}/products/mirror`}
-className={`
-  group
-  relative pb-2 transition
+  return (
+    <button
+      key={c.key}
+      onClick={() => {
 
-  ${active===c.key
-    ? "text-black"
-    : "text-[#aaa] hover:text-black"
-  }
+        setActive(c.key);
 
-  after:content-['']
-  after:absolute
-  after:left-1/2
-  after:-translate-x-1/2
-  after:bottom-0
-  after:h-[1px]
-  after:bg-[#C8A46A]
-  after:transition-all
+        setSearchParams(prev => {
+          prev.set("cat", c.key);
+prev.set("search", keyword);
+          prev.set("page", 1);
+          return prev;
+        });
 
-  ${active===c.key
-    ? "after:w-6"
-    : "after:w-0 group-hover:after:w-6"
-  }
-`}
-            >
-              {lang==="en" ? c.en : c.zh}
-            </Link>
-          );
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
+
+      className={`
+        group
+        relative pb-2 transition
+
+        ${active===c.key
+          ? "text-black"
+          : "text-[#aaa] hover:text-black"
         }
 
-        return (
-          <button
-            key={c.key}
-            onClick={() => {
-              setActive(c.key);
+        after:content-['']
+        after:absolute
+        after:left-1/2
+        after:-translate-x-1/2
+        after:bottom-0
+        after:h-[1px]
+        after:bg-[#C8A46A]
+        after:transition-all
 
-              setSearchParams(prev => {
-                prev.set("cat", c.key);
-                prev.set("page", 1);
-                return prev;
-              });
+        ${
+          active===c.key && c.key !== "ALL"
+            ? "after:w-6"
+            : "after:w-0 group-hover:after:w-6"
+        }
+      `}
+    >
+      {lang==="en" ? c.en : c.zh}
+    </button>
+  );
 
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-className={`
-  relative pb-2 transition
+})}
 
-  ${active===c.key
-    ? "text-black"
-    : "text-[#aaa] hover:text-black"
-  }
-
-  after:content-['']
-  after:absolute
-  after:left-1/2
-  after:-translate-x-1/2
-  after:bottom-0
-  after:h-[1px]
-  after:bg-[#C8A46A]
-  after:transition-all
-
-  ${active===c.key && c.key !== "ALL"
-    ? "after:w-6"
-    : "after:w-0 hover:after:w-6"}
-`}
-          >
-            {lang==="en" ? c.en : c.zh}
-          </button>
-        );
-      })}
 
     </div>
+
+    
 
 {/* 搜尋 */}
 <div className="
@@ -275,13 +287,22 @@ className={`
   <input
     value={keyword}
     onChange={(e) => setKeyword(e.target.value)}
-    placeholder={lang==="en" ? "Search products" : "搜尋產品"}
-    className="w-full bg-transparent border-b border-[#ddd] pb-2 pr-8 text-[12px] tracking-[0.18em] text-[#333] focus:outline-none placeholder:text-[#aaa]"
+    placeholder={lang==="en" ? "Search products / size / model" : "搜尋產品 / 尺寸 / 型號"}
+    className="
+      w-full bg-transparent
+      border-b border-[#ccc]
+      pb-2 pr-8
+      text-[12px] tracking-[0.18em]
+      text-[#333]
+      focus:outline-none
+      focus:border-black
+      transition
+      placeholder:text-[#aaa]
+    "
   />
 
-  {/* 🔍 放大鏡（放這裡🔥） */}
   <svg
-    className="absolute right-0 top-1/2 -translate-y-1/2 w-[14px] h-[14px] text-[#999] pointer-events-none"
+    className="absolute right-0 top-1/2 -translate-y-1/2 w-[14px] h-[14px] text-[#999]"
     fill="none"
     stroke="currentColor"
     strokeWidth="1.8"
@@ -297,82 +318,63 @@ className={`
 
 </section>
 
-  {/* ===== GRID ===== */}
-  <section>
 
-  {active === "MIRROR" ? (
+{/* ===== GRID ===== */}
+<section>
 
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
 
-      {mirrorSeries.map((item,i)=>(
+    {paginatedProducts.map(item => {
+
+      const url = item.link;
+
+      return (
 
         <Link
-          key={i}
-          to={`/${lang}/products/mirror/${item.key}`}
-          className="group block"
+          to={url}
+          key={item.id}
+          className="relative group overflow-hidden block w-full max-w-[360px]"
         >
 
           <img
             src={item.img}
-            className="w-full h-[240px] object-cover transition duration-700 group-hover:scale-[1.05]"
+            className="w-full aspect-[4/3] object-cover object-center transition duration-700 group-hover:scale-105"
           />
 
-          <h3 className="mt-6 text-center tracking-[0.2em] text-[#222]">
-            {lang==="en" ? item.en : item.zh}
-          </h3>
+          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition"/>
+
+          <div className="absolute bottom-5 left-5 text-white opacity-0 group-hover:opacity-100 transition">
+
+            <h3 className="text-[14px] tracking-[0.15em]">
+
+              {item.type === "light"
+                ? item.title?.[lang] || item.title?.zh
+                : item.id.toUpperCase()
+              }
+
+            </h3>
+
+          </div>
 
         </Link>
 
-      ))}
+      );
+    })}
 
-    </div>
+  </div>
+</section>
 
-  ) : (
+{/*  無結果 */}
+{paginatedProducts.length === 0 && (
+  <div className="text-center text-[#999] tracking-[0.2em] mt-20">
+    {lang==="en" ? "NO RESULT" : "找不到符合項目"}
+  </div>
+)}
 
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
 
-     {paginatedProducts.map(p=>{
 
-        let url = "#";
-
-        if(p.type === "light" && p.link){
-          url = `/${lang}/lights/${p.link}`;
-        }
-
-        return (
-
-        <Link
-  to={url}
-  key={p.id}
-  className="relative group overflow-hidden block w-full max-w-[360px]"
->
-
-            <img
-  src={p.img}
-  className="w-full aspect-[4/3] object-cover object-center transition duration-700 group-hover:scale-105"
-/>
-
-            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition"/>
-
-            <div className="absolute bottom-5 left-5 text-white opacity-0 group-hover:opacity-100 transition">
-
-              <h3 className="text-[14px] tracking-[0.15em]">
-                {p.title?.[lang] || p.title?.zh}
-              </h3>
-
-            </div>
-
-          </Link>
-
-        );
-      })}
-
-    </div>
-
-  )}
-
-  </section>
-{active !== "MIRROR" && totalPages > 1 && (
+{/*  分頁 */}
+{active !== "MIRROR" && !isSearching && totalPages > 1 && (
   <div className="flex justify-center items-center gap-3 mt-20">
 
     <button
@@ -437,10 +439,13 @@ onClick={() => {
   {lang==="en" ? "NEXT" : "下一頁"}
 </button>
 
+
+
   </div>
 )}
   </div>
 
   </main>
   );
+  
 }
