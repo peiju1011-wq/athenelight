@@ -1,65 +1,74 @@
 export default function ProjectFilter({ active, setActive }) {
 
-const filters = [
-  "全部",
-  "建築外觀",
-  "室內空間",
-  "景觀照明"
-]
+  const lang = useLang();
 
-return (
+  const filters = [
+    { zh: "全部", en: "ALL" },
+    { zh: "建築外觀", en: "ARCHITECTURE" },
+    { zh: "室內空間", en: "INTERIOR" },
+    { zh: "景觀照明", en: "LANDSCAPE" }
+  ];
 
-<div className="
-px-6 md:px-10 lg:px-10   /* 🔥 關鍵：和圖片一樣 */
-mb-0
-">
+  return (
 
-  <div className="
-  flex gap-10
-  overflow-x-auto whitespace-nowrap
-  pb-8
-  ">
+    <div className="px-6 md:px-10 lg:px-10 mb-0">
 
-  {filters.map((item) => {
+      <div className="
+        flex gap-8
+        overflow-x-auto whitespace-nowrap
+        pb-8
+      ">
 
-    const isActive = item === active
+        {filters.map((item) => {
 
-    return (
+          const label = lang === "en" ? item.en : item.zh;
+          const isActive = label === active;
 
-      <button
-        key={item}
-        onClick={() => setActive(item)}
-        className="group relative text-[12px] tracking-[0.2em] uppercase"
-      >
+          return (
 
-        {/* 文字 */}
-        <span
-          className={`
-          transition duration-300
-          ${isActive ? "text-[#111]" : "text-[#999] group-hover:text-[#111]"}
-          `}
-        >
-          {item}
-        </span>
+            <button
+              key={label}
+              onClick={() => setActive(label)}
+              className={`
+                group relative text-[12px]
 
-        {/* 🔥 底線動畫 */}
-        <span
-          className={`
-          absolute left-0 -bottom-2 h-[1px] bg-[#111]
-          transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-          ${isActive ? "w-full" : "w-0 group-hover:w-full"}
-          `}
-        />
+                ${lang === "en"
+                  ? "tracking-[0.12em] uppercase"
+                  : "tracking-[0.2em]"
+                }
+              `}
+            >
 
-      </button>
+              {/* 文字 */}
+              <span
+                className={`
+                  transition duration-300
+                  ${isActive
+                    ? "text-[#111]"
+                    : "text-[#999] group-hover:text-[#111]"
+                  }
+                `}
+              >
+                {label}
+              </span>
 
-    )
+              {/* 底線動畫 */}
+              <span
+                className={`
+                  absolute left-0 -bottom-2 h-[1px] bg-[#111]
+                  transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+                  ${isActive ? "w-full" : "w-0 group-hover:w-full"}
+                `}
+              />
 
-  })}
+            </button>
 
-  </div>
+          );
 
-</div>
+        })}
 
-)
+      </div>
+
+    </div>
+  );
 }
