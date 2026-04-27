@@ -244,9 +244,9 @@ onClick={() => {
 
 </section>
 
-        {/* ===== GRID ===== */}
+
 {/* ===== GRID ===== */}
-<section className="space-y-8">
+<section className="space-y-10">
 
   {currentData.length === 0 && (
     <div className="text-center text-[#aaa] py-40 tracking-[0.2em]">
@@ -254,18 +254,80 @@ onClick={() => {
     </div>
   )}
 
+  {/* ===== 手機版（🔥一格一格） ===== */}
+<div className="md:hidden space-y-3 sm:space-y-8">
+
+    {currentData.map((p) => {
+
+      const title = lang === "en" ? p.title_en : p.title;
+      const category = lang === "en" ? p.category_en : p.category;
+
+      return (
+<Link
+  key={p.id}
+  to={`/${lang}/projects/${p.id}`}
+  className="block"
+>
+
+  <div className="bg-white p-2 rounded-md shadow-sm">
+
+    <div className="relative aspect-[4/3] overflow-hidden group shadow-sm">
+
+      <img
+        src={p.img}
+        className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+      />
+
+      {/* 🔥 這段補回來 */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+
+      <div className="absolute bottom-5 left-5 text-white">
+
+<p className="
+  inline-block
+  text-[11px] tracking-[0.35em]
+  text-[#C8A46A]
+
+  px-2 py-[2px]
+
+  drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]
+
+  mb-3
+">
+  {category}
+</p>
+
+        <h3 className="text-[14px] tracking-[0.12em] leading-[1.5]">
+          {title}
+        </h3>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</Link>
+      );
+    })}
+
+  </div>
+
+{/* ===== 桌機版（🔥一定要包起來） ===== */}
+<div className="hidden md:block ">
+
   {Array.from({ length: Math.ceil(currentData.length / 3) }).map(
     (_, groupIndex) => {
 
       const group = currentData.slice(groupIndex * 3, groupIndex * 3 + 3);
 
       return (
-        <div key={groupIndex} className="space-y-6">
+     <div key={groupIndex} className="space-y-8 mb-8">
 
-          {/* ===== 長圖 ===== */}
-    {group[0] && (
-  <Link to={`/${lang}/projects/${group[0].id}`}>
-              <div className="relative h-[300px] overflow-hidden group">
+          {/* 長圖 */}
+          {group[0] && (
+            <Link to={`/${lang}/projects/${group[0].id}`}>
+             <div className="relative aspect-[16/7] overflow-hidden group">
 
                 <img
                   src={group[0].img}
@@ -294,8 +356,8 @@ onClick={() => {
             </Link>
           )}
 
-          {/* ===== 短圖（🔥 統一 overlay） ===== */}
-          <div className="grid grid-cols-2 gap-6">
+          {/* 短圖 */}
+          <div className="grid grid-cols-2 gap-8">
 
             {group.slice(1).map((p) => {
 
@@ -303,9 +365,13 @@ onClick={() => {
               const category = lang === "en" ? p.category_en : p.category;
 
               return (
-            <Link key={p.id} to={`/${lang}/projects/${p.id}`}>
+               <Link
+  key={p.id}
+  to={`/${lang}/projects/${p.id}`}
+  className="block"
+>
 
-                  <div className="relative h-[240px] overflow-hidden group">
+                 <div className="relative aspect-[4/3] overflow-hidden group">
 
                     <img
                       src={p.img}
@@ -320,12 +386,7 @@ onClick={() => {
                         {category}
                       </p>
 
-                      <h3 className="
-                        text-[14px]
-                        tracking-[0.12em]
-                        leading-[1.5]
-                        max-w-[260px]
-                      ">
+                      <h3 className="text-[14px] tracking-[0.12em] leading-[1.5] max-w-[260px]">
                         {title}
                       </h3>
 
@@ -343,6 +404,9 @@ onClick={() => {
       );
     }
   )}
+
+</div>
+
 </section>
 
 {totalPages > 1 && (
