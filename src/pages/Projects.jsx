@@ -139,6 +139,7 @@ useEffect(() => {
 
     {/* ===== 分類（恢復你之前高級版） */}
 <div className="
+
   w-full
   flex flex-wrap
   gap-6
@@ -162,30 +163,30 @@ useEffect(() => {
 
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
-        className={`
-          relative transition pb-2
+className={`
+  relative text-[12px] md:text-[13px] transition pb-2
 
-          ${lang === "en"
-            ? "tracking-[0.12em]"
-            : "tracking-[0.25em]"
-          }
+  ${lang === "en"
+    ? "tracking-[0.1em]"
+    : "tracking-[0.25em]"
+  }
 
-          ${isActive
-            ? "text-black"
-            : "text-[#aaa] hover:text-black"
-          }
+  ${isActive
+    ? "text-black"
+    : "text-[#aaa] hover:text-black"
+  }
 
-          after:content-['']
-          after:absolute
-          after:left-1/2
-          after:-translate-x-1/2
-          after:bottom-0
-          after:h-[1px]
-          after:bg-[#C8A46A]
-          after:transition-all
+  after:content-['']
+  after:absolute
+  after:left-1/2
+  after:-translate-x-1/2
+  after:bottom-0
+  after:h-[1px]
+  after:bg-[#C8A46A]
+  after:transition-all
 
-          ${isActive ? "after:w-6" : "after:w-0"}
-        `}
+  ${isActive ? "after:w-6" : "after:w-0"}
+`}
       >
         {c}
       </button>
@@ -289,7 +290,7 @@ useEffect(() => {
   text-[11px] tracking-[0.35em]
   text-[#C8A46A]
 
-  px-2 py-[2px]
+  px-1 py-[2px]
 
   drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]
 
