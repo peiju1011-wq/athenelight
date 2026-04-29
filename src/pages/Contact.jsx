@@ -224,94 +224,80 @@ return(
 </div>
 </section>
 
-
 {/* ===== MAP ===== */}
 <section className={`mt-20 ${ani("page-delay-2")}`}>
 
-  <div className="relative w-full h-[420px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.12)] group">
+  <div className="relative w-full overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.12)] group">
 
-<iframe
-  title={lang === "en" ? "Athene Light location map" : "宇碩光位置地圖"}
-  src="https://www.google.com/maps?q=新北市新莊區化成路186號2樓&output=embed"
-  width="100%"
-  height="100%"
-  style={{ border: 0 }}
-  loading="lazy"
-  className="scale-[1.02] brightness-50 contrast-95 group-hover:brightness-90 transition duration-700"
-/>
+    {/* 電腦版：顯示 Google Map */}
+    <iframe
+      title={lang === "en" ? "Athene Light location map" : "宇碩光位置地圖"}
+      src="https://www.google.com/maps?q=新北市新莊區化成路186號2樓&output=embed"
+      width="100%"
+      height="420"
+      style={{ border: 0 }}
+      loading="lazy"
+      className="hidden md:block scale-[1.02] brightness-50 contrast-95 group-hover:brightness-90 transition duration-700"
+    />
 
-<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+    {/* 手機版：不放 iframe，避免被手機瀏覽器擋 */}
+    <a
+      href="https://www.google.com/maps?q=新北市新莊區化成路186號2樓"
+      target="_blank"
+      rel="noopener noreferrer"
+className="md:hidden block bg-[#4a4a4a] px-6 py-8 text-white"
+    >
+      <p className="text-[11px] tracking-[0.3em] text-[#C8A46A] mb-4">
+        GOOGLE MAP
+      </p>
 
-  <div className="relative flex items-center justify-center">
+      <div className="flex items-start gap-4">
+        <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0 mt-1">
+          <path
+            fill="#C8A46A"
+            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+          />
+          <circle cx="12" cy="9" r="2.5" fill="white" />
+        </svg>
 
-    {/* ⭐ 金圈（穩定感） */}
-    <div className="
-      absolute w-6 h-6
-      rounded-full
-      border border-[#C8A46A]/60
-    "></div>
+        <div>
+          <p className="text-[15px] leading-relaxed tracking-[0.08em]">
+            {lang === "en"
+              ? "No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
+              : "新北市新莊區化成路186號2樓"}
+          </p>
 
-    {/* ⭐ 柔光（品牌感🔥） */}
-    <div className="
-      absolute w-10 h-10
-      rounded-full
-      bg-[#C8A46A]/10
-      blur-[10px]
-    "></div>
+          <p className="mt-4 text-[12px] tracking-[0.25em] text-white/60">
+            {lang === "en" ? "OPEN GOOGLE MAPS" : "點擊開啟 Google 地圖"}
+          </p>
+        </div>
+      </div>
+    </a>
 
-    {/* ⭐ 白點（高級動態🔥） */}
-    <div className="
-      w-3 h-3
-      rounded-full
-      bg-white
-      shadow-[0_0_16px_rgba(200,164,106,0.8)]
-      animate-bouncePremium
-    "></div>
+    {/* 電腦版地址條 */}
+    <div className="hidden md:flex absolute bottom-5 left-5 bg-black/65 backdrop-blur px-5 py-3 text-[12px] tracking-[0.1em] text-white/90 items-center gap-3">
+      <svg viewBox="0 0 24 24" className="w-5 h-5">
+        <path
+          fill="#C8A46A"
+          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+        />
+        <circle cx="12" cy="9" r="2.5" fill="white" />
+      </svg>
 
-  </div>
+      <span>
+        {lang === "en"
+          ? "No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
+          : "新北市新莊區化成路186號2樓"}
+      </span>
+    </div>
 
-</div>
-<div className="
-  absolute bottom-5 left-5 
-  bg-black/65 backdrop-blur 
-  px-5 py-3 
-  text-[12px] tracking-[0.1em] 
-  text-white/90 
-  flex items-center gap-3
-">
-
-{/* 📍 Google Map icon（極簡線條版🔥） */}
-<svg
-  viewBox="0 0 24 24"
-  className="
-    w-5 h-5
-    drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)]
-    group-hover:scale-110
-    transition
-  "
->
-  <path
-    fill="#C8A46A"
-    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-  />
-  <circle cx="12" cy="9" r="2.5" fill="white" />
-</svg>
-
-{/* 地址 */}
-<span>
-  {lang === "en"
-    ? "No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
-    : "新北市新莊區化成路186號2樓"}
-</span>
-
-</div>
-
-<a
-  href="https://www.google.com/maps?q=新北市新莊區化成路186號2樓"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="absolute inset-0"
-></a>
+    {/* 電腦版點擊開地圖 */}
+    <a
+      href="https://www.google.com/maps?q=新北市新莊區化成路186號2樓"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hidden md:block absolute inset-0"
+    />
 
   </div>
 
