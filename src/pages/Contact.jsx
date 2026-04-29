@@ -334,7 +334,7 @@ return(
 
       {/* 地圖圖片 */}
       <img
-        src="/images/map-bg.png"
+        src="./images/map-bg.png"
         className="w-full h-auto"
       />
 
