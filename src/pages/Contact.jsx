@@ -227,21 +227,20 @@ return(
 {/* ===== MAP ===== */}
 <section className={`mt-20 ${ani("page-delay-2")}`}>
 
-  <div className="relative w-full overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.12)] group">
+  <div className="relative w-full rounded-[8px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.12)]">
 
-className="brightness-90 contrast-105"
-    {/* 電腦版：顯示 Google Map */}
-    <iframe
-      title={lang === "en" ? "Athene Light location map" : "宇碩光位置地圖"}
-      src="https://www.google.com/maps?q=新北市新莊區化成路186號2樓&output=embed"
-      width="100%"
-      height="420"
-      style={{ border: 0 }}
-      loading="lazy"
-      className="hidden md:block scale-[1.02] brightness-50 contrast-95 group-hover:brightness-90 transition duration-700"
-    />
-{/* ⭐ 電腦版定位點（回來了🔥） */}
-<div className="hidden md:block pointer-events-none absolute inset-0">
+    {/* ===== 電腦版 ===== */}
+    <div className="hidden md:block relative w-full h-[420px]">
+
+      <iframe
+        title={lang === "en" ? "Athene Light location map" : "宇碩光位置地圖"}
+        src="https://www.google.com/maps?q=新北市新莊區化成路186號2樓&output=embed"
+        className="w-full h-full border-0 brightness-90 contrast-105"
+        loading="lazy"
+      />
+
+      {/* ⭐ 地圖中央定位點 */}
+<div className="pointer-events-none absolute inset-0">
 
   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
 
@@ -276,95 +275,109 @@ className="brightness-90 contrast-105"
   </div>
 
 </div>
-    {/* 手機版：不放 iframe，避免被手機瀏覽器擋 */}
-<a
-  href="https://www.google.com/maps?q=新北市新莊區化成路186號2樓"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="
-    md:hidden relative block
-    rounded-[6px]
-    bg-[#1a1a1a]
-  "
->
 
-  {/* 🔥 地圖圖片（完整顯示） */}
-  <img
-    src="/images/map-bg.png"
-    className="w-full h-auto"
-  />
+      {/* 🔥 底部玻璃卡 */}
+      <div className="
+        absolute bottom-0 left-0 w-full
+        px-10 py-6
+        bg-black/40 backdrop-blur-lg
+      ">
 
-  {/* 🔥 底部黑底 */}
-  <div className="
-    absolute bottom-0 left-0 w-full
-    bg-black/50 backdrop-blur-md
-    px-6 py-2
-  ">
-
-    {/* 上標 */}
-    <p className="text-[11px] tracking-[0.35em] text-[#C8A46A] mb-4">
-      LOCATION
-    </p>
-
-    <div className="flex items-start gap-4">
-
-      {/* icon */}
-      <div className="relative mt-1">
-        <div className="absolute w-6 h-6 rounded-full bg-[#C8A46A]/20 blur-[8px]"></div>
-        <svg viewBox="0 0 24 24" className="w-5 h-5 relative">
-          <path
-            fill="#C8A46A"
-            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-          />
-          <circle cx="12" cy="9" r="2.5" fill="white" />
-        </svg>
-      </div>
-
-      {/* 地址 */}
-      <div>
-        <p className="text-[15px] tracking-[0.08em] text-white">
-          {lang === "en"
-            ? "No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
-            : "新北市新莊區化成路186號2樓"}
+        <p className="text-[11px] tracking-[0.35em] text-[#C8A46A] mb-3">
+          LOCATION
         </p>
 
-        <p className="mt-3 text-[11px] tracking-[0.25em] text-white/60">
-          {lang === "en"
-            ? "OPEN IN GOOGLE MAPS"
-            : "點擊開啟 Google 地圖"}
-        </p>
+        <div className="flex items-start gap-4">
+
+          <div className="relative mt-1">
+            <div className="absolute w-6 h-6 rounded-full bg-[#C8A46A]/20 blur-[8px]"></div>
+            <svg viewBox="0 0 24 24" className="w-5 h-5 relative">
+              <path fill="#C8A46A" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5" fill="white"/>
+            </svg>
+          </div>
+
+          <div>
+            <p className="text-[16px] tracking-[0.08em] text-white">
+              {lang === "en"
+                ? "No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
+                : "新北市新莊區化成路186號2樓"}
+            </p>
+
+            <p className="mt-2 text-[11px] tracking-[0.25em] text-white/60">
+              {lang === "en"
+                ? "OPEN IN GOOGLE MAPS"
+                : "點擊開啟 Google 地圖"}
+            </p>
+          </div>
+
+        </div>
+
       </div>
 
+      {/* 點擊 */}
+      <a
+        href="https://www.google.com/maps?q=新北市新莊區化成路186號2樓"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute inset-0"
+      />
     </div>
 
-  </div>
-
-</a>
-
-    {/* 電腦版地址條 */}
-    <div className="hidden md:flex absolute bottom-5 left-5 bg-black/65 backdrop-blur px-5 py-3 text-[12px] tracking-[0.1em] text-white/90 items-center gap-3">
-      <svg viewBox="0 0 24 24" className="w-5 h-5">
-        <path
-          fill="#C8A46A"
-          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-        />
-        <circle cx="12" cy="9" r="2.5" fill="white" />
-      </svg>
-
-      <span>
-        {lang === "en"
-          ? "No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
-          : "新北市新莊區化成路186號2樓"}
-      </span>
-    </div>
-
-    {/* 電腦版點擊開地圖 */}
+    {/* ===== 手機版 ===== */}
     <a
       href="https://www.google.com/maps?q=新北市新莊區化成路186號2樓"
       target="_blank"
       rel="noopener noreferrer"
-      className="hidden md:block absolute inset-0"
-    />
+      className="md:hidden relative block"
+    >
+
+      {/* 地圖圖片 */}
+      <img
+        src="/images/map-bg.png"
+        className="w-full h-auto"
+      />
+
+      {/* 🔥 底部玻璃卡 */}
+      <div className="
+        absolute bottom-0 left-0 w-full
+        px-6 py-4
+        bg-black/40 backdrop-blur-lg
+      ">
+
+        <p className="text-[11px] tracking-[0.35em] text-[#C8A46A] mb-3">
+          LOCATION
+        </p>
+
+        <div className="flex items-start gap-4">
+
+          <div className="relative mt-1">
+            <div className="absolute w-6 h-6 rounded-full bg-[#C8A46A]/20 blur-[8px]"></div>
+            <svg viewBox="0 0 24 24" className="w-5 h-5 relative">
+              <path fill="#C8A46A" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5" fill="white"/>
+            </svg>
+          </div>
+
+          <div>
+            <p className="text-[15px] tracking-[0.08em] text-white">
+              {lang === "en"
+                ? "No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
+                : "新北市新莊區化成路186號2樓"}
+            </p>
+
+            <p className="mt-2 text-[11px] tracking-[0.25em] text-white/60">
+              {lang === "en"
+                ? "OPEN IN GOOGLE MAPS"
+                : "點擊開啟 Google 地圖"}
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </a>
 
   </div>
 
