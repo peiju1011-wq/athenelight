@@ -241,38 +241,69 @@ return(
     />
 
     {/* 手機版：不放 iframe，避免被手機瀏覽器擋 */}
-    <a
-      href="https://www.google.com/maps?q=新北市新莊區化成路186號2樓"
-      target="_blank"
-      rel="noopener noreferrer"
-className="md:hidden block bg-[#4a4a4a] px-6 py-8 text-white"
-    >
-      <p className="text-[11px] tracking-[0.3em] text-[#C8A46A] mb-4">
-        GOOGLE MAP
+<a
+  href="https://www.google.com/maps?q=新北市新莊區化成路186號2樓"
+  target="_blank"
+  rel="noopener noreferrer"
+className="md:hidden relative block px-6 py-10 text-white overflow-hidden bg-[#1a1a1a] rounded-[6px] transition duration-500 active:scale-[0.98] hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+>
+
+  {/* ✨ 背景光暈（品牌靈魂） */}
+  <div className="
+    absolute -top-10 -left-10
+    w-40 h-40
+    bg-[#C8A46A]/10
+    blur-[60px]
+  "></div>
+
+  <div className="
+    absolute bottom-0 right-0
+    w-32 h-32
+    bg-[#C8A46A]/5
+    blur-[40px]
+  "></div>
+
+  {/* ✨ 上標（品牌語氣） */}
+  <p className="text-[11px] tracking-[0.35em] text-[#C8A46A] mb-6">
+    LOCATION
+  </p>
+
+  {/* ✨ 中間內容 */}
+  <div className="flex items-start gap-4">
+
+    {/* 金色定位 */}
+    <div className="relative mt-1">
+      <div className="absolute w-6 h-6 rounded-full bg-[#C8A46A]/20 blur-[8px]"></div>
+      <svg viewBox="0 0 24 24" className="w-5 h-5 relative">
+        <path
+          fill="#C8A46A"
+          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+        />
+        <circle cx="12" cy="9" r="2.5" fill="white" />
+      </svg>
+    </div>
+
+    {/* 地址 */}
+    <div>
+      <p className="text-[16px] leading-relaxed tracking-[0.08em] text-white/90">
+        {lang === "en"
+          ? "No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
+          : "新北市新莊區化成路186號2樓"}
       </p>
 
-      <div className="flex items-start gap-4">
-        <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0 mt-1">
-          <path
-            fill="#C8A46A"
-            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-          />
-          <circle cx="12" cy="9" r="2.5" fill="white" />
-        </svg>
+      {/* 副文字 */}
+      <p className="mt-5 text-[11px] tracking-[0.25em] text-white/50">
+        {lang === "en"
+          ? "OPEN IN GOOGLE MAPS"
+          : "點擊開啟 Google 地圖"}
+      </p>
+    </div>
+  </div>
 
-        <div>
-          <p className="text-[15px] leading-relaxed tracking-[0.08em]">
-            {lang === "en"
-              ? "No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
-              : "新北市新莊區化成路186號2樓"}
-          </p>
+  {/* ✨ 底部金線（收尾） */}
+  <div className="mt-8 h-[1px] bg-gradient-to-r from-transparent via-[#C8A46A]/50 to-transparent"></div>
 
-          <p className="mt-4 text-[12px] tracking-[0.25em] text-white/60">
-            {lang === "en" ? "OPEN GOOGLE MAPS" : "點擊開啟 Google 地圖"}
-          </p>
-        </div>
-      </div>
-    </a>
+</a>
 
     {/* 電腦版地址條 */}
     <div className="hidden md:flex absolute bottom-5 left-5 bg-black/65 backdrop-blur px-5 py-3 text-[12px] tracking-[0.1em] text-white/90 items-center gap-3">
