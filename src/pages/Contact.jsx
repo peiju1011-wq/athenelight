@@ -332,13 +332,12 @@ return(
       className="md:hidden relative block"
     >
 
-      {/* 地圖圖片 */}
-  <div className="w-full h-[300px] overflow-hidden">
+<div className="w-full h-[300px] overflow-hidden">
   <img
     src="/images/map-bg.png"
     className="w-full h-full object-cover object-top"
   />
-</div
+</div>
 
       {/* 🔥 底部玻璃卡 */}
       <div className="
