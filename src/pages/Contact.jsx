@@ -239,7 +239,42 @@ return(
       loading="lazy"
       className="hidden md:block scale-[1.02] brightness-50 contrast-95 group-hover:brightness-90 transition duration-700"
     />
+{/* ⭐ 電腦版定位點（回來了🔥） */}
+<div className="hidden md:block pointer-events-none absolute inset-0">
 
+  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+
+    <div className="relative flex items-center justify-center">
+
+      {/* 金色外圈 */}
+      <div className="
+        absolute w-6 h-6
+        rounded-full
+        border border-[#C8A46A]/60
+      "></div>
+
+      {/* 柔光擴散 */}
+      <div className="
+        absolute w-12 h-12
+        rounded-full
+        bg-[#C8A46A]/10
+        blur-[12px]
+      "></div>
+
+      {/* 白色跳動點 */}
+      <div className="
+        w-3 h-3
+        rounded-full
+        bg-white
+        shadow-[0_0_16px_rgba(200,164,106,0.8)]
+        animate-bounce
+      "></div>
+
+    </div>
+
+  </div>
+
+</div>
     {/* 手機版：不放 iframe，避免被手機瀏覽器擋 */}
 <a
   href="https://www.google.com/maps?q=新北市新莊區化成路186號2樓"
