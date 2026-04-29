@@ -232,7 +232,7 @@ return(
 
 <iframe
   title={lang === "en" ? "Athene Light location map" : "宇碩光位置地圖"}
-  src="https://www.google.com/maps?output=embed&q=新北市新莊區化成路186號2樓"
+  src="https://www.google.com/maps?q=新北市新莊區化成路186號2樓&output=embed"
   width="100%"
   height="100%"
   style={{ border: 0 }}
