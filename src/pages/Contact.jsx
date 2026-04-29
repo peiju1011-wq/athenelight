@@ -332,7 +332,7 @@ return(
       className="md:hidden relative block"
     >
 
-<div className="w-full h-[330px] overflow-hidden">
+<div className="w-full h-[340px] overflow-hidden">
   <img
     src="/images/map-bg.png"
     className="w-full h-full object-cover object-top"
