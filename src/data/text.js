@@ -211,11 +211,9 @@ company:{
   title:{ zh:"下載", en:"DOWNLOAD" },
 
   items:[
-    { label:{ zh:"套管型錄", en:"Sleeve Catalog" }, link:"/pdf/neon-catalog.pdf", download:true },
+    { label:{ zh:"燈條型錄", en:"Linear lighting Catalog" }, link:"/pdf/neon-catalog.pdf", download:true },
 
-    { label:{ zh:"實績案例", en:"Projects" }, link:"/projects" },
-    { label:{ zh:"服務流程", en:"Process" }, link:"/about" },
-    { label:{ zh:"聯絡我們", en:"Contact" }, link:"/contact" }
+
   ]
 },
 
