@@ -2,7 +2,7 @@ const projects = [
 
 {
   id:1,
- type: "公共工程",
+ type: "亮化工程",
   category:"景觀照明",
   category_en:"LANDSCAPE LIGHTING",
 
