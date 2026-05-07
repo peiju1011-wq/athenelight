@@ -246,8 +246,8 @@ useEffect(() => {
     opacity-70
   ">
     {lang === "en"
-      ? "ATHENE LIGHT specializes in architectural lighting design, landscape lighting, and integrated lighting solutions for commercial spaces, residences, and facade lighting projects."
-      : "宇碩光 ATHENE LIGHT 專注於建築照明設計、景觀照明與光環境整合，提供商業空間、住宅與外牆燈光規劃。"}
+  ? "ATHENE LIGHT specializes in architectural lighting, landscape lighting, commercial lighting, lighting environment design, facade lighting, linear lighting applications, light film systems, festival lighting, and integrated lighting solutions for residential and commercial spaces."
+  : "宇碩光 ATHENE LIGHT 專注於建築照明、景觀照明、商業照明、光環境設計、外牆照明、燈條應用、光膜系統與燈會工程，提供住宅與商業空間整合照明服務。"}
   </p>
 
 </div>
@@ -365,11 +365,21 @@ useEffect(() => {
   <div className="banner-overlay"></div>
 
   {/* ⭐ 內容 */}
-  <div className="banner-content">
-    <h2>
-  {lang === "en" ? "Designed by Light" : "點亮建築的價值"}
-</h2>
-  </div>
+<div className="banner-content">
+
+  <h2>
+    {lang === "en"
+      ? "Architectural Lighting"
+      : "建築照明"}
+  </h2>
+
+  <p className="banner-keywords">
+    {lang === "en"
+      ? "Lighting Environment · Commercial Lighting · Landscape Lighting"
+      : "光環境設計｜商業照明｜景觀照明"}
+  </p>
+
+</div>
 
 </section>
 
