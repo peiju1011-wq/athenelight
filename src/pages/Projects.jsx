@@ -29,7 +29,6 @@ const categories =
         "COMMERCIAL",
         "INTERIOR",
         "ILLUMINATION",
-        "PUBLICWORKS",
         "FESTIVAL"
       ]
     : [
@@ -40,7 +39,7 @@ const categories =
         "商業空間",
         "室內空間",
         "亮化工程",
-        "公共工程",
+
         "燈會"
       ];
 
