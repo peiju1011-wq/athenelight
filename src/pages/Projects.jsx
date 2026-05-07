@@ -19,18 +19,43 @@ const [keyword, setKeyword] = useState(searchParam);
   const perPage = 9;
 
   /* ===== 類別 ===== */
-  const categories =
-    lang === "en"
-      ? ["ALL", "COMMERCIAL", "RESIDENTIAL", "PUBLIC"]
-      : ["全部", "商業", "住宅", "公共"];
+const categories =
+  lang === "en"
+    ? [
+        "ALL",
+        "LIGHTING",
+        "FACADE",
+        "LANDSCAPE",
+        "COMMERCIAL",
+        "INTERIOR",
+        "ILLUMINATION",
+        "PUBLICWORKS",
+        "FESTIVAL"
+      ]
+    : [
+        "全部",
+        "照明設計",
+        "外牆",
+        "景觀",
+        "商業空間",
+        "室內空間",
+        "亮化工程",
+        "公共工程",
+        "燈會"
+      ];
 
   /* ===== 對照 ===== */
-  const typeMap = {
-    ALL: "全部",
-    COMMERCIAL: "商業",
-    RESIDENTIAL: "住宅",
-    PUBLIC: "公共"
-  };
+const typeMap = {
+  ALL: "全部",
+  LIGHTING: "照明設計",
+  FACADE: "外牆",
+  LANDSCAPE: "景觀",
+  COMMERCIAL: "商業空間",
+  INTERIOR: "室內空間",
+  ILLUMINATION: "亮化工程",
+  PUBLICWORKS: "公共工程",
+  FESTIVAL: "燈會"
+};
 
   /* ===== 🔥 強化搜尋 ===== */
   const filtered = projects.filter((p) => {
