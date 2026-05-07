@@ -25,7 +25,13 @@ overflow-x:hidden;
 }
 
 
-
+.banner-keywords{
+  margin-top:18px;
+  font-size:11px;
+  letter-spacing:0.35em;
+  color:rgba(255,255,255,0.72);
+  font-weight:300;
+}
 
 /* 中文專用（重要🔥） */
 .hero-sub.zh{
