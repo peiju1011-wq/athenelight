@@ -94,9 +94,9 @@ useEffect(() => {
 
   {/* 英文（完全固定🔥） */}
   <div className="hero-english">
-    LIGHT OF<br/>
+    LIGHT FORF<br/>
     SILENT<br/>
-    PIONEERS
+    PLACES
   </div>
 
   {/* 中文（翻譯控制） */}
