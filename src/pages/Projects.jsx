@@ -189,7 +189,11 @@ useEffect(() => {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
 className={`
-  relative text-[12px] md:text-[13px] transition pb-2
+  group
+  relative
+  text-[12px] md:text-[13px]
+  transition
+  pb-2
 
   ${lang === "en"
     ? "tracking-[0.1em]"
@@ -208,9 +212,13 @@ className={`
   after:bottom-0
   after:h-[1px]
   after:bg-[#C8A46A]
-  after:transition-all
 
-  ${isActive ? "after:w-6" : "after:w-0"}
+  after:transition-all
+  after:duration-500
+
+  ${isActive
+    ? "after:w-6"
+    : "after:w-0 hover:after:w-6"}
 `}
       >
         {c}
