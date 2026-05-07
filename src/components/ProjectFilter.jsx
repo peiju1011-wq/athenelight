@@ -2,12 +2,17 @@ export default function ProjectFilter({ active, setActive }) {
 
   const lang = useLang();
 
-  const filters = [
-    { zh: "全部", en: "ALL" },
-    { zh: "建築外觀", en: "ARCHITECTURE" },
-    { zh: "室內空間", en: "INTERIOR" },
-    { zh: "景觀照明", en: "LANDSCAPE" }
-  ];
+const filters = [
+  { zh: "全部", en: "ALL" },
+  { zh: "照明設計", en: "LIGHTING" },
+  { zh: "外牆", en: "FACADE" },
+  { zh: "景觀", en: "LANDSCAPE" },
+  { zh: "商業空間", en: "COMMERCIAL" },
+  { zh: "室內空間", en: "INTERIOR" },
+  { zh: "亮化工程", en: "ILLUMINATION" },
+  { zh: "公共工程", en: "PUBLICWORKS" },
+  { zh: "燈會", en: "FESTIVAL" }
+];
 
   return (
 
@@ -22,13 +27,13 @@ export default function ProjectFilter({ active, setActive }) {
         {filters.map((item) => {
 
           const label = lang === "en" ? item.en : item.zh;
-          const isActive = label === active;
+const isActive = item.en === active;
 
           return (
 
             <button
               key={label}
-              onClick={() => setActive(label)}
+              onClick={() => setActive(item.en)}
               className={`
                 group relative text-[12px]
 
@@ -53,13 +58,15 @@ export default function ProjectFilter({ active, setActive }) {
               </span>
 
               {/* 底線動畫 */}
-              <span
-                className={`
-                  absolute left-0 -bottom-2 h-[1px] bg-[#111]
-                  transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-                  ${isActive ? "w-full" : "w-0 group-hover:w-full"}
-                `}
-              />
+           <span
+  className={`
+    absolute left-0 -bottom-2 w-full h-[1px] bg-[#111]
+    origin-left scale-x-0
+    transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+
+    ${isActive ? "scale-x-100" : "group-hover:scale-x-100"}
+  `}
+/>
 
             </button>
 
