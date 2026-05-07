@@ -52,13 +52,13 @@ style={{backgroundImage:`url(${img})`}}
     <div className="hero-title">
 
       <div className="hero-english">
-        LIGHT OF<br/>
+        LIGHT FOR<br/>
         SILENT<br/>
-        PIONEERS
+        PLACES
       </div>
 
       <div className="hero-chinese">
-        光。無聲的先行者
+        光。為空間留下溫度
       </div>
 
     </div>
