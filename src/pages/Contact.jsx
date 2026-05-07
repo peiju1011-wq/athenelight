@@ -20,7 +20,7 @@ const ani = (delay="") =>
 
 return(
 
-<main className="bg-[#f7f7f7] pt-[110px] pb-28 min-h-screen">
+<main className="bg-[#f7f7f7] pt-24 pb-14 min-h-screen">
 
 <div className="max-w-[1100px] mx-auto px-6">
 
@@ -44,64 +44,124 @@ return(
 
 
 {/* ===== CONTENT ===== */}
-<section className={`bg-white p-10 md:p-14 shadow-[0_15px_50px_rgba(0,0,0,0.06)] ${ani("page-delay-1")}`}>
+<section
+  className={`
+    overflow-hidden
+    rounded-[32px]
+    border border-[#ebe7df]
+    shadow-[0_20px_60px_rgba(0,0,0,0.05)]
 
-<div className="grid lg:grid-cols-[1fr_1.2fr] gap-16">
+    ${ani("page-delay-1")}
+  `}
+>
+
+<div className="grid lg:grid-cols-[0.9fr_1.1fr]">
 
 
 {/* ===== 左：資訊 ===== */}
-<div className={`space-y-10 ${ani("page-delay-2")}`}>
+<div
+  className={`
+    space-y-10
+    bg-[#f7f5f1]
+    px-10 md:px-12
+    py-14 md:py-16
+    border-r border-[#ebe7df]
 
-  <div>
-    <p className="text-[11px] tracking-[0.3em] text-[#aaa] mb-3">
-      {lang === "en" ? "INFORMATION" : "聯絡資訊"}
+    ${ani("page-delay-2")}
+  `}
+>
+
+<div>
+
+  {/* 小標 */}
+  <p className="text-[10px] tracking-[0.42em] text-[#b8b1a4] mb-4 font-light">
+    {lang === "en" ? "INFORMATION" : "CONTACT"}
+  </p>
+
+  {/* 主標 */}
+  <h2 className="text-[24px] tracking-[0.12em] text-[#1d1d1d] font-light leading-[1.4]">
+    {lang === "en" ? "Contact Info" : "聯絡資訊"}
+  </h2>
+
+  {/* 線 */}
+  <div className="w-6 h-px bg-[#C8A46A] mt-5 opacity-70"></div>
+
+</div>
+
+
+<div className="space-y-10 text-[#666] mt-14">
+
+  {/* 地址 */}
+  <div className="space-y-3">
+
+    <p className="text-[10px] tracking-[0.32em] text-[#b7afa1] uppercase">
+      {lang === "en" ? "ADDRESS" : "地址"}
     </p>
 
-    <h2 className="text-[22px] tracking-[0.1em] text-[#111]">
-      {lang === "en" ? "Contact Info" : "聯絡資訊"}
-    </h2>
-
-    <div className="w-8 h-px bg-[#C8A46A] mt-4"></div>
-  </div>
-
-  <div className="space-y-8 text-[#666] text-[14px]">
-
-    <div>
-      <p className="contact-label">
-        {lang === "en" ? "ADDRESS" : "地址"}
-      </p>
-      <p>
-        {lang === "en"
-          ? "2F., No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
-          : "新北市新莊區化成路186號2樓"}
-      </p>
-    </div>
-
-    <div>
-      <p className="contact-label">
-        {lang === "en" ? "PHONE" : "電話"}
-      </p>
-      <p>02-8521-8383</p>
-    </div>
-
-    <div>
-      <p className="contact-label">
-        {lang === "en" ? "EMAIL" : "信箱"}
-      </p>
-      <p>atheneled@gmail.com</p>
-    </div>
+    <p className="text-[14px] leading-[2] text-[#555] max-w-[280px]">
+      {lang === "en"
+        ? "2F., No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
+        : "新北市新莊區化成路186號2樓"}
+    </p>
 
   </div>
 
-  <div className="pt-6">
-    <div className="light-line"></div>
+
+  {/* 電話 */}
+  <div className="space-y-3">
+
+    <p className="text-[10px] tracking-[0.32em] text-[#b7afa1] uppercase">
+      {lang === "en" ? "PHONE" : "電話"}
+    </p>
+
+    <p className="text-[14px] tracking-[0.08em] text-[#555]">
+      02-8521-8383
+    </p>
+
+  </div>
+
+
+  {/* Email */}
+  <div className="space-y-3">
+
+    <p className="text-[10px] tracking-[0.32em] text-[#b7afa1] uppercase">
+      {lang === "en" ? "EMAIL" : "信箱"}
+    </p>
+
+    <p className="text-[14px] tracking-[0.03em] text-[#555]">
+      atheneled@gmail.com
+    </p>
+
   </div>
 
 </div>
 
 
+{/* 底部品牌句 */}
+<div className="pt-14">
+
+  <div className="w-10 h-px bg-[#d8c39a] opacity-60 mb-8"></div>
+
+  <p className="text-[13px] leading-[2.1] text-[#8b857a] max-w-[300px]">
+    {lang === "en"
+      ? "Creating balanced lighting environments through design, engineering, and spatial integration."
+      : "透過照明設計、工程實務與空間整合，建立更自然且平衡的光環境。"}
+  </p>
+
+</div>
+</div>
+
 {/* ===== 右：表單 ===== */}
-<div className={`space-y-8 ${ani("page-delay-3")}`}>
+<div
+  className={`
+    space-y-8
+    bg-white
+    px-10 md:px-12
+    py-14 md:py-16
+
+    ${ani("page-delay-3")}
+  `}
+>
 
   <div>
     <p className="text-[11px] tracking-[0.3em] text-[#aaa] mb-3">
@@ -112,7 +172,7 @@ return(
       {lang === "en" ? "Send Message" : "發送訊息"}
     </h2>
 
-    <div className="w-8 h-px bg-[#C8A46A] mt-4"></div>
+    <div className="w-4 h-px bg-[#C8A46A] mt-4"></div>
   </div>
 
 <form
@@ -196,10 +256,57 @@ return(
   {/* 信件標題 */}
  <input type="hidden" name="_template" value="table" />
 
-<button type="submit" className="contact-btn-light" disabled={loading}>
-  {loading
-    ? (lang === "en" ? "SENDING..." : "傳送中...")
-    : (lang === "en" ? "SEND MESSAGE" : "送出訊息")}
+<button
+  type="submit"
+  disabled={loading}
+  className="
+    group
+    relative
+    overflow-hidden
+
+    min-w-[130px]
+    h-[50px]
+
+    rounded-full
+    border border-[#d9c7a0]
+
+    flex items-center justify-center
+
+    text-[#C8A46A]
+    text-[12px]
+    tracking-[0.38em]
+    font-light
+
+    transition-all duration-500
+
+    hover:text-white
+    hover:border-[#C8A46A]
+    hover:-translate-y-[2px]
+    hover:shadow-[0_8px_24px_rgba(200,164,106,0.18)]
+  "
+>
+
+  {/* 左→右滑入 */}
+  <span
+    className="
+      absolute inset-0
+      bg-[#C8A46A]
+
+      -translate-x-full
+      group-hover:translate-x-0
+
+      transition-transform
+      duration-500
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+    "
+  />
+
+  <span className="relative z-[2]">
+    {loading
+      ? (lang === "en" ? "SENDING..." : "傳送中...")
+      : (lang === "en" ? "SEND MESSAGE" : "送出訊息")}
+  </span>
+
 </button>
 
 </form>
@@ -223,6 +330,170 @@ return(
 
 </div>
 </section>
+
+
+{/* ===== CONTACT SOCIAL ===== */}
+<section className="py-20 bg-[#f3f0ec]">
+
+  <div className="max-w-[900px] mx-auto px-6 text-center">
+
+    {/* 小標 */}
+    <p className="
+      text-[#C8A46A]
+      text-[11px]
+      tracking-[0.38em]
+      mb-5
+    ">
+      CONNECT WITH US
+    </p>
+
+    {/* 標題 */}
+<h3
+  className="
+    text-[#222]
+    text-[14px]
+    md:text-[14px]
+    tracking-[0.14em]
+    font-light
+    leading-[2.2]
+  "
+>
+  {lang === "en"
+    ? "Stay connected while waiting for our reply."
+    : (
+      <>
+        等待回覆期間，<br />
+        歡迎透過以下方式與我們聯繫。
+      </>
+    )}
+</h3>
+
+    {/* 線 */}
+    <div className="
+      w-4 h-[1px]
+      bg-[#C8A46A]
+      mx-auto
+      mt-1 mb-5
+      opacity-60
+    "/>
+
+    {/* ICONS */}
+    <div className="flex justify-center gap-8">
+
+      {/* FB */}
+      <a
+        href="https://www.facebook.com/athenetech/?locale=zh_TW"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="
+w-[46px] h-[56px]
+rounded-full
+border border-[#d9c7a0]
+flex items-center justify-center
+text-[#C8A46A]
+
+hover:bg-[#C8A46A]
+hover:text-white
+hover:border-[#C8A46A]
+
+transition-all duration-500
+hover:-translate-y-[2px]
+hover:shadow-[0_8px_24px_rgba(200,164,106,0.28)]
+        "
+      >
+        <svg
+          viewBox="0 0 24 24"
+          className="w-[18px] h-[18px]"
+          fill="currentColor"
+        >
+          <path d="M14 8.5h2V5.2c-.35-.05-1.55-.15-2.95-.15-2.9 0-4.9 1.8-4.9 5.15v2.9H5v3.7h3.15V24h3.9v-7.2h3.05l.5-3.7h-3.55v-2.55c0-1.05.3-2.05 1.95-2.05Z"/>
+        </svg>
+      </a>
+
+      {/* LINE */}
+      <a
+        href="https://oashop.line.me/shops/706hatrq"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="
+w-[46px] h-[56px]
+rounded-full
+border border-[#d9c7a0]
+flex items-center justify-center
+text-[#C8A46A]
+
+hover:bg-[#C8A46A]
+hover:text-white
+hover:border-[#C8A46A]
+
+transition-all duration-500
+hover:-translate-y-[2px]
+hover:shadow-[0_8px_24px_rgba(200,164,106,0.28)]
+        "
+      >
+        <svg
+          viewBox="0 0 24 24"
+          className="w-[18px] h-[18px]"
+          fill="none"
+        >
+          <path
+            d="M12 4C7.6 4 4 6.85 4 10.35c0 3.15 2.85 5.8 6.7 6.3L12 20l2.15-3.25C17.5 16.1 20 13.55 20 10.35 20 6.85 16.4 4 12 4Z"
+            stroke="currentColor"
+            strokeWidth="1.7"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
+
+      {/* MAIL */}
+      <a
+        href="mailto:service@athenelight.com"
+        className="
+     w-[46px] h-[56px]
+rounded-full
+border border-[#d9c7a0]
+flex items-center justify-center
+text-[#C8A46A]
+
+hover:bg-[#C8A46A]
+hover:text-white
+hover:border-[#C8A46A]
+
+transition-all duration-500
+hover:-translate-y-[2px]
+hover:shadow-[0_8px_24px_rgba(200,164,106,0.28)]
+        "
+      >
+        <svg
+          viewBox="0 0 24 24"
+          className="w-[18px] h-[18px]"
+          fill="none"
+        >
+          <path
+            d="M4 6.5h16v11H4v-11Z"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M4.5 7l7.5 6 7.5-6"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
 
 {/* ===== MAP ===== */}
 <section className={`mt-20 ${ani("page-delay-2")}`}>
@@ -332,7 +603,7 @@ return(
       className="md:hidden relative block"
     >
 
-<div className="w-full h-[340px] overflow-hidden">
+<div className="w-full h-[330px] overflow-hidden">
   <img
     src="/images/map-bg.png"
     className="w-full h-full object-cover object-top"
