@@ -94,7 +94,7 @@ useEffect(() => {
 
   {/* 英文（完全固定🔥） */}
   <div className="hero-english">
-    LIGHT FORF<br/>
+    LIGHT FOR<br/>
     SILENT<br/>
     PLACES
   </div>
