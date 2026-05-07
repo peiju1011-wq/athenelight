@@ -29,6 +29,11 @@ const categories = [
   { key:"ALL", zh:"燈光系列", en:"Lighting" },
   { key:"INDOOR", zh:"室內", en:"INDOOR" },
   { key:"OUTDOOR", zh:"戶外", en:"OUTDOOR" },
+  { key:"LIGHTING_DESIGN", zh:"照明設計", en:"LIGHTING DESIGN" },
+  { key:"INTERIOR_LIGHTING", zh:"室內燈具", en:"INTERIOR LIGHTING" },
+  { key:"FESTIVAL", zh:"節慶", en:"FESTIVAL" },
+  { key:"INSTALLATION", zh:"施工安裝", en:"INSTALLATION" },
+  { key:"CUSTOM", zh:"訂製燈具", en:"CUSTOM LIGHTING" },
   { key:"MIRROR", zh:"鏡類產品", en:"MIRROR" }
 ];
 
