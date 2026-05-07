@@ -2,7 +2,7 @@ export const text = {
 hero:{
   bottom:{
     zh:"光。為空間留下溫度",
-    en:"Light, the silent pioneer."
+    en:"Light, leaving warmth in space."
   }
 },
 about: {
