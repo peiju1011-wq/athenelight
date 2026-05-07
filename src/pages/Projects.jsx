@@ -53,7 +53,6 @@ const typeMap = {
   COMMERCIAL: "商業空間",
   INTERIOR: "室內空間",
   ILLUMINATION: "亮化工程",
-  PUBLICWORKS: "公共工程",
   FESTIVAL: "燈會"
 };
 
