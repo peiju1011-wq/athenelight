@@ -1,7 +1,7 @@
 export const text = {
 hero:{
   bottom:{
-    zh:"光。無聲的先行者",
+    zh:"光。為空間留下溫度",
     en:"Light, the silent pioneer."
   }
 },
