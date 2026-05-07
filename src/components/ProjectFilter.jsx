@@ -10,7 +10,6 @@ const filters = [
   { zh: "商業空間", en: "COMMERCIAL" },
   { zh: "室內空間", en: "INTERIOR" },
   { zh: "亮化工程", en: "ILLUMINATION" },
-  { zh: "公共工程", en: "PUBLICWORKS" },
   { zh: "燈會", en: "FESTIVAL" }
 ];
 
