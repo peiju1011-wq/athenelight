@@ -106,7 +106,7 @@ useEffect(() => {
 
 </div>
 
-    {/* BOTTOM BAR */}
+{/* BOTTOM BAR */}
 <div className="hero-bottom">
 
   <div className="hero-social flex gap-6">
@@ -116,38 +116,18 @@ useEffect(() => {
       href="https://www.facebook.com/athenetech/?locale=zh_TW"
       target="_blank"
       rel="noopener noreferrer"
-      className="
-        relative
-        text-white/90
-        text-[11px]
-        tracking-[0.3em]
-        font-light
-        group
-        transition duration-300
-        hover:text-white
-      "
+      className="relative text-white/85 group transition duration-300 hover:text-white"
+      aria-label="Facebook"
     >
-      FB
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M14 8.5h2V5.2c-.35-.05-1.55-.15-2.95-.15-2.9 0-4.9 1.8-4.9 5.15v2.9H5v3.7h3.15V24h3.9v-7.2h3.05l.5-3.7h-3.55v-2.55c0-1.05.3-2.05 1.95-2.05Z" />
+      </svg>
 
-      {/* 金線 */}
       <span className="
-        absolute left-0 bottom-[-6px]
-        w-0 h-[1px]
-        bg-[#C8A46A]
-        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-        group-hover:w-full
-      " />
-
-      {/* 光暈 */}
-      <span className="
-        absolute left-0 bottom-[-6px]
-        w-0 h-[6px]
-        bg-[#C8A46A]/40
-        blur-md
-        opacity-0
+        absolute left-1/2 -translate-x-1/2 bottom-[-8px]
+        w-0 h-[1px] bg-[#C8A46A]
         transition-all duration-500
-        group-hover:w-full
-        group-hover:opacity-100
+        group-hover:w-[18px]
       " />
     </a>
 
@@ -156,72 +136,60 @@ useEffect(() => {
       href="https://oashop.line.me/shops/706hatrq"
       target="_blank"
       rel="noopener noreferrer"
-      className="
-        relative
-        text-white/90
-        text-[11px]
-        tracking-[0.3em]
-        font-light
-        group
-        transition duration-300
-        hover:text-white
-      "
+      className="relative text-white/85 group transition duration-300 hover:text-white"
+      aria-label="LINE"
     >
-      LINE
+      <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M12 4C7.6 4 4 6.85 4 10.35c0 3.15 2.85 5.8 6.7 6.3L12 20l2.15-3.25C17.5 16.1 20 13.55 20 10.35 20 6.85 16.4 4 12 4Z"
+          stroke="currentColor"
+          strokeWidth="1.7"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M8 10.2h1.2v2H11M12 10.2v2M14 12.2v-2l2 2v-2"
+          stroke="currentColor"
+          strokeWidth="1.3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
 
       <span className="
-        absolute left-0 bottom-[-6px]
-        w-0 h-[1px]
-        bg-[#C8A46A]
-        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-        group-hover:w-full
-      " />
-
-      <span className="
-        absolute left-0 bottom-[-6px]
-        w-0 h-[6px]
-        bg-[#C8A46A]/40
-        blur-md
-        opacity-0
+        absolute left-1/2 -translate-x-1/2 bottom-[-8px]
+        w-0 h-[1px] bg-[#C8A46A]
         transition-all duration-500
-        group-hover:w-full
-        group-hover:opacity-100
+        group-hover:w-[18px]
       " />
     </a>
 
     {/* MAIL */}
     <Link
       to="/contact"
-      className="
-        relative
-        text-white/90
-        text-[11px]
-        tracking-[0.3em]
-        font-light
-        group
-        transition duration-300
-        hover:text-white
-      "
+      className="relative text-white/85 group transition duration-300 hover:text-white"
+      aria-label="Contact"
     >
-      MAIL
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M4 6.5h16v11H4v-11Z"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M4.5 7l7.5 6 7.5-6"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
 
       <span className="
-        absolute left-0 bottom-[-6px]
-        w-0 h-[1px]
-        bg-[#C8A46A]
-        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-        group-hover:w-full
-      " />
-
-      <span className="
-        absolute left-0 bottom-[-6px]
-        w-0 h-[6px]
-        bg-[#C8A46A]/40
-        blur-md
-        opacity-0
+        absolute left-1/2 -translate-x-1/2 bottom-[-8px]
+        w-0 h-[1px] bg-[#C8A46A]
         transition-all duration-500
-        group-hover:w-full
-        group-hover:opacity-100
+        group-hover:w-[18px]
       " />
     </Link>
 
