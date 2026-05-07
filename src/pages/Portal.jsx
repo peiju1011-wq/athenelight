@@ -8,9 +8,9 @@ import { text } from "../data/text"
 import products from "../data/products";
 
 const slides = [
-  "/images/hero/hero4.png",
-  "/images/hero/hero5.jpg",
-  "/images/hero/hero6.jpg"
+  "/images/hero/hero4.jpg",
+  "/images/hero/hero6.jpg",
+  "/images/hero/hero5.jpg"
 ];
 export default function Portal() {
 
