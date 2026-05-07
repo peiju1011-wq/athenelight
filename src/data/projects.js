@@ -2,7 +2,7 @@ const projects = [
 
 {
   id:1,
- type: "公共",
+ type: "公共工程",
   category:"景觀照明",
   category_en:"LANDSCAPE LIGHTING",
 
@@ -30,7 +30,7 @@ const projects = [
 
 {
   id:2,
-type: "公共",
+type: "燈會",
   category:"燈會",
   category_en:"LIGHT FESTIVAL",
 
@@ -57,7 +57,7 @@ type: "公共",
 
 {
   id:3,
-type: "商業",
+type: "商業空間",
   category:"商場照明",
   category_en:"COMMERCIAL",
 
@@ -85,7 +85,7 @@ type: "商業",
 
 {
   id: 4,
-type: "公共",
+type: "照明設計",
   category: "商業空間照明",
   category_en: "COMMERCIAL LIGHTING",
 
@@ -115,7 +115,7 @@ type: "公共",
 
   category: "室內光膜",
   category_en: "INTERIOR LIGHTING",
-type: "公共",
+type: "商業空間",
   title: "運動中心照明設計",
   title_en: "Sports Center Lighting Design",
 
@@ -141,7 +141,7 @@ type: "公共",
 {
   id:6,
 
-  type: "住宅",   // 🔥 分類正確
+  type: "外牆",  
 
   category: "外牆照明",
   category_en: "FACADE LIGHTING",
@@ -172,7 +172,7 @@ type: "公共",
 
   category: "商業空間照明",
   category_en: "COMMERCIAL LIGHTING",
-type: "商業",
+type: "商業空間",
   title: "球隊展示空間光膜設計",
   title_en: "Sports Retail Lighting & Lightbox Design",
 
