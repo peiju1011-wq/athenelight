@@ -243,14 +243,20 @@ export default function About() {
 
 <p>
   {lang === "en"
-    ? "Over the past decade, we have focused on high-end architectural and landscape lighting projects. Every luminaire we develop and every design we refine reflects our pursuit of light and shadow at its finest. We do not merely provide equipment — we bring soul to spaces."
-    : "在過去的十多年間，我們專注於高端建築與景觀亮化工程。每一盞燈具的研發、每一份設計圖的推敲，都秉持著對光影極致追求的初心。我們不只是提供設備，而是為空間賦予靈魂。"}
+    ? "Athene Light specializes in architectural lighting, landscape illumination, and integrated lighting environments. From planning and fixture selection to on-site installation and lighting adjustment, we continuously explore a more natural relationship between light and space."
+    : "宇碩光長期專注於建築照明、景觀光環境與空間亮化工程，從設計規劃、燈具配置到現場施工與調光，持續探索光與空間之間更自然的關係。"}
 </p>
 
 <p>
   {lang === "en"
-    ? "Our team consists of experienced optical engineers, spatial designers, and professional construction specialists. By integrating IoT-based smart control systems with energy-efficient LED technology, we create lighting works that balance sustainability with architectural aesthetics."
-    : "宇碩光的團隊由資深光學工程師、空間設計師與專業工程團隊組成。我們結合最新的物聯網智慧控制技術與節能 LED 科技，致力於創造出既兼顧環境永續，又能展現建築美學的「光之傑作」。"}
+    ? "We believe lighting is not only meant to be seen, but to shape the atmosphere, warmth, and rhythm of a space. By combining lighting design, engineering expertise, and smart control technologies, we create lighting environments tailored to each project."
+    : "我們相信，好的照明不只是被看見，而是讓人真正感受到空間的層次、溫度與秩序。團隊結合照明設計、工程實務與智慧控制技術，在節能、美學與使用體驗之間取得平衡，為不同場域建立專屬的光環境。"}
+</p>
+
+<p>
+  {lang === "en"
+    ? "By integrating lighting design, engineering execution, and smart control systems, we provide comprehensive solutions from planning and installation to on-site lighting adjustment, making light not only functional, but also part of a space’s identity and architectural character, creating lighting environments with greater warmth and presence."
+    : "我們結合照明設計、工程施工與智慧控制系統，提供從規劃、施工到後續調光的整合服務，讓光不只是功能，而是成為空間質感與建築識別的一部分，建立更有溫度的光環境。"}
 </p>
 
       </div>
