@@ -30,7 +30,7 @@ overflow-x:hidden;
 /* 中文專用（重要🔥） */
 .hero-sub.zh{
 font-size:17px;
-letter-spacing:.9em;
+letter-spacing:.45em;
 font-weight:300;
 
 opacity:0;
@@ -53,7 +53,9 @@ animation-delay:.6s;
 
 @media (max-width: 768px){
   .hero-center-line{
-    height:65px;  
+    height:65px; 
+    bottom:65px;
+     
   }
 }
 
@@ -212,7 +214,7 @@ gap:18px;
 /* ❌ 不再改 hero-content（避免跑位） */
 
 .hero-english{
-font-size:24px;
+font-size:22px;
 letter-spacing:.2em;
 }
 
