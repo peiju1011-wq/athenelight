@@ -657,19 +657,19 @@ hover:shadow-[0_8px_24px_rgba(200,164,106,0.28)]
 
 
 {/* ===== THANK YOU ===== */}
-<section className={`mt-20 pt-14 border-t border-[#eee] text-center ${ani("page-delay-3")}`}>
+<section className={` pt-16 border-t border-[#eee] text-center ${ani("page-delay-3")}`}>
 
-<p className="text-[14px] text-[#666] leading-relaxed tracking-[0.1em]">
+<p className="text-[14px] text-[#C8A46A] leading-relaxed tracking-[0.1em] ">
   {lang === "en"
     ? "Thank you for reaching Athene Light. We will provide the most suitable lighting solution with professional expertise."
     : "感謝您洽詢宇碩光，我們將以專業的照明設計與工程經驗，為您打造最合適的光環境解決方案。"}
 </p>
 
-<p className="text-[12px] text-[#999] tracking-[0.2em] mt-4">
+<p className="text-[12px] text-[#C8A46A] tracking-[0.2em] mt-4">
   THANK YOU FOR CONNECTING WITH ATHENE LIGHT
 </p>
 
-<div className="flex justify-center mt-6">
+<div className="flex justify-center mt-10">
   <div className="light-line"></div>
 </div>
 
