@@ -1,8 +1,8 @@
 
 .hero-english{
 font-size:50px;
-letter-spacing:.11em;
-line-height:1.;   /* ✅ 保持你原本設計 */
+letter-spacing:.12em;
+line: height 1.2em;  
 font-weight:400;
 
 opacity:0;
