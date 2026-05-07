@@ -362,8 +362,8 @@ return(
     ? "Stay connected while waiting for our reply."
     : (
       <>
-        等待回覆期間，<br />
-        歡迎透過以下方式與我們聯繫。
+        歡迎透過以下平台，<br />
+        瀏覽更多宇碩光的照明案例與空間分享。
       </>
     )}
 </h3>
