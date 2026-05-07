@@ -255,8 +255,8 @@ export default function About() {
 
 <p>
   {lang === "en"
-    ? "By integrating lighting design, engineering execution, and smart control systems, we provide comprehensive solutions from planning and installation to on-site lighting adjustment, making light not only functional, but also part of a space’s identity and architectural character, creating lighting environments with greater warmth and presence."
-    : "我們結合照明設計、工程施工與智慧控制系統，提供從規劃、施工到後續調光的整合服務，讓光不只是功能，而是成為空間質感與建築識別的一部分，建立更有溫度的光環境。"}
+    ? "By integrating lighting design, engineering execution, and smart control systems, we provide comprehensive solutions from planning and installation to on-site lighting adjustment, making light not only functional, but also part of a space’s identity and architectural character, leaving warmth within every space."
+    : "我們結合照明設計、工程施工與智慧控制系統，提供從規劃、施工到後續調光的整合服務，讓光不只是功能，而是成為空間質感與建築識別的一部分，為空間留下溫度。"}
 </p>
 
       </div>
