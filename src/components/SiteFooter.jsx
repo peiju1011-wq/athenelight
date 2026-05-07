@@ -105,6 +105,7 @@ export default function SiteFooter() {
 
                 const baseClass = `
                   text-[11px]
+                  
                   px-3 py-2
                   border border-[#d8d4cc]
                   rounded-full
@@ -122,16 +123,65 @@ export default function SiteFooter() {
                       rel="noopener noreferrer"
                       className={baseClass}
                     >
-                      {item.label}
+                   <>
+  {item.label === "FB" && (
+    <svg
+      viewBox="0 0 26 24"
+      className="w-[16px] h-[16px]"
+      fill="currentColor"
+    >
+      <path d="M14 8.5h2V5.2c-.35-.05-1.55-.15-2.95-.15-2.9 0-4.9 1.8-4.9 5.15v2.9H5v3.7h3.15V24h3.9v-7.2h3.05l.5-3.7h-3.55v-2.55c0-1.05.3-2.05 1.95-2.05Z"/>
+    </svg>
+  )}
+
+  {item.label === "LINE" && (
+    <svg
+      viewBox="0 0 24 24"
+      className="w-[18px] h-[18px]"
+      fill="none"
+    >
+      <path
+        d="M12 4C7.6 4 4 6.85 4 10.35c0 3.15 2.85 5.8 6.7 6.3L12 20l2.15-3.25C17.5 16.1 20 13.55 20 10.35 20 6.85 16.4 4 12 4Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )}
+</>
                     </a>
                   );
                 }
 
-                return (
-                  <Link key={i} to={item.link} className={baseClass}>
-                    {item.label}
-                  </Link>
-                );
+return (
+  <Link key={i} to={item.link} className={baseClass}>
+
+    {item.label === "MAIL" ? (
+      <svg
+        viewBox="0 0 24 24"
+        className="w-[18px] h-[18px]"
+        fill="none"
+      >
+        <path
+          d="M4 6.5h16v11H4v-11Z"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M4.5 7l7.5 6 7.5-6"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ) : (
+      item.label
+    )}
+
+  </Link>
+);
 
               })}
 
