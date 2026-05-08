@@ -297,9 +297,9 @@ md:text-[40px]
     tracking-[0.08em]
     opacity-70
   ">
-    {lang === "en"
-  ? "ATHENE LIGHT specializes in architectural lighting, landscape lighting, commercial space lighting, and lighting environment design, providing integrated solutions for facade lighting, linear lighting, wall washer lighting, stretch ceiling lighting, and lighting festival projects."
-  : "宇碩光 ATHENE LIGHT 專注於建築照明、景觀照明、商業空間照明與光環境設計，提供外牆照明、條燈、線燈、洗牆燈、光膜與燈會工程整合服務。"}
+{lang === "en"
+  ? "ATHENE LIGHT specializes in architectural lighting, landscape illumination, and integrated lighting environments. From facade lighting and linear lighting systems to wall washer lighting, stretch ceiling lighting, and festival installations, we create lighting solutions that connect architecture, space, and atmosphere."
+  : "宇碩光 ATHENE LIGHT 專注於建築照明、景觀照明與光環境設計，提供外牆照明設計、條燈、線燈、洗牆燈、光膜和燈會工程整合服務。"}
   </p>
 
 </div>
