@@ -114,45 +114,64 @@ useEffect(() => {
 ">
 
     {/* TITLE */}
-    <div className="hero-title">
+<div className="hero-title">
 
-      <div className="
-        text-[34px]
-        md:text-[82px]
-        font-[300]
-        tracking-[0.38em]
-        uppercase
-        leading-none
-        drop-shadow-[0_4px_24px_rgba(0,0,0,0.65)]
-      ">
-        ATHENE LIGHT
-      </div>
+  {/* LOGO TITLE */}
+  <div className="
+    text-[26px]
+    md:text-[58px]
 
-      {/* 金線 */}
-      <div className="
-        w-[72px]
-        h-[1px]
-        bg-[#C8A46A]
-        mx-auto
-        mt-7
-        opacity-70
-      "/>
+    font-[200]
+    tracking-[0.48em]
 
-      {/* SUBTITLE */}
-      <div className={`
-        mt-7
-        text-[11px]
-        md:text-[14px]
-        tracking-[0.52em]
-        uppercase
-        text-white/75
-      `}>
-        {lang === "en"
-          ? "LIGHT OF SILENT PIONEERS"
-          : "光。無聲的溫度"}
-      </div>
+    uppercase
+    leading-none
 
-    </div>
+    text-white/92
+
+    drop-shadow-[0_2px_18px_rgba(0,0,0,0.45)]
+
+    md:translate-x-[-1.5vw]
+  ">
+    ATHENE LIGHT
+  </div>
+
+  {/* 金線 */}
+  <div className="
+    w-[72px]
+    h-[1px]
+
+    bg-[#C8A46A]
+
+    mt-8
+    mb-7
+
+    opacity-70
+
+    mx-auto
+  "/>
+
+  {/* SUBTITLE */}
+  <div className="
+    text-[10px]
+    md:text-[12px]
+
+    tracking-[0.42em]
+
+    uppercase
+
+    text-white/68
+
+    font-light
+  ">
+    {lang === "en"
+      ? "LIGHT OF SILENT PIONEERS"
+      : "光。無聲的溫度"}
+  </div>
+
+</div>
+
+  
 
     {/* SOCIAL */}
     <div className="
