@@ -13,32 +13,31 @@ about: {
 
   title: {
     zh: "宇碩光簡介",
-    en: "About Athene Light"
+    en:"Light, leaving warmth in space."
   },
 
   // 🔥 主內容（唯一核心）
   content: {
-    zh: `宇碩光致力於景觀照明與建築光環境設計，
-提供從規劃、施工到節能整合的完整解決方案。
+    zh: `宇碩光長期專注於建築照明、景觀光環境與空間亮化工程，
+從設計規劃、燈具配置到現場施工與調光，
+持續探索光與空間之間更自然的關係。
 
-透過專業團隊與創新技術，
-我們將光轉化為空間語言，
-讓建築在夜晚展現獨特的生命力與層次。
+我們相信，好的照明不只是被看見，
+而是讓人真正感受到空間的層次、溫度與秩序。
+團隊結合照明設計、工程實務與智慧控制技術，
+在節能、美學與使用體驗之間取得平衡，
+為不同場域建立專屬的光環境。
 
-從概念到落實，
-我們追求光與空間的和諧共存，
-為每一個場域打造專屬的光環境。`,
+我們結合照明設計、工程施工與智慧控制系統，
+提供從規劃、施工到後續調光的整合服務，
+讓光不只是功能，
+而是成為空間質感與建築識別的一部分。`,
 
-    en: `Athene Light specializes in landscape and architectural lighting design,
-providing complete solutions from planning to installation and energy optimization.
+    en: `Athene Light specializes in architectural lighting, landscape illumination, and integrated lighting environments. From planning and fixture selection to on-site installation and lighting adjustment, we continuously explore a more natural relationship between light and space.
 
-Through professional expertise and innovative technologies,
-we transform light into a spatial language,
-bringing architecture to life with depth and identity.
+We believe lighting is not only meant to be seen, but to shape the atmosphere, warmth, and spatial order of a place. By combining lighting design, engineering expertise, and smart control technologies, we create lighting environments tailored to each project while balancing aesthetics, energy efficiency, and user experience.
 
-From concept to execution,
-we pursue harmony between light and space,
-crafting unique lighting environments for every project.`
+By integrating lighting design, engineering execution, and smart control systems, we provide comprehensive solutions from planning and installation to on-site lighting adjustment, making light not only functional, but also part of a space’s identity and architectural character.`
   }
 },
 
@@ -48,20 +47,41 @@ services:{
     zh:"光環境整合服務",
     en:"LIGHTING SOLUTIONS"
   },
+
   title:{
     zh:"光環境整合服務",
     en:"Lighting Solutions"
   },
+
   items:[
-    { zh:"照明設計", en:"Lighting Design" },
-    { zh:"工程施工", en:"Engineering" },
-    { zh:"立面照明", en:"Facade Lighting" },
-    { zh:"客製燈具", en:"Custom Luminaires" }
-  ],
-  desc:{
-    zh:"建立空間與光的關係",
-    en:"Creating relationships between space and light"
-  }
+    {
+      zh:"照明設計",
+      en:"Lighting Design",
+      descZh:"建築照明、商業空間光環境規劃",
+      descEn:"Architectural lighting, commercial lighting, and lighting environment planning"
+    },
+
+    {
+      zh:"工程施工",
+      en:"Engineering",
+      descZh:"景觀照明、外牆亮化工程整合",
+      descEn:"Landscape lighting, facade lighting, and integrated lighting engineering"
+    },
+
+    {
+      zh:"建築外牆",
+      en:"Facade Lighting",
+      descZh:"洗牆燈、線燈立面照明應用",
+      descEn:"Wall washer lighting, linear lighting, and facade lighting applications"
+    },
+
+    {
+      zh:"客製燈具",
+      en:"Custom Luminaires",
+      descZh:"條燈、光膜與客製照明整合",
+      descEn:"Linear lighting, stretch ceiling lighting, and custom lighting solutions"
+    }
+  ]
 },
 
 
@@ -155,39 +175,50 @@ process:{
     zh:"光的構成方式",
     en:"OUR PROCESS"
   },
+
   title:{
     zh:"光的構成方式",
     en:"Our Process"
   },
+
   items:[
+
     {
       title:{ zh:"概念", en:"Concept" },
+
       desc:{
-        zh:"理解場域與建築語彙，定義光的角色",
+        zh:"理解場域與建築語彙，建立整體照明藍圖",
         en:"Understanding the space and defining the role of light"
       }
     },
+
     {
       title:{ zh:"設計", en:"Design" },
+
       desc:{
-        zh:"整合光影層次與空間關係，建立照明策略",
-        en:"Building lighting strategies through spatial relationships"
+        zh:"整合空間關係與照明需求，建立照明策略",
+        en:"Integrating spatial relationships and lighting requirements"
       }
     },
+
     {
       title:{ zh:"執行", en:"Execute" },
+
       desc:{
         zh:"精準施工與細節落實，確保設計完整呈現",
         en:"Precise execution to ensure design integrity"
       }
     },
+
     {
       title:{ zh:"調光", en:"Lighting" },
+
       desc:{
-        zh:"現場調光與測試，讓光真正被感受",
-        en:"On-site tuning to bring light to life"
+        zh:"現場調光與測試，提升空間整體光環境品質",
+        en:"On-site tuning to create a more natural relationship between light and space"
       }
     }
+
   ]
 },
 
