@@ -162,7 +162,7 @@ md:text-[40px]
 
     {/* ZH */}
     <div className="
-      text-[10px]
+      text-[12px]
       md:text-[12px]
 
       tracking-[0.7em]
@@ -185,7 +185,7 @@ md:text-[40px]
   <div className="
     absolute
 
-    bottom-[148px]
+    bottom-[138px]
     md:bottom-20
 
     left-1/2
