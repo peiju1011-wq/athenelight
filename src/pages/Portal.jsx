@@ -68,161 +68,152 @@ useEffect(() => {
     <div className="portal">
 
       {/* HERO */}
-<section className="hero bg-black">
+{/* HERO */}
+<section className="hero relative h-screen overflow-hidden bg-black">
 
+  {/* 🎬 VIDEO */}
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+    className="
+      absolute inset-0
+      w-full h-full
+      object-cover
+      scale-[1.02]
+    "
+  >
+    <source src="/videos/hero.mp4" type="video/mp4" />
+  </video>
 
+  {/* 🔥 OVERLAY */}
+  <div className="
+    absolute inset-0 z-[1]
+    bg-gradient-to-b
+    from-black/20
+    via-black/35
+    to-black/60
+  " />
 
-  {/* SLIDES */}
-  <div className="hero-slides">
-    {slides.map((img, i) => (
-      <div
-        key={i}
-        className={`hero-slide ${i === index ? "active" : ""}`}
-        style={{ backgroundImage: `url(${img})` }}
-      />
-    ))}
-  </div>
+{/* ✨ CONTENT */}
+<div className="
+  relative z-10
+  h-full
+  flex flex-col
+  justify-end
+  items-center
+  text-center
+  text-white
 
-  {/* OVERLAY */}
-  <div className="hero-overlay" />
+  pb-[18vh]
+  md:pb-32
 
-  {/* CONTENT */}
-  <div className="hero-inner">
+  px-6
+">
 
     {/* TITLE */}
-<div className="hero-title">
+    <div className="hero-title">
 
-  {/* 英文（完全固定🔥） */}
-  <div className="hero-english">
-    LIGHT FOR<br/>
-    SILENT<br/>
-    PLACES
-  </div>
+      <div className="
+        text-[34px]
+        md:text-[82px]
+        font-[300]
+        tracking-[0.38em]
+        uppercase
+        leading-none
+        drop-shadow-[0_4px_24px_rgba(0,0,0,0.65)]
+      ">
+        ATHENE LIGHT
+      </div>
 
-  {/* 中文（翻譯控制） */}
-<div className={`hero-sub small ${lang === "zh" ? "zh" : ""}`}>
-  {t?.hero?.bottom?.[lang]}
-</div>
+      {/* 金線 */}
+      <div className="
+        w-[72px]
+        h-[1px]
+        bg-[#C8A46A]
+        mx-auto
+        mt-7
+        opacity-70
+      "/>
 
-</div>
-
-{/* BOTTOM BAR */}
-<div className="hero-bottom">
-
-  <div className="hero-social flex gap-6">
-
-    {/* FB */}
-    <a
-      href="https://www.facebook.com/athenetech/?locale=zh_TW"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="relative text-white/85 group transition duration-300 hover:text-white"
-      aria-label="Facebook"
-    >
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M14 8.5h2V5.2c-.35-.05-1.55-.15-2.95-.15-2.9 0-4.9 1.8-4.9 5.15v2.9H5v3.7h3.15V24h3.9v-7.2h3.05l.5-3.7h-3.55v-2.55c0-1.05.3-2.05 1.95-2.05Z" />
-      </svg>
-
-      <span className="
-        absolute left-1/2 -translate-x-1/2 bottom-[-8px]
-        w-0 h-[1px] bg-[#C8A46A]
-        transition-all duration-500
-        group-hover:w-[18px]
-      " />
-    </a>
-
-    {/* LINE */}
-    <a
-      href="https://oashop.line.me/shops/706hatrq"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="relative text-white/85 group transition duration-300 hover:text-white"
-      aria-label="LINE"
-    >
-      <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M12 4C7.6 4 4 6.85 4 10.35c0 3.15 2.85 5.8 6.7 6.3L12 20l2.15-3.25C17.5 16.1 20 13.55 20 10.35 20 6.85 16.4 4 12 4Z"
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M8 10.2h1.2v2H11M12 10.2v2M14 12.2v-2l2 2v-2"
-          stroke="currentColor"
-          strokeWidth="1.3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-
-      <span className="
-        absolute left-1/2 -translate-x-1/2 bottom-[-8px]
-        w-0 h-[1px] bg-[#C8A46A]
-        transition-all duration-500
-        group-hover:w-[18px]
-      " />
-    </a>
-
-    {/* MAIL */}
-    <Link
-      to="/contact"
-      className="relative text-white/85 group transition duration-300 hover:text-white"
-      aria-label="Contact"
-    >
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M4 6.5h16v11H4v-11Z"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M4.5 7l7.5 6 7.5-6"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-
-      <span className="
-        absolute left-1/2 -translate-x-1/2 bottom-[-8px]
-        w-0 h-[1px] bg-[#C8A46A]
-        transition-all duration-500
-        group-hover:w-[18px]
-      " />
-    </Link>
-
-  </div>
-
-
-
-      <div className="hero-pagination">
-
-        <div className="hero-dots">
-          {slides.map((_, i) => (
-            <span
-              key={i}
-              className={i === index ? "active" : ""}
-              onClick={() => setIndex(i)}
-            />
-          ))}
-        </div>
-
-        <div className="hero-number">
-          {String(index + 1).padStart(2, "0")}
-          <span>/03</span>
-        </div>
-
+      {/* SUBTITLE */}
+      <div className={`
+        mt-7
+        text-[11px]
+        md:text-[14px]
+        tracking-[0.52em]
+        uppercase
+        text-white/75
+      `}>
+        {lang === "en"
+          ? "LIGHT OF SILENT PIONEERS"
+          : "光。無聲的溫度"}
       </div>
 
     </div>
 
-  </div>
+    {/* SOCIAL */}
+    <div className="
+      absolute bottom-10
+      flex gap-6
+      items-center
+    ">
 
-  {/* SCROLL INDICATOR */}
-  <div className="hero-center-line">
-    <div className="scroll-bar"></div>
+      {/* FB */}
+      <a
+        href="https://www.facebook.com/athenetech/?locale=zh_TW"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-white/80 hover:text-white transition"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M14 8.5h2V5.2c-.35-.05-1.55-.15-2.95-.15-2.9 0-4.9 1.8-4.9 5.15v2.9H5v3.7h3.15V24h3.9v-7.2h3.05l.5-3.7h-3.55v-2.55c0-1.05.3-2.05 1.95-2.05Z" />
+        </svg>
+      </a>
+
+      {/* LINE */}
+      <a
+        href="https://oashop.line.me/shops/706hatrq"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-white/80 hover:text-white transition"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M12 4C7.6 4 4 6.85 4 10.35c0 3.15 2.85 5.8 6.7 6.3L12 20l2.15-3.25C17.5 16.1 20 13.55 20 10.35 20 6.85 16.4 4 12 4Z"
+            stroke="currentColor"
+            strokeWidth="1.7"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
+
+      {/* MAIL */}
+      <Link
+        to="/contact"
+        className="text-white/80 hover:text-white transition"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M4 6.5h16v11H4v-11Z"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M4.5 7l7.5 6 7.5-6"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </Link>
+
+    </div>
+
   </div>
 
 </section>
@@ -246,8 +237,8 @@ useEffect(() => {
     opacity-70
   ">
     {lang === "en"
-  ? "ATHENE LIGHT specializes in architectural lighting, landscape lighting, commercial lighting, lighting environment design, facade lighting, linear lighting applications, light film systems, festival lighting, and integrated lighting solutions for residential and commercial spaces."
-  : "宇碩光 ATHENE LIGHT 專注於建築照明、景觀照明、商業照明、光環境設計、外牆照明、燈條應用、光膜系統與燈會工程，提供住宅與商業空間整合照明服務。"}
+  ? "ATHENE LIGHT specializes in architectural lighting, landscape lighting, commercial space lighting, and lighting environment design, providing integrated solutions for facade lighting, linear lighting, wall washer lighting, stretch ceiling lighting, and lighting festival projects."
+  : "宇碩光 ATHENE LIGHT 專注於建築照明、景觀照明、商業空間照明與光環境設計，提供外牆照明、條燈、線燈、洗牆燈、光膜與燈會工程整合服務。"}
   </p>
 
 </div>
