@@ -447,42 +447,32 @@ hover:shadow-[0_8px_24px_rgba(200,164,106,0.28)]
 
       {/* MAIL */}
       <a
-        href="mailto:service@athenelight.com"
-        className="
-     w-[46px] h-[56px]
-rounded-full
-border border-[#d9c7a0]
-flex items-center justify-center
-text-[#C8A46A]
+  href="https://m.me/athenetech"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    w-[46px] h-[56px]
+    rounded-full
+    border border-[#d9c7a0]
+    flex items-center justify-center
+    text-[#C8A46A]
 
-hover:bg-[#C8A46A]
-hover:text-white
-hover:border-[#C8A46A]
+    hover:bg-[#C8A46A]
+    hover:text-white
+    hover:border-[#C8A46A]
 
-transition-all duration-500
-hover:-translate-y-[2px]
-hover:shadow-[0_8px_24px_rgba(200,164,106,0.28)]
-        "
+    transition-all duration-500
+    hover:-translate-y-[2px]
+    hover:shadow-[0_8px_24px_rgba(200,164,106,0.28)]
+  "
       >
-        <svg
-          viewBox="0 0 24 24"
-          className="w-[18px] h-[18px]"
-          fill="none"
-        >
-          <path
-            d="M4 6.5h16v11H4v-11Z"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M4.5 7l7.5 6 7.5-6"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+<svg
+  viewBox="0 0 24 24"
+  className="w-[18px] h-[18px]"
+  fill="currentColor"
+>
+  <path d="M12 2C6.48 2 2 6.15 2 11.27c0 2.92 1.46 5.53 3.75 7.24V22l3.22-1.77c.96.27 1.98.42 3.03.42 5.52 0 10-4.15 10-9.27S17.52 2 12 2Zm1.1 12.4-2.55-2.72-4.98 2.72 5.48-5.82 2.6 2.72 4.93-2.72-5.48 5.82Z"/>
+</svg>
       </a>
 
     </div>
