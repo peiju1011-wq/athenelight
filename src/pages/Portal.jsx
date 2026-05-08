@@ -94,25 +94,11 @@ useEffect(() => {
 
   bg-gradient-to-b
   from-black/5
-  via-black/15
+  via-black/10
   to-black/35
 "/>
 
 {/* ✨ CONTENT */}
-<div className="
-  relative z-10
-
-  h-full
-
-  flex flex-col
-  justify-center
-  items-center
-
-  text-center
-  text-white
-
-  px-6
-"/>
 {/* HERO CONTENT */}
 <div className="
   absolute inset-0 z-[5]
@@ -128,64 +114,65 @@ useEffect(() => {
   <div className="
     flex flex-col
     items-center
-translate-y-[-11vh]
-md:translate-y-[-3vh]
+
+    translate-y-[19vh]
+    md:translate-y-[25vh]
   ">
 
     {/* EN */}
     <div className="
-      text-[22px]
-      sm:text-[28px]
-      md:text-[58px]
+      text-[24px]
+      sm:text-[30px]
+      md:text-[40px]
 
       font-[250]
 
-      tracking-[0.26em]
+      tracking-[0.58em]
       md:tracking-[0.48em]
 
       uppercase
-      leading-[1.2]
+      leading-[1.15]
 
       text-white/90
 
       whitespace-nowrap
 
-      drop-shadow-[0_2px_18px_rgba(0,0,0,0.45)]
+      drop-shadow-[0_2px_18px_rgba(0,0,0,0.42)]
     ">
       ATHENE LIGHT
     </div>
 
     {/* 金線 */}
     <div className="
-      w-[56px]
+      w-[42px]
       md:w-[72px]
 
       h-[1px]
 
       bg-[#C8A46A]
 
-      mt-6
+      mt-5
       md:mt-8
 
-      mb-5
+      mb-4
       md:mb-7
 
-      opacity-70
+      opacity-45
     "/>
 
     {/* ZH */}
     <div className="
-      text-[11px]
+      text-[10px]
       md:text-[12px]
 
-      tracking-[0.32em]
-      md:tracking-[0.42em]
+      tracking-[0.28em]
+      md:tracking-[0.6em]
 
-      text-white/78
+      text-white/76
 
       font-light
 
-      drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]
+      drop-shadow-[0_2px_10px_rgba(0,0,0,0.32)]
     ">
       {lang === "en"
         ? "Light, leaving warmth in space."
@@ -197,13 +184,14 @@ md:translate-y-[-3vh]
   {/* SOCIAL */}
   <div className="
     absolute
-    bottom-[78px]
+
+    bottom-[178px]
     md:bottom-10
 
     left-1/2
     -translate-x-1/2
 
-    flex gap-7
+    flex gap-8
     items-center
   ">
 
@@ -213,8 +201,8 @@ md:translate-y-[-3vh]
       target="_blank"
       rel="noopener noreferrer"
       className="
-        text-white/46
-        hover:text-white
+        text-white/42
+        hover:text-white/88
 
         transition
         duration-300
@@ -231,8 +219,8 @@ md:translate-y-[-3vh]
       target="_blank"
       rel="noopener noreferrer"
       className="
-        text-white/46
-        hover:text-white
+        text-white/42
+        hover:text-white/88
 
         transition
         duration-300
@@ -252,8 +240,8 @@ md:translate-y-[-3vh]
     <Link
       to="/contact"
       className="
-        text-white/46
-        hover:text-white
+        text-white/42
+        hover:text-white/88
 
         transition
         duration-300
