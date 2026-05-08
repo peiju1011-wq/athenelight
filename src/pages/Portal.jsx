@@ -121,13 +121,13 @@ useEffect(() => {
 
     {/* EN */}
     <div className="
-      text-[24px]
-      sm:text-[30px]
-      md:text-[40px]
+     text-[20px]
+sm:text-[30px]
+md:text-[40px]
 
       font-[250]
 
-      tracking-[0.58em]
+      tracking-[0.72em]
       md:tracking-[0.48em]
 
       uppercase
@@ -144,10 +144,10 @@ useEffect(() => {
 
     {/* 金線 */}
     <div className="
-      w-[42px]
+      w-[23px]
       md:w-[72px]
 
-      h-[1px]
+      h-[2px]
 
       bg-[#C8A46A]
 
@@ -165,7 +165,7 @@ useEffect(() => {
       text-[10px]
       md:text-[12px]
 
-      tracking-[0.28em]
+      tracking-[0.7em]
       md:tracking-[0.6em]
 
       text-white/76
