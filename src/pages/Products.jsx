@@ -30,10 +30,10 @@ const categories = [
   { key:"INDOOR", zh:"室內", en:"INDOOR" },
   { key:"OUTDOOR", zh:"戶外", en:"OUTDOOR" },
   { key:"LIGHTING_DESIGN", zh:"照明設計", en:"LIGHTING DESIGN" },
-  { key:"INTERIOR_LIGHTING", zh:"室內燈具", en:"INTERIOR LIGHTING" },
-  { key:"FESTIVAL", zh:"節慶", en:"FESTIVAL" },
-  { key:"INSTALLATION", zh:"施工安裝", en:"INSTALLATION" },
-  { key:"CUSTOM", zh:"訂製燈具", en:"CUSTOM LIGHTING" },
+{ key:"INTERIOR_LIGHTING", zh:"室內燈具", en:"INTERIOR LIGHTING" },
+{ key:"FESTIVAL", zh:"節慶", en:"FESTIVAL" },
+{ key:"INSTALLATION", zh:"施工安裝", en:"INSTALLATION" },
+{ key:"CUSTOM", zh:"訂製燈具", en:"CUSTOM LIGHTING" },
   { key:"MIRROR", zh:"鏡類產品", en:"MIRROR" }
 ];
 
@@ -219,12 +219,19 @@ useEffect(() => {
     {/* 分類 */}
 <div className="
   w-full
-  grid grid-cols-4 gap-y-4 gap-x-4
 
-  text-[12px] tracking-[0.25em]
+  flex
+  flex-wrap
+  justify-center
+  gap-x-6
+  gap-y-5
 
-  justify-items-center
-  md:flex md:flex-wrap md:gap-10 md:justify-start
+  text-[11px]
+  tracking-[0.18em]
+
+  md:flex-wrap
+  md:justify-start
+  md:gap-10
 ">
 
 {categories.map(c => {
@@ -341,10 +348,14 @@ prev.set("search", keyword);
           className="relative group overflow-hidden block w-full max-w-[360px]"
         >
 
-          <img
-            src={item.img}
-            className="w-full aspect-[4/3] object-cover object-center transition duration-700 group-hover:scale-105"
-          />
+        <div className="relative w-full aspect-[4/3] overflow-hidden">
+
+  <img
+    src={item.img}
+    className="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
+  />
+
+</div>
 
           <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition"/>
 
