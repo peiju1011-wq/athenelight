@@ -181,90 +181,99 @@ md:text-[40px]
 
   </div>
 
-  {/* SOCIAL */}
-  <div className="
-    absolute
+{/* SOCIAL */}
+<div className="
+  absolute
 
-    bottom-[138px]
-    md:bottom-20
+  bottom-[138px]
+  md:bottom-20
 
-    left-1/2
-    -translate-x-1/2
+  left-1/2
+  -translate-x-1/2
 
-    flex gap-8
-    items-center
-  ">
+  flex gap-8
+  items-center
+">
 
-    {/* FB */}
-    <a
-      href="https://www.facebook.com/athenetech/?locale=zh_TW"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="
-        text-white/42
-        hover:text-white/88
+  {/* FB */}
+  <a
+    href="https://www.facebook.com/athenetech/?locale=zh_TW"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="
+      text-white/22
+      hover:text-white/58
 
-        transition
-        duration-300
-      "
-    >
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M14 8.5h2V5.2c-.35-.05-1.55-.15-2.95-.15-2.9 0-4.9 1.8-4.9 5.15v2.9H5v3.7h3.15V24h3.9v-7.2h3.05l.5-3.7h-3.55v-2.55c0-1.05.3-2.05 1.95-2.05Z" />
-      </svg>
-    </a>
+      hover:scale-105
 
-    {/* LINE */}
-    <a
-      href="https://oashop.line.me/shops/706hatrq"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="
-        text-white/42
-        hover:text-white/88
+      transition-all
+      duration-500
+      ease-out
+    "
+  >
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M14 8.5h2V5.2c-.35-.05-1.55-.15-2.95-.15-2.9 0-4.9 1.8-4.9 5.15v2.9H5v3.7h3.15V24h3.9v-7.2h3.05l.5-3.7h-3.55v-2.55c0-1.05.3-2.05 1.95-2.05Z" />
+    </svg>
+  </a>
 
-        transition
-        duration-300
-      "
-    >
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M12 4C7.6 4 4 6.85 4 10.35c0 3.15 2.85 5.8 6.7 6.3L12 20l2.15-3.25C17.5 16.1 20 13.55 20 10.35 20 6.85 16.4 4 12 4Z"
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </a>
+  {/* LINE */}
+  <a
+    href="https://oashop.line.me/shops/706hatrq"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="
+      text-white/22
+      hover:text-white/58
 
-    {/* MAIL */}
-    <Link
-      to="/contact"
-      className="
-        text-white/42
-        hover:text-white/88
+      hover:scale-105
 
-        transition
-        duration-300
-      "
-    >
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M4 6.5h16v11H4v-11Z"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M4.5 7l7.5 6 7.5-6"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </Link>
+      transition-all
+      duration-500
+      ease-out
+    "
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M12 4C7.6 4 4 6.85 4 10.35c0 3.15 2.85 5.8 6.7 6.3L12 20l2.15-3.25C17.5 16.1 20 13.55 20 10.35 20 6.85 16.4 4 12 4Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </a>
 
-  </div>
+  {/* MAIL */}
+  <Link
+    to="/contact"
+    className="
+      text-white/22
+      hover:text-white/58
+
+      hover:scale-105
+
+      transition-all
+      duration-500
+      ease-out
+    "
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M4 6.5h16v11H4v-11Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4.5 7l7.5 6 7.5-6"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </Link>
+
+</div>
 
 </div>
 
