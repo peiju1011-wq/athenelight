@@ -185,7 +185,7 @@ useEffect(() => {
   <div className="
     absolute
 
-    bottom-[168px]
+    bottom-[148px]
     md:bottom-20
 
     left-1/2
