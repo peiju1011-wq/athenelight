@@ -136,7 +136,8 @@ const isDarkPage = darkPages.some(path =>
     onClick={toggleLang}
 className="
   relative
-  text-[15px]
+  text-[14px]
+  md:text-[15px]
   tracking-[0.32em]
   text-white
   hover:opacity-70
