@@ -101,140 +101,184 @@ useEffect(() => {
 {/* ✨ CONTENT */}
 <div className="
   relative z-10
+
   h-full
+
   flex flex-col
-  justify-end
+  justify-center
   items-center
+
   text-center
   text-white
 
-  pb-[18vh]
-  md:pb-32
-
   px-6
+"/>
+{/* HERO CONTENT */}
+<div className="
+  absolute inset-0 z-[5]
+
+  flex flex-col
+  items-center
+  justify-center
+
+  text-center
 ">
 
-    {/* TITLE */}
-<div className="hero-title">
-
-  {/* LOGO TITLE */}
+  {/* TITLE */}
   <div className="
-    text-[26px]
-    md:text-[58px]
-
-    font-[200]
-    tracking-[0.48em]
-
-    uppercase
-    leading-none
-
-    text-white/92
-
-    drop-shadow-[0_2px_18px_rgba(0,0,0,0.45)]
-
-    md:translate-x-[-1.5vw]
+    flex flex-col
+    items-center
+translate-y-[-11vh]
+md:translate-y-[-3vh]
   ">
-    ATHENE LIGHT
-  </div>
 
-  {/* 金線 */}
-  <div className="
-    w-[72px]
-    h-[1px]
-
-    bg-[#C8A46A]
-
-    mt-8
-    mb-7
-
-    opacity-70
-
-    mx-auto
-  "/>
-
-  {/* SUBTITLE */}
-  <div className="
-    text-[10px]
-    md:text-[12px]
-
-    tracking-[0.42em]
-
-    uppercase
-
-    text-white/68
-
-    font-light
-  ">
-    {lang === "en"
-      ? "LIGHT OF SILENT PIONEERS"
-      : "光。無聲的溫度"}
-  </div>
-
-</div>
-
-  
-
-    {/* SOCIAL */}
+    {/* EN */}
     <div className="
-      absolute bottom-10
-      flex gap-6
-      items-center
+      text-[22px]
+      sm:text-[28px]
+      md:text-[58px]
+
+      font-[250]
+
+      tracking-[0.26em]
+      md:tracking-[0.48em]
+
+      uppercase
+      leading-[1.2]
+
+      text-white/90
+
+      whitespace-nowrap
+
+      drop-shadow-[0_2px_18px_rgba(0,0,0,0.45)]
     ">
+      ATHENE LIGHT
+    </div>
 
-      {/* FB */}
-      <a
-        href="https://www.facebook.com/athenetech/?locale=zh_TW"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-white/80 hover:text-white transition"
-      >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M14 8.5h2V5.2c-.35-.05-1.55-.15-2.95-.15-2.9 0-4.9 1.8-4.9 5.15v2.9H5v3.7h3.15V24h3.9v-7.2h3.05l.5-3.7h-3.55v-2.55c0-1.05.3-2.05 1.95-2.05Z" />
-        </svg>
-      </a>
+    {/* 金線 */}
+    <div className="
+      w-[56px]
+      md:w-[72px]
 
-      {/* LINE */}
-      <a
-        href="https://oashop.line.me/shops/706hatrq"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-white/80 hover:text-white transition"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path
-            d="M12 4C7.6 4 4 6.85 4 10.35c0 3.15 2.85 5.8 6.7 6.3L12 20l2.15-3.25C17.5 16.1 20 13.55 20 10.35 20 6.85 16.4 4 12 4Z"
-            stroke="currentColor"
-            strokeWidth="1.7"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </a>
+      h-[1px]
 
-      {/* MAIL */}
-      <Link
-        to="/contact"
-        className="text-white/80 hover:text-white transition"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path
-            d="M4 6.5h16v11H4v-11Z"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M4.5 7l7.5 6 7.5-6"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </Link>
+      bg-[#C8A46A]
 
+      mt-6
+      md:mt-8
+
+      mb-5
+      md:mb-7
+
+      opacity-70
+    "/>
+
+    {/* ZH */}
+    <div className="
+      text-[11px]
+      md:text-[12px]
+
+      tracking-[0.32em]
+      md:tracking-[0.42em]
+
+      text-white/78
+
+      font-light
+
+      drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]
+    ">
+      {lang === "en"
+        ? "Light, leaving warmth in space."
+        : "光。為空間留下溫度"}
     </div>
 
   </div>
+
+  {/* SOCIAL */}
+  <div className="
+    absolute
+    bottom-[78px]
+    md:bottom-10
+
+    left-1/2
+    -translate-x-1/2
+
+    flex gap-7
+    items-center
+  ">
+
+    {/* FB */}
+    <a
+      href="https://www.facebook.com/athenetech/?locale=zh_TW"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        text-white/46
+        hover:text-white
+
+        transition
+        duration-300
+      "
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M14 8.5h2V5.2c-.35-.05-1.55-.15-2.95-.15-2.9 0-4.9 1.8-4.9 5.15v2.9H5v3.7h3.15V24h3.9v-7.2h3.05l.5-3.7h-3.55v-2.55c0-1.05.3-2.05 1.95-2.05Z" />
+      </svg>
+    </a>
+
+    {/* LINE */}
+    <a
+      href="https://oashop.line.me/shops/706hatrq"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        text-white/46
+        hover:text-white
+
+        transition
+        duration-300
+      "
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M12 4C7.6 4 4 6.85 4 10.35c0 3.15 2.85 5.8 6.7 6.3L12 20l2.15-3.25C17.5 16.1 20 13.55 20 10.35 20 6.85 16.4 4 12 4Z"
+          stroke="currentColor"
+          strokeWidth="1.7"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </a>
+
+    {/* MAIL */}
+    <Link
+      to="/contact"
+      className="
+        text-white/46
+        hover:text-white
+
+        transition
+        duration-300
+      "
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M4 6.5h16v11H4v-11Z"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M4.5 7l7.5 6 7.5-6"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </Link>
+
+  </div>
+
+</div>
 
 </section>
 
