@@ -88,14 +88,15 @@ useEffect(() => {
     <source src="/videos/hero.mp4" type="video/mp4" />
   </video>
 
-  {/* 🔥 OVERLAY */}
-  <div className="
-    absolute inset-0 z-[1]
-    bg-gradient-to-b
-    from-black/20
-    via-black/35
-    to-black/60
-  " />
+{/* 🔥 OVERLAY */}
+<div className="
+  absolute inset-0 z-[1]
+
+  bg-gradient-to-b
+  from-black/5
+  via-black/15
+  to-black/35
+"/>
 
 {/* ✨ CONTENT */}
 <div className="
