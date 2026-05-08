@@ -105,12 +105,14 @@ useEffect(() => {
             opacity-60 group-hover:opacity-100 transition duration-500"/>
 
           {/* 文字 */}
-          <p className="text-[#666] text-[13px] leading-[1.9] px-2">
-            {type === "process"
-              ? item?.desc?.[lang]
-              : t?.services?.desc?.[lang]
-            }
-          </p>
+<p className="text-[#666] text-[13px] leading-[1.9] px-2">
+  {type === "process"
+    ? item?.desc?.[lang]
+    : lang === "en"
+      ? item?.descEn
+      : item?.descZh
+  }
+</p>
 
         </div>
 
