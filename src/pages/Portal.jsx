@@ -145,7 +145,7 @@ md:text-[40px]
     {/* 金線 */}
     <div className="
       w-[23px]
-      md:w-[72px]
+      md:w-[23px]
 
       h-[2px]
 
