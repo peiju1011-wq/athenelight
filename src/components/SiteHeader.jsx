@@ -134,14 +134,15 @@ const isDarkPage = darkPages.some(path =>
   {/* 語言切換 */}
   <button
     onClick={toggleLang}
-    className="
-      relative text-[13px]
-      tracking-[0.25em]
-      text-white/70
-      hover:text-white
-      transition-all duration-300
-      group
-    "
+className="
+  relative
+  text-[15px]
+  tracking-[0.32em]
+  text-white
+  hover:opacity-70
+  transition-all duration-300
+  group
+"
   >
     {isEnglish ? "中" : "EN"}
 
