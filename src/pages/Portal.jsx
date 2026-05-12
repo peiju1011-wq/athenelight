@@ -345,41 +345,41 @@ md:text-[40px]
       <div className="max-w-[460px]">
 
         {/* TAG */}
-{/* CONTENT */}
-<div
-  className="
-    about-desc
+<div className="reveal delay-2 flex">
 
-    whitespace-pre-line
+  <div className="
+    w-full
+    max-w-[720px]
+    md:max-w-[620px]
+  ">
 
-    text-[15px]
-    leading-[2.25]
-    tracking-[0.01em]
+    {/* TAG */}
+    <p className="about-tag mb-7">
+      {t?.about?.tag?.[lang]}
+    </p>
 
-    text-[#666]
+    {/* CONTENT */}
+    <div
+      className="
+        about-desc
+        whitespace-pre-line
 
-    space-y-10
-    mb-14
+        text-[15px]
+        md:text-[16px]
 
-    md:text-[15px]
-    md:leading-[2.1]
-  "
->
+        leading-[2.05]
+        tracking-[0.01em]
 
-  {t?.about?.content?.[lang]
-    ?.split("\n\n")
-    ?.map((paragraph, i) => (
+        text-[#555]
+        font-[300]
 
-      <p
-        key={i}
-        className="
-          first-letter:text-[#C8A46A]
-        "
-      >
-        {paragraph}
-      </p>
+        break-words
+      "
+    >
+      {t?.about?.content?.[lang]}
+    </div>
 
-    ))}
+  </div>
 
 </div>
 
