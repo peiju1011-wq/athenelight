@@ -352,19 +352,17 @@ md:text-[40px]
 
     whitespace-pre-line
 
-    text-[18px]
-    leading-[2.35]
-    tracking-[0.02em]
+    text-[15px]
+    leading-[2.25]
+    tracking-[0.01em]
 
     text-[#666]
 
     space-y-10
     mb-14
 
-    px-1
-
-    md:text-[16px]
-    md:leading-[2.15]
+    md:text-[15px]
+    md:leading-[2.1]
   "
 >
 
@@ -376,7 +374,6 @@ md:text-[40px]
         key={i}
         className="
           first-letter:text-[#C8A46A]
-          first-letter:tracking-[0.08em]
         "
       >
         {paragraph}
