@@ -345,20 +345,46 @@ md:text-[40px]
       <div className="max-w-[460px]">
 
         {/* TAG */}
-        <p className="about-tag mb-6">
-          {t?.about?.tag?.[lang]}
-        </p>
+{/* CONTENT */}
+<div
+  className="
+    about-desc
 
-        {/* CONTENT */}
-        <p className="
-          about-desc 
-          whitespace-pre-line 
-          leading-[2.1] 
-          text-[#555] 
-          mb-14
-        ">
-          {t?.about?.content?.[lang]}
-        </p>
+    whitespace-pre-line
+
+    text-[18px]
+    leading-[2.35]
+    tracking-[0.02em]
+
+    text-[#666]
+
+    space-y-10
+    mb-14
+
+    px-1
+
+    md:text-[16px]
+    md:leading-[2.15]
+  "
+>
+
+  {t?.about?.content?.[lang]
+    ?.split("\n\n")
+    ?.map((paragraph, i) => (
+
+      <p
+        key={i}
+        className="
+          first-letter:text-[#C8A46A]
+          first-letter:tracking-[0.08em]
+        "
+      >
+        {paragraph}
+      </p>
+
+    ))}
+
+</div>
 
         {/* CTA */}
         <Link
