@@ -362,7 +362,8 @@ md:text-[40px]
     <div
       className="
         about-desc
-        whitespace-pre-line
+    about-desc
+whitespace-normal
 
         text-[15px]
         md:text-[16px]
