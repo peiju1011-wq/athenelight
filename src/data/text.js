@@ -18,20 +18,11 @@ about: {
 
   // 🔥 主內容（唯一核心）
   content: {
-    zh: `宇碩光長期專注於建築照明、景觀光環境與空間亮化工程，
-從設計規劃、燈具配置到現場施工與調光，
-持續探索光與空間之間更自然的關係。
+zh: `宇碩光長期專注於建築照明、景觀光環境與空間亮化工程，從設計規劃、燈具配置到現場施工與調光，持續探索光與空間之間更自然的關係。
 
-我們相信，好的照明不只是被看見，
-而是讓人真正感受到空間的層次、溫度與秩序。
-團隊結合照明設計、工程實務與智慧控制技術，
-在節能、美學與使用體驗之間取得平衡，
-為不同場域建立專屬的光環境。
+我們相信，好的照明不只是被看見，而是讓人真正感受到空間的層次、溫度與秩序。團隊結合照明設計、工程實務與智慧控制技術，在節能、美學與使用體驗之間取得平衡，為不同場域建立專屬的光環境。
 
-我們結合照明設計、工程施工與智慧控制系統，
-提供從規劃、施工到後續調光的整合服務，
-讓光不只是功能，
-而是成為空間質感與建築識別的一部分。`,
+我們結合照明設計、工程施工與智慧控制系統，提供從規劃、施工到後續調光的整合服務，讓光不只是功能，而是成為空間質感與建築識別的一部分。`,
 
     en: `Athene Light specializes in architectural lighting, landscape illumination, and integrated lighting environments. From planning and fixture selection to on-site installation and lighting adjustment, we continuously explore a more natural relationship between light and space.
 
