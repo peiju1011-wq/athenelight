@@ -16,10 +16,10 @@ const projects = [
   location_en:"Taiwan",
 
   /* 🔥 首圖建議放第一張 */
-  img:"/images/projects/p1-3.png",
+  img:"/images/projects/p1-3.jpg",
 
   images:[
-    "/images/projects/p1-2.png",
+    "/images/projects/p1.png",
     "/images/projects/p1-3.png",
     "/images/projects/p1-5.png"
   ],
@@ -46,9 +46,10 @@ type: "燈會",
   img:"/images/projects/p2-4.png",
 
   images:[
-    "/images/projects/p2-1.png",
-    "/images/projects/p2-2.png",
-    "/images/projects/p2-3.png"
+    "/images/projects/p2-5.png",
+    "/images/projects/p2-1.jpg",
+    "/images/projects/p2-4.png",
+    "/images/projects/p2-3-2.png"
   ],
 
   year:"2026",
@@ -70,13 +71,13 @@ type: "商業空間",
   location:"中國",
   location_en:"China",
 
-  img:"/images/projects/p3-1.jpg",
+  img:"/images/projects/p3-1.png",
 
   images:[
-    "/images/projects/p3-1.jpg",
-    "/images/projects/p3-2.jpg",
-    "/images/projects/p3-3.jpg",
-    "/images/projects/p3-4.jpg"
+    "/images/projects/p3-1.png",
+    "/images/projects/p3-2.png",
+    "/images/projects/p3-3.png",
+    "/images/projects/p3-4.png"
   ],
 
   year:"2024",
@@ -126,12 +127,12 @@ type: "商業空間",
   location_en: "Taiwan",
 
 
-  img: "/images/projects/p5-3.jpg",
+  img: "/images/projects/p5-3.png",
 
   images: [
-    "/images/projects/p5-3.jpg", 
-    "/images/projects/p5-2.jpg",
-    "/images/projects/p5-1.jpg"
+    "/images/projects/p5-3.png", 
+    "/images/projects/p5-2.png",
+    "/images/projects/p5-1.png"
   ],
 
   year: "2025",
