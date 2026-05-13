@@ -313,31 +313,67 @@ md:text-[40px]
     gap-16 items-center
   ">
 
-    {/* ===== IMAGE ===== */}
-    <div className="reveal delay-1 flex justify-end">
+{/* ===== IMAGE ===== */}
+<div className="reveal delay-1 flex justify-end">
 
-      <div className="w-full max-w-[420px]">
-        <div className="relative overflow-hidden">
+  <div className="w-full max-w-[440px]">
 
-          <img
-            src="/images/about/about.png"
-            className="w-full object-cover scale-[1.0]"
-          />
+    <div className="
+      relative
+      overflow-hidden
+      bg-[#e9e6e1]
+    ">
 
-          {/* 柔光 */}
-          <div className="
-            absolute inset-0
-            bg-gradient-to-t 
-            from-white/20 
-            via-white/10 
-            to-transparent
-          "/>
+      {/* IMAGE */}
+      <img
+        src="/images/about/about.png"
+        className="
+          w-full
+          h-full
+          object-cover
 
-        </div>
-      </div>
+          scale-[1.06]
+          object-[42%_50%]
+
+          transition duration-700
+          ease-[cubic-bezier(0.22,1,0.36,1)]
+
+          group-hover:scale-[1.09]
+        "
+      />
+
+      {/* 深度遮罩 */}
+      <div
+        className="
+          absolute inset-0
+
+          bg-gradient-to-t
+          from-black/16
+          via-black/[0.03]
+          to-transparent
+
+          opacity-90
+          pointer-events-none
+        "
+      />
+
+      {/* 微暖光 */}
+      <div
+        className="
+          absolute inset-0
+
+          bg-[radial-gradient(circle_at_50%_38%,rgba(200,164,106,0.08),transparent_62%)]
+
+          opacity-70
+          pointer-events-none
+        "
+      />
 
     </div>
 
+  </div>
+
+</div>
 
     {/* ===== TEXT ===== */}
     <div className="reveal delay-2 flex">
@@ -492,9 +528,20 @@ whitespace-normal
       {/* BIG */}
       <div className="md:col-span-2 group relative overflow-hidden bg-white reveal h-[340px]">
 
-        <img src="/images/projects/project1.png"
-          className="w-full h-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
-        />
+        <img
+  src="/images/projects/project1.png"
+  className="
+    w-full h-full
+    object-cover
+
+    scale-[]
+object-[50%_50%]
+    transition duration-700
+    ease-[cubic-bezier(0.22,1,0.36,1)]
+
+    group-hover:scale-110
+  "
+/>
 
         {/* 遮罩 */}
        <div className="
@@ -566,9 +613,19 @@ whitespace-normal
             className={`group relative overflow-hidden bg-white reveal h-[260px] ${offset[idx]}`}
           >
 
-            <img src={`/images/projects/project${i+1}.png`}
-              className="w-full h-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
-            />
+           <img
+  src={`/images/projects/project${i+1}.png`}
+  className={`
+    w-full h-full object-cover
+    transition duration-700
+    ease-[cubic-bezier(0.22,1,0.36,1)]
+    group-hover:scale-105
+
+    ${i === 2 ? "object-[50%_20%]" : ""}
+    ${i === 3 ? "object-[50%_60%]" : ""}
+    ${i === 4 ? "object-[50%_40%]" : ""}
+  `}
+/>
 
             <div className="
   absolute inset-0
