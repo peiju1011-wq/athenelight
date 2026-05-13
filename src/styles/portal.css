@@ -840,7 +840,7 @@ opacity:.5;
 /* ================= BANNER（最終整理版） ================= */
 
 .banner{
-  height:360px;
+  height:420px;
 
   position:relative;
   overflow:hidden;
@@ -863,40 +863,58 @@ opacity:.5;
 
   object-fit:cover;
 
-  filter:brightness(0.6) contrast(1.05);
+  filter:
+    brightness(.72)
+    contrast(1.04)
+    saturate(.78);
+
+  transform:scale(1.025);
+
+  will-change:transform;
 }
 
 
-/* ===== 黑漸層（主空間） ===== */
+/* ===== 深度遮罩 ===== */
 .banner::after{
   content:"";
   position:absolute;
   inset:0;
 
   background:
-    linear-gradient(to top, rgba(0,0,0,0.6), transparent 60%),
-    linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 40%);
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.38),
+      transparent 60%
+    ),
+
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.18),
+      transparent 34%
+    );
 
   pointer-events:none;
 }
 
 
-/* ===== 金色光霧（Brands靈魂✨） ===== */
+/* ===== 中央聚焦 ===== */
 .banner::before{
   content:"";
   position:absolute;
   inset:0;
 
   background:
-    radial-gradient(circle at 50% 55%, rgba(200,164,106,0.12), transparent 65%);
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(255,255,255,0.08),
+      rgba(200,164,106,0.06) 22%,
+      transparent 62%
+    );
 
-  opacity:.5;
+  opacity:.45;
+
   pointer-events:none;
 }
-
-
-/* ❌ 刪掉白 overlay（會洗掉畫面） */
-/* .banner-overlay → 建議完全移除 */
 
 
 /* ================= CONTENT ================= */
@@ -904,57 +922,117 @@ opacity:.5;
 .banner-content{
   position:relative;
   z-index:2;
+
   text-align:center;
 }
 
 
-/* ===== 金線動畫（升級✨） ===== */
+/* ===== 金線 ===== */
+
 .banner-content::before{
   content:"";
+
   display:block;
 
-  width:60px;
+  width:42px;
   height:1px;
 
   background:#C8A46A;
-  margin:0 auto 24px;
 
-  opacity:.6;
+  margin:0 auto 22px;
+
+  opacity:.55;
 
   transform:scaleX(0);
-  transform-origin:center;
 
   animation:lineIn 1.2s cubic-bezier(.22,1,.36,1) forwards;
 }
 
 @keyframes lineIn{
-  to{ transform:scaleX(1); }
+  to{
+    transform:scaleX(1);
+  }
 }
 
 
-/* ===== TITLE（Brands版🔥） ===== */
+/* ===== TITLE ===== */
 
 .banner h2{
+
   font-family:"Outfit", sans-serif;
 
-  font-size:clamp(14px,2vw,30px);
+  font-size:clamp(16px,2vw,28px);
+
   font-weight:300;
 
-  letter-spacing:0.45em;
-  line-height:1.4;
+  letter-spacing:0.42em;
+  line-height:1.5;
+
   text-transform:uppercase;
 
-  color:#f5f5f5;
+  color:rgba(255,255,255,.95);
 
-  /* 🔥 更乾淨的光感 */
   text-shadow:
-    0 4px 20px rgba(0,0,0,0.7),
-    0 0 12px rgba(200,164,106,0.15);
+    0 4px 18px rgba(0,0,0,.45);
 
   opacity:0;
-  transform:translateY(40px);
+  transform:translateY(26px);
 
-  animation:bannerFade 1.2s cubic-bezier(.22,1,.36,1) .3s forwards;
+  animation:
+    bannerFade 1.2s cubic-bezier(.22,1,.36,1) .25s forwards;
+}
+
+
+/* ===== SUBTITLE ===== */
+
+.banner p{
+
+  margin-top:16px;
+
+  font-size:11px;
+  font-weight:300;
+
+  letter-spacing:.28em;
+
+  color:rgba(255,255,255,.72);
+
+  opacity:0;
+
+  transform:translateY(18px);
+
+  animation:
+    bannerFade 1.2s cubic-bezier(.22,1,.36,1) .45s forwards;
+}
+
+
+@keyframes bannerFade{
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width:768px){
+
+  .banner{
+    height:340px;
+  }
+
+  .banner h2{
+    letter-spacing:.34em;
+    font-size:20px;
+  }
+
+  .banner p{
+    font-size:10px;
+    letter-spacing:.22em;
+  }
+
 }
 
 
