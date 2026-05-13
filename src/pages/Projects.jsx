@@ -29,6 +29,7 @@ const categories =
         "COMMERCIAL",
         "INTERIOR",
         "ILLUMINATION",
+  
         "FESTIVAL"
       ]
     : [
@@ -52,6 +53,7 @@ const typeMap = {
   COMMERCIAL: "商業空間",
   INTERIOR: "室內空間",
   ILLUMINATION: "亮化工程",
+
   FESTIVAL: "燈會"
 };
 
@@ -312,7 +314,18 @@ className={`
       />
 
       {/* 🔥 這段補回來 */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+    <div
+  className="
+    absolute inset-0
+
+    bg-gradient-to-t
+    from-black/28
+    via-black/[0.05]
+    to-transparent
+
+    opacity-90
+  "
+/>
 
       <div className="absolute bottom-5 left-5 text-white">
 
@@ -360,14 +373,25 @@ className={`
           {/* 長圖 */}
           {group[0] && (
             <Link to={`/${lang}/projects/${group[0].id}`}>
-             <div className="relative aspect-[16/7] overflow-hidden group">
+             <div className="relative aspect-[16/8] overflow-hidden group">
 
                 <img
                   src={group[0].img}
                   className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+           <div
+  className="
+    absolute inset-0
+
+    bg-gradient-to-t
+   from-black/18
+via-black/[0.03]
+    to-transparent
+
+    opacity-95
+  "
+/>
 
                 <div className="absolute bottom-6 left-6 text-white">
 
@@ -392,7 +416,7 @@ className={`
           {/* 短圖 */}
           <div className="grid grid-cols-2 gap-8">
 
-            {group.slice(1).map((p) => {
+          {group.slice(1).map((p, idx) => {
 
               const title = lang === "en" ? p.title_en : p.title;
               const category = lang === "en" ? p.category_en : p.category;
@@ -404,14 +428,36 @@ className={`
   className="block"
 >
 
-                 <div className="relative aspect-[4/3] overflow-hidden group">
+                <div
+  className={`
+    relative
+    overflow-hidden
+    group
+
+    ${idx % 2 === 0
+      ? "aspect-[4/5]"
+      : "aspect-[4/5]"
+    }
+  `}
+>
 
                     <img
                       src={p.img}
                       className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div
+  className="
+    absolute inset-0
+
+    bg-gradient-to-t
+   from-black/16
+    via-black/[0.04]
+    to-transparent
+
+    opacity-85
+  "
+/>
 
                     <div className="absolute bottom-5 left-5 text-white">
 
