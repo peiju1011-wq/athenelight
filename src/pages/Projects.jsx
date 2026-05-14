@@ -421,7 +421,7 @@ to-transparent
 
 <h3
   className="
-    text-[16px]
+    text-[13px]
     md:text-[17px]
 
     leading-[1.5]
@@ -508,7 +508,7 @@ to-transparent
 
 <h3
   className="
-    text-[16px]
+    text-[13px]
     md:text-[17px]
 
     leading-[1.5]
