@@ -156,11 +156,11 @@ type: "商業空間",
   location: "台灣",
   location_en: "Taiwan",
 
-  img: "/images/projects/p7-1.jpg",
+  img: "/images/projects/p7-1.png",
 
   images: [
-    "/images/projects/p7-1.jpg",
-    "/images/projects/p7-2.jpg"
+    "/images/projects/p7-1.png",
+    "/images/projects/p7-2.png"
   ],
 
   year: "2024",
