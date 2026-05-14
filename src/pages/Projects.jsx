@@ -331,29 +331,34 @@ to-transparent
 
 <p className="
   inline-block
-  text-[10px]
 
-  tracking-[0.32em]
+  text-[11px]
+
+  tracking-[0.35em]
 
   text-[#D6B278]
 
-  px-1 py-[2px]
+  mb-1
 
   drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
-
-  mb-3
 ">
   {category}
 </p>
 
-       <h3 className="
+<h3 className="
   text-[15px]
-  tracking-[0.06em]
+
+  tracking-[0.08em]
+
   leading-[1.5]
 
   font-light
 
-  drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]
+  text-white
+
+  drop-shadow-[0_4px_18px_rgba(0,0,0,1)]
+
+  max-w-[420px]
 ">
           {title}
         </h3>
