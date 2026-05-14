@@ -46,13 +46,12 @@ export default function ProjectDetail(){
    <main className="flex flex-col lg:flex-row min-h-screen bg-white">
 
       {/* ================= 左圖 ================= */}
-     <div className="
+<div className="
   relative
   w-full
-  lg:w-[100%]
 
-  h-[50vh]
-  md:h-[55vh]
+  h-[45vh]
+  md:h-[75vh]
   lg:h-screen
 
   bg-black
@@ -63,19 +62,20 @@ export default function ProjectDetail(){
           <div
             key={i}
             className={`
-              absolute inset-0 z-0
+              absolute inset-x-0 top-[70px] bottom-0 z-0
               transition-all duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)]
               ${i===current ? "opacity-100 scale-100" : "opacity-0 scale-105"}
             `}
           >
-           <img
+<img
   src={img}
   className="
     w-full h-full
-    object-cover
 
-    object-[50%_15%]
-    lg:object-center
+    object-contain
+    object-top
+
+    bg-black
   "
 />
 
