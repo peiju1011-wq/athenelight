@@ -348,9 +348,9 @@ md:text-[40px]
           absolute inset-0
 
           bg-gradient-to-t
-          from-black/16
-          via-black/[0.03]
-          to-transparent
+         from-black/48
+via-black/[0.16]
+to-transparent
 
           opacity-90
           pointer-events-none
@@ -621,9 +621,9 @@ object-[50%_50%]
     ease-[cubic-bezier(0.22,1,0.36,1)]
     group-hover:scale-105
 
-    ${i === 2 ? "object-[50%_20%]" : ""}
-    ${i === 3 ? "object-[50%_60%]" : ""}
-    ${i === 4 ? "object-[50%_40%]" : ""}
+    ${i === 2 ? "object-[50%_35%]" : ""}
+    ${i === 3 ? "object-[50%_62%]" : ""}
+    ${i === 4 ? "object-[50%_10%]" : ""}
   `}
 />
 
@@ -718,11 +718,50 @@ object-[50%_50%]
 
 <img
   src={products[1]?.img}
-  className="w-full h-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+  className="
+    w-full h-full
+
+    object-cover
+    object-[50%_42%]
+
+    scale-[1.03]
+
+    brightness-[0.9]
+    contrast-[1.06]
+    saturate-[0.92]
+
+    transition duration-700
+    ease-[cubic-bezier(0.22,1,0.36,1)]
+
+    group-hover:scale-[1.08]
+  "
 />
 
 
-    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"/>
+<div
+  className="
+    absolute inset-0
+
+    bg-gradient-to-t
+    from-black/36
+    via-black/[0.10]
+    to-black/[0.02]
+
+    opacity-95
+  "
+/>
+
+
+<div
+  className="
+    absolute inset-0
+
+    bg-[radial-gradient(circle_at_50%_38%,rgba(255,255,255,0.05),transparent_58%)]
+
+    opacity-60
+    mix-blend-mode:screen
+  "
+/>
 
  <h3 className="absolute bottom-6 left-6 text-[13px] tracking-[0.25em] text-white font-light z-10">
   {products[1]?.title?.[lang]}
@@ -736,7 +775,17 @@ object-[50%_50%]
 
 <img
   src={products[0]?.img}
-  className="w-full h-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+  className="
+    w-full h-full
+    object-cover
+
+  object-[38%_19%]
+
+    transition duration-700
+    ease-[cubic-bezier(0.22,1,0.36,1)]
+
+    group-hover:scale-105
+  "
 />
 
     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"/>
@@ -752,35 +801,138 @@ object-[50%_50%]
 {/* ROW 2（上坡版🔥） */}
 <div className="grid md:grid-cols-3 gap-8 items-start">
 
-{[2,3,4].map((i,idx)=>{
+  {[2,3,4].map((i,idx)=>{
 
-  const offset = [
-    "md:mt-[40px]",
-    "",
-    "md:mt-[-60px]"
-  ]
+    const offset = [
+      "md:mt-[40px]",
+      "",
+      "md:mt-[-60px]"
+    ]
 
-  return(
-    <div
-      key={i}
-      className={`group relative overflow-hidden bg-white reveal h-[260px] ${offset[idx]}`}
-    >
+    /* 🔥 每張圖獨立設定 */
+    const imageStyle = [
+      // 光紗吊燈
+      `
+      object-[50%_42%]
+      scale-[1.03]
+      brightness-[0.9]
+      contrast-[1.06]
+      saturate-[0.92]
+      group-hover:scale-[1.08]
+      `,
 
-      <img
-        src={products[i]?.img}
-        className="w-full h-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
-      />
+      // 石材壁燈
+   // 星雨吊燈 ✨
+`
+object-[50%_38%]
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"/>
+scale-[1.04]
 
-      <h3 className="absolute bottom-6 left-6 text-[13px] tracking-[0.25em] text-white font-light z-10">
-        {products[i]?.title?.[lang]}
-      </h3>
+brightness-[0.9]
+contrast-[1.08]
+saturate-[0.92]
 
-    </div>
-  )
+group-hover:scale-[1.08]
+`,
 
-})}
+      // 光境中島
+      `
+      object-[50%_95%]
+      scale-[1.03]
+      brightness-[0.92]
+      contrast-[1.04]
+      saturate-[0.95]
+      group-hover:scale-[1.05]
+      `
+    ]
+
+    /* 🔥 每張圖不同遮罩 */
+    const overlayStyle = [
+      // 吊燈
+      `
+  from-black/22
+  via-black/[0.05]
+  to-transparent
+  opacity-85
+  `,
+
+      // 石材壁燈
+      `
+      from-black/26
+      via-black/[0.04]
+      to-transparent
+      opacity-85
+      `,
+
+      // 光境中島
+      `
+      from-black/22
+      via-black/[0.03]
+      to-transparent
+      opacity-85
+      `
+    ]
+
+    return(
+      <div
+        key={i}
+        className={`
+          group
+          relative
+          overflow-hidden
+          bg-white
+          reveal
+          h-[260px]
+          ${offset[idx]}
+        `}
+      >
+
+        {/* IMAGE */}
+        <img
+          src={products[i]?.img}
+          className={`
+            w-full h-full
+
+            object-cover
+
+            transition duration-700
+            ease-[cubic-bezier(0.22,1,0.36,1)]
+
+            ${imageStyle[idx]}
+          `}
+        />
+
+        {/* OVERLAY */}
+        <div
+          className={`
+            absolute inset-0
+
+            bg-gradient-to-t
+
+            ${overlayStyle[idx]}
+          `}
+        />
+
+        {/* TITLE */}
+        <h3
+          className="
+            absolute bottom-6 left-6
+            text-[13px]
+            tracking-[0.25em]
+            text-white
+            font-light
+            z-10
+
+            drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]
+          "
+        >
+          {products[i]?.title?.[lang]}
+        </h3>
+
+      </div>
+    )
+
+  })}
 
 </div>
 
