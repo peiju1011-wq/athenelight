@@ -50,7 +50,8 @@ export default function ProjectDetail(){
   relative
   w-full
 
-  h-[45vh]
+  h-[60vh]
+  sm:h-[38vh]
   md:h-[75vh]
   lg:h-screen
 
@@ -72,13 +73,13 @@ export default function ProjectDetail(){
   className="
     w-full h-full
 
-    object-contain
+    object-cover
     object-top
 
-    bg-black
+    md:object-cover
+    md:object-center
   "
 />
-
             {/* 🔥 修復：不阻擋點擊 */}
             <div className="
               absolute inset-0
