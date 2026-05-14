@@ -299,7 +299,7 @@ md:text-[40px]
   ">
 {lang === "en"
   ? "ATHENE LIGHT specializes in architectural lighting, landscape illumination, commercial spaces, and integrated lighting environments, providing custom lighting fixtures, stretch ceiling lighting, linear lighting systems, and lighting festival installations."
-  : "宇碩光 ATHENE LIGHT 專注於建築照明、景觀照明、商業空間與光環境設計，提供客製燈具、光膜、條燈和燈會工程整合服務。"}
+  : "宇碩光電專注於建築照明、景觀照明、商業空間與光環境設計，提供客製燈具、光膜、條燈和燈會工程整合服務。"}
   </p>
 
 </div>
