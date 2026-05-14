@@ -46,7 +46,7 @@ export default function ProjectDetail(){
    <main className="flex flex-col lg:flex-row min-h-screen bg-white">
 
       {/* ================= 左圖 ================= */}
-     <div className="relative w-full lg:w-[68%] h-[50vh] lg:h-screen bg-black overflow-hidden">
+     <div className="relative w-full lg:w-[68%] h-[70vh] lg:h-screen bg-black overflow-hidden">
 
         {project.images.map((img,i)=>(
           <div
@@ -57,7 +57,16 @@ export default function ProjectDetail(){
               ${i===current ? "opacity-100 scale-100" : "opacity-0 scale-105"}
             `}
           >
-            <img src={img} className="w-full h-full object-cover"/>
+           <img
+  src={img}
+  className="
+    w-full h-full
+    object-cover
+
+    object-[50%_15%]
+    lg:object-center
+  "
+/>
 
             {/* 🔥 修復：不阻擋點擊 */}
             <div className="
