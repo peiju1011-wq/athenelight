@@ -7,42 +7,18 @@ import useLang from "../hooks/useLang"
 import { text } from "../data/text"
 import products from "../data/products";
 
-const slides = [
-  "/images/hero/hero4.jpg",
-  "/images/hero/hero6.jpg",
-  "/images/hero/hero5.jpg"
-];
+
 export default function Portal() {
 
   const lang = useLang();
 
-  const [playing2, setPlaying2] = useState(false); // 🔥 影片控制
+
 
   const [index, setIndex] = useState(0); // 🔥 slider
 
   const t = text;
 
 
-  /* HERO SLIDER */
-
-
-/*  背景控制 */
-useEffect(() => {
-  document.body.classList.add("home-bg");
-
-  return () => {
-    document.body.classList.remove("home-bg");
-  };
-}, []);
-
-/* 🔥 輪播 */
-useEffect(() => {
-  const timer = setInterval(() => {
-    setIndex((prev) => (prev + 1) % slides.length);
-  }, 5000);
-
-  return () => clearInterval(timer);
-}, []);
 
   /* REVEAL ANIMATION */
 
@@ -67,7 +43,7 @@ useEffect(() => {
 
     <div className="portal">
 
-      {/* HERO */}
+
 {/* HERO */}
 <section className="hero relative h-screen overflow-hidden bg-black">
 
