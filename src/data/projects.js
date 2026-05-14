@@ -156,7 +156,7 @@ type: "商業空間",
   location: "台灣",
   location_en: "Taiwan",
 
-  img: "/images/projects/p7-1.png",
+  img: "/images/projects/p7-2.png",
 
   images: [
     "/images/projects/p7-1.png",
