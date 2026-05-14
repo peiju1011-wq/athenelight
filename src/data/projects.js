@@ -47,7 +47,7 @@ type: "燈會",
 
   images:[
     "/images/projects/p2-5.png",
-    "/images/projects/p2-1.jpg",
+    "/images/projects/p2-1.webp",
     "/images/projects/p2-4.png",
     "/images/projects/p2-3-2.png"
   ],
