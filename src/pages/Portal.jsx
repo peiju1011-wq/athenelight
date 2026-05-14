@@ -72,19 +72,23 @@ useEffect(() => {
 <section className="hero relative h-screen overflow-hidden bg-black">
 
   {/* 🎬 VIDEO */}
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="auto"
-    className="
-      absolute inset-0
-      w-full h-full
-      object-cover
-      scale-[1.02]
-    "
-  >
+<video
+  autoPlay
+  muted
+  loop
+  playsInline
+
+  poster="/images/hero-poster.png"
+
+  preload="metadata"
+
+  className="
+    absolute inset-0
+    w-full h-full
+    object-cover
+    scale-[1.02]
+  "
+>
     <source src="/videos/hero.mp4" type="video/mp4" />
   </video>
 
