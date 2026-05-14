@@ -319,31 +319,42 @@ className={`
     absolute inset-0
 
     bg-gradient-to-t
-    from-black/28
-    via-black/[0.05]
-    to-transparent
+from-black/55
+via-black/[0.18]
+to-transparent
 
     opacity-90
   "
 />
 
-      <div className="absolute bottom-5 left-5 text-white">
+      <div className="absolute bottom-6 left-6 text-white">
 
 <p className="
   inline-block
-  text-[11px] tracking-[0.35em]
-  text-[#C8A46A]
+  text-[10px]
+
+  tracking-[0.32em]
+
+  text-[#D6B278]
 
   px-1 py-[2px]
 
-  drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]
+  drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
 
   mb-3
 ">
   {category}
 </p>
 
-        <h3 className="text-[14px] tracking-[0.12em] leading-[1.5]">
+       <h3 className="
+  text-[15px]
+  tracking-[0.06em]
+  leading-[1.5]
+
+  font-light
+
+  drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]
+">
           {title}
         </h3>
 
@@ -385,9 +396,9 @@ className={`
     absolute inset-0
 
     bg-gradient-to-t
-   from-black/18
-via-black/[0.03]
-    to-transparent
+from-black/55
+via-black/[0.18]
+to-transparent
 
     opacity-95
   "
@@ -395,13 +406,36 @@ via-black/[0.03]
 
                 <div className="absolute bottom-6 left-6 text-white">
 
-                  <p className="text-[10px] tracking-[0.35em] text-[#C8A46A] mb-2">
+                  <p className="
+  text-[10px]
+  tracking-[0.35em]
+  text-[#D6B278]
+  mb-2
+
+  drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]
+">
                     {lang === "en"
                       ? group[0].category_en
                       : group[0].category}
                   </p>
 
-                  <h3 className="text-[18px] tracking-[0.12em] leading-[1.5] max-w-[420px]">
+<h3
+  className="
+    text-[16px]
+    md:text-[17px]
+
+    leading-[1.5]
+    tracking-[0.08em]
+
+    font-light
+
+    text-white
+
+    drop-shadow-[0_4px_18px_rgba(0,0,0,1)]
+
+    max-w-[420px]
+  "
+>
                     {lang === "en"
                       ? group[0].title_en
                       : group[0].title}
@@ -451,22 +485,44 @@ via-black/[0.03]
     absolute inset-0
 
     bg-gradient-to-t
-   from-black/16
-    via-black/[0.04]
-    to-transparent
+from-black/55
+via-black/[0.18]
+to-transparent
 
     opacity-85
   "
 />
 
-                    <div className="absolute bottom-5 left-5 text-white">
+                    <div className="absolute bottom-6 left-6 text-white">
 
-                      <p className="text-[10px] tracking-[0.35em] text-[#C8A46A] mb-2">
+                     <p className="
+  text-[10px]
+  tracking-[0.35em]
+  text-[#D6B278]
+  mb-2
+
+  drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]
+">
                         {category}
                       </p>
 
-                      <h3 className="text-[14px] tracking-[0.12em] leading-[1.5] max-w-[260px]">
-                        {title}
+<h3
+  className="
+    text-[16px]
+    md:text-[17px]
+
+    leading-[1.5]
+    tracking-[0.08em]
+
+    font-light
+
+    text-white
+
+    drop-shadow-[0_4px_18px_rgba(0,0,0,1)]
+
+    max-w-[420px]
+  "
+>                    {title}
                       </h3>
 
                     </div>
