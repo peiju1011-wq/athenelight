@@ -407,10 +407,10 @@ to-transparent
                 <div className="absolute bottom-6 left-6 text-white">
 
                   <p className="
-  text-[11px]
+  text-[12px]
   tracking-[0.35em]
   text-[#D6B278]
-  mb-2
+  mb-1
 
   drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]
 ">
@@ -496,12 +496,12 @@ to-transparent
                     <div className="absolute bottom-6 left-6 text-white">
 
                      <p className="
-  text-[11px]
+  text-[12px]
   tracking-[0.35em]
   text-[#D6B278]
-  mb-2
+  mb-1
 
-  drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]
+  drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
 ">
                         {category}
                       </p>
