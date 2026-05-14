@@ -407,7 +407,7 @@ to-transparent
                 <div className="absolute bottom-6 left-6 text-white">
 
                   <p className="
-  text-[10px]
+  text-[11px]
   tracking-[0.35em]
   text-[#D6B278]
   mb-2
@@ -496,7 +496,7 @@ to-transparent
                     <div className="absolute bottom-6 left-6 text-white">
 
                      <p className="
-  text-[10px]
+  text-[11px]
   tracking-[0.35em]
   text-[#D6B278]
   mb-2
