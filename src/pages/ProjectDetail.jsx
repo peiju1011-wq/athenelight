@@ -46,7 +46,18 @@ export default function ProjectDetail(){
    <main className="flex flex-col lg:flex-row min-h-screen bg-white">
 
       {/* ================= 左圖 ================= */}
-     <div className="relative w-full lg:w-[108%] h-[50vh] lg:h-screen bg-black overflow-hidden">
+     <div className="
+  relative
+  w-full
+  lg:w-[100%]
+
+  h-[50vh]
+  md:h-[55vh]
+  lg:h-screen
+
+  bg-black
+  overflow-hidden
+">
 
         {project.images.map((img,i)=>(
           <div
