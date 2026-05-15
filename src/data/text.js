@@ -239,7 +239,7 @@ company:{
     title:{ zh:"聯絡我們", en:"CONNECT" },
     items:[
       { label:"FB", link:"https://www.facebook.com/athenetech", type:"external" },
-      { label:"LINE", link:"https://oashop.line.me/shops/706hatrq", type:"external" },
+      { label:"LINE", link:"https://lin.ee/onasjh1n", type:"external" },
       { label:"MAIL", link:"/contact", type:"internal" }
     ]
   },
