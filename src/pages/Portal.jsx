@@ -196,31 +196,32 @@ md:text-[40px]
     </svg>
   </a>
 
-  {/* LINE */}
-  <a
-    href="https://oashop.line.me/shops/706hatrq"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
-      text-white/22
-      hover:text-white/58
+{/* LINE */}
+<a
+  href="https://lin.ee/onasjh1n"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="ATHENE LIGHT Official LINE"
+  className="
+    text-white/22
+    hover:text-white/58
 
-      hover:scale-105
+    hover:scale-105
 
-      transition-all
-      duration-500
-      ease-out
-    "
-  >
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M12 4C7.6 4 4 6.85 4 10.35c0 3.15 2.85 5.8 6.7 6.3L12 20l2.15-3.25C17.5 16.1 20 13.55 20 10.35 20 6.85 16.4 4 12 4Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </a>
+    transition-all
+    duration-500
+    ease-out
+  "
+>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M12 4C7.6 4 4 6.85 4 10.35c0 3.15 2.85 5.8 6.7 6.3L12 20l2.15-3.25C17.5 16.1 20 13.55 20 10.35 20 6.85 16.4 4 12 4Z"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinejoin="round"
+    />
+  </svg>
+</a>
 
   {/* MAIL */}
   <Link
