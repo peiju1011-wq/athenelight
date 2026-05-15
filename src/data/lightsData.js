@@ -21,12 +21,12 @@ bringing light back to its purest form`
 one light blends seamlessly into any space`
   },
 
-  cover:"/images/lights/pd1-2.png",
+  cover:"/images/lights/athene-minimal-chandelier-1.png",
 
   gallery:[
-    "/images/lights/pd1-3.png",
-    "/images/lights/pd1-4.png",
-    "/images/lights/pd1-5.png"
+    "/images/lights/athene-minimal-chandelier-2.png",
+    "/images/lights/athene-minimal-chandelier-3.png",
+    "/images/lights/athene-minimal-chandelier-4.png"
   ],
 
   /* 🔥 完整規格（全部統一格式） */
@@ -66,7 +66,7 @@ features:[
       zh:"高品質鋁材製作，散熱佳且耐用。",
       en:"High-quality aluminum body with excellent heat dissipation."
     },
-    img:"/images/lights/pd1-6.png"
+    img:"/images/lights/athene-minimal-chandelier-5.png"
   },
   {
     title:{ zh:"均勻導光", en:"Even Light Diffusion" },
@@ -74,7 +74,7 @@ features:[
       zh:"導光設計讓光線柔和不刺眼。",
       en:"Smooth light diffusion for comfortable illumination."
     },
-    img:"/images/lights/pd1-7.png"
+    img:"/images/lights/athene-minimal-chandelier-6.png"
   },
   {
     title:{ zh:"可調吊線", en:"Adjustable Suspension" },
