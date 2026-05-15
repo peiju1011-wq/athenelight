@@ -357,7 +357,9 @@ prev.set("search", keyword);
 
 </div>
 
-        <div className="
+          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition"/>
+
+         <div className="
   absolute bottom-5 left-5
   text-white
 
@@ -367,8 +369,6 @@ prev.set("search", keyword);
 
   transition
 ">
-
-          <div className="absolute bottom-5 left-5 text-white opacity-0 group-hover:opacity-100 transition">
 
             <h3 className="text-[14px] tracking-[0.15em]">
 
