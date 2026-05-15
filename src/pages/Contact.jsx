@@ -412,7 +412,7 @@ hover:shadow-[0_8px_24px_rgba(200,164,106,0.28)]
 
       {/* LINE */}
       <a
-        href="https://oashop.line.me/shops/706hatrq"
+        href="https://lin.ee/onasjh1n"
         target="_blank"
         rel="noopener noreferrer"
         className="
