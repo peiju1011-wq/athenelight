@@ -82,7 +82,7 @@ features:[
       zh:"可依空間高度自由調整吊線長度。",
       en:"Adjustable cable length for different ceiling heights."
     },
-    img:"/images/lights/pd1-8.png"
+    img:"/images/lights/athene-minimal-chandelier-7.png"
       }
     ]
   },
