@@ -164,31 +164,132 @@ const [imgLoading, setImgLoading] = useState(true);
         </section>
       )}
 
-      {/* ================= SPECS ================= */}
-      {product.specs?.length > 0 && (
-        <section className="px-6 mb-32">
-          <h3 className="text-center tracking-[0.3em] text-sm mb-12">
-            {lang === "en" ? "SPECIFICATION" : "產品規格"}
-          </h3>
+{/* ================= SPECS ================= */}
+{product.specs?.length > 0 && (
+  <section className="px-6 mb-32">
 
-          <div className="max-w-4xl mx-auto border-t border-b">
+    <h3 className="text-center tracking-[0.3em] text-sm mb-12">
+      {lang === "en" ? "SPECIFICATION" : "產品規格"}
+    </h3>
 
-            <div className="grid grid-cols-3 py-4 text-sm text-gray-400">
-              <div>{lang==="en"?"SIZE":"尺寸"}</div>
-              <div>{lang==="en"?"POWER":"瓦數"}</div>
-              <div>{lang==="en"?"SPACE":"適用空間"}</div>
+    <div className="max-w-5xl mx-auto border-t border-b">
+
+      {/* 標題列 */}
+      <div className="
+        hidden md:grid
+        grid-cols-4
+        py-4
+        text-[12px]
+        tracking-[0.15em]
+        text-black/40
+      ">
+        <div>{lang==="en"?"SIZE":"尺寸"}</div>
+        <div>{lang==="en"?"POWER":"瓦數"}</div>
+        <div>{lang==="en"?"VOLTAGE":"電壓"}</div>
+        <div>{lang==="en"?"SPACE":"適用空間"}</div>
+      </div>
+
+      {/* 內容 */}
+      {product.specs.map((s,i)=>(
+
+        <div
+          key={i}
+          className="
+            grid grid-cols-1 md:grid-cols-4
+            gap-y-6
+            py-8
+            border-t
+            text-sm
+          "
+        >
+
+{/* SIZE */}
+<div>
+  <div className="text-[11px] text-black/35 mb-2 md:hidden">
+    {lang==="en"?"SIZE":"尺寸"}
+  </div>
+
+  <div className="font-medium tracking-[0.05em]">
+    {getText(s.size)}
+  </div>
+
+  {s.material && (
+    <div className="text-[12px] text-black/45 mt-2 leading-6">
+      {getText(s.material)}
+    </div>
+  )}
+
+  {s.style && (
+    <div className="text-[12px] text-black/45 mt-2">
+      {getText(s.style)}
+    </div>
+  )}
+</div>
+
+          {/* POWER */}
+          <div>
+            <div className="text-[11px] text-black/35 mb-2 md:hidden">
+              {lang==="en"?"POWER":"瓦數"}
             </div>
 
-            {product.specs.map((s,i)=>(
-              <div key={i} className="grid grid-cols-3 py-6 text-sm border-t">
-                <div>{getText(s.size)}</div>
-                <div>{s.power}</div>
-                <div>{getText(s.space)}</div>
+            <div className="font-medium">
+              {s.power}
+            </div>
+
+            {s.cri && (
+              <div className="text-[12px] text-black/45 mt-2">
+                {s.cri}
               </div>
-            ))}
+            )}
           </div>
-        </section>
-      )}
+
+          {/* VOLTAGE */}
+          <div>
+            <div className="text-[11px] text-black/35 mb-2 md:hidden">
+              {lang==="en"?"VOLTAGE":"電壓"}
+            </div>
+
+            <div className="font-medium">
+              {s.voltage}
+            </div>
+
+            {s.output && (
+              <div className="text-[12px] text-black/45 mt-2">
+                OUT {s.output}
+              </div>
+            )}
+
+            {s.lightColor && (
+              <div className="text-[12px] text-black/45 mt-2">
+                {getText(s.lightColor)}
+              </div>
+            )}
+          </div>
+
+          {/* SPACE */}
+{/* SPACE */}
+<div>
+  <div className="text-[11px] text-black/35 mb-2 md:hidden">
+    {lang==="en"?"SPACE":"適用空間"}
+  </div>
+
+  <div className="font-medium">
+    {getText(s.space)}
+  </div>
+
+  {s.install && (
+    <div className="text-[12px] text-black/45 mt-2">
+      {getText(s.install)}
+    </div>
+  )}
+</div>
+
+        </div>
+      ))}
+
+    </div>
+  </section>
+)}
 
       {/* ================= FEATURES ================= */}
       {product.features?.length > 0 && (
