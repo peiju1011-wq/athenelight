@@ -95,8 +95,31 @@ const categories = [
       type:"light",
       cat:"INDOOR",
       link:"ginkgo-light"   // 🔥 修正（小寫）
-    }
+    },
+
+    {
+  id:7,
+  title:{ zh:"義式簡約方塊吊燈", en:"Italian Minimal Square Pendant Light"},
+  img:"/images/lights/athene-italian-minimal-square-pendant-light-1.png",
+  type:"light",
+  cat:"INDOOR",
+  link:"italian-minimal-square-light"
+},
+
+{
+  id:8,
+  title:{ zh:"意式輕奢簡約吊燈", en:"Italian Light Luxury Pendant Light"},
+  img:"/images/lights/athene-italian-light-luxury-pendant-1.png",
+  type:"light",
+  cat:"INDOOR",
+  link:"italian-light-luxury-linear-pendant"
+}
+
+
+
   ];
+
+  products.sort((a, b) => b.id - a.id);
 
   /* ===== 鏡系列 ===== */
 const mirrorItems = Object.entries(manualSpecs).map(([key,item]) => {
@@ -350,10 +373,11 @@ prev.set("search", keyword);
 
         <div className="relative w-full aspect-[4/3] overflow-hidden">
 
-  <img
-    src={item.img}
-    className="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
-  />
+<img
+  src={item.img}
+  alt={`ATHENE LIGHT ${item.title?.[lang] || item.title?.zh}`}
+  className="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
+/>
 
 </div>
 
