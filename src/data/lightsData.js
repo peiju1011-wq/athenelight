@@ -781,7 +781,7 @@ specs:[
   slug: "italian-light-luxury-linear-pendant",
 
   name:{
-    zh:"意式輕奢簡約吊燈",
+    zh:"義式輕奢簡約吊燈",
     en:"ITALIAN LIGHT LUXURY PENDANT LIGHT"
   },
 
@@ -830,7 +830,7 @@ specs:[
     },
 
     style:{
-      zh:"意式輕奢",
+      zh:"義式輕奢",
       en:"Italian Light Luxury"
     },
 
@@ -863,7 +863,7 @@ specs:[
     },
 
     style:{
-      zh:"意式輕奢",
+      zh:"義式輕奢",
       en:"Italian Light Luxury"
     },
 
@@ -896,7 +896,7 @@ specs:[
     },
 
     style:{
-      zh:"意式輕奢",
+      zh:"義式輕奢",
       en:"Italian Light Luxury"
     },
 
