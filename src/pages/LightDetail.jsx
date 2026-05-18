@@ -175,36 +175,52 @@ const [imgLoading, setImgLoading] = useState(true);
     <div className="max-w-5xl mx-auto border-t border-b">
 
       {/* 標題列 */}
-      <div className="
-        hidden md:grid
-        grid-cols-4
-        py-4
-        text-[12px]
-        tracking-[0.15em]
-        text-black/40
-      ">
-        <div>{lang==="en"?"SIZE":"尺寸"}</div>
-        <div>{lang==="en"?"POWER":"瓦數"}</div>
-        <div>{lang==="en"?"VOLTAGE":"電壓"}</div>
-        <div>{lang==="en"?"SPACE":"適用空間"}</div>
-      </div>
+<div className="
+  hidden md:flex
+  justify-between
+  py-4
+  text-[12px]
+  tracking-[0.15em]
+  text-black/40
+">
 
-      {/* 內容 */}
-      {product.specs.map((s,i)=>(
+  <div className="flex-1">
+    {lang==="en"?"SIZE":"尺寸"}
+  </div>
 
-        <div
-          key={i}
-          className="
-            grid grid-cols-1 md:grid-cols-4
-            gap-y-6
-            py-8
-            border-t
-            text-sm
-          "
-        >
+  <div className="flex-1">
+    {lang==="en"?"POWER":"瓦數"}
+  </div>
+
+  {product.specs.some(s => s.voltage) && (
+    <div className="flex-1">
+      {lang==="en"?"VOLTAGE":"電壓"}
+    </div>
+  )}
+
+  <div className="flex-1">
+    {lang==="en"?"SPACE":"適用空間"}
+  </div>
+
+</div>
+
+{/* 內容 */}
+{product.specs.map((s,i)=>(
+
+  <div
+    key={i}
+className="
+  flex flex-wrap
+  justify-between
+  gap-y-6
+  py-8
+  border-t
+  text-sm
+"
+  >
 
 {/* SIZE */}
-<div>
+<div className="w-1/2 md:flex-1">
   <div className="text-[11px] text-black/35 mb-2 md:hidden">
     {lang==="en"?"SIZE":"尺寸"}
   </div>
@@ -227,7 +243,7 @@ const [imgLoading, setImgLoading] = useState(true);
 </div>
 
           {/* POWER */}
-          <div>
+          <div className="w-1/2 md:flex-1">
             <div className="text-[11px] text-black/35 mb-2 md:hidden">
               {lang==="en"?"POWER":"瓦數"}
             </div>
@@ -243,32 +259,34 @@ const [imgLoading, setImgLoading] = useState(true);
             )}
           </div>
 
-          {/* VOLTAGE */}
-          <div>
-            <div className="text-[11px] text-black/35 mb-2 md:hidden">
-              {lang==="en"?"VOLTAGE":"電壓"}
-            </div>
+{/* VOLTAGE */}
+{s.voltage && (
+  <div className="w-1/2 md:flex-1">
 
-            <div className="font-medium">
-              {s.voltage}
-            </div>
+    <div className="text-[11px] text-black/35 mb-2 md:hidden">
+      {lang==="en"?"VOLTAGE":"電壓"}
+    </div>
 
-            {s.output && (
-              <div className="text-[12px] text-black/45 mt-2">
-                OUT {s.output}
-              </div>
-            )}
+    <div className="font-medium">
+      {s.voltage}
+    </div>
 
-            {s.lightColor && (
-              <div className="text-[12px] text-black/45 mt-2">
-                {getText(s.lightColor)}
-              </div>
-            )}
-          </div>
+    {s.output && (
+      <div className="text-[12px] text-black/45 mt-2">
+        OUT {s.output}
+      </div>
+    )}
 
-          {/* SPACE */}
+    {s.lightColor && (
+      <div className="text-[12px] text-black/45 mt-2">
+        {getText(s.lightColor)}
+      </div>
+    )}
+
+  </div>
+)}
 {/* SPACE */}
-<div>
+<div className="w-1/2 md:flex-1">
   <div className="text-[11px] text-black/35 mb-2 md:hidden">
     {lang==="en"?"SPACE":"適用空間"}
   </div>
