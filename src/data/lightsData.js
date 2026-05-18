@@ -563,6 +563,426 @@ balancing decoration and functionality.`
 },
 
 
+{
+  slug: "italian-minimal-square-light",
+
+  name:{
+    zh:"義式簡約方塊吊燈",
+    en:"ITALIAN MINIMAL SQUARE PENDANT LIGHT"
+  },
+
+  subtitle:{
+    zh:"現代幾何玻璃吊燈",
+    en:"Modern Geometric Glass Pendant Light"
+  },
+
+  desc:{
+    zh:`俐落幾何線條
+結合玻璃與金屬光影層次`,
+    en:`Clean geometric lines
+blending glass and metal lighting aesthetics`
+  },
+
+  descLong:{
+    zh:`以極簡幾何結構搭配玻璃燈罩，
+打造現代且安靜的空間氛圍。
+
+適合餐廳、吧台、客廳與商業空間，
+呈現義式簡約的精緻光感。`,
+    en:`Featuring a minimalist geometric structure with glass shades,
+creating a calm and refined modern atmosphere.
+
+Perfect for dining rooms, bars, living spaces,
+and commercial interiors with elegant Italian minimalism.`
+  },
+
+  cover:"/images/lights/athene-italian-minimal-square-pendant-light-1.png",
+
+
+  gallery:[
+    "/images/lights/athene-italian-minimal-square-pendant-light-2.png",
+    "/images/lights/athene-italian-minimal-square-pendant-light-3.png",
+    "/images/lights/athene-italian-minimal-square-pendant-light-4.png"
+  ],
+
+specs:[
+  {
+    size:{ zh:"Φ102.5CM", en:"Φ102.5CM" },
+
+    material:{
+      zh:"全銅＋玻璃",
+      en:"Copper + Glass"
+    },
+
+    style:{
+      zh:"義式極簡",
+      en:"Italian Minimal"
+    },
+
+    power:"LED 22W",
+
+    voltage:"90–240V AC",
+
+    output:"12V",
+
+    cri:"RA≥97",
+
+    lightColor:{
+      zh:"無極調光",
+      en:"Stepless Dimming"
+    },
+
+    install:{
+      zh:"吸吊兩用",
+      en:"Ceiling / Pendant"
+    },
+
+    space:{
+      zh:"10–15㎡",
+      en:"10–15㎡"
+    }
+  },
+
+  {
+    size:{ zh:"Φ130CM", en:"Φ130CM" },
+
+    material:{
+      zh:"全銅＋玻璃",
+      en:"Copper + Glass"
+    },
+
+    style:{
+      zh:"義式極簡",
+      en:"Italian Minimal"
+    },
+
+    power:"LED 26W",
+
+    voltage:"90–240V AC",
+
+    output:"12V",
+
+    cri:"RA≥97",
+
+    lightColor:{
+      zh:"無極調光",
+      en:"Stepless Dimming"
+    },
+
+    install:{
+      zh:"吸吊兩用",
+      en:"Ceiling / Pendant"
+    },
+
+    space:{
+      zh:"12–18㎡",
+      en:"12–18㎡"
+    }
+  },
+
+  {
+    size:{ zh:"Φ168CM", en:"Φ168CM" },
+
+    material:{
+      zh:"全銅＋玻璃",
+      en:"Copper + Glass"
+    },
+
+    style:{
+      zh:"義式極簡",
+      en:"Italian Minimal"
+    },
+
+    power:"LED 30W",
+
+    voltage:"90–240V AC",
+
+    output:"12V",
+
+    cri:"RA≥97",
+
+    lightColor:{
+      zh:"無極調光",
+      en:"Stepless Dimming"
+    },
+
+    install:{
+      zh:"吸吊兩用",
+      en:"Ceiling / Pendant"
+    },
+
+    space:{
+      zh:"15–20㎡",
+      en:"15–20㎡"
+    }
+  }
+],
+
+
+  variants:[
+    {
+      label:{
+        zh:"全光譜護眼光",
+        en:"Full Spectrum Eye-Care Light"
+      }
+    },
+    {
+      label:{
+        zh:"無極調光",
+        en:"Stepless Dimming"
+      }
+    },
+    {
+      label:{
+        zh:"黑色燈體",
+        en:"Black Finish"
+      }
+    }
+  ],
+
+  features:[
+    {
+      title:{
+        zh:"全光譜健康光源",
+        en:"Full Spectrum Healthy Lighting"
+      },
+      desc:{
+        zh:"高顯色 RA≥97，光線自然柔和，降低藍光與頻閃影響。",
+        en:"High CRI RA≥97 with soft natural lighting and reduced blue light flicker."
+      },
+      img:"/images/lights/athene-italian-minimal-square-pendant-light-6.png"
+    },
+    {
+      title:{
+        zh:"玻璃幾何燈罩",
+        en:"Geometric Glass Shade"
+      },
+      desc:{
+        zh:"煙灰玻璃結合極簡幾何比例，展現現代義式質感。",
+        en:"Smoked glass combined with minimalist geometry creates a refined Italian aesthetic."
+      },
+      img:"/images/lights/athene-italian-minimal-square-pendant-light-5.png"
+    },
+    {
+      title:{
+        zh:"可調吊線設計",
+        en:"Adjustable Suspension Cable"
+      },
+      desc:{
+        zh:"可依空間高度自由調整吊線長度，適合不同場域配置。",
+        en:"Adjustable suspension cables fit various ceiling heights and spaces."
+      },
+      img:"/images/lights/athene-italian-minimal-square-pendant-light-7.png"
+    }
+  ]
+},
+
+{
+  slug: "italian-light-luxury-linear-pendant",
+
+  name:{
+    zh:"意式輕奢簡約吊燈",
+    en:"ITALIAN LIGHT LUXURY PENDANT LIGHT"
+  },
+
+  subtitle:{
+    zh:"現代一字長條餐吊燈",
+    en:"Modern Linear Dining Pendant Light"
+  },
+
+  desc:{
+    zh:`極簡線性結構
+融合金屬與柔和光影層次`,
+    en:`Minimal linear structure
+blending metal texture with soft illumination`
+  },
+
+  descLong:{
+    zh:`以義式輕奢風格為靈感，
+透過俐落線條與金屬燈體，
+打造安靜且具有高級感的空間氛圍。
+
+適合餐桌、吧台、客廳與商業空間，
+展現現代簡約與精緻光感的平衡。`,
+    en:`Inspired by Italian light luxury aesthetics,
+the clean linear form and refined metal body
+create a calm and sophisticated atmosphere.
+
+Perfect for dining tables, bars, living spaces,
+and modern commercial interiors.`
+  },
+
+  cover:"/images/lights/athene-italian-light-luxury-pendant-1.png",
+
+  gallery:[
+    "/images/lights/athene-italian-light-luxury-pendant-2.png",
+    "/images/lights/athene-italian-light-luxury-pendant-3.png",
+    "/images/lights/athene-italian-light-luxury-pendant-4.png"
+  ],
+
+specs:[
+  {
+    size:{ zh:"120CM", en:"120CM" },
+
+    material:{
+      zh:"五金燈體",
+      en:"Metal Hardware Body"
+    },
+
+    style:{
+      zh:"意式輕奢",
+      en:"Italian Light Luxury"
+    },
+
+    power:"LED + E27 × 5",
+
+    voltage:"220V",
+
+    lightColor:{
+      zh:"三色變光",
+      en:"3 Color Lighting"
+    },
+
+    install:{
+      zh:"吊線型",
+      en:"Pendant Type"
+    },
+
+    space:{
+      zh:"10–15㎡",
+      en:"10–15㎡"
+    }
+  },
+
+  {
+    size:{ zh:"150CM", en:"150CM" },
+
+    material:{
+      zh:"五金燈體",
+      en:"Metal Hardware Body"
+    },
+
+    style:{
+      zh:"意式輕奢",
+      en:"Italian Light Luxury"
+    },
+
+    power:"LED + E27 × 5",
+
+    voltage:"220V",
+
+    lightColor:{
+      zh:"三色變光",
+      en:"3 Color Lighting"
+    },
+
+    install:{
+      zh:"吊線型",
+      en:"Pendant Type"
+    },
+
+    space:{
+      zh:"12–18㎡",
+      en:"12–18㎡"
+    }
+  },
+
+  {
+    size:{ zh:"180CM", en:"180CM" },
+
+    material:{
+      zh:"五金燈體",
+      en:"Metal Hardware Body"
+    },
+
+    style:{
+      zh:"意式輕奢",
+      en:"Italian Light Luxury"
+    },
+
+    power:"LED + E27 × 5",
+
+    voltage:"220V",
+
+    lightColor:{
+      zh:"三色變光",
+      en:"3 Color Lighting"
+    },
+
+    install:{
+      zh:"吊線型",
+      en:"Pendant Type"
+    },
+
+    space:{
+      zh:"15–20㎡",
+      en:"15–20㎡"
+    }
+  }
+],
+
+  variants:[
+    {
+      label:{
+        zh:"黑金燈體",
+        en:"Black & Gold Finish"
+      }
+    },
+    {
+      label:{
+        zh:"三色變光",
+        en:"3 Color Lighting"
+      }
+    },
+    {
+      label:{
+        zh:"現代極簡風格",
+        en:"Modern Minimal Style"
+      }
+    }
+  ],
+
+  features:[
+    {
+      title:{
+        zh:"奈米電鍍五金燈體",
+        en:"Nano Electroplated Metal Body"
+      },
+      desc:{
+        zh:"防腐防鏽處理，燈體質感細膩，兼具耐用與現代設計感。",
+        en:"Anti-corrosion electroplated metal finish with refined modern aesthetics."
+      },
+      img:"/images/lights/athene-italian-light-luxury-pendant-5.png"
+    },
+
+    {
+      title:{
+        zh:"線性均勻發光",
+        en:"Linear Uniform Illumination"
+      },
+      desc:{
+        zh:"LED 光源均勻柔和，適合餐桌與空間氛圍照明。",
+        en:"Soft and even LED illumination ideal for dining and ambient lighting."
+      },
+      img:"/images/lights/athene-italian-light-luxury-pendant-6.png"
+    },
+
+    {
+      title:{
+        zh:"義式輕奢比例設計",
+        en:"Italian Luxury Proportion Design"
+      },
+      desc:{
+        zh:"俐落長條比例搭配金屬細節，展現現代空間中的精緻感。",
+        en:"Elegant linear proportions combined with refined metallic details."
+      },
+      img:"/images/lights/athene-italian-light-luxury-pendant-7.png"
+    }
+  ]
+},
+
+
+
 ];
 
 export default lightsData;
