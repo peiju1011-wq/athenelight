@@ -108,7 +108,7 @@ const categories = [
 
 {
   id:8,
-  title:{ zh:"意式輕奢簡約吊燈", en:"Italian Light Luxury Pendant Light"},
+  title:{ zh:"義式輕奢簡約吊燈", en:"Italian Light Luxury Pendant Light"},
   img:"/images/lights/athene-italian-light-luxury-pendant-1.png",
   type:"light",
   cat:"INDOOR",
