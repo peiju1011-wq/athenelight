@@ -921,12 +921,12 @@ specs:[
 ],
 
   variants:[
-    {
-      label:{
-        zh:"黑金燈體",
-        en:"Black & Gold Finish"
-      }
-    },
+{
+  label:{
+    zh:"黑+金｜黑二色可選",
+    en:"Black & Gold / Black Available"
+  }
+},
     {
       label:{
         zh:"三色變光",
