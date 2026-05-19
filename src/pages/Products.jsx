@@ -103,7 +103,7 @@ const categories = [
   img:"/images/lights/athene-italian-minimal-square-pendant-light-1.png",
   type:"light",
   cat:"INDOOR",
-  link:"italian-minimal-square-light"
+  link:"square-light"
 },
 
 {
