@@ -564,7 +564,7 @@ balancing decoration and functionality.`
 
 
 {
-  slug: "italian-minimal-square-light",
+  slug: "square-light",
 
   name:{
     zh:"義式簡約方塊吊燈",
