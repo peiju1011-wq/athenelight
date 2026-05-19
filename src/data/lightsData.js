@@ -777,7 +777,7 @@ specs:[
 },
 
 {
-  slug: "italian-light-luxury-linear-pendant",
+  slug: "italian-light",
 
   name:{
     zh:"義式輕奢簡約吊燈",
