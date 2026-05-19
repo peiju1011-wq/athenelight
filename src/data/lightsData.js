@@ -305,7 +305,7 @@ balancing decorative presence with functional illumination.`
       },
       {
         size:{ zh:"離牆厚度 60 mm", en:"Projection 60 mm" },
-        power:"AC 220V",
+        power:"AC 110~220V",
         space:{ zh:"室內 / 室外", en:"Indoor / Outdoor" }
       }
     ],
@@ -520,7 +520,7 @@ balancing decoration and functionality.`
     },
     {
       size:{ zh:"高 15cm", en:"Height 15cm" },
-      power:"AC 220V",
+      power:"AC 110~220V",
       space:{ zh:"室內使用", en:"Indoor use" }
     }
   ],
@@ -623,7 +623,7 @@ specs:[
 
     voltage:"90–240V AC",
 
-    output:"12V",
+  
 
     cri:"RA≥97",
 
@@ -660,7 +660,7 @@ specs:[
 
     voltage:"90–240V AC",
 
-    output:"12V",
+   
 
     cri:"RA≥97",
 
@@ -697,8 +697,7 @@ specs:[
 
     voltage:"90–240V AC",
 
-    output:"12V",
-
+  
     cri:"RA≥97",
 
     lightColor:{
@@ -836,7 +835,7 @@ specs:[
 
     power:"LED + E27 × 5",
 
-    voltage:"220V",
+    voltage:"110~220V",
 
     lightColor:{
       zh:"三色變光",
@@ -869,7 +868,7 @@ specs:[
 
     power:"LED + E27 × 5",
 
-    voltage:"220V",
+    voltage:"110~220V",
 
     lightColor:{
       zh:"三色變光",
@@ -902,7 +901,7 @@ specs:[
 
     power:"LED + E27 × 5",
 
-    voltage:"220V",
+    voltage:"110~220V",
 
     lightColor:{
       zh:"三色變光",
