@@ -371,28 +371,40 @@ prev.set("search", keyword);
           className="relative group overflow-hidden block w-full max-w-[360px]"
         >
 
-        <div className="relative w-full aspect-[4/3] overflow-hidden">
+<div className="relative w-full aspect-[4/3] overflow-hidden">
 
-<img
-  src={item.img}
-  alt={`ATHENE LIGHT ${item.title?.[lang] || item.title?.zh}`}
-  className="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
-/>
+  <img
+    src={item.img}
+    alt={`ATHENE LIGHT ${item.title?.[lang] || item.title?.zh}`}
+    className="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
+  />
+
+  {/* 🔥 底部漸層 */}
+  <div className="
+    absolute inset-0
+    bg-gradient-to-t
+    from-black/40
+    via-black/5
+    to-transparent
+  "/>
 
 </div>
 
-          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition"/>
+<div
+  className="
+    absolute bottom-5 left-5
+    text-white
 
-         <div className="
-  absolute bottom-5 left-5
-  text-white
+    opacity-100
+    md:opacity-0
+    md:group-hover:opacity-100
 
-  opacity-100
-  md:opacity-0
-  md:group-hover:opacity-100
-
-  transition
-">
+    transition
+  "
+  style={{
+    textShadow: "0 2px 12px rgba(0,0,0,0.4)"
+  }}
+>
 
             <h3 className="text-[14px] tracking-[0.15em]">
 
