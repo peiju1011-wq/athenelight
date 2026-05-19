@@ -112,7 +112,7 @@ const categories = [
   img:"/images/lights/athene-italian-light-luxury-pendant-1.png",
   type:"light",
   cat:"INDOOR",
-  link:"italian-light-luxury-linear-pendant"
+  link:"italian-light"
 }
 
 
