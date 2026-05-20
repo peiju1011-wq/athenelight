@@ -104,7 +104,7 @@ type: "照明設計",
   images: [
     "/images/projects/p4-1.png",
     "/images/projects/p4-3.png",
-    "/images/projects/p4-4.jpg"
+    "/images/projects/p4-2.jpg"
   ],
 
   year: "2021",
