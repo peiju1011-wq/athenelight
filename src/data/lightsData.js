@@ -566,6 +566,9 @@ balancing decoration and functionality.`
 {
   slug: "square-light",
 
+  lineLink:
+  "https://oashop.line.me/products/322512839?productName=義式輕奢簡約吊燈",
+
   name:{
     zh:"義式簡約方塊吊燈",
     en:"ITALIAN MINIMAL SQUARE PENDANT LIGHT"
@@ -778,6 +781,9 @@ specs:[
 
 {
   slug: "italian-light",
+
+  lineLink:
+  "https://oashop.line.me/products/322512839?productName=義式輕奢簡約吊燈",
 
   name:{
     zh:"義式輕奢簡約吊燈",
