@@ -104,8 +104,13 @@ type: "照明設計",
   images: [
     "/images/projects/p4-1.png",
     "/images/projects/p4-3.png",
-    "/images/projects/p4-2.jpg"
-  ],
+  {
+    src: "/images/projects/p4-2.png",
+    position: "center 10%"
+  },
+
+],
+
 
   year: "2021",
   client: "Commercial Project"
