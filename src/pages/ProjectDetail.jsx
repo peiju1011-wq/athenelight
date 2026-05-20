@@ -69,15 +69,20 @@ export default function ProjectDetail(){
             `}
           >
 <img
-  src={img}
+  src={typeof img === "string" ? img : img.src}
+
+  style={{
+    objectPosition:
+      typeof img === "string"
+        ? "center"
+        : img.position
+  }}
+
   className="
     w-full h-full
-
     object-cover
-    object-top
 
     md:object-cover
-    md:object-center
   "
 />
             {/* 🔥 修復：不阻擋點擊 */}
