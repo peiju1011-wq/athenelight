@@ -567,7 +567,7 @@ balancing decoration and functionality.`
   slug: "square-light",
 
   lineLink:
-  "https://oashop.line.me/products/322512839?productName=義式輕奢簡約吊燈",
+  "https://oashop.line.me/products/322513167?productName=義式簡約方塊吊燈",
 
   name:{
     zh:"義式簡約方塊吊燈",
