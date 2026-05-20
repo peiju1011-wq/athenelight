@@ -39,104 +39,201 @@ const [imgLoading, setImgLoading] = useState(true);
   return(
     <main className="bg-white text-[#222]">
 
-      {/* ================= HERO ================= */}
-      <section className="pt-[160px] pb-32 bg-[#f6f6f6]">
+{/* ================= HERO ================= */}
+<section className="pt-[160px] pb-32 bg-[#f6f6f6]">
 
-      <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-10 md:gap-20 items-center">
+  <div className="
+    max-w-[1200px]
+    mx-auto
+    px-6
 
+    grid
+    md:grid-cols-2
 
-          {/* 左 */}
-          <div className="max-w-[420px]">
-            <p className="text-[10px] tracking-[0.45em] text-[#C8A46A] mb-10">
-              {lang === "en" ? "LIGHTING COLLECTION" : "燈具系列"}
-            </p>
+    gap-16
+    md:gap-20
 
-            <h1 className="text-[32px] md:text-[42px] tracking-[0.14em] text-[#111] leading-[1.5]">
-              {getText(product.name)}
-            </h1>
+    items-center
+  ">
 
-            <p className="mt-6 text-[12px] tracking-[0.3em] text-black/40">
-              {getText(product.subtitle)}
-            </p>
+    {/* 左 */}
+    <div className="max-w-[420px]">
 
-            <div className="text-[10px] mt-6 mb-10">—</div>
+      <p className="text-[10px] tracking-[0.45em] text-[#C8A46A] mb-10">
+        {lang === "en" ? "LIGHTING COLLECTION" : "燈具系列"}
+      </p>
 
-            <p className="text-[14px] text-black/60 leading-[2] whitespace-pre-line">
-              {getText(product.desc)}
-            </p>
+      <h1 className="
+        text-[32px]
+        md:text-[42px]
+        tracking-[0.14em]
+        text-[#111]
+        leading-[1.5]
+      ">
+        {getText(product.name)}
+      </h1>
 
-            {product.variants && (
-              <div className="mt-10">
-                <p className="text-[11px] tracking-[0.3em] text-[#999] mb-4">
-                  {lang === "en" ? "OPTIONS" : "燈光選項"}
-                </p>
+      <p className="mt-6 text-[12px] tracking-[0.3em] text-black/40">
+        {getText(product.subtitle)}
+      </p>
 
-                <div className="flex flex-wrap gap-3">
-                  {product.variants.map((v, i) => (
-                    <div
-                      key={i}
-                      className="px-4 py-2 text-[12px] border border-[#ddd] rounded-full hover:border-[#C8A46A] transition"
-                    >
-                      {getText(v.label)}
-                    </div>
-                  ))}
-                </div>
+      <div className="text-[10px] mt-6 mb-10">—</div>
+
+      <p className="
+        text-[14px]
+        text-black/60
+        leading-[2]
+        whitespace-pre-line
+      ">
+        {getText(product.desc)}
+      </p>
+
+      {/* OPTIONS */}
+      {product.variants && (
+        <div className="mt-10">
+
+          <p className="
+            text-[11px]
+            tracking-[0.3em]
+            text-[#999]
+            mb-5
+          ">
+            {lang === "en" ? "OPTIONS" : "燈光選項"}
+          </p>
+
+          {/* CHIPS */}
+          <div className="flex flex-wrap gap-3">
+
+            {product.variants.map((v, i) => (
+              <div
+                key={i}
+                className="
+                  px-4 py-2
+                  text-[12px]
+
+                  border border-[#ddd]
+                  rounded-full
+
+                  hover:border-[#C8A46A]
+
+                  transition-all duration-500
+                "
+              >
+                {getText(v.label)}
               </div>
-            )}
+            ))}
+
           </div>
 
+          {/* LINE SHOP */}
+    <a
+  href={product.lineLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    inline-flex items-center
 
-         {/* 右 */}
-{product.cover2 ? (
+    mt-8
 
-  <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5 w-full">
+    text-[11px]
+    tracking-[0.28em]
+    uppercase
 
-    <div className="w-full md:w-[320px]">
-      <img
-        src={product.cover}
-        onClick={() => {
-          setViewerOpen(true);
-          setCurrentIndex(0);
-          setImgLoading(true);
-        }}
-        className="cursor-zoom-in w-full h-[240px] md:h-[520px] object-cover rounded-[8px]"
-      />
-    </div>
+    text-[#9d8358]/90
 
-    <div className="w-full md:w-[320px] md:mt-[60px]">
-      <img
-        src={product.cover2}
-        onClick={() => {
-          setViewerOpen(true);
-          setCurrentIndex(1);
-          setImgLoading(true);
-        }}
-        className="cursor-zoom-in w-full h-[240px] md:h-[520px] object-cover rounded-[8px]"
-      />
-    </div>
+    hover:text-black
+    hover:tracking-[0.34em]
 
-  </div>
-
-) : (
-
-  <div className="relative w-full">
-    <img
-      src={product.cover}
-      onClick={() => {
-        setViewerOpen(true);
-        setCurrentIndex(0);
-        setImgLoading(true);
-      }}
-      className="cursor-zoom-in w-full h-[320px] md:h-[600px] object-cover rounded-[8px]"
-    />
-    <div className="absolute inset-0 pointer-events-none shadow-[0_40px_80px_rgba(0,0,0,0.12)]" />
-  </div>
-
-)}
+    transition-all duration-500
+  "
+>
+  GO LINE SHOP ↗
+</a>
 
         </div>
-      </section>
+      )}
 
+    </div>
+
+
+    {/* 右 */}
+    {product.cover2 ? (
+
+      <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5 w-full">
+
+        <div className="w-full md:w-[320px]">
+          <img
+            src={product.cover}
+            onClick={() => {
+              setViewerOpen(true);
+              setCurrentIndex(0);
+              setImgLoading(true);
+            }}
+            className="
+              cursor-zoom-in
+              w-full
+              h-[240px]
+              md:h-[520px]
+              object-cover
+              rounded-[8px]
+            "
+          />
+        </div>
+
+        <div className="w-full md:w-[320px] md:mt-[60px]">
+          <img
+            src={product.cover2}
+            onClick={() => {
+              setViewerOpen(true);
+              setCurrentIndex(1);
+              setImgLoading(true);
+            }}
+            className="
+              cursor-zoom-in
+              w-full
+              h-[240px]
+              md:h-[520px]
+              object-cover
+              rounded-[8px]
+            "
+          />
+        </div>
+
+      </div>
+
+    ) : (
+
+      <div className="relative w-full">
+
+        <img
+          src={product.cover}
+          onClick={() => {
+            setViewerOpen(true);
+            setCurrentIndex(0);
+            setImgLoading(true);
+          }}
+          className="
+            cursor-zoom-in
+            w-full
+            h-[320px]
+            md:h-[600px]
+            object-cover
+            rounded-[8px]
+          "
+        />
+
+        <div className="
+          absolute inset-0
+          pointer-events-none
+          shadow-[0_40px_80px_rgba(0,0,0,0.12)]
+        " />
+
+      </div>
+
+    )}
+
+  </div>
+</section>
       {/* ================= DESC ================= */}
       {product.descLong && (
         <section className="py-24 px-6 text-center max-w-3xl mx-auto">
