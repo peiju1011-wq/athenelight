@@ -736,8 +736,8 @@ specs:[
     },
     {
       label:{
-        zh:"黑色燈體",
-        en:"Black Finish"
+   zh:"啞黑＋煙燻玻璃",
+en:"Matte Black + Smoked Glass"
       }
     }
   ],
