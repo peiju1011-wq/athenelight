@@ -23,7 +23,7 @@ const categories =
   lang === "en"
     ? [
         "ALL",
-        "LIGHTING",
+        "LIGHTING DESIGN",
         "FACADE",
         "LANDSCAPE",
         "COMMERCIAL",
@@ -47,7 +47,7 @@ const categories =
   /* ===== 對照 ===== */
 const typeMap = {
   ALL: "全部",
-  LIGHTING: "照明設計",
+  "LIGHTING DESIGN": "照明設計",
   FACADE: "外牆",
   LANDSCAPE: "景觀",
   COMMERCIAL: "商業空間",
@@ -306,11 +306,19 @@ className={`
 
   <div className="bg-white p-2 rounded-md shadow-sm">
 
-    <div className="relative aspect-[4/3] overflow-hidden group shadow-sm">
+    <div className="relative aspect-[4/5] overflow-hidden group shadow-sm">
 
       <img
         src={p.img}
-        className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+        className="
+  w-full h-full
+  object-cover
+
+  object-center
+
+  transition duration-700
+  group-hover:scale-[1.03]
+"
       />
 
       {/* 🔥 這段補回來 */}
@@ -393,7 +401,15 @@ to-transparent
 
                 <img
                   src={group[0].img}
-                  className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                  className="
+  w-full h-full
+  object-cover
+
+  object-center
+
+  transition duration-700
+  group-hover:scale-[1.03]
+"
                 />
 
            <div
@@ -473,16 +489,25 @@ to-transparent
     overflow-hidden
     group
 
-    ${idx % 2 === 0
-      ? "aspect-[4/5]"
-      : "aspect-[4/5]"
+${idx % 2 === 0
+  ? "aspect-[4/5]"
+  : "aspect-[4/4.2]"
+}
     }
   `}
 >
 
                     <img
                       src={p.img}
-                      className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                     className="
+  w-full h-full
+  object-cover
+
+  object-center
+
+  transition duration-700
+  group-hover:scale-[1.03]
+"
                     />
 
                     <div
