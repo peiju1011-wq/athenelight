@@ -3,8 +3,8 @@ const projects = [
 {
   id:1,
  type: "亮化工程",
-  category:"景觀照明",
-  category_en:"LANDSCAPE LIGHTING",
+  category:"亮化工程",
+  category_en:"ILLUMINATION",
 
   title:"鹿谷鄉 小半天橋",
   title_en:"Lugu Township, Xiaobantian Bridge",
@@ -32,7 +32,7 @@ const projects = [
   id:2,
 type: "燈會",
   category:"燈會",
-  category_en:"LIGHT FESTIVAL",
+  category_en:"FESTIVAL",
 
   title:"陽明大樓廣場燈會",
   title_en:"Yangming Plaza Light Festival",
@@ -59,7 +59,7 @@ type: "燈會",
 {
   id:3,
 type: "商業空間",
-  category:"商場照明",
+  category:"商業空間",
   category_en:"COMMERCIAL",
 
   title:"百貨商場的照明設計",
@@ -87,8 +87,8 @@ type: "商業空間",
 {
   id: 4,
 type: "照明設計",
-  category: "商業空間照明",
-  category_en: "COMMERCIAL LIGHTING",
+  category: "照明設計",
+  category_en: "LIGHTING DESIGN",
 
   title: "鳥籠燈裝置設計",
   title_en: "Decorative Ceiling Light Installation",
@@ -118,10 +118,10 @@ type: "照明設計",
 
 {
   id: 5,
-
-  category: "室內光膜",
-  category_en: "INTERIOR LIGHTING",
 type: "商業空間",
+  category: "商業空間",
+  category_en: "INTERIOR",
+
   title: "運動中心照明設計",
   title_en: "Sports Center Lighting Design",
 
@@ -149,8 +149,8 @@ type: "商業空間",
 
   type: "外牆",  
 
-  category: "外牆照明",
-  category_en: "FACADE LIGHTING",
+  category: "外牆",
+  category_en: "FACADE",
 
   title: "社區大樓外牆燈光設計",
   title_en: "Residential Facade Lighting Design",
@@ -175,11 +175,11 @@ type: "商業空間",
 
 {
   id: 7,
-
+title: "商業空間照明",
   category: "商業空間照明",
-  category_en: "COMMERCIAL LIGHTING",
+  category_en: "COMMERCIAL ",
 type: "商業空間",
-  title: "球隊展示空間光膜設計",
+  
   title_en: "Sports Retail Lighting & Lightbox Design",
 
   desc: "結合光膜天花與環形展示結構，透過均勻發光面與重點照明，強化品牌視覺與商品展示效果，打造具有識別度的商業空間。",
