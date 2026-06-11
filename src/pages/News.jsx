@@ -15,17 +15,12 @@ const news = newsData;
   const list = news.filter(n => !n.hero);
 
   return (
-    <main className="bg-[#f7f7f7] pt-[140px] pb-32 min-h-screen">
+    <main className="bg-[#f7f7f7] pt-[160px]  pb-32 min-h-screen">
 
       <div className="max-w-[1100px] mx-auto px-6">
 
 
-        {/* ================= HEADER ================= */}
-        <section className="mb-25 text-center">
 
-         
-
-        </section>
 
         {/* ================= HERO ================= */}
 {hero && (
