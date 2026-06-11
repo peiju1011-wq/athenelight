@@ -36,9 +36,6 @@ return(
     {t?.contact?.title?.[lang]}
   </h1>
 
-  <p className="text-[#C8A46A] tracking-[0.3em] text-[24px] mt-12">
-    {lang === "en" ? "CONTACT ATHENE LIGHT" : "聯絡宇碩光"}
-  </p>
 
 </section>
 
