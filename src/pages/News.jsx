@@ -19,20 +19,7 @@ const news = newsData;
 
       <div className="max-w-[1100px] mx-auto px-6">
 
-        {/* ================= HEADER ================= */}
-        <section className="mb-20 text-center">
 
-          <p className="text-[#C8A46A] tracking-[0.45em] text-[24px] mb-3">
-            {lang === "en" ? "LATEST NEWS" : "最新消息"}
-          </p>
-
-          <h1 className="text-[26px] md:text-[34px] tracking-[0.08em] text-[#222]">
-            {text?.news?.title?.[lang]}
-          </h1>
-
-          <div className="w-12 h-[1px] mx-auto mt-6 bg-gradient-to-r from-transparent via-[#C8A46A] to-transparent"></div>
-
-        </section>
 
 
         {/* ================= HERO ================= */}
