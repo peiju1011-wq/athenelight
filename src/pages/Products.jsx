@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import "../styles/products.css";
 import useLang from "../hooks/useLang";
 import manualSpecs from "../data/manualSpecs";
 
+import { supabase } from "../lib/supabase";
+
 export default function Products(){
 
-
+const [productsData, setProductsData] = useState([]);
 const [searchParams, setSearchParams] = useSearchParams();
 
 const currentPage = Number(searchParams.get("page")) || 1;
@@ -19,6 +21,30 @@ const [keyword, setKeyword] = useState(searchParam);
 const itemsPerPage = 12;
 
 const lang = useLang();
+const navigate = useNavigate();
+useEffect(() => {
+
+  async function loadProducts() {
+
+const { data, error } = await supabase
+  .from("products")
+  .select("*")
+  .order("sort_order", { ascending: true });
+
+
+    console.log("PRODUCTS:", data);
+    console.log("ERROR:", error);
+
+    if(data){
+      setProductsData(data);
+    }
+
+  }
+
+  loadProducts();
+
+}, []);
+
   const titleText =
     lang === "en"
       ? "Products"
@@ -38,88 +64,36 @@ const categories = [
 ];
 
   /* ===== 燈具產品（🔥已修正） ===== */
-  const products = [
-    {
-      id:1,
-      title:{ zh:"吊燈", en:"Chandelier" },
-      img:"/images/lights/pd1-1.png",
+const products = productsData
+  .filter(item =>
+    item.published !== false &&
+    item.slug &&
+    item.title_zh &&
+    item.cover
+  )
+  .map(item => {
+
+    console.log("ITEM =", item);
+
+    return {
+      id:item.id,
+      slug:item.slug,
+
+      title:{
+        zh:item.title_zh,
+        en:item.title_en
+      },
+
+      img:item.cover,
+
       type:"light",
-      cat:"INDOOR",
-      link:"linear-light"
-    },
 
-    {
-      id:2,
-      title:{ zh:"雙環吊燈", en:"Double Ring Chandelier" },
-      img:"/images/lights/pd2-1.jpg",
-      type:"light",
-      cat:"INDOOR",
-      link:"double-ring-light"
-    },
+      cat:item.category?.toUpperCase(),
 
-    {
-      id:3,
-      title:{ zh:"石材壁燈", en:"Stone Wall Light"},
-      img:"/images/lights/pd3-1.png",
-      type:"light",
-      cat:"OUTDOOR",
-      link:"stone-wall-light"
-    },
+      link:item.slug
+    };
 
-        {
-      id:4,
-      title:{ zh:"石材壁燈2", en:"Stone Wall Light2"},
-      img:"/images/lights/pd4-1.jpg",
-      type:"light",
-      cat:"OUTDOOR",
-      link:"stone-wall-light2"
-    },
-
-{
-  id: 5,
-
-  title: {
-    zh: "石材床頭壁燈",
-    en: "Stone Wall Bed Light"
-  },
-  img: "/images/lights/pd5-10.jpg",
-  type: "light",
-  cat: "INDOOR",
-  link: "stone-wall-light-bed"
-},
-
-    {
-      id:6,
-      title:{ zh:"銀杏葉吊燈", en:"Ginkgo Leaf Chandelier"},
-      img:"/images/lights/pd6-1.png",
-      type:"light",
-      cat:"INDOOR",
-      link:"ginkgo-light"   // 🔥 修正（小寫）
-    },
-
-    {
-  id:7,
-  title:{ zh:"義式簡約方塊吊燈", en:"Italian Minimal Square Pendant Light"},
-  img:"/images/lights/athene-italian-minimal-square-pendant-light-1.png",
-  type:"light",
-  cat:"INDOOR",
-  link:"square-light"
-},
-
-{
-  id:8,
-  title:{ zh:"義式輕奢簡約吊燈", en:"Italian Light Luxury Pendant Light"},
-  img:"/images/lights/athene-italian-light-luxury-pendant-1.png",
-  type:"light",
-  cat:"INDOOR",
-  link:"italian-light"
-}
-
-
-
-  ];
-
-  products.sort((a, b) => b.id - a.id);
+  });
 
   /* ===== 鏡系列 ===== */
 const mirrorItems = Object.entries(manualSpecs).map(([key,item]) => {
@@ -132,7 +106,7 @@ const mirrorItems = Object.entries(manualSpecs).map(([key,item]) => {
     id: key,
     type: "mirror",
     img: item.main,
-    link: `/${lang}/products/mirror/${item.series}/${key}`,
+   link: `/${lang}/products/mirror/${item.series.toLowerCase()}/${key}`,
 
     text: (
       key + " " +
@@ -148,21 +122,32 @@ const mirrorItems = Object.entries(manualSpecs).map(([key,item]) => {
 const allItems = [
 
   ...products.map(p => ({
+
     title: p.title,
+
     id: p.id,
+
+    slug: p.slug,
+
     type: "light",
+
     cat: p.cat,
+
     img: p.img,
-    link: `/${lang}/lights/${p.link}`,
+
+    link: `/${lang}/lights/${p.slug}`,
 
     text: (
-      `${p.title.zh} ${p.title.en} ${p.cat} ${p.link} 60 80 100 120 150`
+      `${p.title.zh} ${p.title.en} ${p.cat} ${p.slug} 60 80 100 120 150`
     ).toLowerCase()
+
   })),
 
   ...mirrorItems
 
 ];
+
+
 
 /* =========================
    🔥 搜尋
@@ -171,6 +156,8 @@ const keywordLower = keyword.toLowerCase();
 const isSearching = keyword.trim() !== "";
 
 const filteredAll = allItems.filter(item => {
+
+  
 
   if(!isSearching){
     if(item.type === "light"){
@@ -188,6 +175,9 @@ const filteredAll = allItems.filter(item => {
 
   return keywords.every(k => text.includes(k));
 });
+
+console.log("ALL ITEMS", allItems.length);
+console.log("FILTERED", filteredAll.length);
 
 /* ===== 分頁 ===== */
 const totalPages = Math.ceil(filteredAll.length / itemsPerPage);
@@ -263,6 +253,10 @@ useEffect(() => {
     <button
       key={c.key}
       onClick={() => {
+if(c.key === "MIRROR"){
+  navigate(`/${lang}/products/mirror`);
+  return;
+}
 
         setActive(c.key);
 
@@ -358,26 +352,30 @@ prev.set("search", keyword);
 <section>
 
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+{console.log("PAGINATED", paginatedProducts)}
 
     {paginatedProducts.map(item => {
-
-      const url = item.link;
-
+      
+console.log(item);
+const url = item.link;
+console.log("URL=", url);
       return (
 
-        <Link
-          to={url}
-          key={item.id}
-          className="relative group overflow-hidden block w-full max-w-[360px]"
-        >
+<Link
+  to={url}
+  key={item.id}
+  className="relative group overflow-hidden block w-full max-w-[360px]"
+>
 
 <div className="relative w-full aspect-[4/3] overflow-hidden">
 
+{item.img && (
   <img
     src={item.img}
     alt={`ATHENE LIGHT ${item.title?.[lang] || item.title?.zh}`}
     className="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
   />
+)}
 
   {/* 🔥 底部漸層 */}
   <div className="

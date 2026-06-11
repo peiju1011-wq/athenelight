@@ -1,30 +1,75 @@
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import projects from "../data/projects";
+
+import { supabase } from "../lib/supabase";
 
 export default function ProjectDetail(){
 
   const { projectId } = useParams();
+
+  useEffect(() => {
+
+  async function loadProject(){
+
+    const { data } = await supabase
+      .from("projects")
+      .select("*")
+      .eq("slug", projectId)
+      .single();
+
+if(data){
+  console.log("PROJECT");
+  console.log(data);
+
+  console.log("COVER");
+  console.log(data.cover);
+
+  setProject(data);
+}
+
+  }
+
+  loadProject();
+
+}, [projectId]);
   const navigate = useNavigate();
   const location = useLocation();
 
   const isEnglish = location.pathname.startsWith("/en");
 
-  const project = projects.find(
-    p => p.id === Number(projectId)
-  );
+  const [project,setProject] = useState(null);
 
-  const [current, setCurrent] = useState(0);
+const [current, setCurrent] = useState(1);
+useEffect(() => {
 
-  useEffect(()=>{
-    if(!project?.images?.length) return;
+  setCurrent(0);
 
-    const timer = setInterval(()=>{
-      setCurrent(prev => (prev+1) % project.images.length);
-    },4000);
+}, [projectId]);
 
-    return ()=>clearInterval(timer);
-  },[project]);
+
+const images = [
+  ...(project?.images || [])
+].filter(Boolean);
+
+
+console.log("SLIDER");
+console.log(images);
+
+
+
+useEffect(()=>{
+
+  if(images.length <= 1) return;
+
+  const timer = setInterval(()=>{
+    setCurrent(prev => (prev + 1) % images.length);
+  },4000);
+
+  return ()=>clearInterval(timer);
+
+},[images.length]);
+
+
 
   if(!project){
     return (
@@ -34,13 +79,23 @@ export default function ProjectDetail(){
     );
   }
 
-  const title = isEnglish ? project.title_en : project.title;
-  const desc = isEnglish ? project.desc_en : project.desc;
-  const category = isEnglish ? project.category_en : project.category;
+  const title =
+  isEnglish
+    ? project.title_en
+    : project.title_zh;
+const desc =
+  isEnglish
+    ? project.desc_en
+    : project.desc_zh;
+ const category = project.category || "";
 
   const locationText = isEnglish
     ? (project.location_en || "Taiwan")
     : (project.location || "台灣");
+
+
+
+console.log("cover =", project.cover);
 
   return(
    <main className="flex flex-col lg:flex-row min-h-screen bg-white">
@@ -49,6 +104,8 @@ export default function ProjectDetail(){
 <div className="
   relative
   w-full
+
+  
 
   h-[60vh]
   sm:h-[38vh]
@@ -59,44 +116,79 @@ export default function ProjectDetail(){
   overflow-hidden
 ">
 
-        {project.images.map((img,i)=>(
-          <div
-            key={i}
-            className={`
-              absolute inset-x-0 top-[70px] bottom-0 z-0
-              transition-all duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)]
-              ${i===current ? "opacity-100 scale-100" : "opacity-0 scale-105"}
-            `}
-          >
+ 
+
+
+
+{images.map((img,i)=>{
+
+  console.log("RENDER", img);
+
+  return(
+
+  <div
+    key={i}
+    className={`
+      absolute
+      inset-x-0
+      top-[70px]
+      bottom-0
+      z-0
+
+      transition-all
+      duration-[1400ms]
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+
+      ${
+        i===current
+          ? "opacity-100 scale-100"
+          : "opacity-0 scale-105"
+      }
+    `}
+  >
 <img
-  src={typeof img === "string" ? img : img.src}
-
-  style={{
-    objectPosition:
-      typeof img === "string"
-        ? "center"
-        : img.position
-  }}
-
+  src={
+    typeof img === "string"
+      ? img
+      : img?.src
+  }
+  alt={img?.alt || project.title_zh}
+style={{
+  objectPosition:
+    typeof img === "string"
+      ? "center"
+      : img?.position || "center"
+}}
   className="
-    w-full h-full
+    w-full
+    h-full
     object-cover
-
-    md:object-cover
   "
+  onError={()=>{
+    console.log("IMAGE ERROR");
+    console.log(img);
+  }}
 />
-            {/* 🔥 修復：不阻擋點擊 */}
-            <div className="
-              absolute inset-0
-              pointer-events-none
-              bg-gradient-to-r 
-              from-black/35 
-              via-black/5 
-              to-transparent
-            "/>
-          </div>
-        ))}
+    <div
+      className="
+        absolute
+        inset-0
+        pointer-events-none
+        bg-gradient-to-r
+        from-black/35
+        via-black/10
+        to-transparent
+      "
+    />
 
+  </div>
+
+
+
+
+  );
+
+})}
         {/* ===== BACK（完全修好🔥） ===== */}
         <button
           onClick={()=>navigate(-1)}
@@ -122,7 +214,7 @@ className="
         {/* ===== dots ===== */}
        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 lg:left-auto lg:right-14 flex gap-4 z-50">
 
-          {project.images.map((_,i)=>(
+         {images.map((_,i)=>(
             <div
               key={i}
               onClick={()=>setCurrent(i)}
@@ -152,7 +244,7 @@ className="
   <div className="w-full lg:w-[32%] px-6 md:px-10 lg:px-14 py-16 lg:py-24 flex flex-col bg-[#f8f8f8]">
 
         <p className="text-[11px] tracking-[0.45em] text-[#6B8BD6] mb-6">
-          {category}
+         {category}
         </p>
 
     <h1 className="text-[26px] md:text-[32px] lg:text-[36px] leading-[1.35] text-[#111] mb-6 tracking-[0.05em]">

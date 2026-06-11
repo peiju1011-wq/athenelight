@@ -1,27 +1,52 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useLang from "../hooks/useLang";
-import lightsData from "../data/lightsData";
+import { supabase } from "../lib/supabase";
+import { Helmet } from "react-helmet-async";
 
 export default function LightDetail(){
 
   const { slug } = useParams();
   const lang = useLang();
+const [product,setProduct] = useState(null);
 
-  const product = lightsData.find(p => p.slug === slug);
+useEffect(() => {
+
+  async function loadProduct(){
+
+
+    
+    const { data,error } = await supabase
+      .from("products")
+      .select("*")
+      .eq("slug",slug)
+      .single();
+
+
+
+    if(data){
+      setProduct(data);
+    }
+
+  }
+
+  loadProduct();
+
+},[slug]);
 
   /* ===== 🔥 Lightbox ===== */
   const [viewerOpen, setViewerOpen] = useState(false);
  const [currentIndex, setCurrentIndex] = useState(0);
 const [imgLoading, setImgLoading] = useState(true);
 
-  if(!product){
-    return (
-      <div className="pt-40 text-center text-gray-400">
-        Product Not Found
-      </div>
-    );
-  }
+if(product === null){
+  return(
+    <div className="pt-40 text-center">
+      Loading...
+    </div>
+  );
+}
+
 
   const getText = (val) => {
     if (!val) return "";
@@ -29,32 +54,115 @@ const [imgLoading, setImgLoading] = useState(true);
     return val;
   };
 
+const tags =
+  Array.isArray(product.tags)
+    ? product.tags
+    : typeof product.tags === "string"
+    ? JSON.parse(product.tags)
+    : [];
+
+    console.log(product.tags);
+console.log(typeof product.tags);
+
   /* ===== 🔥 全部圖片 ===== */
-  const allImages = [
-    product.cover,
-    product.cover2,
-    ...(product.gallery || [])
-  ].filter(Boolean);
+const allImages = [
+  product.cover,
+  product.cover2,
+  ...(product.gallery || []),
+  ...(product.features?.map(f => f.img) || [])
+].filter(Boolean);
+
+const seoTitle =
+product.seo_title ||
+`${lang === "en"
+  ? product.title_en
+  : product.title_zh} | ATHENE LIGHT`;
+
+const seoDesc =
+product.seo_description ||
+(lang === "en"
+  ? product.desc_en
+  : product.desc_zh);
+  "Architectural lighting and modern pendant light collection.";
+
+const currentUrl =
+  `https://athenelight.com/${lang}/lights/${slug}`;
+
+const ogImage =
+  `https://athenelight.com${product.cover}`;
+
+
+
 
   return(
+
+    <>
+<Helmet>
+
+  <title>{seoTitle}</title>
+
+  <meta
+    name="description"
+    content={seoDesc}
+  />
+
+  <link
+    rel="canonical"
+    href={currentUrl}
+  />
+
+  <meta property="og:title" content={seoTitle} />
+  <meta property="og:description" content={seoDesc} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content={currentUrl} />
+
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+
+      name: lang === "en"
+  ? product.title_en
+  : product.title_zh,
+
+      image: [ogImage],
+
+      description: seoDesc,
+
+      brand: {
+        "@type": "Brand",
+        name: "ATHENE LIGHT"
+      },
+
+      category: "Pendant Light",
+
+offers: {
+  "@type": "Offer",
+  url: product.line_link,
+  availability: "https://schema.org/InStock"
+}
+    })}
+  </script>
+
+</Helmet>
     <main className="bg-white text-[#222]">
 
 {/* ================= HERO ================= */}
 <section className="pt-[160px] pb-32 bg-[#f6f6f6]">
 
-  <div className="
-    max-w-[1200px]
-    mx-auto
-    px-6
+<div className="
+  max-w-[1280px]
+  mx-auto
+  px-6
 
-    grid
-    md:grid-cols-2
+  grid
+  md:grid-cols-[420px_1fr]
 
-    gap-16
-    md:gap-20
+  gap-24
 
-    items-center
-  ">
+  items-center
+">
 
     {/* 左 */}
     <div className="max-w-[420px]">
@@ -70,98 +178,121 @@ const [imgLoading, setImgLoading] = useState(true);
         text-[#111]
         leading-[1.5]
       ">
-        {getText(product.name)}
+        {lang === "en"
+  ? product.title_en
+  : product.title_zh}
       </h1>
 
       <p className="mt-6 text-[12px] tracking-[0.3em] text-black/40">
-        {getText(product.subtitle)}
+        {lang === "en"
+  ? product.subtitle_en
+  : product.subtitle_zh}
       </p>
 
       <div className="text-[10px] mt-6 mb-10">—</div>
 
-      <p className="
-        text-[14px]
-        text-black/60
-        leading-[2]
-        whitespace-pre-line
-      ">
-        {getText(product.desc)}
-      </p>
+<p className="
+  text-[14px]
+  text-black/60
+  leading-[2]
+  whitespace-pre-line
+">
+  {lang === "en"
+    ? product.desc_en
+    : product.desc_zh}
+</p>
 
-      {/* OPTIONS */}
-      {product.variants && (
-        <div className="mt-10">
 
-          <p className="
-            text-[11px]
-            tracking-[0.3em]
-            text-[#999]
-            mb-5
-          ">
-            {lang === "en" ? "OPTIONS" : "燈光選項"}
-          </p>
-
-          {/* CHIPS */}
-          <div className="flex flex-wrap gap-3">
-
-            {product.variants.map((v, i) => (
-              <div
-                key={i}
-                className="
-                  px-4 py-2
-                  text-[12px]
-
-                  border border-[#ddd]
-                  rounded-full
-
-                  hover:border-[#C8A46A]
-
-                  transition-all duration-500
-                "
-              >
-                {getText(v.label)}
-              </div>
-            ))}
-
-          </div>
-
-          {/* LINE SHOP */}
-    <a
-  href={product.lineLink}
-  target="_blank"
-  rel="noopener noreferrer"
+{tags.length > 0 && (
+  <>
+<p
   className="
-    inline-flex items-center
-
-    mt-8
-
-    text-[11px]
-    tracking-[0.28em]
-    uppercase
-
-    text-[#9d8358]/90
-
-    hover:text-black
-    hover:tracking-[0.34em]
-
-    transition-all duration-500
+    text-[10px]
+    tracking-[0.32em]
+    text-black/40
+    mt-10
+    mb-4
   "
 >
-  GO LINE SHOP ↗
-</a>
+  {lang === "en"
+    ? "LIGHT OPTIONS"
+    : "燈光選項"}
+</p>
 
-        </div>
-      )}
+    <div className="flex flex-wrap gap-3 mb-6">
 
+{tags.map((tag,i)=>(
+
+  <div
+    key={i}
+    className="
+      px-4
+      h-[34px]
+      flex
+      items-center
+      justify-center
+      text-[11px]
+      border
+      border-[#d8d8d8]
+      rounded-full
+      whitespace-nowrap
+      hover:border-[#C8A46A]
+      transition-all
+      duration-500
+    "
+  >
+    {typeof tag === "object"
+      ? (
+          lang === "en"
+            ? tag.en || tag.zh || ""
+            : tag.zh || tag.en || ""
+        )
+      : tag}
+  </div>
+
+))}
     </div>
+  </>
+)}
 
+{product.line_link && (
+  <a
+    href={product.line_link}
+    target="_blank"
+    rel="noopener noreferrer"
+className="
+  inline-flex
+  items-center
+
+  mt-8
+
+  text-[11px]
+  tracking-[0.28em]
+  uppercase
+
+  text-[#9d8358]/90
+
+  hover:text-black
+  hover:tracking-[0.34em]
+
+  transition-all
+  duration-500
+"
+  >
+    GO LINE SHOP ↗
+  </a>
+)}
+
+
+
+</div>
 
     {/* 右 */}
     {product.cover2 ? (
 
       <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5 w-full">
 
-        <div className="w-full md:w-[320px]">
+        <div className="w-full md:w-[360px]">
           <img
             src={product.cover}
             onClick={() => {
@@ -169,14 +300,14 @@ const [imgLoading, setImgLoading] = useState(true);
               setCurrentIndex(0);
               setImgLoading(true);
             }}
-            className="
-              cursor-zoom-in
-              w-full
-              h-[240px]
-              md:h-[520px]
-              object-cover
-              rounded-[8px]
-            "
+          className="
+  cursor-zoom-in
+  w-full
+  h-[240px]
+  md:h-[640px]
+  object-cover
+  rounded-[8px]
+"
           />
         </div>
 
@@ -192,7 +323,7 @@ const [imgLoading, setImgLoading] = useState(true);
               cursor-zoom-in
               w-full
               h-[240px]
-              md:h-[520px]
+             md:h-[640px]
               object-cover
               rounded-[8px]
             "
@@ -215,8 +346,8 @@ const [imgLoading, setImgLoading] = useState(true);
           className="
             cursor-zoom-in
             w-full
-            h-[320px]
-            md:h-[600px]
+           h-[320px]
+md:h-[720px]
             object-cover
             rounded-[8px]
           "
@@ -235,31 +366,53 @@ const [imgLoading, setImgLoading] = useState(true);
   </div>
 </section>
       {/* ================= DESC ================= */}
-      {product.descLong && (
-        <section className="py-24 px-6 text-center max-w-3xl mx-auto">
-          <p className="text-sm text-black/60 leading-7 whitespace-pre-line">
-            {getText(product.descLong)}
-          </p>
-        </section>
-      )}
+{(product.desc_long_zh || product.desc_long_en) && (
+  <section className="py-24 px-6 text-center max-w-3xl mx-auto">
 
-      {/* ================= GALLERY ================= */}
-      {product.gallery?.length > 0 && (
-        <section className="grid md:grid-cols-3 gap-6 px-6 mb-32">
-          {product.gallery.map((img,i)=>(
-            <img
-              key={i}
-              src={img}
-              onClick={()=>{
-  setViewerOpen(true);
-  setCurrentIndex(i + (product.cover2 ? 2 : 1));
-  setImgLoading(true);
-              }}
-              className="cursor-zoom-in w-full h-[420px] object-cover"
-            />
-          ))}
-        </section>
-      )}
+    <p className="text-sm text-black/60 leading-[2] whitespace-pre-line">
+
+      {lang === "en"
+        ? product.desc_long_en
+        : product.desc_long_zh}
+
+    </p>
+
+  </section>
+)}
+
+{/* ================= 情境圖 ================= */}
+{product.gallery?.length > 0 && (
+ <section className="
+  grid
+  md:grid-cols-3
+  gap-8
+  px-6
+  max-w-[1400px]
+  mx-auto
+  mb-32
+">
+
+    {product.gallery.slice(0,3).map((img,i)=>(
+      <img
+        key={i}
+        src={img}
+        onClick={()=>{
+          setViewerOpen(true);
+          setCurrentIndex(i + (product.cover2 ? 2 : 1));
+          setImgLoading(true);
+        }}
+       className="
+cursor-zoom-in
+w-full
+h-[520px]
+object-cover
+rounded-[8px]
+"
+      />
+    ))}
+
+  </section>
+)}
 
 {/* ================= SPECS ================= */}
 {product.specs?.length > 0 && (
@@ -269,7 +422,7 @@ const [imgLoading, setImgLoading] = useState(true);
       {lang === "en" ? "SPECIFICATION" : "產品規格"}
     </h3>
 
-    <div className="max-w-5xl mx-auto border-t border-b">
+   <div className="max-w-6xl mx-auto border-t border-b">
 
       {/* 標題列 */}
 <div className="
@@ -326,17 +479,23 @@ className="
     {getText(s.size)}
   </div>
 
-  {s.material && (
-    <div className="text-[12px] text-black/45 mt-2 leading-6">
-      {getText(s.material)}
-    </div>
-  )}
+{/* 材質 */}
+{(s.materialZh || s.material?.zh) && (
+  <div className="text-[12px] text-black/45 mt-2">
+    {lang === "en"
+      ? (s.materialEn || s.material?.en)
+      : (s.materialZh || s.material?.zh)}
+  </div>
+)}
 
-  {s.style && (
-    <div className="text-[12px] text-black/45 mt-2">
-      {getText(s.style)}
-    </div>
-  )}
+{/* 風格 */}
+{(s.styleZh || s.style?.zh) && (
+  <div className="text-[12px] text-black/45 mt-2">
+    {lang === "en"
+      ? (s.styleEn || s.style?.en)
+      : (s.styleZh || s.style?.zh)}
+  </div>
+)}
 </div>
 
           {/* POWER */}
@@ -374,11 +533,14 @@ className="
       </div>
     )}
 
-    {s.lightColor && (
-      <div className="text-[12px] text-black/45 mt-2">
-        {getText(s.lightColor)}
-      </div>
-    )}
+{/* 光色 */}
+{(s.lightColorZh || s.lightColor?.zh) && (
+  <div className="text-[12px] text-black/45 mt-2">
+    {lang === "en"
+      ? (s.lightColorEn || s.lightColor?.en)
+      : (s.lightColorZh || s.lightColor?.zh)}
+  </div>
+)}
 
   </div>
 )}
@@ -392,11 +554,14 @@ className="
     {getText(s.space)}
   </div>
 
-  {s.install && (
-    <div className="text-[12px] text-black/45 mt-2">
-      {getText(s.install)}
-    </div>
-  )}
+{/* 安裝方式 */}
+{(s.installZh || s.install?.zh) && (
+  <div className="text-[12px] text-black/45 mt-2">
+    {lang === "en"
+      ? (s.installEn || s.install?.en)
+      : (s.installZh || s.install?.zh)}
+  </div>
+)}
 </div>
 
         </div>
@@ -406,27 +571,75 @@ className="
   </section>
 )}
 
-      {/* ================= FEATURES ================= */}
-      {product.features?.length > 0 && (
-        <section className="space-y-32 mb-40">
-          {product.features.map((f,i)=>(
-            <div key={i} className="grid md:grid-cols-2 items-center gap-12 px-6 max-w-6xl mx-auto">
+{/* ================= 細節說明圖 ================= */}
+{product.features?.length > 0 && (
+  <section className="space-y-24 mb-40">
 
-              <img src={f.img} className="w-full h-[420px] object-cover"/>
+   {product.features.map((feature,i)=>(
 
-              <div>
-                <h3 className="text-xl mb-6 tracking-[0.15em]">
-                  {getText(f.title)}
-                </h3>
-                <p className="text-black/60 leading-7">
-                  {getText(f.desc)}
-                </p>
-              </div>
+      <div
+        key={i}
+className="
+  grid
+  md:grid-cols-2
+  items-center
+  gap-20
+  px-6
+  max-w-7xl
+  mx-auto
+  
+"
+      >
 
-            </div>
-          ))}
-        </section>
-      )}
+ <img
+  src={feature.img}
+          onClick={()=>{
+            setViewerOpen(true);
+            setCurrentIndex(
+              i + 3 + (product.cover2 ? 2 : 1)
+            );
+            setImgLoading(true);
+          }}
+          className="
+            cursor-zoom-in
+            w-full
+            h-[520px]
+            object-cover
+            rounded-[8px]
+          "
+        />
+
+        <div>
+
+<h3 className="
+  text-[28px]
+  mb-8
+  tracking-[0.12em]
+">
+  {lang === "en"
+    ? feature.title?.en
+    : feature.title?.zh}
+</h3>
+
+<p className="
+  text-[15px]
+  text-black/60
+  leading-[2.1]
+">
+  {lang === "en"
+    ? feature.desc?.en
+    : feature.desc?.zh}
+</p>
+
+        </div>
+
+      </div>
+
+    ))}
+
+  </section>
+)}
+
 
        {/* ================= LIGHTBOX ================= */}
       {viewerOpen && (
@@ -527,6 +740,7 @@ className="
         </p>
       </section>
 
-    </main>
-  );
+</main>
+</>
+);
 }

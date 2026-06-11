@@ -32,7 +32,7 @@ const cleanPath = location.pathname.replace(/^\/(en|zh)/, "");
   /* ===== 深色頁 ===== */
 const cleanPath = location.pathname.replace(/^\/(en|zh)/, "");
 
-const darkPages = ["/products", "/projects", "/about", "/news", "/contact", "/lights"];
+const darkPages = ["/products", "/projects", "/about", "/news", "/contact", "/lights", "/shop"];
 
 const isDarkPage = darkPages.some(path =>
   cleanPath.startsWith(path)
@@ -183,6 +183,23 @@ className="
 </span>
 
   </button>
+
+<Link
+  to="/admin/login"
+  className="
+    text-[12px]
+    tracking-[0.4em]
+    uppercase
+
+    text-white/40
+    hover:text-[#C8A46A]
+
+    transition-all
+    duration-500
+  "
+>
+  LOGIN
+</Link>
 
 
 

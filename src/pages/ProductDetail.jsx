@@ -1,16 +1,21 @@
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import manualSpecs from "../data/manualSpecs";
+import { getRelatedProducts } from "../utils/getRelatedProducts";
+import { getProductById } from "../utils/getProductById";
+import { supabase } from "../lib/supabase";
+import { useEffect } from "react";
 
 export default function ProductDetail(){
 
-  const { productId } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
 
   const lang = location.pathname.startsWith("/en") ? "en" : "zh";
 
-  const id = productId?.toLowerCase();
+ const id = slug?.toLowerCase();
 
   /* 🔥 修正 id */
   let fixedId = id;
@@ -28,15 +33,35 @@ export default function ProductDetail(){
     }
   }
 
-  const product = manualSpecs?.[fixedId];
 
-  if(!product){
-    return (
-      <div className="min-h-screen flex items-center justify-center text-[#999]">
-        Product not found
-      </div>
-    );
+
+const [product,setProduct] = useState(null);
+
+useEffect(()=>{
+
+  async function loadProduct(){
+
+    console.log("slug =", slug);
+console.log("Number(slug) =", Number(slug));
+
+   const { data,error } = await supabase
+  .from("products")
+  .select("*")
+  .eq("slug", slug)
+  .single();
+
+    if(error){
+      console.log(error);
+      setProduct(false);
+      return;
+    }
+
+    setProduct(data);
   }
+
+  loadProduct();
+
+},[slug]);
 
   /* =========================
      🔥 修復核心：規格統一
@@ -57,15 +82,15 @@ export default function ProductDetail(){
     });
   };
 
-  const specs = normalizeSpecs(product.specs);
+const specs = normalizeSpecs(product?.specs || []);
 
   const [activeIndex, setActiveIndex] = useState(0);
 
   const current = specs[activeIndex] || {};
   const prefix = fixedId.split("-")[0];
 
-  const mainImg = product.main || product.detail;
-  const detailImg = product.detail || null;
+const mainImg = product?.cover || "";
+const detailImg = null;
 
   /* =========================
      🔥 Lightbox
@@ -76,12 +101,110 @@ export default function ProductDetail(){
   /* =========================
      🔥 related
   ========================= */
-  const related = Object.entries(manualSpecs)
-    .filter(([key]) => key !== fixedId && key.startsWith(prefix))
-    .slice(0,5);
+const seoTitle =
+`${lang === "en"
+  ? product?.title_en
+  : product?.title_zh
+} | ATHENE LIGHT`;
 
-  return(
+const mirrorDesc =
+  lang === "en"
+    ? product?.desc_en
+    : product?.desc_zh;
+  (
+    lang === "en"
+      ? "Modern LED bathroom mirror with ambient lighting, clean lines, and practical size options for residential and commercial spaces."
+      : "現代 LED 浴室鏡，結合簡潔線條、氛圍照明與多種尺寸選擇，適合住宅與商業空間使用。"
+  );
 
+const seoDesc = mirrorDesc;
+
+
+
+// const related = getRelatedProducts(
+//   product.series,
+//   id
+// );
+
+
+
+
+if(product === null){
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      Loading...
+    </div>
+  );
+}
+
+if(product === false){
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      Product Not Found
+    </div>
+  );
+}
+
+
+return(
+
+  <>
+<Helmet>
+
+  <title>{seoTitle}</title>
+
+  <meta
+    name="description"
+    content={seoDesc}
+  />
+
+  <meta
+    name="robots"
+    content="index,follow"
+  />
+
+  <meta property="og:title" content={seoTitle} />
+  <meta property="og:description" content={seoDesc} />
+
+  <meta
+    property="og:image"
+    content={mainImg}
+  />
+
+  <meta property="og:type" content="product" />
+  <meta property="og:site_name" content="ATHENE LIGHT" />
+
+  <link
+    rel="canonical"
+    href={`https://athenelight.com/${lang}/products/mirror/${prefix}/${fixedId}`}
+  />
+<script type="application/ld+json">
+{`
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+
+  "name": "${seoTitle}",
+
+"image": [
+  "${mainImg}"
+],
+
+  "description": "${seoDesc}",
+
+  "brand": {
+    "@type": "Brand",
+    "name": "ATHENE LIGHT"
+  },
+
+  "category": "LED Bathroom Mirror",
+
+  "sku": "${current.sku || fixedId}"
+}
+`}
+</script>
+
+</Helmet>
     <main className="pt-[120px] pb-32 bg-[#f7f7f7] min-h-screen">
 
       {/* TOP */}
@@ -120,6 +243,7 @@ export default function ProductDetail(){
 
     <img
       src={mainImg}
+      alt={`${current.sku} LED Bathroom Mirror`}
       onClick={()=>setLightboxIndex(0)}
       className="w-full h-auto object-contain bg-white cursor-zoom-in"
     />
@@ -127,6 +251,7 @@ export default function ProductDetail(){
     {detailImg && (
       <img
         src={detailImg}
+        alt={`${current.sku} bathroom mirror detail`}
         onClick={()=>setLightboxIndex(1)}
         className="w-full h-auto object-contain bg-white cursor-zoom-in"
       />
@@ -140,6 +265,7 @@ export default function ProductDetail(){
     <div className="aspect-square bg-white mb-6 overflow-hidden">
       <img
         src={mainImg}
+        alt={`${current.sku} LED Bathroom Mirror`}
         onClick={()=>setLightboxIndex(0)}
         className="w-full h-full object-cover cursor-zoom-in"
       />
@@ -149,6 +275,7 @@ export default function ProductDetail(){
       <div className="w-[320px]">
         <img
           src={detailImg}
+          alt={`${current.sku} bathroom mirror detail`}
           onClick={()=>setLightboxIndex(1)}
           className="w-full object-cover cursor-zoom-in"
         />
@@ -166,9 +293,15 @@ export default function ProductDetail(){
             MODEL
           </p>
 
-          <h1 className="text-[34px] tracking-[0.14em] font-light mb-14 text-black">
-            {current.sku || fixedId.toUpperCase()}
-          </h1>
+<h1 className="text-[34px] tracking-[0.14em] font-light mb-6 text-black">
+{lang === "en"
+  ? product.title_en
+  : product.title_zh}
+</h1>
+
+<p className="text-[13px] leading-[2] text-[#666] mb-10 max-w-[420px]">
+  {mirrorDesc}
+</p>
 
           <p className="text-[10px] tracking-[0.4em] text-[#999] mb-6 ">
             SIZE
@@ -196,30 +329,41 @@ export default function ProductDetail(){
 
       </div>
 
-      {/* RELATED */}
+      {/* RELATED 
       <div className="max-w-[1100px] mx-auto px-6 mt-32">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
 
-          {related.map(([key,item])=>(
-            <div
-              key={key}
-              onClick={()=>navigate(`/${lang}/products/mirror/${prefix}/${key}`)}
-              className="cursor-pointer group"
-            >
-              <img
-                src={item.main}
-                className="w-full transition group-hover:scale-105"
-              />
+{related.map((item)=>(
 
-              <p className="text-center text-[11px] mt-2 text-[#555]">
-                {key.toUpperCase()}
-              </p>
-            </div>
-          ))}
+  <div
+    key={item.id}
+
+    onClick={()=>
+      navigate(
+        `/${lang}/products/mirror/${item.series.toLowerCase()}/${item.id}`
+      )
+    }
+
+    className="cursor-pointer group"
+  >
+
+    <img
+      src={item.main}
+      alt={`${item.id.toUpperCase()} LED Bathroom Mirror`}
+      className="w-full transition group-hover:scale-105"
+    />
+
+    <p className="text-center text-[11px] mt-2 text-[#555]">
+      {item.id.toUpperCase()}
+    </p>
+
+  </div>
+
+))}
 
         </div>
       </div>
-
+*/}
       {/* Lightbox */}
       {lightboxIndex !== null && (
         <div
@@ -255,6 +399,8 @@ export default function ProductDetail(){
         </div>
       )}
 
-    </main>
-  );
+</main>
+
+</>
+);
 }

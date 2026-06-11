@@ -21,6 +21,24 @@ import About from "./pages/About";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
 
+import AdminProducts from "./pages/AdminProducts";
+import AdminProductsEdit from "./pages/AdminProductsEdit";
+
+import AdminProjects from "./pages/AdminProjects";
+import AdminProjectsEdit from "./pages/AdminProjectsEdit";
+
+import AdminNews from "./pages/AdminNews";
+import AdminNewsEdit from "./pages/AdminNewsEdit";
+import TestProducts from "./pages/TestProducts";
+import AdminProductsNew from "./pages/AdminProductsNew";
+import AdminProjectsNew from "./pages/AdminProjectsNew";
+import AdminTrash from "./pages/AdminTrash";
+import AdminProjectsTrash from "./pages/AdminProjectsTrash";
+import AdminStorageCleaner from "./pages/AdminStorageCleaner";
+import AdminGuard from "./components/AdminGuard";
+import Login from "./pages/Login";
+import AdminDashboard from "./pages/AdminDashboard";
+
 
 function App() {
 
@@ -79,14 +97,89 @@ useLayoutEffect(() => {
       <Routes>
 
         {/* ===== 中文預設 "/" ===== */}
+
+
+        <Route path="/admin/products" element={ <AdminGuard> <AdminProducts/> </AdminGuard> } />
+<Route
+  path="admin/login"
+  element={<Login />}
+/>
+
+<Route
+  path="admin"
+  element={
+    <AdminGuard>
+      <AdminDashboard />
+    </AdminGuard>
+  }
+/>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Portal />} />
 
           <Route path="products" element={<Products />} />
+          <Route
+  path="test-products"
+  element={<TestProducts />}
+/>
 
-  {/* 🔥 燈具（統一入口） */}
-  <Route path="lights/:slug" element={<LightDetail />} />
-          
+
+
+<Route
+  path="admin/products"
+  element={<AdminProducts />}
+/>
+
+<Route
+  path="admin/products/new"
+  element={<AdminProductsNew />}
+/>
+
+<Route
+  path="admin/products/:slug"
+  element={<AdminProductsEdit />}
+/>
+
+<Route
+  path="admin/projects/trash"
+  element={<AdminProjectsTrash />}
+/>
+
+<Route
+  path="admin/trash"
+  element={<AdminTrash />}
+/>
+
+<Route
+  path="admin/storage-cleaner"
+  element={<AdminStorageCleaner />}
+/>
+
+<Route
+  path="admin/projects"
+  element={<AdminProjects />}
+/>
+
+<Route
+  path="admin/projects/new"
+  element={<AdminProjectsNew />}
+/>
+
+<Route
+  path="admin/projects/:slug"
+  element={<AdminProjectsEdit />}
+/>
+
+<Route
+  path="admin/news"
+  element={<AdminNews />}
+/>
+
+
+
+<Route
+  path="lights/:slug"
+  element={<LightDetail />}
+/>     
 
           {/* 🔥 mirror */}
           <Route path="products/mirror">
@@ -109,14 +202,90 @@ useLayoutEffect(() => {
 
 
         {/* ===== 中文 /zh ===== */}
+
+        <Route path="/admin/products" element={ <AdminGuard> <AdminProducts/> </AdminGuard> } />
+<Route
+  path="admin/login"
+  element={<Login />}
+/>
+
+<Route
+  path="admin"
+  element={
+    <AdminGuard>
+      <AdminDashboard />
+    </AdminGuard>
+  }
+/>
         <Route path="/zh" element={<MainLayout />}>
           <Route index element={<Portal />} />
 
           <Route path="products" element={<Products />} />
+          <Route
+  path="test-products"
+  element={<TestProducts />}
+/>
+<Route
+  path="admin/products"
+  element={<AdminProducts />}
+/>
 
- 
-  {/* 🔥 燈具（統一入口） */}
-  <Route path="lights/:slug" element={<LightDetail />} />
+<Route
+  path="admin/products/new"
+  element={<AdminProductsNew />}
+/>
+
+<Route
+  path="admin/products/:slug"
+  element={<AdminProductsEdit />}
+/>
+
+<Route
+  path="admin/projects/trash"
+  element={<AdminProjectsTrash />}
+/>
+
+<Route
+  path="admin/trash"
+  element={<AdminTrash />}
+/>
+
+<Route
+  path="admin/storage-cleaner"
+  element={<AdminStorageCleaner />}
+/>
+
+<Route
+  path="admin/projects"
+  element={<AdminProjects />}
+/>
+
+<Route
+  path="admin/projects/new"
+  element={<AdminProjectsNew />}
+/>
+
+<Route
+  path="admin/projects/:slug"
+  element={<AdminProjectsEdit />}
+/>
+
+<Route
+  path="admin/news"
+  element={<AdminNews />}
+/>
+
+<Route
+  path="admin/news/:id"
+  element={<AdminNewsEdit />}
+/>
+
+
+
+<Route
+  path="lights/:slug"
+  element={<LightDetail />}
+/>
           <Route path="products/mirror">
             <Route index element={<Mirror />} />
             <Route path=":series">
@@ -137,14 +306,89 @@ useLayoutEffect(() => {
 
 
         {/* ===== 英文 /en ===== */}
+        <Route path="/admin/products" element={ <AdminGuard> <AdminProducts/> </AdminGuard> } />
+<Route
+  path="admin/login"
+  element={<Login />}
+/>
+
+<Route
+  path="admin"
+  element={
+    <AdminGuard>
+      <AdminDashboard />
+    </AdminGuard>
+  }
+/>
         <Route path="/en" element={<MainLayout />}>
           <Route index element={<Portal />} />
 
           <Route path="products" element={<Products />} />
+          <Route
+  path="test-products"
+  element={<TestProducts />}
+/>
+<Route
+  path="admin/products"
+  element={<AdminProducts />}
+/>
+
+<Route
+  path="admin/products/new"
+  element={<AdminProductsNew />}
+/>
+
+<Route
+  path="admin/products/:slug"
+  element={<AdminProductsEdit />}
+/>
+
+<Route
+  path="admin/projects/trash"
+  element={<AdminProjectsTrash />}
+/>
+
+<Route
+  path="admin/trash"
+  element={<AdminTrash />}
+/>
+
+<Route
+  path="admin/storage-cleaner"
+  element={<AdminStorageCleaner />}
+/>
+
+<Route
+  path="admin/projects"
+  element={<AdminProjects />}
+/>
+
+<Route
+  path="admin/projects/new"
+  element={<AdminProjectsNew />}
+/>
+
+<Route
+  path="admin/projects/:slug"
+  element={<AdminProjectsEdit />}
+/>
+
+<Route
+  path="admin/news"
+  element={<AdminNews />}
+/>
+
+<Route
+  path="admin/news/:id"
+  element={<AdminNewsEdit />}
+/>
 
 
-  {/* 🔥 燈具（統一入口） */}
-  <Route path="lights/:slug" element={<LightDetail />} />
+
+<Route
+  path="lights/:slug"
+  element={<LightDetail />}
+/>
 
           <Route path="products/mirror">
             <Route index element={<Mirror />} />

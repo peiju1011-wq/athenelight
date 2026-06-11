@@ -1,10 +1,38 @@
 import { useState, useEffect } from "react";
-import projects from "../data/projects";
+import { supabase } from "../lib/supabase";
 import useLang from "../hooks/useLang";
 import { text } from "../data/text";
 import { Link, useSearchParams } from "react-router-dom";
 
+
+
 export default function Projects() {
+
+  const [projects,setProjects] = useState([]);
+
+  useEffect(() => {
+
+  async function loadProjects(){
+
+    const { data,error } = await supabase
+      .from("projects")
+      .select("*")
+      .order("sort_order",{ ascending:true });
+
+    if(error){
+      console.log(error);
+      return;
+    }
+
+    if(data){
+      setProjects(data);
+    }
+
+  }
+
+  loadProjects();
+
+},[]);
   const lang = useLang();
 
 const [searchParams, setSearchParams] = useSearchParams();
@@ -16,9 +44,7 @@ const searchParam = searchParams.get("search") || "";
 const [active, setActive] = useState(typeParam);
 const [keyword, setKeyword] = useState(searchParam);
 
-  const perPage = 9;
-
-  /* ===== 類別 ===== */
+const perPage = 9;
 const categories =
   lang === "en"
     ? [
@@ -29,7 +55,6 @@ const categories =
         "COMMERCIAL",
         "INTERIOR",
         "ILLUMINATION",
-  
         "FESTIVAL"
       ]
     : [
@@ -40,66 +65,78 @@ const categories =
         "商業空間",
         "室內空間",
         "亮化工程",
-
         "燈會"
       ];
 
-  /* ===== 對照 ===== */
 const typeMap = {
-  ALL: "全部",
-  "LIGHTING DESIGN": "照明設計",
-  FACADE: "外牆",
-  LANDSCAPE: "景觀",
-  COMMERCIAL: "商業空間",
-  INTERIOR: "室內空間",
-  ILLUMINATION: "亮化工程",
-
-  FESTIVAL: "燈會"
+  "全部": "ALL",
+  "照明設計": "LIGHTING DESIGN",
+  "外牆": "FACADE",
+  "景觀": "LANDSCAPE",
+  "商業空間": "COMMERCIAL",
+  "室內空間": "INTERIOR",
+  "亮化工程": "ILLUMINATION",
+  "燈會": "FESTIVAL"
 };
 
-  /* ===== 🔥 強化搜尋 ===== */
-  const filtered = projects.filter((p) => {
-    const title = (lang === "en" ? p.title_en : p.title) || "";
-    const desc = (lang === "en" ? p.desc_en : p.desc) || "";
-    const categoryText =
-      (lang === "en" ? p.category_en : p.category) || "";
-    const typeText = p.type || "";
+  /* ===== 對照 ===== */
+const filtered = projects.filter((p) => {
 
-    /* 🔥 關鍵：全部合併成一條字串 */
-    const searchText = (
-      title +
-      " " +
-      desc +
-      " " +
-      categoryText +
-      " " +
-      typeText
-    )
-      .toLowerCase()
-      .replace(/\s+/g, ""); // 🔥 去空白
+  
 
-    const keywordLower = keyword
-      .toLowerCase()
-      .replace(/\s+/g, ""); // 🔥 使用者輸入也去空白
+  const title =
+    (lang === "en"
+      ? p.title_en
+      : p.title_zh) || "";
 
-    /* ===== 分類 ===== */
-    const projectType = p.type || "全部";
-    const normalizedActive = typeMap[active] || active;
+  const desc =
+    (lang === "en"
+      ? p.desc_en
+      : p.desc_zh) || "";
 
-const isAll =
-  active === "ALL" || active === "全部";
+  const categoryText =
+    p.category || "";
 
-const matchCategory = isAll
-  ? true
-  : projectType === normalizedActive;
+  const typeText =
+    p.category || "";
 
-    /* ===== 搜尋（容錯版🔥） */
-    const matchKeyword =
-      !keywordLower || searchText.includes(keywordLower);
+  const searchText = (
+    title +
+    " " +
+    desc +
+    " " +
+    categoryText +
+    " " +
+    typeText
+  )
+    .toLowerCase()
+    .replace(/\s+/g, "");
 
-    return matchCategory && matchKeyword;
-  });
+  const keywordLower = keyword
+    .toLowerCase()
+    .replace(/\s+/g, "");
 
+  const projectType = p.category || "全部";
+  
+
+  const normalizedActive =
+    typeMap[active] || active;
+
+  const isAll =
+    active === "ALL" ||
+    active === "全部";
+
+  const matchCategory = isAll
+    ? true
+    : projectType === normalizedActive;
+
+const matchKeyword =
+  !keywordLower ||
+  searchText.includes(keywordLower);
+
+return matchCategory && matchKeyword;
+
+});
   /* ===== 分頁 ===== */
   const start = (currentPage - 1) * perPage;
   const currentData = filtered.slice(start, start + perPage);
@@ -171,8 +208,10 @@ useEffect(() => {
   justify-center md:justify-start
 ">
 
-  {categories.map((c) => {
-    const isActive = active === c;
+{categories.map((c) => {
+
+const isActive = active === c;
+
 
     return (
       <button
@@ -199,6 +238,8 @@ className={`
     ? "tracking-[0.1em]"
     : "tracking-[0.25em]"
   }
+
+
 
   ${isActive
     ? "text-black"
@@ -294,13 +335,15 @@ className={`
 
     {currentData.map((p) => {
 
-      const title = lang === "en" ? p.title_en : p.title;
-      const category = lang === "en" ? p.category_en : p.category;
+      const title = lang === "en" ? p.title_en : p.title_zh;
+
+
+
 
       return (
 <Link
   key={p.id}
-  to={`/${lang}/projects/${p.id}`}
+  to={`/${lang}/projects/${p.slug}`}
   className="block"
 >
 
@@ -308,11 +351,14 @@ className={`
 
     <div className="relative aspect-[4/5] overflow-hidden group shadow-sm">
 
-      <img
-        src={p.img}
-        className="
-  w-full h-full
-  object-cover
+<img
+  src={
+    p.images?.[0]?.src ||
+    p.cover
+  }
+  className="
+    w-full h-full
+    object-cover
 
   object-center
 
@@ -350,7 +396,7 @@ to-transparent
 
   drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
 ">
-  {category}
+  {p.category}
 </p>
 
 <h3 className="
@@ -396,14 +442,17 @@ to-transparent
 
           {/* 長圖 */}
           {group[0] && (
-            <Link to={`/${lang}/projects/${group[0].id}`}>
+           <Link to={`/${lang}/projects/${group[0].slug}`}>
              <div className="relative aspect-[16/8] overflow-hidden group">
 
-                <img
-                  src={group[0].img}
-                  className="
-  w-full h-full
-  object-cover
+<img
+  src={
+    group[0].images?.[0]?.src ||
+    group[0].cover
+  }
+  className="
+    w-full h-full
+    object-cover
 
   object-center
 
@@ -435,9 +484,7 @@ to-transparent
 
   drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]
 ">
-                    {lang === "en"
-                      ? group[0].category_en
-                      : group[0].category}
+                   {group[0].category}
                   </p>
 
 <h3
@@ -459,7 +506,7 @@ to-transparent
 >
                     {lang === "en"
                       ? group[0].title_en
-                      : group[0].title}
+                      : group[0].title_zh}
                   </h3>
 
                 </div>
@@ -473,35 +520,40 @@ to-transparent
 
           {group.slice(1).map((p, idx) => {
 
-              const title = lang === "en" ? p.title_en : p.title;
-              const category = lang === "en" ? p.category_en : p.category;
+              const title = lang === "en" ? p.title_en : p.title_zh;
+
+
+
+
+
 
               return (
                <Link
   key={p.id}
-  to={`/${lang}/projects/${p.id}`}
+  to={`/${lang}/projects/${p.slug}`}
   className="block"
 >
-
-                <div
+<div
   className={`
     relative
     overflow-hidden
     group
-
-${idx % 2 === 0
-  ? "aspect-[4/5]"
-  : "aspect-[4/4.2]"
-}
+    ${
+      idx % 2 === 0
+        ? "aspect-[4/5]"
+        : "aspect-[4/4.2]"
     }
   `}
 >
 
-                    <img
-                      src={p.img}
-                     className="
-  w-full h-full
-  object-cover
+<img
+  src={
+    p.images?.[0]?.src ||
+    p.cover
+  }
+  className="
+    w-full h-full
+    object-cover
 
   object-center
 
@@ -533,7 +585,7 @@ to-transparent
 
   drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
 ">
-                        {category}
+                       {p.category}
                       </p>
 
 <h3
@@ -648,3 +700,5 @@ onClick={() => {
     </div>
   );
 }
+
+

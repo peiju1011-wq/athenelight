@@ -85,67 +85,10 @@ projects:{
   ]
 },
 
-productsHome: {
-  tag: {
-    zh: "產品系列",
-    en: "PRODUCT COLLECTION"
-  },
-  title: {
-    zh: "建築照明",
-    en: "ARCHITECTURAL LIGHTING"
-  },
-  viewAll: {
-    zh: "查看全部產品",
-    en: "VIEW ALL PRODUCTS"
-  },
-  items: [
-    {
-      zh: "崁燈",
-      en: "DOWNLIGHT",
-      img: "/images/products/p1.png"
-    },
-    {
-      zh: "軌道燈",
-      en: "TRACK LIGHT",
-      img: "/images/products/p2.png"
-    },
-    {
-      zh: "階梯燈",
-      en: "STEP LIGHT",
-      img: "/images/products/p3.png"
-    },
-    {
-      zh: "水下燈",
-      en: "UNDERWATER",
-      img: "/images/products/p4.png"
-    },
-    {
-      zh: "路燈",
-      en: "STREET LIGHT",
-      img: "/images/products/p5.png"
-    },
-    {
-      zh: "工業燈",
-      en: "HIGH BAY",
-      img: "/images/products/p6.png"
-    }
-  ]
-},
 
 
 
 
-applications:{
-  tag:{ zh:"燈光應用", en:"LIGHTING APPLICATIONS" },
-  title:{ zh:"燈光應用", en:"Applications" },
-  items:[
-    { zh:"室內照明", en:"Indoor Lighting" },
-    { zh:"戶外照明", en:"Outdoor Lighting" },
-    { zh:"智慧照明", en:"Smart Lighting" },
-    { zh:"立面照明", en:"Facade Lighting" },
-    { zh:"客製燈具", en:"Custom Lighting" }
-  ]
-},
 
 cta:{
   view:{ zh:"查看全部", en:"VIEW ALL" }
@@ -217,12 +160,15 @@ footer:{
 
   products:{
     title:{ zh:"產品", en:"PRODUCTS" },
-    items:[
-      { zh:"室內照明", en:"Indoor Lighting" },
-      { zh:"戶外照明", en:"Outdoor Lighting" },
-      { zh:"智慧控制", en:"Smart Control" },
-      { zh:"客製照明", en:"Custom Lighting" }
-    ]
+
+items:[
+  { zh:"室內照明", en:"Indoor Lighting" },
+  { zh:"戶外照明", en:"Outdoor Lighting" },
+  { zh:"施工安裝", en:"Installation" },
+  { zh:"訂製燈具", en:"Custom Lighting" }
+]
+
+
   },
 
 company:{

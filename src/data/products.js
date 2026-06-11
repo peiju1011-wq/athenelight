@@ -1,40 +1,245 @@
 const products = [
-  {
-    id:1,
-    title:{ zh:"極簡吊燈", en:"Chandelier" },
-    img:"/images/lights/pd1-1-2.png",
-    link:"linear-light"
+
+{
+  id:1,
+
+  slug:"linear-light",
+
+  sku:"ATH-LIGHT-001",
+
+  featured:true,
+
+  category:"INDOOR",
+
+  title:{
+    zh:"極簡吊燈",
+    en:"Minimal Pendant Light"
   },
-  {
-    id:2,
-    title:{ zh:"鳥籠吊燈", en:"Birdcage Chandelier" },
-    img:"/images/lights/pd2-1-2.png",
-    link:"double-ring-light"
+
+  cover:{
+    src:"/images/lights/pd1-1-2.png",
+    alt:"極簡吊燈"
   },
-  {
-    id:3,
-    title:{ zh:"光紗吊燈", en:"Translucent Stone & Stretch Ceiling Integrated Lighting"},
-    img:"/images/lights/pd3-1-2.png",
-    link:"stone-wall-light"
+
+  img:"/images/lights/pd1-1-2.png",
+
+  images:[
+    {
+      src:"/images/lights/pd1-1-2.png",
+      alt:"極簡吊燈",
+      position:"center"
+    }
+  ],
+
+  tags:[
+    "吊燈",
+    "極簡燈具",
+    "室內照明"
+  ],
+
+  published:true
+},
+
+{
+  id:2,
+
+  slug:"double-ring-light",
+
+  sku:"ATH-LIGHT-002",
+
+  featured:true,
+
+  category:"INDOOR",
+
+  title:{
+    zh:"鳥籠吊燈",
+    en:"Birdcage Chandelier"
   },
-  {
-    id:4,
-    title:{ zh:"星雨吊燈", en:"Starlight Rain Chandelier"},
-    img:"/images/lights/pd4-1-2.jpg",
-    link:"stone-wall-light2"
+
+  cover:{
+    src:"/images/lights/pd2-1-2.png",
+    alt:"鳥籠吊燈"
   },
-  {
-    id:5,
-    title:{ zh:"光境中島", en:"Lumen Island" },
-    img:"/images/lights/pd5-10-2.jpg",
-    link:"stone-wall-light-bed"
+
+  img:"/images/lights/pd2-1-2.png",
+
+  images:[
+    {
+      src:"/images/lights/pd2-1-2.png",
+      alt:"鳥籠吊燈",
+      position:"center"
+    }
+  ],
+
+  tags:[
+    "吊燈",
+    "裝飾燈具",
+    "商業空間"
+  ],
+
+  published:true
+},
+
+{
+  id:3,
+
+  slug:"stone-wall-light",
+
+  sku:"ATH-LIGHT-003",
+
+  featured:true,
+
+  category:"INDOOR",
+
+  title:{
+    zh:"光紗吊燈",
+    en:"Translucent Stone & Stretch Ceiling Integrated Lighting"
   },
-  {
-    id:6,
-    title:{ zh:"銀杏葉吊燈", en:"Ginkgo Leaf Chandelier"},
-    img:"/images/lights/pd6-1.png",
-    link:"ginkgo-light"
-  }
+
+  cover:{
+    src:"/images/lights/pd3-1-2.png",
+    alt:"光紗吊燈"
+  },
+
+  img:"/images/lights/pd3-1-2.png",
+
+  images:[
+    {
+      src:"/images/lights/pd3-1-2.png",
+      alt:"光紗吊燈",
+      position:"center"
+    }
+  ],
+
+  tags:[
+    "光膜",
+    "吊燈",
+    "室內照明"
+  ],
+
+  published:true
+},
+
+{
+  id:4,
+
+  slug:"stone-wall-light2",
+
+  sku:"ATH-LIGHT-004",
+
+  featured:true,
+
+  category:"INDOOR",
+
+  title:{
+    zh:"星雨吊燈",
+    en:"Starlight Rain Chandelier"
+  },
+
+  cover:{
+    src:"/images/lights/pd4-1-2.jpg",
+    alt:"星雨吊燈"
+  },
+
+  img:"/images/lights/pd4-1-2.jpg",
+
+  images:[
+    {
+      src:"/images/lights/pd4-1-2.jpg",
+      alt:"星雨吊燈",
+      position:"center"
+    }
+  ],
+
+  tags:[
+    "吊燈",
+    "藝術燈具",
+    "商業照明"
+  ],
+
+  published:true
+},
+
+{
+  id:5,
+
+  slug:"stone-wall-light-bed",
+
+  sku:"ATH-LIGHT-005",
+
+  featured:true,
+
+  category:"INDOOR",
+
+  title:{
+    zh:"光境中島",
+    en:"Lumen Island"
+  },
+
+  cover:{
+    src:"/images/lights/pd5-10-2.jpg",
+    alt:"光境中島"
+  },
+
+  img:"/images/lights/pd5-10-2.jpg",
+
+  images:[
+    {
+      src:"/images/lights/pd5-10-2.jpg",
+      alt:"光境中島",
+      position:"center"
+    }
+  ],
+
+  tags:[
+    "中島燈",
+    "吊燈",
+    "空間照明"
+  ],
+
+  published:true
+},
+
+{
+  id:6,
+
+  slug:"ginkgo-light",
+
+  sku:"ATH-LIGHT-006",
+
+  featured:true,
+
+  category:"INDOOR",
+
+  title:{
+    zh:"銀杏葉吊燈",
+    en:"Ginkgo Leaf Chandelier"
+  },
+
+  cover:{
+    src:"/images/lights/pd6-1.png",
+    alt:"銀杏葉吊燈"
+  },
+
+  img:"/images/lights/pd6-1.png",
+
+  images:[
+    {
+      src:"/images/lights/pd6-1.png",
+      alt:"銀杏葉吊燈",
+      position:"center"
+    }
+  ],
+
+  tags:[
+    "銀杏燈",
+    "吊燈",
+    "藝術燈具"
+  ],
+
+  published:true
+}
+
 ];
 
 export default products;

@@ -1,22 +1,78 @@
 const manualSpecs = {
 
-  /* ================= RF (續) ================= */
+  "rf-336": {
 
-"rf-336": {
-  series: "RF",
-  main: "/images/products/mirror/rf-336.png",
-  detail: "/images/products/mirror/rf-337.png",
-  specs: [
-    { sku:"RFMF8060A", w:800, h:600, d:40 },
-    { sku:"RFMF1060A", w:1000, h:600, d:40 },
-    { sku:"RFMF1260A", w:1200, h:600, d:40 },
-  ]
-},
+    id: "rf-336",
+
+    series: "RF",
+
+    category: "mirror",
+
+    title: {
+      zh: "RF 系列 LED 浴室鏡",
+      en: "RF Series LED Bathroom Mirror"
+    },
+
+    desc: {
+      zh: "現代 LED 浴室鏡，結合簡潔線條、氛圍照明與多種尺寸選擇。",
+      en: "Modern LED bathroom mirror with ambient lighting and clean lines."
+    },
+
+    seo: {
+      title: "RF Series LED Bathroom Mirror | ATHENE LIGHT",
+      description: "Modern LED bathroom mirror with ambient lighting and anti-fog design."
+    },
+
+    main: "/images/products/mirror/rf-336.png",
+
+    detail: "/images/products/mirror/rf-337.png",
+
+    specs: [
+      {
+        sku:"RFMF8060A",
+        w:800,
+        h:600,
+        d:40
+      },
+
+      {
+        sku:"RFMF1060A",
+        w:1000,
+        h:600,
+        d:40
+      },
+
+      {
+        sku:"RFMF1260A",
+        w:1200,
+        h:600,
+        d:40
+      },
+    ]
+  },
 
 "rf-338": {
+
+  id: "rf-338",
+
   series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，適合現代住宅與商業空間。",
+    en: "RF series LED bathroom mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/rf-338.png",
+
   detail: "/images/products/mirror/rf-339.png",
+
   specs: [
     { sku:"RFMF5070B", w:500, h:700, d:32 },
     { sku:"RFMF6080B", w:600, h:800, d:32 },
@@ -28,29 +84,82 @@ const manualSpecs = {
 },
 
 "rf-340": {
+
+  id: "rf-340",
+
   series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合簡潔燈光與俐落外型。",
+    en: "RF series LED bathroom mirror with clean lighting and minimal design."
+  },
+
   main: "/images/products/mirror/rf-340.png",
+
   detail: "/images/products/mirror/rf-341.png",
+
   specs: [
     { sku:"RFMF5070C", w:500, h:700, d:38 },
   ]
 },
 
 "rf-342": {
+
+  id: "rf-342",
+
   series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，適合現代衛浴與商業空間。",
+    en: "RF series LED bathroom mirror for modern bathroom interiors."
+  },
+
   main: "/images/products/mirror/rf-342.png",
+
   detail: "/images/products/mirror/rf-343.png",
+
   specs: [
     { sku:"RFMF5070D", w:500, h:700, d:30 },
     { sku:"RFMF8070D", w:800, h:700, d:30 },
     { sku:"RFMF1070D", w:1000, h:700, d:30 },
   ]
 },
-
 "rf-344": {
+
+  id: "rf-344",
+
   series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合俐落燈光與簡約線條設計。",
+    en: "RF series LED bathroom mirror with minimal lighting design."
+  },
+
   main: "/images/products/mirror/rf-344.png",
+
   detail: "/images/products/mirror/rf-345.png",
+
   specs: [
     { sku:"RFMF5070E", w:500, h:700, d:30 },
     { sku:"RFMF8070E", w:800, h:700, d:30 },
@@ -59,9 +168,27 @@ const manualSpecs = {
 },
 
 "rf-346": {
+
+  id: "rf-346",
+
   series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，適合現代住宅與精品衛浴空間。",
+    en: "RF series LED bathroom mirror for modern bathroom interiors."
+  },
+
   main: "/images/products/mirror/rf-346.png",
+
   detail: "/images/products/mirror/rf-347.png",
+
   specs: [
     { sku:"RFMF1170F", w:1100, h:700, d:40 },
     { sku:"RFMF1270F", w:1200, h:700, d:40 },
@@ -70,9 +197,27 @@ const manualSpecs = {
 },
 
 "rf-348": {
+
+  id: "rf-348",
+
   series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，提供多尺寸配置與柔和燈光效果。",
+    en: "RF series LED bathroom mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/rf-348.png",
+
   detail: "/images/products/mirror/rf-349.png",
+
   specs: [
     { sku:"RFMF5070G", w:500, h:700, d:40 },
     { sku:"RFMF6070G", w:600, h:700, d:40 },
@@ -84,9 +229,27 @@ const manualSpecs = {
 },
 
 "rf-350": {
+
+  id: "rf-350",
+
   series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合實用收納與現代光感設計。",
+    en: "RF series LED bathroom mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/rf-350.png",
+
   detail: "/images/products/mirror/rf-351.png",
+
   specs: [
     { sku:"RFMF6080H", w:600, h:800, d:112 },
     { sku:"RFMF8080H", w:800, h:800, d:112 },
@@ -96,9 +259,27 @@ const manualSpecs = {
 },
 
 "rf-352": {
+
+  id: "rf-352",
+
   series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，兼具照明功能與現代空間美感。",
+    en: "RF series LED bathroom mirror with modern aesthetic lighting."
+  },
+
   main: "/images/products/mirror/rf-352.png",
+
   detail: "/images/products/mirror/rf-353.png",
+
   specs: [
     { sku:"RFMF5070I", w:500, h:700, d:62 },
     { sku:"RFMF6080I", w:600, h:800, d:62 },
@@ -108,521 +289,1311 @@ const manualSpecs = {
   ]
 },
 
+"rf-35": {
 
+  id: "rf-35",
 
-  "rf-35": {
-    series: "RF",
-    main: "/images/products/mirror/rf-35.png",
-    detail: "/images/products/mirror/rf-36.png",
-    specs: [
-      { sku: "RFMS5070A", w: 500, h: 700, d: 43 },
-      { sku: "RFMS8070A", w: 800, h: 700, d: 43 },
-      { sku: "RFMS1070A", w: 1000, h: 700, d: 43 },
-    ]
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rf-37": {
-    series: "RF",
-    main: "/images/products/mirror/rf-37.png",
-    detail: "/images/products/mirror/rf-38.png",
-    specs: [
-      { sku: "RFMS5070B", w: 500, h: 700, d: 43 },
-      { sku: "RFMS6080B", w: 600, h: 800, d: 43 },
-      { sku: "RFMS8070B", w: 800, h: 700, d: 43 },
-      { sku: "RFMS1070B", w: 1000, h: 700, d: 43 },
-      { sku: "RFMS1270B", w: 1200, h: 700, d: 43 },
-      { sku: "RFMS1470B", w: 1400, h: 700, d: 43 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，適合住宅與商業空間使用。",
+    en: "RF series LED bathroom mirror for residential and commercial interiors."
   },
 
-  "rf-39": {
-    series: "RF",
-    main: "/images/products/mirror/rf-39.png",
-    detail: "/images/products/mirror/rf-40.png",
-    specs: [
-      { sku: "RFMS5070C", w: 500, h: 700, d: 43 },
-      { sku: "RFMS6080C", w: 600, h: 800, d: 43 },
-      { sku: "RFMS8070C", w: 800, h: 700, d: 43 },
-      { sku: "RFMS1070C", w: 1000, h: 700, d: 43 },
-      { sku: "RFMS1270C", w: 1200, h: 700, d: 43 },
-      { sku: "RFMS1470C", w: 1400, h: 700, d: 43 },
-    ]
+  main: "/images/products/mirror/rf-35.png",
+
+  detail: "/images/products/mirror/rf-36.png",
+
+  specs: [
+    { sku: "RFMS5070A", w: 500, h: 700, d: 43 },
+    { sku: "RFMS8070A", w: 800, h: 700, d: 43 },
+    { sku: "RFMS1070A", w: 1000, h: 700, d: 43 },
+  ]
+},
+
+"rf-37": {
+
+  id: "rf-37",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rf-41": {
-    series: "RF",
-    main: "/images/products/mirror/rf-41.png",
-    detail: "/images/products/mirror/rf-42.png",
-    specs: [
-      { sku: "RFMS5070D", w: 500, h: 700, d: 30 },
-      { sku: "RFMS8060D", w: 800, h: 600, d: 30 },
-      { sku: "RFMS7691D", w: 760, h: 910, d: 30 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，提供多尺寸選擇與柔和光感設計。",
+    en: "RF series LED bathroom mirror with soft ambient lighting."
   },
 
-  "rf-43": {
-    series: "RF",
-    main: "/images/products/mirror/rf-43.png",
-    detail: "/images/products/mirror/rf-44.png",
-    specs: [
-      { sku: "RFMS5070E", w: 500, h: 700, d: 30 },
-      { sku: "RFMS8060E", w: 800, h: 600, d: 30 },
-      { sku: "RFMS7691E", w: 760, h: 910, d: 30 },
-    ]
+  main: "/images/products/mirror/rf-37.png",
+
+  detail: "/images/products/mirror/rf-38.png",
+
+  specs: [
+    { sku: "RFMS5070B", w: 500, h: 700, d: 43 },
+    { sku: "RFMS6080B", w: 600, h: 800, d: 43 },
+    { sku: "RFMS8070B", w: 800, h: 700, d: 43 },
+    { sku: "RFMS1070B", w: 1000, h: 700, d: 43 },
+    { sku: "RFMS1270B", w: 1200, h: 700, d: 43 },
+    { sku: "RFMS1470B", w: 1400, h: 700, d: 43 },
+  ]
+},
+
+"rf-39": {
+
+  id: "rf-39",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rf-45": {
-    series: "RF",
-    main: "/images/products/mirror/rf-45.png",
-    detail: "/images/products/mirror/rf-46.png",
-    specs: [
-      { sku: "RFMS5070F", w: 500, h: 700, d: 130 },
-      { sku: "RFMS6070F", w: 600, h: 700, d: 130 },
-      { sku: "RFMS8070F", w: 800, h: 700, d: 130 },
-      { sku: "RFMS1070F", w: 1000, h: 700, d: 130 },
-      { sku: "RFMS1270F", w: 1200, h: 700, d: 130 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合現代燈光與俐落框體設計。",
+    en: "RF series LED bathroom mirror with modern lighting design."
   },
 
-  "rf-47": {
-    series: "RF",
-    main: "/images/products/mirror/rf-47.png",
-    detail: "/images/products/mirror/rf-48.png",
-    specs: [
-      { sku: "RFMB4575A", w: 450, h: 750, d: 30 },
-      { sku: "RFMB6075A", w: 600, h: 750, d: 30 },
-      { sku: "RFMB8075A", w: 800, h: 750, d: 30 },
-      { sku: "RFMB1075A", w: 1000, h: 750, d: 30 },
-      { sku: "RFMB1275A", w: 1200, h: 750, d: 30 },
-      { sku: "RFMB1475A", w: 1400, h: 750, d: 30 },
-      { sku: "RFMB1675A", w: 1600, h: 750, d: 30 },
-    ]
+  main: "/images/products/mirror/rf-39.png",
+
+  detail: "/images/products/mirror/rf-40.png",
+
+  specs: [
+    { sku: "RFMS5070C", w: 500, h: 700, d: 43 },
+    { sku: "RFMS6080C", w: 600, h: 800, d: 43 },
+    { sku: "RFMS8070C", w: 800, h: 700, d: 43 },
+    { sku: "RFMS1070C", w: 1000, h: 700, d: 43 },
+    { sku: "RFMS1270C", w: 1200, h: 700, d: 43 },
+    { sku: "RFMS1470C", w: 1400, h: 700, d: 43 },
+  ]
+},
+
+"rf-41": {
+
+  id: "rf-41",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rf-49": {
-    series: "RF",
-    main: "/images/products/mirror/rf-49.png",
-    detail: "/images/products/mirror/rf-50.png",
-    specs: [
-      { sku: "RFMB6090B", w: 600, h: 900, d: 40 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，適合現代住宅與精品衛浴空間。",
+    en: "RF series LED bathroom mirror for modern interiors."
   },
 
-  "rf-51": {
-    series: "RF",
-    main: "/images/products/mirror/rf-51.png",
-    detail: "/images/products/mirror/rf-52.png",
-    specs: [
-      { sku: "RFMB6080C", w: 600, h: 800, d: 112 },
-      { sku: "RFMB8080C", w: 800, h: 800, d: 112 },
-      { sku: "RFMB1080C", w: 1000, h: 800, d: 112 },
-      { sku: "RFMB1280C", w: 1200, h: 800, d: 112 },
-    ]
+  main: "/images/products/mirror/rf-41.png",
+
+  detail: "/images/products/mirror/rf-42.png",
+
+  specs: [
+    { sku: "RFMS5070D", w: 500, h: 700, d: 30 },
+    { sku: "RFMS8060D", w: 800, h: 600, d: 30 },
+    { sku: "RFMS7691D", w: 760, h: 910, d: 30 },
+  ]
+},
+
+"rf-43": {
+
+  id: "rf-43",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rf-53": {
-    series: "RF",
-    main: "/images/products/mirror/rf-53.png",
-    detail: "/images/products/mirror/rf-54.png",
-    specs: [
-      { sku: "RFMM6016A", w: 600, h: 1600, d: 40 },
-      { sku: "RFMM7018A", w: 700, h: 1800, d: 40 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合簡約光感與現代衛浴美學。",
+    en: "RF series LED bathroom mirror with clean ambient lighting."
   },
 
-  "rf-55": {
-    series: "RF",
-    main: "/images/products/mirror/rf-55.png",
-    detail: "/images/products/mirror/rf-56.png",
-    specs: [
-      { sku: "RFMM9090B", w: 900, h: 900, d: 42 },
-      { sku: "RFMM1180B", w: 1100, h: 800, d: 42 },
-      { sku: "RFMM1285B", w: 1250, h: 850, d: 42 },
-    ]
+  main: "/images/products/mirror/rf-43.png",
+
+  detail: "/images/products/mirror/rf-44.png",
+
+  specs: [
+    { sku: "RFMS5070E", w: 500, h: 700, d: 30 },
+    { sku: "RFMS8060E", w: 800, h: 600, d: 30 },
+    { sku: "RFMS7691E", w: 760, h: 910, d: 30 },
+  ]
+},
+
+"rf-45": {
+
+  id: "rf-45",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rf-57": {
-    series: "RF",
-    main: "/images/products/mirror/rf-57.png",
-    detail: "/images/products/mirror/rf-58.png",
-    specs: [
-      { sku: "RFMM1170C", w: 1100, h: 700, d: 42 },
-      { sku: "RFMM1280C", w: 1200, h: 800, d: 42 },
-      { sku: "RFMM1490C", w: 1400, h: 900, d: 42 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合照明與收納機能設計。",
+    en: "RF series LED bathroom mirror with lighting and storage functionality."
   },
 
-  "rf-60": {
-    series: "RF",
-    main: "/images/products/mirror/rf-60.png",
-    detail: "/images/products/mirror/rf-61.png",
-    specs: [
-      { sku: "RFMM7014D", w: 700, h: 1400, d: 40 },
-      { sku: "RFMM8012D", w: 800, h: 1200, d: 40 },
-      { sku: "RFMM8016D", w: 800, h: 1600, d: 40 },
-    ]
+  main: "/images/products/mirror/rf-45.png",
+
+  detail: "/images/products/mirror/rf-46.png",
+
+  specs: [
+    { sku: "RFMS5070F", w: 500, h: 700, d: 130 },
+    { sku: "RFMS6070F", w: 600, h: 700, d: 130 },
+    { sku: "RFMS8070F", w: 800, h: 700, d: 130 },
+    { sku: "RFMS1070F", w: 1000, h: 700, d: 130 },
+    { sku: "RFMS1270F", w: 1200, h: 700, d: 130 },
+  ]
+},
+
+"rf-47": {
+
+  id: "rf-47",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rf-62": {
-    series: "RF",
-    main: "/images/products/mirror/rf-62.png",
-    detail: "/images/products/mirror/rf-63.png",
-    specs: [
-      { sku: "RFMM8060E", w: 800, h: 600, d: 40 },
-      { sku: "RFMM9070E", w: 900, h: 700, d: 40 },
-      { sku: "RFMM1080E", w: 1000, h: 800, d: 40 },
-      { sku: "RFMM1290E", w: 1200, h: 900, d: 40 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，提供多尺寸選擇與現代光感設計。",
+    en: "RF series LED bathroom mirror with modern ambient lighting."
   },
 
-  "rf-64": {
-    series: "RF",
-    main: "/images/products/mirror/rf-64.png",
-    detail: "/images/products/mirror/rf-65.png",
-    specs: [
-      { sku: "RFMM9161F", w: 914, h: 610, d: 40 },
-      { sku: "RFMM1261F", w: 1291, h: 610, d: 40 },
-    ]
+  main: "/images/products/mirror/rf-47.png",
+
+  detail: "/images/products/mirror/rf-48.png",
+
+  specs: [
+    { sku: "RFMB4575A", w: 450, h: 750, d: 30 },
+    { sku: "RFMB6075A", w: 600, h: 750, d: 30 },
+    { sku: "RFMB8075A", w: 800, h: 750, d: 30 },
+    { sku: "RFMB1075A", w: 1000, h: 750, d: 30 },
+    { sku: "RFMB1275A", w: 1200, h: 750, d: 30 },
+    { sku: "RFMB1475A", w: 1400, h: 750, d: 30 },
+    { sku: "RFMB1675A", w: 1600, h: 750, d: 30 },
+  ]
+},
+
+"rf-49": {
+
+  id: "rf-49",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rf-66": {
-    series: "RF",
-    main: "/images/products/mirror/rf-66.png",
-    detail: "/images/products/mirror/rf-67.png",
-    specs: [
-      { sku: "RFMM8012G", w: 800, h: 700, d: 40 },
-      { sku: "RFMM1014G", w: 1000, h: 700, d: 40 },
-      { sku: "RFMM1216G", w: 1200, h: 800, d: 40 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合簡約外型與柔和燈光效果。",
+    en: "RF series LED bathroom mirror with clean lighting design."
   },
 
-  "rf-68": {
-    series: "RF",
-    main: "/images/products/mirror/rf-68.png",
-    detail: "/images/products/mirror/rf-69.png",
-    specs: [
-      { sku: "RFMC8060A", w: 800, h: 600, d: 40 },
-      { sku: "RFMC9070A", w: 900, h: 700, d: 40 },
-      { sku: "RFMC1080A", w: 1000, h: 800, d: 40 },
-      { sku: "RFMC1280A", w: 1200, h: 800, d: 40 },
-    ]
+  main: "/images/products/mirror/rf-49.png",
+
+  detail: "/images/products/mirror/rf-50.png",
+
+  specs: [
+    { sku: "RFMB6090B", w: 600, h: 900, d: 40 },
+  ]
+},
+
+"rf-51": {
+
+  id: "rf-51",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rf-70": {
-    series: "RF",
-    main: "/images/products/mirror/rf-70.png",
-    detail: "/images/products/mirror/rf-71.png",
-    specs: [
-      { sku: "RFMC5070B", w: 500, h: 700, d: 42 },
-      { sku: "RFMC8060B", w: 800, h: 600, d: 42 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合收納與照明機能。",
+    en: "RF series LED bathroom mirror with integrated lighting functionality."
   },
 
-  "rf-72": {
-    series: "RF",
-    main: "/images/products/mirror/rf-72.png",
-    detail: "/images/products/mirror/rf-73.png",
-    specs: [
-      { sku: "RFMC6080C", w: 600, h: 800, d: 45 },
-      { sku: "RFMC8080C", w: 800, h: 800, d: 45 },
-      { sku: "RFMC1080C", w: 1000, h: 800, d: 45 },
-      { sku: "RFMC1280C", w: 1200, h: 800, d: 45 },
-    ]
+  main: "/images/products/mirror/rf-51.png",
+
+  detail: "/images/products/mirror/rf-52.png",
+
+  specs: [
+    { sku: "RFMB6080C", w: 600, h: 800, d: 112 },
+    { sku: "RFMB8080C", w: 800, h: 800, d: 112 },
+    { sku: "RFMB1080C", w: 1000, h: 800, d: 112 },
+    { sku: "RFMB1280C", w: 1200, h: 800, d: 112 },
+  ]
+},
+
+"rf-53": {
+
+  id: "rf-53",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 全身鏡",
+    en: "RF Series LED Full Length Mirror"
   },
 
-  "rf-74": {
-    series: "RF",
-    main: "/images/products/mirror/rf-74.png",
-    detail: "/images/products/mirror/rf-75.png",
-    specs: [
-      { sku: "RFMC5070D", w: 500, h: 700, d: 42 },
-      { sku: "RFMC8070D", w: 800, h: 700, d: 42 },
-      { sku: "RFMC1070D", w: 1000, h: 700, d: 42 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 全身鏡，適合住宅與商業空間使用。",
+    en: "RF series LED full length mirror for modern interiors."
   },
 
-  "rf-76": {
-    series: "RF",
-    main: "/images/products/mirror/rf-76.png",
-    detail: "/images/products/mirror/rf-77.png",
-    specs: [
-      { sku: "RFMH5070A", w: 500, h: 700, d: 42 },
-      { sku: "RFMH8070A", w: 800, h: 700, d: 42 },
-      { sku: "RFMH1070A", w: 1000, h: 700, d: 42 },
-    ]
+  main: "/images/products/mirror/rf-53.png",
+
+  detail: "/images/products/mirror/rf-54.png",
+
+  specs: [
+    { sku: "RFMM6016A", w: 600, h: 1600, d: 40 },
+    { sku: "RFMM7018A", w: 700, h: 1800, d: 40 },
+  ]
+},
+
+"rf-55": {
+
+  id: "rf-55",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rf-78": {
-    series: "RF",
-    main: "/images/products/mirror/rf-78.png",
-    detail: "/images/products/mirror/rf-79.png",
-    specs: [
-      { sku: "RFMH5845B", w: 580, h: 450, d: 42 },
-      { sku: "RFMH8060B", w: 800, h: 600, d: 42 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合現代美學與柔和照明。",
+    en: "RF series LED bathroom mirror with soft ambient lighting."
   },
 
-  /* ================= RL ================= */
+  main: "/images/products/mirror/rf-55.png",
 
-  "rl-80": {
-    series: "RL",
-    main: "/images/products/mirror/rl-80.png",
-    detail: "/images/products/mirror/rl-81.png",
-    specs: [
-      { sku: "RLMF6080A", w: 600, h: 800, d: 30 },
-      { sku: "RLMF1060A", w: 1000, h: 600, d: 30 },
-      { sku: "RLMF1260A", w: 1200, h: 600, d: 30 },
-    ]
+  detail: "/images/products/mirror/rf-56.png",
+
+  specs: [
+    { sku: "RFMM9090B", w: 900, h: 900, d: 42 },
+    { sku: "RFMM1180B", w: 1100, h: 800, d: 42 },
+    { sku: "RFMM1285B", w: 1250, h: 850, d: 42 },
+  ]
+},
+
+"rf-57": {
+
+  id: "rf-57",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rl-82": {
-    series: "RL",
-    main: "/images/products/mirror/rl-82.png",
-    detail: "/images/products/mirror/rl-83.png",
-    specs: [
-      { sku: "RLF9090A", w: 900, h: 900, d: 30 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，適合現代住宅與精品衛浴空間。",
+    en: "RF series LED bathroom mirror for modern bathroom interiors."
   },
 
-  "rl-84": {
-    series: "RL",
-    main: "/images/products/mirror/rl-84.png",
-    detail: "/images/products/mirror/rl-85.png",
-    specs: [
-      { sku: "RLFF1080A", w: 1000, h: 800, d: 43 },
-      { sku: "RLFF1280A", w: 1200, h: 800, d: 43 },
-    ]
+  main: "/images/products/mirror/rf-57.png",
+
+  detail: "/images/products/mirror/rf-58.png",
+
+  specs: [
+    { sku: "RFMM1170C", w: 1100, h: 700, d: 42 },
+    { sku: "RFMM1280C", w: 1200, h: 800, d: 42 },
+    { sku: "RFMM1490C", w: 1400, h: 900, d: 42 },
+  ]
+},
+
+"rf-60": {
+
+  id: "rf-60",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 全身鏡",
+    en: "RF Series LED Full Length Mirror"
   },
 
-  "rl-86": {
-    series: "RL",
-    main: "/images/products/mirror/rl-86.png",
-    detail: "/images/products/mirror/rl-87.png",
-    specs: [
-      { sku: "RLFF1080A", w: 1000, h: 800, d: 43 },
-      { sku: "RLFF1280A", w: 1200, h: 800, d: 43 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 全身鏡，適合現代住宅與商業空間。",
+    en: "RF series LED full length mirror for modern interiors."
   },
 
-  "rl-88": {
-    series: "RL",
-    main: "/images/products/mirror/rl-88.png",
-    detail: "/images/products/mirror/rl-89.png",
-    specs: [
-      { sku: "RLMB6070A", w: 600, h: 700, d: 30 },
-      { sku: "RLMB8070A", w: 800, h: 700, d: 30 },
-      { sku: "RLMB1070A", w: 1000, h: 700, d: 30 },
-      { sku: "RLMB1270A", w: 1200, h: 700, d: 30 },
-      { sku: "RLMB1470A", w: 1400, h: 700, d: 30 },
-    ]
+  main: "/images/products/mirror/rf-60.png",
+
+  detail: "/images/products/mirror/rf-61.png",
+
+  specs: [
+    { sku: "RFMM7014D", w: 700, h: 1400, d: 40 },
+    { sku: "RFMM8012D", w: 800, h: 1200, d: 40 },
+    { sku: "RFMM8016D", w: 800, h: 1600, d: 40 },
+  ]
+},
+
+"rf-62": {
+
+  id: "rf-62",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rl-90": {
-    series: "RL",
-    main: "/images/products/mirror/rl-90.png",
-    detail: "/images/products/mirror/rl-91.png",
-    specs: [
-      { sku: "RLB4080A", w: 400, h: 800, d: 30 },
-      { sku: "RLB6080A", w: 600, h: 800, d: 30 },
-      { sku: "RLB8080A", w: 800, h: 800, d: 30 },
-      { sku: "RLB1080A", w: 1000, h: 800, d: 30 },
-      { sku: "RLB1280A", w: 1200, h: 800, d: 30 },
-      { sku: "RLB1480A", w: 1400, h: 800, d: 30 },
-      { sku: "RLB1680A", w: 1600, h: 800, d: 30 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合現代燈光與簡約設計。",
+    en: "RF series LED bathroom mirror with modern lighting design."
   },
 
-    "rl-92": {
-    series: "RL",
-    main: "/images/products/mirror/rl-92.png",
-    detail: "/images/products/mirror/rl-93.png",
-    specs: [
-      { sku: "RLT5070A", w: 500, h: 700, d: 34 },
-      { sku: "RLT6070A", w: 600, h: 700, d: 34 },
-      { sku: "RLT8070A", w: 800, h: 700, d: 34 },
-      { sku: "RLT1070A", w: 1000, h: 700, d: 34 },
-      { sku: "RLT1270A", w: 1200, h: 700, d: 34 },
-      { sku: "RLT1470A", w: 1400, h: 700, d: 34 },
-    ]
+  main: "/images/products/mirror/rf-62.png",
+
+  detail: "/images/products/mirror/rf-63.png",
+
+  specs: [
+    { sku: "RFMM8060E", w: 800, h: 600, d: 40 },
+    { sku: "RFMM9070E", w: 900, h: 700, d: 40 },
+    { sku: "RFMM1080E", w: 1000, h: 800, d: 40 },
+    { sku: "RFMM1290E", w: 1200, h: 900, d: 40 },
+  ]
+},
+
+"rf-64": {
+
+  id: "rf-64",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rl-94": {
-    series: "RL",
-    main: "/images/products/mirror/rl-94.png",
-    detail: "/images/products/mirror/rl-95.png",
-    specs: [
-      { sku: "RLB4070B", w: 400, h: 700, d: 30 },
-      { sku: "RLB6070B", w: 600, h: 700, d: 30 },
-      { sku: "RLB8070B", w: 800, h: 700, d: 30 },
-      { sku: "RLB1070B", w: 1000, h: 700, d: 30 },
-      { sku: "RLB1270B", w: 1200, h: 700, d: 30 },
-      { sku: "RLB1470B", w: 1400, h: 700, d: 30 },
-      { sku: "RLB1670B", w: 1600, h: 700, d: 30 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，提供柔和照明與現代空間感。",
+    en: "RF series LED bathroom mirror with soft ambient lighting."
   },
 
-  "rl-96": {
-    series: "RL",
-    main: "/images/products/mirror/rl-96.png",
-    detail: "/images/products/mirror/rl-97.png",
-    specs: [
-      { sku: "RLT5070B", w: 500, h: 700, d: 30 },
-      { sku: "RLT8070B", w: 800, h: 700, d: 30 },
-      { sku: "RLT1070B", w: 1000, h: 700, d: 30 },
-    ]
+  main: "/images/products/mirror/rf-64.png",
+
+  detail: "/images/products/mirror/rf-65.png",
+
+  specs: [
+    { sku: "RFMM9161F", w: 914, h: 610, d: 40 },
+    { sku: "RFMM1261F", w: 1291, h: 610, d: 40 },
+  ]
+},
+
+"rf-66": {
+
+  id: "rf-66",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rl-98": {
-    series: "RL",
-    main: "/images/products/mirror/rl-98.png",
-    detail: "/images/products/mirror/rl-99.png",
-    specs: [
-      { sku: "RLT5272C", w: 521, h: 721, d: 30 },
-      { sku: "RLT6272C", w: 621, h: 721, d: 30 },
-      { sku: "RLT8272C", w: 821, h: 721, d: 30 },
-      { sku: "RLT1072C", w: 1021, h: 721, d: 30 },
-      { sku: "RLT1272C", w: 1221, h: 721, d: 30 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，適合住宅與精品衛浴空間。",
+    en: "RF series LED bathroom mirror for modern bathroom interiors."
   },
 
-  "rl-100": {
-    series: "RL",
-    main: "/images/products/mirror/rl-100.png",
-    detail: "/images/products/mirror/rl-101.png",
-    specs: [
-      { sku: "RLT5070D", w: 500, h: 700, d: 55 },
-      { sku: "RLT6080D", w: 600, h: 800, d: 55 },
-      { sku: "RLT8060D", w: 800, h: 600, d: 55 },
-      { sku: "RLT1260D", w: 1200, h: 600, d: 55 },
-    ]
+  main: "/images/products/mirror/rf-66.png",
+
+  detail: "/images/products/mirror/rf-67.png",
+
+  specs: [
+    { sku: "RFMM8012G", w: 800, h: 700, d: 40 },
+    { sku: "RFMM1014G", w: 1000, h: 700, d: 40 },
+    { sku: "RFMM1216G", w: 1200, h: 800, d: 40 },
+  ]
+},
+
+"rf-68": {
+
+  id: "rf-68",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rl-102": {
-    series: "RL",
-    main: "/images/products/mirror/rl-102.png",
-    detail: "/images/products/mirror/rl-103.png",
-    specs: [
-      { sku: "RLT1291E", w: 1220, h: 910, d: 30 },
-      { sku: "RLT5070E", w: 500, h: 700, d: 30 },
-      { sku: "RLT6080E", w: 600, h: 800, d: 30 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合現代燈光與空間美感。",
+    en: "RF series LED bathroom mirror with modern ambient lighting."
   },
 
-  "rl-104": {
-    series: "RL",
-    main: "/images/products/mirror/rl-104.png",
-    detail: "/images/products/mirror/rl-105.png",
-    specs: [
-      { sku: "RLT5070F", w: 500, h: 700, d: "30 / 55" },
-      { sku: "RLT6080F", w: 600, h: 800, d: "30 / 55" },
-      { sku: "RLT9070F", w: 900, h: 700, d: "30 / 55" },
-      { sku: "RLT1070F", w: 1000, h: 700, d: "30 / 55" },
-      { sku: "RLT1270F", w: 1200, h: 700, d: "30 / 55" },
-      { sku: "RLT1470F", w: 1400, h: 700, d: "30 / 55" },
-      { sku: "RLT1670F", w: 1600, h: 700, d: "30 / 55" },
-      { sku: "RLT1870F", w: 1800, h: 700, d: "30 / 55" },
-    ]
+  main: "/images/products/mirror/rf-68.png",
+
+  detail: "/images/products/mirror/rf-69.png",
+
+  specs: [
+    { sku: "RFMC8060A", w: 800, h: 600, d: 40 },
+    { sku: "RFMC9070A", w: 900, h: 700, d: 40 },
+    { sku: "RFMC1080A", w: 1000, h: 800, d: 40 },
+    { sku: "RFMC1280A", w: 1200, h: 800, d: 40 },
+  ]
+},
+
+"rf-70": {
+
+  id: "rf-70",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rl-106": {
-    series: "RL",
-    main: "/images/products/mirror/rl-106.png",
-    detail: "/images/products/mirror/rl-107.png",
-    specs: [
-      { sku: "RLT6080G", w: 600, h: 800, d: 30 },
-      { sku: "RLT6191G", w: 610, h: 915, d: 30 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合簡潔設計與柔和光感。",
+    en: "RF series LED bathroom mirror with clean lighting design."
   },
 
-  "rl-108": {
-    series: "RL",
-    main: "/images/products/mirror/rl-108.png",
-    detail: "/images/products/mirror/rl-109.png",
-    specs: [
-      { sku: "RLT5070G", w: 500, h: 700, d: 30 },
-      { sku: "RLT6080G", w: 800, h: 800, d: 30 },
-      { sku: "RLT1291G", w: 1220, h: 900, d: 30 },
-    ]
+  main: "/images/products/mirror/rf-70.png",
+
+  detail: "/images/products/mirror/rf-71.png",
+
+  specs: [
+    { sku: "RFMC5070B", w: 500, h: 700, d: 42 },
+    { sku: "RFMC8060B", w: 800, h: 600, d: 42 },
+  ]
+},
+
+"rf-72": {
+
+  id: "rf-72",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rl-110": {
-    series: "RL",
-    main: "/images/products/mirror/rl-110.png",
-    detail: "/images/products/mirror/rl-111.png",
-    specs: [
-      { sku: "RLT1375I", w: 1300, h: 750, d: 32 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合柔和燈光與現代空間美感。",
+    en: "RF series LED bathroom mirror with modern ambient lighting."
   },
 
-  "rl-112": {
-    series: "RL",
-    main: "/images/products/mirror/rl-112.png",
-    detail: "/images/products/mirror/rl-113.png",
-    specs: [
-      { sku: "RLT5070J", w: 500, h: 700, d: 30 },
-      { sku: "RLT6080J", w: 600, h: 800, d: 30 },
-      { sku: "RLT8080J", w: 800, h: 800, d: 30 },
-      { sku: "RLT1080J", w: 1000, h: 800, d: 30 },
-      { sku: "RLT1280J", w: 1200, h: 800, d: 30 },
-      { sku: "RLT1480J", w: 1400, h: 800, d: 30 },
-      { sku: "RLT1680J", w: 1600, h: 800, d: 30 },
-      { sku: "RLT1880J", w: 1800, h: 800, d: 30 },
-    ]
+  main: "/images/products/mirror/rf-72.png",
+
+  detail: "/images/products/mirror/rf-73.png",
+
+  specs: [
+    { sku: "RFMC6080C", w: 600, h: 800, d: 45 },
+    { sku: "RFMC8080C", w: 800, h: 800, d: 45 },
+    { sku: "RFMC1080C", w: 1000, h: 800, d: 45 },
+    { sku: "RFMC1280C", w: 1200, h: 800, d: 45 },
+  ]
+},
+
+"rf-74": {
+
+  id: "rf-74",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rl-114": {
-    series: "RL",
-    main: "/images/products/mirror/rl-114.png",
-    detail: "/images/products/mirror/rl-115.png",
-    specs: [
-      { sku: "RLT1291K", w: 1220, h: 910, d: 30 },
-      { sku: "RLT6191K", w: 610, h: 915, d: 30 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，適合住宅與精品衛浴空間。",
+    en: "RF series LED bathroom mirror for modern bathroom interiors."
   },
 
-  "rl-116": {
-    series: "RL",
-    main: "/images/products/mirror/rl-116.png",
-    detail: "/images/products/mirror/rl-117.png",
-    specs: [
-      { sku: "RLT5070L", w: 500, h: 700, d: 30 },
-      { sku: "RLT8060L", w: 800, h: 600, d: 30 },
-      { sku: "RLT8070L", w: 800, h: 700, d: 30 },
-      { sku: "RLT1070L", w: 1000, h: 700, d: 30 },
-      { sku: "RLT1270L", w: 1200, h: 700, d: 30 },
-      { sku: "RLT1470L", w: 1400, h: 700, d: 30 },
-    ]
+  main: "/images/products/mirror/rf-74.png",
+
+  detail: "/images/products/mirror/rf-75.png",
+
+  specs: [
+    { sku: "RFMC5070D", w: 500, h: 700, d: 42 },
+    { sku: "RFMC8070D", w: 800, h: 700, d: 42 },
+    { sku: "RFMC1070D", w: 1000, h: 700, d: 42 },
+  ]
+},
+
+"rf-76": {
+
+  id: "rf-76",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
 
-  "rl-118": {
-    series: "RL",
-    main: "/images/products/mirror/rl-118.png",
-    detail: "/images/products/mirror/rl-119.png",
-    specs: [
-      { sku: "RLT5070M", w: 500, h: 700, d: 30 },
-      { sku: "RLT8070M", w: 800, h: 700, d: 30 },
-      { sku: "RLT1070M", w: 1000, h: 700, d: 30 },
-    ]
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合現代燈光與簡約設計。",
+    en: "RF series LED bathroom mirror with clean lighting design."
   },
 
-  "rl-120": {
-    series: "RL",
-    main: "/images/products/mirror/rl-120.png",
-    detail: "/images/products/mirror/rl-121.png",
-    specs: [
-      { sku: "RLMT6080A", w: 600, h: 800, d: 30 },
-      { sku: "RLMT6090A", w: 600, h: 900, d: 30 },
-      { sku: "RLMT7090A", w: 700, h: 900, d: 30 },
-      { sku: "RLMT1291A", w: 1220, h: 910, d: 30 },
-    ]
+  main: "/images/products/mirror/rf-76.png",
+
+  detail: "/images/products/mirror/rf-77.png",
+
+  specs: [
+    { sku: "RFMH5070A", w: 500, h: 700, d: 42 },
+    { sku: "RFMH8070A", w: 800, h: 700, d: 42 },
+    { sku: "RFMH1070A", w: 1000, h: 700, d: 42 },
+  ]
+},
+
+"rf-78": {
+
+  id: "rf-78",
+
+  series: "RF",
+
+  category: "mirror",
+
+  title: {
+    zh: "RF 系列 LED 浴室鏡",
+    en: "RF Series LED Bathroom Mirror"
   },
+
+  desc: {
+    zh: "RF 系列 LED 浴室鏡，結合柔和照明與現代空間感。",
+    en: "RF series LED bathroom mirror with soft ambient lighting."
+  },
+
+  main: "/images/products/mirror/rf-78.png",
+
+  detail: "/images/products/mirror/rf-79.png",
+
+  specs: [
+    { sku: "RFMH5845B", w: 580, h: 450, d: 42 },
+    { sku: "RFMH8060B", w: 800, h: 600, d: 42 },
+  ]
+},
+
+/* ================= RL ================= */
+
+"rl-80": {
+
+  id: "rl-80",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合俐落線條與柔和光感。",
+    en: "RL series LED bathroom mirror with modern lighting design."
+  },
+
+  main: "/images/products/mirror/rl-80.png",
+
+  detail: "/images/products/mirror/rl-81.png",
+
+  specs: [
+    { sku: "RLMF6080A", w: 600, h: 800, d: 30 },
+    { sku: "RLMF1060A", w: 1000, h: 600, d: 30 },
+    { sku: "RLMF1260A", w: 1200, h: 600, d: 30 },
+  ]
+},
+
+"rl-82": {
+
+  id: "rl-82",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，適合現代住宅與商業空間。",
+    en: "RL series LED bathroom mirror for modern interiors."
+  },
+
+  main: "/images/products/mirror/rl-82.png",
+
+  detail: "/images/products/mirror/rl-83.png",
+
+  specs: [
+    { sku: "RLF9090A", w: 900, h: 900, d: 30 },
+  ]
+},
+
+"rl-84": {
+
+  id: "rl-84",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合現代燈光與簡潔空間設計。",
+    en: "RL series LED bathroom mirror with modern lighting design."
+  },
+
+  main: "/images/products/mirror/rl-84.png",
+
+  detail: "/images/products/mirror/rl-85.png",
+
+  specs: [
+    { sku: "RLFF1080A", w: 1000, h: 800, d: 43 },
+    { sku: "RLFF1280A", w: 1200, h: 800, d: 43 },
+  ]
+},
+
+"rl-86": {
+
+  id: "rl-86",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，適合住宅與精品衛浴空間。",
+    en: "RL series LED bathroom mirror for modern interiors."
+  },
+
+  main: "/images/products/mirror/rl-86.png",
+
+  detail: "/images/products/mirror/rl-87.png",
+
+  specs: [
+    { sku: "RLFF1080A", w: 1000, h: 800, d: 43 },
+    { sku: "RLFF1280A", w: 1200, h: 800, d: 43 },
+  ]
+},
+
+"rl-88": {
+
+  id: "rl-88",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，提供多尺寸選擇與柔和光感。",
+    en: "RL series LED bathroom mirror with soft ambient lighting."
+  },
+
+  main: "/images/products/mirror/rl-88.png",
+
+  detail: "/images/products/mirror/rl-89.png",
+
+  specs: [
+    { sku: "RLMB6070A", w: 600, h: 700, d: 30 },
+    { sku: "RLMB8070A", w: 800, h: 700, d: 30 },
+    { sku: "RLMB1070A", w: 1000, h: 700, d: 30 },
+    { sku: "RLMB1270A", w: 1200, h: 700, d: 30 },
+    { sku: "RLMB1470A", w: 1400, h: 700, d: 30 },
+  ]
+},
+
+"rl-90": {
+
+  id: "rl-90",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合簡潔外型與現代燈光美感。",
+    en: "RL series LED bathroom mirror with modern ambient lighting."
+  },
+
+  main: "/images/products/mirror/rl-90.png",
+
+  detail: "/images/products/mirror/rl-91.png",
+
+  specs: [
+    { sku: "RLB4080A", w: 400, h: 800, d: 30 },
+    { sku: "RLB6080A", w: 600, h: 800, d: 30 },
+    { sku: "RLB8080A", w: 800, h: 800, d: 30 },
+    { sku: "RLB1080A", w: 1000, h: 800, d: 30 },
+    { sku: "RLB1280A", w: 1200, h: 800, d: 30 },
+    { sku: "RLB1480A", w: 1400, h: 800, d: 30 },
+    { sku: "RLB1680A", w: 1600, h: 800, d: 30 },
+  ]
+},
+
+"rl-92": {
+
+  id: "rl-92",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，適合現代住宅與商業空間。",
+    en: "RL series LED bathroom mirror for modern interiors."
+  },
+
+  main: "/images/products/mirror/rl-92.png",
+
+  detail: "/images/products/mirror/rl-93.png",
+
+  specs: [
+    { sku: "RLT5070A", w: 500, h: 700, d: 34 },
+    { sku: "RLT6070A", w: 600, h: 700, d: 34 },
+    { sku: "RLT8070A", w: 800, h: 700, d: 34 },
+    { sku: "RLT1070A", w: 1000, h: 700, d: 34 },
+    { sku: "RLT1270A", w: 1200, h: 700, d: 34 },
+    { sku: "RLT1470A", w: 1400, h: 700, d: 34 },
+  ]
+},
+
+"rl-94": {
+
+  id: "rl-94",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，提供多尺寸配置與柔和照明效果。",
+    en: "RL series LED bathroom mirror with soft ambient lighting."
+  },
+
+  main: "/images/products/mirror/rl-94.png",
+
+  detail: "/images/products/mirror/rl-95.png",
+
+  specs: [
+    { sku: "RLB4070B", w: 400, h: 700, d: 30 },
+    { sku: "RLB6070B", w: 600, h: 700, d: 30 },
+    { sku: "RLB8070B", w: 800, h: 700, d: 30 },
+    { sku: "RLB1070B", w: 1000, h: 700, d: 30 },
+    { sku: "RLB1270B", w: 1200, h: 700, d: 30 },
+    { sku: "RLB1470B", w: 1400, h: 700, d: 30 },
+    { sku: "RLB1670B", w: 1600, h: 700, d: 30 },
+  ]
+},
+
+"rl-96": {
+
+  id: "rl-96",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合簡約燈光與現代空間設計。",
+    en: "RL series LED bathroom mirror with modern lighting design."
+  },
+
+  main: "/images/products/mirror/rl-96.png",
+
+  detail: "/images/products/mirror/rl-97.png",
+
+  specs: [
+    { sku: "RLT5070B", w: 500, h: 700, d: 30 },
+    { sku: "RLT8070B", w: 800, h: 700, d: 30 },
+    { sku: "RLT1070B", w: 1000, h: 700, d: 30 },
+  ]
+},
+
+"rl-98": {
+
+  id: "rl-98",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，提供柔和照明與多尺寸配置。",
+    en: "RL series LED bathroom mirror with soft ambient lighting."
+  },
+
+  main: "/images/products/mirror/rl-98.png",
+
+  detail: "/images/products/mirror/rl-99.png",
+
+  specs: [
+    { sku: "RLT5272C", w: 521, h: 721, d: 30 },
+    { sku: "RLT6272C", w: 621, h: 721, d: 30 },
+    { sku: "RLT8272C", w: 821, h: 721, d: 30 },
+    { sku: "RLT1072C", w: 1021, h: 721, d: 30 },
+    { sku: "RLT1272C", w: 1221, h: 721, d: 30 },
+  ]
+},
+
+"rl-100": {
+
+  id: "rl-100",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合現代燈光與實用機能。",
+    en: "RL series LED bathroom mirror with modern lighting functionality."
+  },
+
+  main: "/images/products/mirror/rl-100.png",
+
+  detail: "/images/products/mirror/rl-101.png",
+
+  specs: [
+    { sku: "RLT5070D", w: 500, h: 700, d: 55 },
+    { sku: "RLT6080D", w: 600, h: 800, d: 55 },
+    { sku: "RLT8060D", w: 800, h: 600, d: 55 },
+    { sku: "RLT1260D", w: 1200, h: 600, d: 55 },
+  ]
+},
+
+"rl-102": {
+
+  id: "rl-102",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，適合住宅與精品衛浴空間。",
+    en: "RL series LED bathroom mirror for modern interiors."
+  },
+
+  main: "/images/products/mirror/rl-102.png",
+
+  detail: "/images/products/mirror/rl-103.png",
+
+  specs: [
+    { sku: "RLT1291E", w: 1220, h: 910, d: 30 },
+    { sku: "RLT5070E", w: 500, h: 700, d: 30 },
+    { sku: "RLT6080E", w: 600, h: 800, d: 30 },
+  ]
+},
+
+"rl-104": {
+
+  id: "rl-104",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，提供多尺寸與多深度配置。",
+    en: "RL series LED bathroom mirror with flexible size options."
+  },
+
+  main: "/images/products/mirror/rl-104.png",
+
+  detail: "/images/products/mirror/rl-105.png",
+
+  specs: [
+    { sku: "RLT5070F", w: 500, h: 700, d: "30 / 55" },
+    { sku: "RLT6080F", w: 600, h: 800, d: "30 / 55" },
+    { sku: "RLT9070F", w: 900, h: 700, d: "30 / 55" },
+    { sku: "RLT1070F", w: 1000, h: 700, d: "30 / 55" },
+    { sku: "RLT1270F", w: 1200, h: 700, d: "30 / 55" },
+    { sku: "RLT1470F", w: 1400, h: 700, d: "30 / 55" },
+    { sku: "RLT1670F", w: 1600, h: 700, d: "30 / 55" },
+    { sku: "RLT1870F", w: 1800, h: 700, d: "30 / 55" },
+  ]
+},
+
+"rl-106": {
+
+  id: "rl-106",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合柔和照明與現代空間美感。",
+    en: "RL series LED bathroom mirror with soft ambient lighting."
+  },
+
+  main: "/images/products/mirror/rl-106.png",
+
+  detail: "/images/products/mirror/rl-107.png",
+
+  specs: [
+    { sku: "RLT6080G", w: 600, h: 800, d: 30 },
+    { sku: "RLT6191G", w: 610, h: 915, d: 30 },
+  ]
+},
+
+"rl-108": {
+
+  id: "rl-108",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合現代燈光與簡約空間設計。",
+    en: "RL series LED bathroom mirror with modern lighting design."
+  },
+
+  main: "/images/products/mirror/rl-108.png",
+
+  detail: "/images/products/mirror/rl-109.png",
+
+  specs: [
+    { sku: "RLT5070G", w: 500, h: 700, d: 30 },
+    { sku: "RLT6080G", w: 800, h: 800, d: 30 },
+    { sku: "RLT1291G", w: 1220, h: 900, d: 30 },
+  ]
+},
+
+"rl-110": {
+
+  id: "rl-110",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，適合現代住宅與精品衛浴空間。",
+    en: "RL series LED bathroom mirror for modern interiors."
+  },
+
+  main: "/images/products/mirror/rl-110.png",
+
+  detail: "/images/products/mirror/rl-111.png",
+
+  specs: [
+    { sku: "RLT1375I", w: 1300, h: 750, d: 32 },
+  ]
+},
+
+"rl-112": {
+
+  id: "rl-112",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，提供多尺寸配置與柔和照明效果。",
+    en: "RL series LED bathroom mirror with soft ambient lighting."
+  },
+
+  main: "/images/products/mirror/rl-112.png",
+
+  detail: "/images/products/mirror/rl-113.png",
+
+  specs: [
+    { sku: "RLT5070J", w: 500, h: 700, d: 30 },
+    { sku: "RLT6080J", w: 600, h: 800, d: 30 },
+    { sku: "RLT8080J", w: 800, h: 800, d: 30 },
+    { sku: "RLT1080J", w: 1000, h: 800, d: 30 },
+    { sku: "RLT1280J", w: 1200, h: 800, d: 30 },
+    { sku: "RLT1480J", w: 1400, h: 800, d: 30 },
+    { sku: "RLT1680J", w: 1600, h: 800, d: 30 },
+    { sku: "RLT1880J", w: 1800, h: 800, d: 30 },
+  ]
+},
+
+"rl-114": {
+
+  id: "rl-114",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合現代燈光與空間美感。",
+    en: "RL series LED bathroom mirror with modern ambient lighting."
+  },
+
+  main: "/images/products/mirror/rl-114.png",
+
+  detail: "/images/products/mirror/rl-115.png",
+
+  specs: [
+    { sku: "RLT1291K", w: 1220, h: 910, d: 30 },
+    { sku: "RLT6191K", w: 610, h: 915, d: 30 },
+  ]
+},
+
+"rl-116": {
+
+  id: "rl-116",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，適合住宅與商業空間使用。",
+    en: "RL series LED bathroom mirror for residential and commercial interiors."
+  },
+
+  main: "/images/products/mirror/rl-116.png",
+
+  detail: "/images/products/mirror/rl-117.png",
+
+  specs: [
+    { sku: "RLT5070L", w: 500, h: 700, d: 30 },
+    { sku: "RLT8060L", w: 800, h: 600, d: 30 },
+    { sku: "RLT8070L", w: 800, h: 700, d: 30 },
+    { sku: "RLT1070L", w: 1000, h: 700, d: 30 },
+    { sku: "RLT1270L", w: 1200, h: 700, d: 30 },
+    { sku: "RLT1470L", w: 1400, h: 700, d: 30 },
+  ]
+},
+
+"rl-118": {
+
+  id: "rl-118",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合柔和照明與簡約設計。",
+    en: "RL series LED bathroom mirror with clean lighting design."
+  },
+
+  main: "/images/products/mirror/rl-118.png",
+
+  detail: "/images/products/mirror/rl-119.png",
+
+  specs: [
+    { sku: "RLT5070M", w: 500, h: 700, d: 30 },
+    { sku: "RLT8070M", w: 800, h: 700, d: 30 },
+    { sku: "RLT1070M", w: 1000, h: 700, d: 30 },
+  ]
+},
+
+"rl-120": {
+
+  id: "rl-120",
+
+  series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合現代燈光與簡約空間設計。",
+    en: "RL series LED bathroom mirror with modern lighting design."
+  },
+
+  main: "/images/products/mirror/rl-120.png",
+
+  detail: "/images/products/mirror/rl-121.png",
+
+  specs: [
+    { sku: "RLMT6080A", w: 600, h: 800, d: 30 },
+    { sku: "RLMT6090A", w: 600, h: 900, d: 30 },
+    { sku: "RLMT7090A", w: 700, h: 900, d: 30 },
+    { sku: "RLMT1291A", w: 1220, h: 910, d: 30 },
+  ]
+},
 
 /* ================= RL ================= */
 
 "rl-122": {
+
+  id: "rl-122",
+
   series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，提供柔和照明與多尺寸配置。",
+    en: "RL series LED bathroom mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/rl-122.png",
+
   detail: "/images/products/mirror/rl-123.png",
+
   specs: [
     { sku: "RLQ4570A", w: 450, h: 700, d: 30 },
     { sku: "RLQ6070A", w: 600, h: 700, d: 30 },
@@ -633,9 +1604,27 @@ const manualSpecs = {
 },
 
 "rl-124": {
+
+  id: "rl-124",
+
   series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，適合住宅與商業空間使用。",
+    en: "RL series LED bathroom mirror for residential and commercial interiors."
+  },
+
   main: "/images/products/mirror/rl-124.png",
+
   detail: "/images/products/mirror/rl-125.png",
+
   specs: [
     { sku: "RLQ4570B", w: 450, h: 700, d: 30 },
     { sku: "RLQ6070B", w: 600, h: 700, d: 30 },
@@ -648,9 +1637,27 @@ const manualSpecs = {
 },
 
 "rl-126": {
+
+  id: "rl-126",
+
   series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合簡約燈光與現代空間美感。",
+    en: "RL series LED bathroom mirror with clean lighting design."
+  },
+
   main: "/images/products/mirror/rl-126.png",
+
   detail: "/images/products/mirror/rl-127.png",
+
   specs: [
     { sku: "RLF5070C", w: 500, h: 700, d: 30 },
     { sku: "RLF6070C", w: 600, h: 700, d: 30 },
@@ -663,9 +1670,27 @@ const manualSpecs = {
 },
 
 "rl-128": {
+
+  id: "rl-128",
+
   series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合柔和照明與俐落線條設計。",
+    en: "RL series LED bathroom mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/rl-128.png",
+
   detail: "/images/products/mirror/rl-129.png",
+
   specs: [
     { sku: "RLF6070D", w: 600, h: 700, d: 30 },
     { sku: "RLF8070D", w: 800, h: 700, d: 30 },
@@ -675,9 +1700,27 @@ const manualSpecs = {
 },
 
 "rl-130": {
+
+  id: "rl-130",
+
   series: "RL",
-  main: "/images/products/mirror/rl-130.png",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，適合現代住宅與精品衛浴空間。",
+    en: "RL series LED bathroom mirror for modern bathroom interiors."
+  },
+
+ main: "/images/products/mirror/rl-130.png",
+
   detail: "/images/products/mirror/rl-131.png",
+
   specs: [
     { sku: "RLF5070E", w: 500, h: 700, d: 30 },
     { sku: "RLF6070E", w: 600, h: 700, d: 30 },
@@ -689,9 +1732,27 @@ const manualSpecs = {
 },
 
 "rl-132": {
+
+  id: "rl-132",
+
   series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合柔和照明與現代空間感。",
+    en: "RL series LED bathroom mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/rl-132.png",
+
   detail: "/images/products/mirror/rl-133.png",
+
   specs: [
     { sku: "RLF6065F", w: 600, h: 650, d: 30 },
     { sku: "RLF8065F", w: 800, h: 650, d: 30 },
@@ -701,9 +1762,27 @@ const manualSpecs = {
 },
 
 "rl-134": {
+
+  id: "rl-134",
+
   series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合簡約燈光與俐落設計。",
+    en: "RL series LED bathroom mirror with clean lighting design."
+  },
+
   main: "/images/products/mirror/rl-134.png",
+
   detail: "/images/products/mirror/rl-135.png",
+
   specs: [
     { sku: "RLF5070G", w: 500, h: 700, d: 30 },
     { sku: "RLF8060G", w: 800, h: 600, d: 30 },
@@ -712,9 +1791,27 @@ const manualSpecs = {
 },
 
 "rl-136": {
+
+  id: "rl-136",
+
   series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，適合現代住宅與精品衛浴空間。",
+    en: "RL series LED bathroom mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/rl-136.png",
+
   detail: "/images/products/mirror/rl-137.png",
+
   specs: [
     { sku: "RLI5090A", w: 500, h: 900, d: 50 },
     { sku: "RLI5010A", w: 500, h: 1000, d: 50 },
@@ -723,9 +1820,27 @@ const manualSpecs = {
 },
 
 "rl-138": {
+
+  id: "rl-138",
+
   series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合現代光感與簡潔空間美學。",
+    en: "RL series LED bathroom mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/rl-138.png",
+
   detail: "/images/products/mirror/rl-139.png",
+
   specs: [
     { sku: "RLI5090B", w: 500, h: 900, d: 50 },
     { sku: "RLI5010B", w: 500, h: 1000, d: 50 },
@@ -734,9 +1849,27 @@ const manualSpecs = {
 },
 
 "rl-140": {
+
+  id: "rl-140",
+
   series: "RL",
+
+  category: "mirror",
+
+  title: {
+    zh: "RL 系列 LED 浴室鏡",
+    en: "RL Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "RL 系列 LED 浴室鏡，結合照明與收納機能設計。",
+    en: "RL series LED bathroom mirror with integrated lighting functionality."
+  },
+
   main: "/images/products/mirror/rl-140.png",
+
   detail: "/images/products/mirror/rl-141.png",
+
   specs: [
     { sku: "RLI5070C", w: 500, h: 700, d: 110 },
     { sku: "RLI6080C", w: 600, h: 800, d: 110 },
@@ -749,9 +1882,27 @@ const manualSpecs = {
 /* ================= CF ================= */
 
 "cf-142": {
+
+  id: "cf-142",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，結合柔和光感與現代圓形設計。",
+    en: "CF series LED round mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/cf-142.png",
+
   detail: "/images/products/mirror/cf-143.png",
+
   specs: [
     { sku:"CF5610A", w:600, h:1000, d:32 },
     { sku:"CF5810A", w:800, h:1000, d:32 },
@@ -759,9 +1910,27 @@ const manualSpecs = {
 },
 
 "cf-144": {
+
+  id: "cf-144",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，結合柔和光感與現代圓形設計。",
+    en: "CF series LED round mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/cf-144.png",
+
   detail: "/images/products/mirror/cf-145.png",
+
   specs: [
     { sku:"CFS5070B", w:500, h:700, d:32 },
     { sku:"CFS6080B", w:600, h:800, d:32 },
@@ -771,9 +1940,27 @@ const manualSpecs = {
 },
 
 "cf-146": {
+
+  id: "cf-146",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，適合現代住宅與商業空間。",
+    en: "CF series LED round mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/cf-146.png",
+
   detail: "/images/products/mirror/cf-147.png",
+
   specs: [
     { sku:"CFM5050A", w:500, h:500, d:32 },
     { sku:"CFM6060A", w:600, h:600, d:32 },
@@ -786,9 +1973,27 @@ const manualSpecs = {
 },
 
 "cf-148": {
+
+  id: "cf-148",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，結合柔和照明與簡約空間感。",
+    en: "CF series LED round mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/cf-148.png",
+
   detail: "/images/products/mirror/cf-149.png",
+
   specs: [
     { sku:"CFM6060B", w:600, h:600, d:43 },
     { sku:"CFM8080B", w:800, h:800, d:43 },
@@ -799,9 +2004,27 @@ const manualSpecs = {
 },
 
 "cf-150": {
+
+  id: "cf-150",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，結合簡潔燈光與現代圓形設計。",
+    en: "CF series LED round mirror with clean lighting design."
+  },
+
   main: "/images/products/mirror/cf-150.png",
+
   detail: "/images/products/mirror/cf-151.png",
+
   specs: [
     { sku:"CFM6060C", w:600, h:600, d:30 },
     { sku:"CFM8080A", w:800, h:800, d:30 },
@@ -812,9 +2035,27 @@ const manualSpecs = {
 },
 
 "cf-152": {
+
+  id: "cf-152",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，提供多尺寸配置與柔和光感。",
+    en: "CF series LED round mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/cf-152.png",
+
   detail: "/images/products/mirror/cf-153.png",
+
   specs: [
     { sku:"CFM5050D", w:500, h:500, d:32 },
     { sku:"CFM6060D", w:600, h:600, d:32 },
@@ -827,9 +2068,27 @@ const manualSpecs = {
 },
 
 "cf-154": {
+
+  id: "cf-154",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，結合柔和照明與極簡設計。",
+    en: "CF series LED round mirror with minimal ambient lighting."
+  },
+
   main: "/images/products/mirror/cf-154.png",
+
   detail: "/images/products/mirror/cf-155.png",
+
   specs: [
     { sku:"CFM6060E", w:600, h:600, d:30 },
     { sku:"CFM8080E", w:800, h:800, d:30 },
@@ -837,9 +2096,27 @@ const manualSpecs = {
 },
 
 "cf-156": {
+
+  id: "cf-156",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，適合住宅與精品衛浴空間。",
+    en: "CF series LED round mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/cf-156.png",
+
   detail: "/images/products/mirror/cf-157.png",
+
   specs: [
     { sku:"CFM5050F", w:500, h:500, d:32 },
     { sku:"CFM6060F", w:600, h:600, d:32 },
@@ -852,9 +2129,27 @@ const manualSpecs = {
 },
 
 "cf-159": {
+
+  id: "cf-159",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，結合柔和照明與現代圓形設計。",
+    en: "CF series LED round mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/cf-159.png",
+
   detail: "/images/products/mirror/cf-160.png",
+
   specs: [
     { sku:"CFA6060A", w:600, h:600, d:30 },
     { sku:"CFA7070A", w:700, h:700, d:30 },
@@ -864,9 +2159,27 @@ const manualSpecs = {
 },
 
 "cf-161": {
+
+  id: "cf-161",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，適合現代住宅與商業空間。",
+    en: "CF series LED round mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/cf-161.png",
+
   detail: "/images/products/mirror/cf-162.png",
+
   specs: [
     { sku:"CFA6060B", w:600, h:600, d:30 },
     { sku:"CFA7070B", w:700, h:700, d:30 },
@@ -876,9 +2189,27 @@ const manualSpecs = {
 },
 
 "cf-163": {
+
+  id: "cf-163",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，結合現代燈光與簡約空間感。",
+    en: "CF series LED round mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/cf-163.png",
+
   detail: "/images/products/mirror/cf-164.png",
+
   specs: [
     { sku:"CFA5050C", w:500, h:500, d:42 },
     { sku:"CFA6060C", w:600, h:600, d:42 },
@@ -888,9 +2219,27 @@ const manualSpecs = {
 },
 
 "cf-165": {
+
+  id: "cf-165",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，結合柔和光感與現代圓形美學。",
+    en: "CF series LED round mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/cf-165.png",
+
   detail: "/images/products/mirror/cf-166.png",
+
   specs: [
     { sku:"CFAC7070A", w:700, h:700, d:50 },
     { sku:"CFAC8080A", w:800, h:800, d:50 },
@@ -899,9 +2248,27 @@ const manualSpecs = {
 },
 
 "cf-167": {
+
+  id: "cf-167",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，適合住宅與精品衛浴空間。",
+    en: "CF series LED round mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/cf-167.png",
+
   detail: "/images/products/mirror/cf-168.png",
+
   specs: [
     { sku:"CFAC6060B", w:600, h:600, d:42 },
     { sku:"CFAC7070B", w:700, h:700, d:42 },
@@ -911,9 +2278,27 @@ const manualSpecs = {
 },
 
 "cf-169": {
+
+  id: "cf-169",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，提供柔和照明與簡潔空間感。",
+    en: "CF series LED round mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/cf-169.png",
+
   detail: "/images/products/mirror/cf-170.png",
+
   specs: [
     { sku:"CFAC6060C", w:600, h:600, d:42 },
     { sku:"CFAC7070C", w:700, h:700, d:42 },
@@ -923,9 +2308,27 @@ const manualSpecs = {
 },
 
 "cf-171": {
+
+  id: "cf-171",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，結合簡約燈光與現代圓形設計。",
+    en: "CF series LED round mirror with clean lighting design."
+  },
+
   main: "/images/products/mirror/cf-171.png",
+
   detail: "/images/products/mirror/cf-172.png",
+
   specs: [
     { sku:"CFAM6060A", w:600, h:600, d:30 },
     { sku:"CFAM7070A", w:700, h:700, d:30 },
@@ -935,9 +2338,27 @@ const manualSpecs = {
 },
 
 "cf-173": {
+
+  id: "cf-173",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，結合柔和照明與現代圓形設計。",
+    en: "CF series LED round mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/cf-173.png",
+
   detail: "/images/products/mirror/cf-174.png",
+
   specs: [
     { sku:"CFH7011A", w:700, h:1100, d:30 },
     { sku:"CFH8012A", w:800, h:1200, d:30 },
@@ -947,9 +2368,27 @@ const manualSpecs = {
 },
 
 "cf-175": {
+
+  id: "cf-175",
+
   series: "CF",
+
+  category: "mirror",
+
+  title: {
+    zh: "CF 系列 LED 圓鏡",
+    en: "CF Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CF 系列 LED 圓鏡，結合照明與收納機能設計。",
+    en: "CF series LED round mirror with integrated lighting functionality."
+  },
+
   main: "/images/products/mirror/cf-175.png",
+
   detail: "/images/products/mirror/cf-176.png",
+
   specs: [
     { sku:"CFT5070A", w:500, h:700, d:130 },
     { sku:"CFT6080A", w:600, h:800, d:130 },
@@ -961,18 +2400,54 @@ const manualSpecs = {
 /* ================= CL ================= */
 
 "cl-177": {
+
+  id: "cl-177",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，結合簡約燈光與現代空間感。",
+    en: "CL series LED round mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/cl-177.png",
+
   detail: "/images/products/mirror/cl-178.png",
+
   specs: [
     { sku:"CLM8080A", w:800, h:800, d:30 },
   ]
 },
 
 "cl-179": {
+
+  id: "cl-179",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，提供柔和照明與現代圓形設計。",
+    en: "CL series LED round mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/cl-179.png",
+
   detail: "/images/products/mirror/cl-180.png",
+
   specs: [
     { sku:"CL6060A", w:600, h:600, d:30 },
     { sku:"CL8080A", w:800, h:800, d:30 },
@@ -981,9 +2456,27 @@ const manualSpecs = {
 },
 
 "cl-181": {
+
+  id: "cl-181",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，適合住宅與精品衛浴空間。",
+    en: "CL series LED round mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/cl-181.png",
+
   detail: "/images/products/mirror/cl-182.png",
+
   specs: [
     { sku:"CL6060B", w:600, h:600, d:30 },
     { sku:"CL8080B", w:800, h:800, d:30 },
@@ -993,9 +2486,27 @@ const manualSpecs = {
 },
 
 "cl-183": {
+
+  id: "cl-183",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，結合柔和燈光與極簡空間感。",
+    en: "CL series LED round mirror with minimal ambient lighting."
+  },
+
   main: "/images/products/mirror/cl-183.png",
+
   detail: "/images/products/mirror/cl-184.png",
+
   specs: [
     { sku:"CLAM6060A", w:600, h:600, d:30 },
     { sku:"CLAM9090A", w:900, h:900, d:30 },
@@ -1003,9 +2514,27 @@ const manualSpecs = {
 },
 
 "cl-185": {
+
+  id: "cl-185",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，結合現代圓形設計與柔和照明。",
+    en: "CL series LED round mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/cl-185.png",
+
   detail: "/images/products/mirror/cl-186.png",
+
   specs: [
     { sku:"CLA6262A", w:621, h:621, d:30 },
     { sku:"CLA8282A", w:821, h:821, d:30 },
@@ -1015,9 +2544,27 @@ const manualSpecs = {
 },
 
 "cl-187": {
+
+  id: "cl-187",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，提供多尺寸配置與柔和光感。",
+    en: "CL series LED round mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/cl-187.png",
+
   detail: "/images/products/mirror/cl-188.png",
+
   specs: [
     { sku:"CLA6060B", w:600, h:600, d:30 },
     { sku:"CLA7070B", w:700, h:700, d:30 },
@@ -1030,9 +2577,27 @@ const manualSpecs = {
 },
 
 "cl-189": {
+
+  id: "cl-189",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，結合柔和照明與現代圓形設計。",
+    en: "CL series LED round mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/cl-189.png",
+
   detail: "/images/products/mirror/cl-190.png",
+
   specs: [
     { sku:"CLA6060C", w:600, h:600, d:30 },
     { sku:"CLA7070C", w:700, h:700, d:30 },
@@ -1042,9 +2607,27 @@ const manualSpecs = {
 },
 
 "cl-191": {
+
+  id: "cl-191",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，結合現代燈光與簡約空間感。",
+    en: "CL series LED round mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/cl-191.png",
+
   detail: "/images/products/mirror/cl-192.png",
+
   specs: [
     { sku:"CLA6060D", w:600, h:600, d:45 },
     { sku:"CLA8080D", w:800, h:800, d:45 },
@@ -1054,9 +2637,27 @@ const manualSpecs = {
 },
 
 "cl-193": {
+
+  id: "cl-193",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，適合住宅與精品衛浴空間。",
+    en: "CL series LED round mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/cl-193.png",
+
   detail: "/images/products/mirror/cl-194.png",
+
   specs: [
     { sku:"CLA6060F", w:600, h:600, d:42 },
     { sku:"CLA8080F", w:800, h:800, d:42 },
@@ -1066,9 +2667,27 @@ const manualSpecs = {
 },
 
 "cl-195": {
+
+  id: "cl-195",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，結合柔和光感與現代圓形設計。",
+    en: "CL series LED round mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/cl-195.png",
+
   detail: "/images/products/mirror/cl-196.png",
+
   specs: [
     { sku:"CLI6060A", w:600, h:600, d:30 },
     { sku:"CLI7070A", w:700, h:700, d:30 },
@@ -1078,9 +2697,27 @@ const manualSpecs = {
 },
 
 "cl-197": {
+
+  id: "cl-197",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，結合簡潔燈光與現代空間美感。",
+    en: "CL series LED round mirror with clean lighting design."
+  },
+
   main: "/images/products/mirror/cl-197.png",
+
   detail: "/images/products/mirror/cl-198.png",
+
   specs: [
     { sku:"CLI6060B", w:600, h:600, d:30 },
     { sku:"CLI8080B", w:800, h:800, d:30 },
@@ -1089,9 +2726,27 @@ const manualSpecs = {
 },
 
 "cl-199": {
+
+  id: "cl-199",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，提供柔和照明與現代圓形設計。",
+    en: "CL series LED round mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/cl-199.png",
+
   detail: "/images/products/mirror/cl-200.png",
+
   specs: [
     { sku:"CLI6060C", w:600, h:600, d:30 },
     { sku:"CLI8080C", w:800, h:800, d:30 },
@@ -1100,9 +2755,27 @@ const manualSpecs = {
 },
 
 "cl-201": {
+
+  id: "cl-201",
+
   series: "CL",
+
+  category: "mirror",
+
+  title: {
+    zh: "CL 系列 LED 圓鏡",
+    en: "CL Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "CL 系列 LED 圓鏡，適合住宅與商業空間使用。",
+    en: "CL series LED round mirror for residential and commercial interiors."
+  },
+
   main: "/images/products/mirror/cl-201.png",
+
   detail: "/images/products/mirror/cl-202.png",
+
   specs: [
     { sku:"CLI6060D", w:600, h:600, d:30 },
     { sku:"CLI7070D", w:700, h:700, d:30 },
@@ -1115,27 +2788,81 @@ const manualSpecs = {
 /* ================= IR ================= */
 
 "ir-203": {
+
+  id: "ir-203",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 全身鏡",
+    en: "IR Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 全身鏡，結合現代照明與簡約空間設計。",
+    en: "IR series LED full length mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/ir-203.png",
+
   detail: "/images/products/mirror/ir-204.png",
+
   specs: [
     { sku:"IRP6210A", w:620, h:1090, d:30 },
   ]
 },
 
 "ir-205": {
+
+  id: "ir-205",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 全身鏡",
+    en: "IR Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 全身鏡，結合現代照明與簡約空間設計。",
+    en: "IR series LED full length mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/ir-205.png",
+
   detail: "/images/products/mirror/ir-206.png",
+
   specs: [
     { sku:"IRP6011B", w:600, h:1100, d:30 },
   ]
 },
 
 "ir-207": {
+
+  id: "ir-207",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 圓鏡",
+    en: "IR Series LED Round Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 圓鏡，提供柔和照明與現代空間感。",
+    en: "IR series LED round mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/ir-207.png",
+
   detail: "/images/products/mirror/ir-208.png",
+
   specs: [
     { sku:"IRP7272C", w:720, h:720, d:30 },
     { sku:"IRP8080C", w:800, h:800, d:30 },
@@ -1144,9 +2871,27 @@ const manualSpecs = {
 },
 
 "ir-209": {
+
+  id: "ir-209",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 異形鏡",
+    en: "IR Series LED Decorative Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 異形鏡，結合現代設計與柔和燈光效果。",
+    en: "IR series LED decorative mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/ir-209.png",
+
   detail: "/images/products/mirror/ir-210.png",
+
   specs: [
     { sku:"IRP6960D", w:693, h:600, d:30 },
     { sku:"IRP9280D", w:924, h:800, d:30 },
@@ -1155,18 +2900,54 @@ const manualSpecs = {
 },
 
 "ir-211": {
+
+  id: "ir-211",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 全身鏡",
+    en: "IR Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 全身鏡，適合現代住宅與商業空間。",
+    en: "IR series LED full length mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/ir-211.png",
+
   detail: "/images/products/mirror/ir-212.png",
+
   specs: [
     { sku:"IRP6012E", w:600, h:900, d:30 },
   ]
 },
 
 "ir-213": {
+
+  id: "ir-213",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，結合照明與收納機能設計。",
+    en: "IR series LED bathroom mirror with integrated lighting functionality."
+  },
+
   main: "/images/products/mirror/ir-213.png",
+
   detail: "/images/products/mirror/ir-214.png",
+
   specs: [
     { sku:"IRA5070A", w:500, h:700, d:116 },
     { sku:"IRA6080A", w:600, h:800, d:116 },
@@ -1176,18 +2957,54 @@ const manualSpecs = {
 },
 
 "ir-215": {
+
+  id: "ir-215",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，結合簡約燈光與現代空間感。",
+    en: "IR series LED bathroom mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/ir-215.png",
+
   detail: "/images/products/mirror/ir-216.png",
+
   specs: [
     { sku:"IRA6090B", w:600, h:900, d:30 },
   ]
 },
 
 "ir-217": {
+
+  id: "ir-217",
+
   series: "IR",
-  main: "/images/products/mirror/ir-217.png",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，適合住宅與精品衛浴空間。",
+    en: "IR series LED bathroom mirror for modern bathroom interiors."
+  },
+
+ main: "/images/products/mirror/ir-217.png",
+
   detail: "/images/products/mirror/ir-218.png",
+
   specs: [
     { sku:"IRA5070C", w:500, h:700, d:30 },
     { sku:"IRA6080C", w:600, h:800, d:30 },
@@ -1196,9 +3013,27 @@ const manualSpecs = {
 },
 
 "ir-219": {
+
+  id: "ir-219",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，結合現代燈光與簡約空間設計。",
+    en: "IR series LED bathroom mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/ir-219.png",
+
   detail: "/images/products/mirror/ir-220.png",
+
   specs: [
     { sku:"IRA5080D", w:500, h:800, d:40 },
     { sku:"IRA6090D", w:600, h:900, d:40 },
@@ -1206,9 +3041,27 @@ const manualSpecs = {
 },
 
 "ir-221": {
+
+  id: "ir-221",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 全身鏡",
+    en: "IR Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 全身鏡，適合現代住宅與商業空間。",
+    en: "IR series LED full length mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/ir-221.png",
+
   detail: "/images/products/mirror/ir-222.png",
+
   specs: [
     { sku:"IRRH5028C", w:500, h:2800, d:400 },
     { sku:"IRRH6028C", w:600, h:2800, d:400 },
@@ -1216,9 +3069,27 @@ const manualSpecs = {
 },
 
 "ir-223": {
+
+  id: "ir-223",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 全身鏡",
+    en: "IR Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 全身鏡，結合柔和照明與現代空間感。",
+    en: "IR series LED full length mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/ir-223.png",
+
   detail: "/images/products/mirror/ir-224.png",
+
   specs: [
     { sku:"IRRH6014A", w:600, h:1400, d:40 },
     { sku:"IRRH7015A", w:700, h:1500, d:40 },
@@ -1227,9 +3098,27 @@ const manualSpecs = {
 },
 
 "ir-225": {
+
+  id: "ir-225",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 全身鏡",
+    en: "IR Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 全身鏡，結合現代設計與簡約光感。",
+    en: "IR series LED full length mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/ir-225.png",
+
   detail: "/images/products/mirror/ir-226.png",
+
   specs: [
     { sku:"IRRH5016B", w:500, h:1600, d:40 },
     { sku:"IRRH6020A", w:600, h:2000, d:30 },
@@ -1237,9 +3126,27 @@ const manualSpecs = {
 },
 
 "ir-227": {
+
+  id: "ir-227",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 全身鏡",
+    en: "IR Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 全身鏡，適合住宅與精品空間使用。",
+    en: "IR series LED full length mirror for residential interiors."
+  },
+
   main: "/images/products/mirror/ir-227.png",
+
   detail: "/images/products/mirror/ir-228.png",
+
   specs: [
     { sku:"IRR5011A", w:500, h:1100, d:40 },
     { sku:"IRR6012A", w:600, h:1200, d:40 },
@@ -1248,9 +3155,27 @@ const manualSpecs = {
 },
 
 "ir-229": {
+
+  id: "ir-229",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，結合簡約燈光與現代空間美感。",
+    en: "IR series LED bathroom mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/ir-229.png",
+
   detail: "/images/products/mirror/ir-230.png",
+
   specs: [
     { sku:"IRR1060B", w:1000, h:600, d:40 },
     { sku:"IRR1260B", w:1200, h:600, d:40 },
@@ -1259,38 +3184,109 @@ const manualSpecs = {
 },
 
 "ir-231": {
+
+  id: "ir-231",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，提供柔和照明與極簡設計。",
+    en: "IR series LED bathroom mirror with minimal lighting design."
+  },
+
   main: "/images/products/mirror/ir-231.png",
+
   detail: "/images/products/mirror/ir-232.png",
+
   specs: [
     { sku:"IRR4080C", w:400, h:800, d:30 },
   ]
 },
 
 "ir-233": {
+
+  id: "ir-233",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，結合柔和燈光與簡潔空間感。",
+    en: "IR series LED bathroom mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/ir-233.png",
+
   detail: "/images/products/mirror/ir-234.png",
+
   specs: [
     { sku:"IRR6510D", w:650, h:1000, d:30 },
   ]
 },
 
 "ir-235": {
+
+  id: "ir-235",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，適合現代住宅與商業空間。",
+    en: "IR series LED bathroom mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/ir-235.png",
+
   detail: "/images/products/mirror/ir-236.png",
+
   specs: [
     { sku:"IRR5080E", w:500, h:800, d:30 },
     { sku:"IRR6080E", w:600, h:800, d:30 },
     { sku:"IRR6090E", w:600, h:900, d:30 },
   ]
 },
-
 "ir-237": {
+
+  id: "ir-237",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，結合柔和燈光與現代空間設計。",
+    en: "IR series LED bathroom mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/ir-237.png",
+
   detail: "/images/products/mirror/ir-238.png",
+
   specs: [
     { sku:"IRR4080F", w:500, h:800, d:30 },
     { sku:"IRR6080F", w:600, h:800, d:30 },
@@ -1300,9 +3296,27 @@ const manualSpecs = {
 },
 
 "ir-239": {
+
+  id: "ir-239",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，提供柔和照明與簡約設計。",
+    en: "IR series LED bathroom mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/ir-239.png",
+
   detail: "/images/products/mirror/ir-240.png",
+
   specs: [
     { sku:"IRR4080G", w:400, h:800, d:43 },
     { sku:"IRR4590G", w:450, h:900, d:43 },
@@ -1311,9 +3325,27 @@ const manualSpecs = {
 },
 
 "ir-241": {
+
+  id: "ir-241",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，結合現代燈光與俐落空間感。",
+    en: "IR series LED bathroom mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/ir-241.png",
+
   detail: "/images/products/mirror/ir-242.png",
+
   specs: [
     { sku:"IRR4080H", w:400, h:800, d:43 },
     { sku:"IRR4590H", w:450, h:900, d:43 },
@@ -1322,9 +3354,27 @@ const manualSpecs = {
 },
 
 "ir-243": {
+
+  id: "ir-243",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 浴室鏡",
+    en: "IR Series LED Bathroom Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 浴室鏡，適合住宅與商業空間使用。",
+    en: "IR series LED bathroom mirror for residential and commercial interiors."
+  },
+
   main: "/images/products/mirror/ir-243.png",
+
   detail: "/images/products/mirror/ir-244.png",
+
   specs: [
     { sku:"IRR4080I", w:400, h:800, d:32 },
     { sku:"IRR4590I", w:450, h:900, d:32 },
@@ -1333,9 +3383,27 @@ const manualSpecs = {
 },
 
 "ir-245": {
+
+  id: "ir-245",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 異形鏡",
+    en: "IR Series LED Decorative Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 異形鏡，結合柔和燈光與現代造型設計。",
+    en: "IR series LED decorative mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/ir-245.png",
+
   detail: "/images/products/mirror/ir-246.png",
+
   specs: [
     { sku:"IRO5576A", w:550, h:760, d:30 },
     { sku:"IRO8060A", w:800, h:600, d:30 },
@@ -1344,18 +3412,54 @@ const manualSpecs = {
 },
 
 "ir-247": {
+
+  id: "ir-247",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 異形鏡",
+    en: "IR Series LED Decorative Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 異形鏡，提供柔和照明與現代空間感。",
+    en: "IR series LED decorative mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/ir-247.png",
+
   detail: "/images/products/mirror/ir-248.png",
+
   specs: [
     { sku:"IRO6080B", w:600, h:800, d:30 },
   ]
 },
 
 "ir-249": {
+
+  id: "ir-249",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 異形鏡",
+    en: "IR Series LED Decorative Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 異形鏡，結合現代燈光與簡約設計。",
+    en: "IR series LED decorative mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/ir-249.png",
+
   detail: "/images/products/mirror/ir-250.png",
+
   specs: [
     { sku:"IRO5070C", w:500, h:700, d:30 },
     { sku:"IRO6080C", w:600, h:800, d:30 },
@@ -1364,9 +3468,27 @@ const manualSpecs = {
 },
 
 "ir-251": {
+
+  id: "ir-251",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 異形鏡",
+    en: "IR Series LED Decorative Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 異形鏡，結合現代燈光與簡約空間設計。",
+    en: "IR series LED decorative mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/ir-251.png",
+
   detail: "/images/products/mirror/ir-252.png",
+
   specs: [
     { sku:"IRO5070D", w:500, h:700, d:30 },
     { sku:"IRO6090D", w:600, h:900, d:30 },
@@ -1374,9 +3496,27 @@ const manualSpecs = {
 },
 
 "ir-253": {
+
+  id: "ir-253",
+
   series: "IR",
+
+  category: "mirror",
+
+  title: {
+    zh: "IR 系列 LED 異形鏡",
+    en: "IR Series LED Decorative Mirror"
+  },
+
+  desc: {
+    zh: "IR 系列 LED 異形鏡，提供柔和照明與現代造型感。",
+    en: "IR series LED decorative mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/ir-253.png",
+
   detail: "/images/products/mirror/ir-254.png",
+
   specs: [
     { sku:"IRO5576E", w:500, h:760, d:30 },
     { sku:"IRO8060E", w:800, h:600, d:30 },
@@ -1387,27 +3527,81 @@ const manualSpecs = {
 /* ================= FL ================= */
 
 "fl-279": {
+
+  id: "fl-279",
+
   series: "FL",
+
+  category: "mirror",
+
+  title: {
+    zh: "FL 系列 LED 全身鏡",
+    en: "FL Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "FL 系列 LED 全身鏡，結合簡約燈光與現代空間感。",
+    en: "FL series LED full length mirror with modern lighting design."
+  },
+
   main: "/images/products/mirror/fl-279.png",
+
   detail: "/images/products/mirror/fl-280.png",
+
   specs: [
     { sku:"FLF4015A", w:400, h:1500, d:32 },
   ]
 },
 
 "fl-281": {
+
+  id: "fl-281",
+
   series: "FL",
+
+  category: "mirror",
+
+  title: {
+    zh: "FL 系列 LED 全身鏡",
+    en: "FL Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "FL 系列 LED 全身鏡，提供柔和照明與現代空間設計。",
+    en: "FL series LED full length mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/fl-281.png",
+
   detail: "/images/products/mirror/fl-282.png",
+
   specs: [
     { sku:"FLF5314B", w:533, h:1400, d:32 },
   ]
 },
 
 "fl-283": {
+
+  id: "fl-283",
+
   series: "FL",
+
+  category: "mirror",
+
+  title: {
+    zh: "FL 系列 LED 全身鏡",
+    en: "FL Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "FL 系列 LED 全身鏡，適合住宅與商業空間使用。",
+    en: "FL series LED full length mirror for residential and commercial interiors."
+  },
+
   main: "/images/products/mirror/fl-283.png",
+
   detail: "/images/products/mirror/fl-284.png",
+
   specs: [
     { sku:"FLF5016C", w:500, h:1600, d:30 },
     { sku:"FLF5516C", w:550, h:1600, d:30 },
@@ -1415,9 +3609,27 @@ const manualSpecs = {
 },
 
 "fl-285": {
+
+  id: "fl-285",
+
   series: "FL",
+
+  category: "mirror",
+
+  title: {
+    zh: "FL 系列 LED 全身鏡",
+    en: "FL Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "FL 系列 LED 全身鏡，結合柔和光感與現代極簡設計。",
+    en: "FL series LED full length mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/fl-285.png",
+
   detail: "/images/products/mirror/fl-286.png",
+
   specs: [
     { sku:"FLF4015D", w:400, h:1500, d:40 },
     { sku:"FLF5016D", w:500, h:1600, d:40 },
@@ -1425,20 +3637,54 @@ const manualSpecs = {
 },
 
 "fl-287": {
+
+  id: "fl-287",
+
   series: "FL",
+
+  category: "mirror",
+
+  title: {
+    zh: "FL 系列 LED 全身鏡",
+    en: "FL Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "FL 系列 LED 全身鏡，適合現代住宅與精品空間。",
+    en: "FL series LED full length mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/fl-287.png",
+
   detail: "/images/products/mirror/fl-288.png",
+
   specs: [
     { sku:"FLL5014A", w:500, h:1400, d:30 },
   ]
 },
-
 /* 🔥 新補齊（你原本漏的） */
-
 "fl-289": {
+
+  id: "fl-289",
+
   series: "FL",
+
+  category: "mirror",
+
+  title: {
+    zh: "FL 系列 LED 全身鏡",
+    en: "FL Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "FL 系列 LED 全身鏡，結合柔和燈光與現代空間感。",
+    en: "FL series LED full length mirror with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/fl-289.png",
+
   detail: "/images/products/mirror/fl-290.png",
+
   specs: [
     { sku:"FLL4015B", w:400, h:1500, d:40 },
     { sku:"FLL5016B", w:500, h:1650, d:40 },
@@ -1447,9 +3693,27 @@ const manualSpecs = {
 },
 
 "fl-291": {
+
+  id: "fl-291",
+
   series: "FL",
+
+  category: "mirror",
+
+  title: {
+    zh: "FL 系列 LED 全身鏡",
+    en: "FL Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "FL 系列 LED 全身鏡，適合住宅與精品空間使用。",
+    en: "FL series LED full length mirror for modern interiors."
+  },
+
   main: "/images/products/mirror/fl-291.png",
+
   detail: "/images/products/mirror/fl-292.png",
+
   specs: [
     { sku:"FLL5314C", w:533, h:1400, d:30 },
     { sku:"FLL5516C", w:559, h:1600, d:30 },
@@ -1457,9 +3721,27 @@ const manualSpecs = {
 },
 
 "fl-293": {
+
+  id: "fl-293",
+
   series: "FL",
+
+  category: "mirror",
+
+  title: {
+    zh: "FL 系列 LED 全身鏡",
+    en: "FL Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "FL 系列 LED 全身鏡，結合現代極簡與柔和光感。",
+    en: "FL series LED full length mirror with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/fl-293.png",
+
   detail: "/images/products/mirror/fl-294.png",
+
   specs: [
     { sku:"FLL4512D", w:450, h:1200, d:30 },
     { sku:"FLL4516D", w:450, h:1600, d:30 },
@@ -1467,9 +3749,27 @@ const manualSpecs = {
 },
 
 "fl-295": {
+
+  id: "fl-295",
+
   series: "FL",
+
+  category: "mirror",
+
+  title: {
+    zh: "FL 系列 LED 全身鏡",
+    en: "FL Series LED Full Length Mirror"
+  },
+
+  desc: {
+    zh: "FL 系列 LED 全身鏡，提供簡潔照明與現代空間美感。",
+    en: "FL series LED full length mirror with clean lighting design."
+  },
+
   main: "/images/products/mirror/fl-295.png",
+
   detail: "/images/products/mirror/fl-296.png",
+
   specs: [
     { sku:"FLR4512A", w:450, h:1200, d:40 },
     { sku:"FLR6016A", w:600, h:1600, d:40 },
@@ -1479,9 +3779,27 @@ const manualSpecs = {
 /* ================= MC ================= */
 
 "mc-297": {
+
+  id: "mc-297",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，結合照明、收納與現代衛浴設計。",
+    en: "MC series LED mirror cabinet with integrated lighting and storage."
+  },
+
   main: "/images/products/mirror/mc-297.png",
+
   detail: "/images/products/mirror/mc-298.png",
+
   specs: [
     { sku:"MAR5070A", w:500, h:700, d:117 },
     { sku:"MAR6070A", w:600, h:700, d:117 },
@@ -1493,9 +3811,27 @@ const manualSpecs = {
 },
 
 "mc-299": {
+
+  id: "mc-299",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，結合柔和照明與實用收納機能。",
+    en: "MC series LED mirror cabinet with ambient lighting and storage."
+  },
+
   main: "/images/products/mirror/mc-299.png",
+
   detail: "/images/products/mirror/mc-300.png",
+
   specs: [
     { sku:"MCR5070B", w:500, h:700, d:130 },
     { sku:"MAR8060B", w:800, h:600, d:130 },
@@ -1503,18 +3839,53 @@ const manualSpecs = {
 },
 
 "mc-301": {
+
+  id: "mc-301",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，適合現代住宅與精品衛浴空間。",
+    en: "MC series LED mirror cabinet for modern bathroom interiors."
+  },
+
   main: "/images/products/mirror/mc-301.png",
+
   detail: "/images/products/mirror/mc-302.png",
+
   specs: [
     { sku:"MCR6070C", w:600, h:700, d:135 },
   ]
 },
-
 "mc-303": {
+
+  id: "mc-303",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，結合照明、收納與現代衛浴設計。",
+    en: "MC series LED mirror cabinet with integrated lighting and storage."
+  },
+
   main: "/images/products/mirror/mc-303.png",
+
   detail: "/images/products/mirror/mc-304.png",
+
   specs: [
     { sku:"MCR6070E", w:600, h:700, d:126 },
     { sku:"MCR8070E", w:800, h:700, d:126 },
@@ -1526,73 +3897,216 @@ const manualSpecs = {
 },
 
 "mc-305": {
+
+  id: "mc-305",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，提供柔和照明與實用收納機能。",
+    en: "MC series LED mirror cabinet with ambient lighting and storage."
+  },
+
   main: "/images/products/mirror/mc-305.png",
+
   detail: "/images/products/mirror/mc-306.png",
+
   specs: [
     { sku:"MCR4067D", w:400, h:670, d:150 },
   ]
 },
 
 "mc-307": {
+
+  id: "mc-307",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，結合現代燈光與簡約空間感。",
+    en: "MC series LED mirror cabinet with modern lighting design."
+  },
+
   main: "/images/products/mirror/mc-307.png",
+
   detail: "/images/products/mirror/mc-309.png",
+
   specs: [
     { sku:"MCR5070F", w:500, h:700, d:145 },
   ]
 },
 
 "mc-310": {
+
+  id: "mc-310",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，適合現代住宅與精品衛浴空間。",
+    en: "MC series LED mirror cabinet for modern bathroom interiors."
+  },
+
   main: "/images/products/mirror/mc-310.png",
+
   detail: "/images/products/mirror/mc-311.png",
+
   specs: [
     { sku:"MCFR1090A", w:1000, h:900, d:135 },
   ]
 },
 
 "mc-312": {
+
+  id: "mc-312",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，結合柔和照明與現代設計。",
+    en: "MC series LED mirror cabinet with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/mc-312.png",
+
   detail: "/images/products/mirror/mc-313.png",
+
   specs: [
     { sku:"MCFR8070B", w:800, h:700, d:145 },
   ]
 },
 
 "mc-314": {
+
+  id: "mc-314",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，提供照明與收納整合機能。",
+    en: "MC series LED mirror cabinet with integrated lighting functionality."
+  },
+
   main: "/images/products/mirror/mc-314.png",
+
   detail: "/images/products/mirror/mc-315.png",
+
   specs: [
     { sku:"MCR8070H", w:800, h:700, d:145 },
   ]
 },
 
 "mc-316": {
+
+  id: "mc-316",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，適合住宅與商業空間使用。",
+    en: "MC series LED mirror cabinet for residential and commercial interiors."
+  },
+
   main: "/images/products/mirror/mc-316.png",
+
   detail: "/images/products/mirror/mc-317.png",
+
   specs: [
     { sku:"MCR5070G", w:500, h:700, d:145 },
     { sku:"MCR8070G", w:800, h:700, d:145 },
   ]
 },
-
 "mc-318": {
+
+  id: "mc-318",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，結合現代照明與實用收納設計。",
+    en: "MC series LED mirror cabinet with integrated lighting and storage."
+  },
+
   main: "/images/products/mirror/mc-318.png",
+
   detail: "/images/products/mirror/mc-319.png",
+
   specs: [
     { sku:"MCR6570I", w:650, h:700, d:130 },
   ]
 },
 
 "mc-320": {
+
+  id: "mc-320",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，提供柔和照明與現代空間感。",
+    en: "MC series LED mirror cabinet with soft ambient lighting."
+  },
+
   main: "/images/products/mirror/mc-320.png",
+
   detail: "/images/products/mirror/mc-321.png",
+
   specs: [
     { sku:"MCR5070J", w:500, h:700, d:142 },
     { sku:"MCR6070J", w:600, h:700, d:142 },
@@ -1600,9 +4114,27 @@ const manualSpecs = {
 },
 
 "mc-322": {
+
+  id: "mc-322",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，結合柔和燈光與簡約設計。",
+    en: "MC series LED mirror cabinet with modern lighting design."
+  },
+
   main: "/images/products/mirror/mc-322.png",
+
   detail: "/images/products/mirror/mc-323.png",
+
   specs: [
     { sku:"MCR5070K", w:500, h:700, d:145 },
     { sku:"MCR8070K", w:800, h:700, d:145 },
@@ -1610,9 +4142,27 @@ const manualSpecs = {
 },
 
 "mc-324": {
+
+  id: "mc-324",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，適合現代住宅與精品衛浴空間。",
+    en: "MC series LED mirror cabinet for modern bathroom interiors."
+  },
+
   main: "/images/products/mirror/mc-324.png",
+
   detail: "/images/products/mirror/mc-325.png",
+
   specs: [
     { sku:"MCR5070L", w:500, h:700, d:145 },
     { sku:"MCR8070L", w:800, h:700, d:145 },
@@ -1620,9 +4170,27 @@ const manualSpecs = {
 },
 
 "mc-326": {
+
+  id: "mc-326",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，提供照明與收納整合機能。",
+    en: "MC series LED mirror cabinet with integrated storage functionality."
+  },
+
   main: "/images/products/mirror/mc-326.png",
+
   detail: "/images/products/mirror/mc-327.png",
+
   specs: [
     { sku:"MCR5070L", w:500, h:700, d:145 },
     { sku:"MCR8070L", w:800, h:700, d:145 },
@@ -1630,36 +4198,108 @@ const manualSpecs = {
 },
 
 "mc-328": {
+
+  id: "mc-328",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，結合現代光感與極簡空間美學。",
+    en: "MC series LED mirror cabinet with modern ambient lighting."
+  },
+
   main: "/images/products/mirror/mc-328.png",
+
   detail: "/images/products/mirror/mc-329.png",
+
   specs: [
     { sku:"MCC6060B", w:600, h:600, d:83 },
   ]
 },
 
 "mc-330": {
+
+  id: "mc-330",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，結合照明與多功能收納設計。",
+    en: "MC series LED mirror cabinet with multifunctional storage."
+  },
+
   main: "/images/products/mirror/mc-330.png",
+
   detail: "/images/products/mirror/mc-331.png",
+
   specs: [
     { sku:"MCI4511B", w:450, h:1150, d:138 },
   ]
 },
 
 "mc-332": {
+
+  id: "mc-332",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，適合住宅與商業空間使用。",
+    en: "MC series LED mirror cabinet for residential and commercial interiors."
+  },
+
   main: "/images/products/mirror/mc-332.png",
+
   detail: "/images/products/mirror/mc-333.png",
+
   specs: [
     { sku:"MCI5070C", w:500, h:700, d:330 },
   ]
 },
 
 "mc-334": {
+
+  id: "mc-334",
+
   series: "MC",
+
+  category: "mirror",
+
+  title: {
+    zh: "MC 系列 LED 鏡櫃",
+    en: "MC Series LED Mirror Cabinet"
+  },
+
+  desc: {
+    zh: "MC 系列 LED 鏡櫃，提供簡約照明與實用收納空間。",
+    en: "MC series LED mirror cabinet with practical storage design."
+  },
+
   main: "/images/products/mirror/mc-334.png",
+
   detail: "/images/products/mirror/mc-335.png",
+
   specs: [
     { sku:"MCI3060D", w:300, h:600, d:190 },
     { sku:"MCI3012D", w:305, h:1200, d:120 },
