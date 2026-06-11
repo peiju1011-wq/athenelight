@@ -21,7 +21,7 @@ const news = newsData;
 
 
         {/* ================= HEADER ================= */}
-        <section className="mb-19 text-center">
+        <section className="mb-25 text-center">
 
          
 
