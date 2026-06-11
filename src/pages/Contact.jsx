@@ -25,7 +25,7 @@ return(
   <div className="max-w-[1100px] mx-auto px-6">
 
     {/* 保留原標題區高度 */}
-    <div className="mb-20 h-[30px]" />
+    <div className="mb-8 h-[10px] md:mb-20 md:h-[30px]" />
 
 
 
