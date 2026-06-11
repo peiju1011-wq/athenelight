@@ -22,27 +22,18 @@ return(
 
 <main className="bg-[#f7f7f7] pt-24 pb-14 min-h-screen">
 
-<div className="max-w-[1100px] mx-auto px-6">
+  <div className="max-w-[1100px] mx-auto px-6">
+
+    {/* 保留原標題區高度 */}
+    <div className="mb-20 h-[30px]" />
 
 
-{/* ===== HEADER ===== */}
-<section className={`mb-20 text-center ${ani()}`}>
-
-  <div className="flex justify-center mb-6">
-    <div className="light-line"></div>
-  </div>
-
-  <h1 className="text-[30px] md:text-[38px] font-medium tracking-[0.1em] mt-4 text-[#111]">
-    {t?.contact?.title?.[lang]}
-  </h1>
-
-
-</section>
 
 
 {/* ===== CONTENT ===== */}
 <section
   className={`
+    mb-20
     overflow-hidden
     rounded-[32px]
     border border-[#ebe7df]
