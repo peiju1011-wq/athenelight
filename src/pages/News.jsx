@@ -20,7 +20,12 @@ const news = newsData;
       <div className="max-w-[1100px] mx-auto px-6">
 
 
+        {/* ================= HEADER ================= */}
+        <section className="mb-19 text-center">
 
+         
+
+        </section>
 
         {/* ================= HERO ================= */}
 {hero && (
