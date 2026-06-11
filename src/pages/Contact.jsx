@@ -91,20 +91,44 @@ return(
 
 <div className="space-y-10 text-[#666] mt-14">
 
-  {/* 地址 */}
-  <div className="space-y-3">
+{/* Head Office */}
+<div className="space-y-3">
 
-    <p className="text-[10px] tracking-[0.32em] text-[#b7afa1] uppercase">
-      {lang === "en" ? "ADDRESS" : "地址"}
-    </p>
+  <p className="text-[10px] tracking-[0.32em] text-[#b7afa1]">
+    總公司 Head Office
+  </p>
 
-    <p className="text-[14px] leading-[2] text-[#555] max-w-[280px]">
-      {lang === "en"
-        ? "2F., No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
-        : "新北市新莊區化成路186號2樓"}
-    </p>
+  <p className="text-[14px] leading-[2] text-[#555] max-w-[280px]">
+    Taipei Office, Taiwan
+  </p>
 
-  </div>
+</div>
+
+{/* Factory */}
+<div className="space-y-3">
+
+  <p className="text-[10px] tracking-[0.32em] text-[#b7afa1]">
+    製造基地 Manufacturing Facility
+  </p>
+
+  <p className="text-[14px] leading-[2] text-[#555] max-w-[280px]">
+    China
+  </p>
+
+</div>
+
+{/* Service */}
+<div className="space-y-3">
+
+  <p className="text-[10px] tracking-[0.32em] text-[#b7afa1]">
+    照明設計與工程服務
+  </p>
+
+  <p className="text-[14px] leading-[2] text-[#555] max-w-[280px]">
+    Engineering Services & Lighting Design
+  </p>
+
+</div>
 
 
   {/* 電話 */}
