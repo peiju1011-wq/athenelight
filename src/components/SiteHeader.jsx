@@ -215,7 +215,7 @@ className="
     hover:after:w-full
   "
 >
-  {isEnglish ? "ADMIN" : "登入"}
+  {isEnglish ? "LOGIN" : "登入"}
 </Link>
 
 
