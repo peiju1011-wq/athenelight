@@ -187,18 +187,35 @@ className="
 <Link
   to="/admin/login"
   className="
-    text-[12px]
-    tracking-[0.4em]
+    relative
+
+    text-[10px]
+    md:text-[12px]
+
+    tracking-[0.25em]
+    md:tracking-[0.4em]
+
     uppercase
 
-    text-white/40
+    text-white/45
     hover:text-[#C8A46A]
 
     transition-all
     duration-500
+
+    after:absolute
+    after:left-0
+    after:-bottom-[4px]
+    after:w-0
+    after:h-[1px]
+    after:bg-[#C8A46A]
+    after:transition-all
+    after:duration-500
+
+    hover:after:w-full
   "
 >
-  LOGIN
+  {isEnglish ? "ADMIN" : "登入"}
 </Link>
 
 
