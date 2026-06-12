@@ -20,6 +20,11 @@ const [keyword, setKeyword] = useState(searchParam);
 const [openIndoor, setOpenIndoor] = useState(true);
 const [openOutdoor, setOpenOutdoor] = useState(true);
 
+const [openIndoorLight, setOpenIndoorLight] = useState(true);
+const [openOutdoorLight, setOpenOutdoorLight] = useState(true);
+const [openFestivalLight, setOpenFestivalLight] = useState(true);
+
+
 const itemsPerPage = 12;
 
 const lang = useLang();
@@ -54,15 +59,46 @@ const { data, error } = await supabase
 
   /* ===== 分類 ===== */
 const categories = [
+
   { key:"ALL", zh:"燈光系列All", en:"Lighting" },
-  { key:"INDOOR", zh:"室內", en:"INDOOR" },
-  { key:"OUTDOOR", zh:"戶外", en:"OUTDOOR" },
+
   { key:"LIGHTING_DESIGN", zh:"照明設計", en:"LIGHTING DESIGN" },
-{ key:"INTERIOR_LIGHTING", zh:"室內燈具", en:"INTERIOR LIGHTING" },
-{ key:"FESTIVAL", zh:"節慶燈具", en:"FESTIVAL" },
-{ key:"INSTALLATION", zh:"施工安裝", en:"INSTALLATION" },
-{ key:"CUSTOM", zh:"訂製燈具", en:"CUSTOM LIGHTING" },
+
+  { key:"INTERIOR_LIGHTING", zh:"室內燈具", en:"INTERIOR LIGHTING" },
+
+  { key:"TRACK", zh:"軌道燈", en:"TRACK LIGHT" },
+  { key:"PENDANT", zh:"吊燈", en:"PENDANT LIGHT" },
+  { key:"DOWNLIGHT", zh:"崁燈", en:"DOWNLIGHT" },
+  { key:"CEILING", zh:"吸頂燈", en:"CEILING LIGHT" },
+  { key:"LINEAR", zh:"線型燈", en:"LINEAR LIGHT" },
+  { key:"WALL", zh:"壁燈", en:"WALL LIGHT" },
+  { key:"MAGNETIC", zh:"磁吸軌道燈", en:"MAGNETIC TRACK LIGHT" },
+
+  { key:"INSTALLATION", zh:"施工安裝", en:"INSTALLATION" },
+
+  { key:"OUTDOOR_LIGHTING", zh:"戶外燈具", en:"OUTDOOR LIGHTING" },
+
+  { key:"FLOOD", zh:"泛光燈", en:"FLOOD LIGHT" },
+  { key:"WASHER", zh:"洗牆燈", en:"WALL WASHER" },
+  { key:"SPOT", zh:"投射燈", en:"SPOT LIGHT" },
+  { key:"INGROUND", zh:"地埋燈", en:"IN-GROUND LIGHT" },
+  { key:"SPIKE", zh:"插地燈", en:"SPIKE LIGHT" },
+  { key:"LANDSCAPE", zh:"景觀燈", en:"LANDSCAPE LIGHT" },
+  { key:"BOLLARD", zh:"矮柱燈", en:"BOLLARD LIGHT" },
+  { key:"UNDERWATER", zh:"水底燈", en:"UNDERWATER LIGHT" },
+  { key:"STEP", zh:"階梯燈", en:"STEP LIGHT" },
+
+  { key:"FESTIVAL", zh:"節慶燈具", en:"FESTIVAL LIGHTING" },
+
+  { key:"PIXEL", zh:"點光源", en:"PIXEL LIGHT" },
+  { key:"STRING", zh:"燈串", en:"STRING LIGHT" },
+  { key:"OUTLINE", zh:"輪廓燈", en:"OUTLINE LIGHT" },
+  { key:"DECORATIVE", zh:"造型燈飾", en:"DECORATIVE LIGHT" },
+
+  { key:"CUSTOM", zh:"訂製燈具", en:"CUSTOM LIGHTING" },
+
   { key:"MIRROR", zh:"鏡燈產品All", en:"MIRROR" }
+
 ];
 
   /* ===== 燈具產品（🔥已修正） ===== */
@@ -218,8 +254,37 @@ useEffect(() => {
    UI（完全不動🔥）
 ========================= */
 
+const indoorTypes = [
+  "軌道燈",
+  "吊燈",
+  "崁燈",
+  "吸頂燈",
+  "線型燈",
+  "壁燈",
+  "磁吸軌道燈"
+];
+  
+const outdoorTypes = [
+  "泛光燈",
+  "洗牆燈",
+  "投射燈",
+  "地埋燈",
+  "插地燈",
+  "景觀燈",
+  "矮柱燈",
+  "水底燈",
+  "階梯燈"
+];
 
-  return(
+const festivalTypes = [
+  "點光源",
+  "燈串",
+  "輪廓燈",
+  "造型燈飾"
+];
+
+
+return(  
 
   <main className="bg-white min-h-screen pt-[120px] pb-32">
 
@@ -241,8 +306,8 @@ useEffect(() => {
   w-full
   lg:sticky
   lg:top-[120px]
-      text-[11px]
-      tracking-[0.18em]
+      text-[12px]
+tracking-[0.08em]
     ">
 
       <button
@@ -255,188 +320,330 @@ useEffect(() => {
             return prev;
           });
         }}
-        className="
-          block
-          text-[12px]
-          tracking-[0.25em]
-          text-black
-          mb-8
-        "
+    className="
+  block
+  text-[12px]
+  tracking-[0.12em]
+  text-black
+  hover:text-[#C8A46A]
+  transition
+  mb-8
+"
       >
         燈光系列 All
       </button>
+{/* 室內 */}
+<div className="mb-6">
 
-      {/* 室內 */}
-      <div className="mb-6">
+  <button
+    onClick={() => setOpenIndoor(!openIndoor)}
+    className="
+      flex items-center gap-2
+      text-black
+      mb-3
+      hover:text-[#C8A46A]
+      transition
+    "
+  >
+    <span>{openIndoor ? "▾" : "▸"}</span>
+    室內系列
+  </button>
 
-        <button
-          onClick={() => setOpenIndoor(!openIndoor)}
-          className="
-            flex items-center gap-2
-            text-black
-            mb-3
-            hover:text-[#C8A46A]
-            transition
-          "
-        >
-          <span>{openIndoor ? "▾" : "▸"}</span>
-          室內系列
-        </button>
+  {openIndoor && (
+    <div className="space-y-3">
 
-        {openIndoor && (
-          <div className="flex flex-wrap gap-x-6 gap-y-3 md:flex-col md:gap-3">
+      <button
+        onClick={() => {
+          setActive("LIGHTING_DESIGN");
+          setSearchParams(prev => {
+            prev.set("cat","LIGHTING_DESIGN");
+            prev.set("page",1);
+            return prev;
+          });
+        }}
+        className={active==="LIGHTING_DESIGN"
+          ? "text-black"
+          : "text-[#666] hover:text-[#C8A46A]"}
+      >
+        照明設計
+      </button>
 
-            <button
-              onClick={() => {
-                setActive("LIGHTING_DESIGN");
-                setSearchParams(prev => {
-                  prev.set("cat","LIGHTING_DESIGN");
-                  prev.set("page",1);
-                  return prev;
-                });
-              }}
-              className={active==="LIGHTING_DESIGN"
-                ? "text-black"
-                : "text-[#999] hover:text-black"}
-            >
-              照明設計
-            </button>
+<button
+  onClick={() => setOpenIndoorLight(!openIndoorLight)}
+ className="
+  flex items-center
+  gap-2
+  text-[#666]
+  hover:text-[#C8A46A]
+  transition
+"
+>
+<span
+  className={`
+    text-[8px]
+    transition-transform
+    duration-300
+    inline-block
+    ${openIndoorLight ? "rotate-90" : ""}
+  `}
+>
+▸
+</span>
 
-            <button
-              onClick={() => {
-                setActive("INTERIOR_LIGHTING");
-                setSearchParams(prev => {
-                  prev.set("cat","INTERIOR_LIGHTING");
-                  prev.set("page",1);
-                  return prev;
-                });
-              }}
-              className={active==="INTERIOR_LIGHTING"
-                ? "text-black"
-                : "text-[#999] hover:text-black"}
-            >
-              室內燈具
-            </button>
+  室內燈具
+</button>
 
-            <button
-              onClick={() => {
-                setActive("CUSTOM");
-                setSearchParams(prev => {
-                  prev.set("cat","CUSTOM");
-                  prev.set("page",1);
-                  return prev;
-                });
-              }}
-              className={active==="CUSTOM"
-                ? "text-black"
-                : "text-[#999] hover:text-black"}
-            >
-              訂製燈具
-            </button>
+{openIndoorLight && (
+  <div
+    className={`
+      overflow-hidden
+      transition-all
+      duration-300
+      ${openIndoorLight
+        ? "max-h-[300px] opacity-100"
+        : "max-h-0 opacity-0"}
+    `}
+  >
+<div
+  className="
+    ml-6
+    pl-3
+    mt-2
+    border-l border-[#ddd]
+    space-y-2
+    text-[#666]
+    text-[12px]
+  "
+>
+  {indoorTypes.map(item => (
+    <div
+      key={item}
+      className="
+        hover:text-[#C8A46A]
+        transition-colors
+        cursor-pointer
+      "
+    >
+      {item}
+    </div>
+  ))}
+</div>
+  </div>
+)}
+      <button
+        onClick={() => {
+          setActive("CUSTOM");
+          setSearchParams(prev => {
+            prev.set("cat","CUSTOM");
+            prev.set("page",1);
+            return prev;
+          });
+        }}
+        className={active==="CUSTOM"
+          ? "text-black"
+          : "text-[#666] hover:text-[#C8A46A]"}
+      >
+        訂製燈具
+      </button>
 
-          </div>
-        )}
+    </div>
+  )}
 
-      </div>
+</div>
 
-      {/* 戶外 */}
-      <div className="mb-8">
+{/* 戶外 */}
+<div className="mb-8">
 
-        <button
-          onClick={() => setOpenOutdoor(!openOutdoor)}
-          className="
-            flex items-center gap-2
-            text-black
-            mb-3
-            hover:text-[#C8A46A]
-            transition
-          "
-        >
-          <span>{openOutdoor ? "▾" : "▸"}</span>
-          戶外系列
-        </button>
+  <button
+    onClick={() => setOpenOutdoor(!openOutdoor)}
+    className="
+      flex items-center gap-2
+      text-black
+      mb-3
+      hover:text-[#C8A46A]
+      transition
+    "
+  >
+    <span>{openOutdoor ? "▾" : "▸"}</span>
+    戶外系列
+  </button>
 
-        {openOutdoor && (
-          <div className="flex flex-wrap gap-x-6 gap-y-3 md:flex-col md:gap-3">
+  {openOutdoor && (
+    <div className="space-y-3">
 
-            <button
-              onClick={() => {
-                setActive("LIGHTING_DESIGN");
-                setSearchParams(prev => {
-                  prev.set("cat","LIGHTING_DESIGN");
-                  prev.set("page",1);
-                  return prev;
-                });
-              }}
-              className={active==="LIGHTING_DESIGN"
-                ? "text-black"
-                : "text-[#999] hover:text-black"}
-            >
-              照明設計
-            </button>
+<button
+  onClick={() => {
+    setActive("LIGHTING_DESIGN");
+    setSearchParams(prev => {
+      prev.set("cat","LIGHTING_DESIGN");
+      prev.set("page",1);
+      return prev;
+    });
+  }}
+  className={`
+    block
+    text-left
+    ${active==="LIGHTING_DESIGN"
+      ? "text-black"
+      : "text-[#666] hover:text-[#C8A46A]"}
+  `}
+>
+  照明設計
+</button>
 
-            <button
-              onClick={() => {
-                setActive("INSTALLATION");
-                setSearchParams(prev => {
-                  prev.set("cat","INSTALLATION");
-                  prev.set("page",1);
-                  return prev;
-                });
-              }}
-              className={active==="INSTALLATION"
-                ? "text-black"
-                : "text-[#999] hover:text-black"}
-            >
-              施工安裝
-            </button>
 
-            <button
-              onClick={() => {
-                setActive("FESTIVAL");
-                setSearchParams(prev => {
-                  prev.set("cat","FESTIVAL");
-                  prev.set("page",1);
-                  return prev;
-                });
-              }}
-              className={active==="FESTIVAL"
-                ? "text-black"
-                : "text-[#999] hover:text-black"}
-            >
-              節慶燈具
-            </button>
 
-            <button
-              onClick={() => {
-                setActive("CUSTOM");
-                setSearchParams(prev => {
-                  prev.set("cat","CUSTOM");
-                  prev.set("page",1);
-                  return prev;
-                });
-              }}
-              className={active==="CUSTOM"
-                ? "text-black"
-                : "text-[#999] hover:text-black"}
-            >
-              訂製燈具
-            </button>
+<button
+  onClick={() => setOpenOutdoorLight(!openOutdoorLight)}
+className="
+  flex items-center
+  gap-2
+  text-[#666]
+  text-[12px]
+  hover:text-[#C8A46A]
+  transition
+"
+>
+  <span
+    className={`
+      text-[8px]
+      transition-transform
+      duration-300
+      inline-block
+      ${openOutdoorLight ? "rotate-90" : ""}
+    `}
+  >
+    ▸
+  </span>
 
-          </div>
-        )}
+  戶外燈具
+</button>
 
-      </div>
+      {openOutdoorLight && (
+      <div className="
+  ml-6
+  pl-3
+  border-l border-[#ddd]
+  space-y-2
+  text-[#666]
+  text-[12px]
+">
+{outdoorTypes.map(item => (
+  <div
+    key={item}
+    className="
+      hover:text-[#C8A46A]
+      transition-colors
+      cursor-pointer
+    "
+  >
+    {item}
+  </div>
+))}
+        </div>
+      )}
 
+<button
+  onClick={() => setOpenFestivalLight(!openFestivalLight)}
+className="
+  flex items-center
+  gap-2
+  text-[#666]
+  text-[12px]
+  hover:text-[#C8A46A]
+  transition
+"
+>
+  <span
+    className={`
+      text-[8px]
+      transition-transform
+      duration-300
+      inline-block
+      ${openFestivalLight ? "rotate-90" : ""}
+    `}
+  >
+    ▸
+  </span>
+
+  節慶燈具
+</button>
+
+      {openFestivalLight && (
+     <div className="
+  ml-6
+  pl-3
+  border-l border-[#ddd]
+  space-y-2
+  text-[#666]
+  text-[12px]
+">
+{festivalTypes.map(item => (
+  <div
+    key={item}
+    className="
+      hover:text-[#C8A46A]
+      transition-colors
+      cursor-pointer
+    "
+  >
+    {item}
+  </div>
+))}
+        </div>
+      )}
+
+<button
+  onClick={() => {
+    setActive("INSTALLATION");
+    setSearchParams(prev => {
+      prev.set("cat","INSTALLATION");
+      prev.set("page",1);
+      return prev;
+    });
+  }}
+  className={`
+    block
+    text-left
+    ${active==="INSTALLATION"
+      ? "text-black"
+      : "text-[#666] hover:text-[#C8A46A]"}
+  `}
+>
+  施工安裝
+</button>
+
+
+
+<button
+  onClick={() => {
+    setActive("CUSTOM");
+    setSearchParams(prev => {
+      prev.set("cat","CUSTOM");
+      prev.set("page",1);
+      return prev;
+    });
+  }}
+  className={active==="CUSTOM"
+    ? "text-black"
+    : "text-[#666] hover:text-[#C8A46A]"}
+>
+  訂製燈具
+</button>
+
+    </div>
+  )}
+
+</div>
       <button
         onClick={() => {
           navigate(`/${lang}/products/mirror`);
         }}
         className="
           text-[12px]
-          tracking-[0.25em]
-          text-[#999]
-          hover:text-black
+         tracking-[0.12em]
+          text-[#666]
+hover:text-[#C8A46A]
           transition
         "
       >
@@ -614,7 +821,7 @@ setSearchParams(prev => {
         px-3 py-2 text-[11px] tracking-[0.2em] border transition
         ${currentPage === 1
           ? "border-[#e5e5e5] text-[#ccc] cursor-not-allowed"
-          : "border-[#ddd] text-[#666] hover:border-black hover:text-black"}
+          : "border-[#ddd]  hover:border-black hover:text-black"}
       `}
     >
     {lang==="en" ? "PREV" : "上一頁"}

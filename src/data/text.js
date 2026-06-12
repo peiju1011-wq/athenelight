@@ -42,35 +42,35 @@ services:{
     en:"Lighting Solutions"
   },
 
-  items:[
-    {
-      zh:"照明設計",
-      en:"Lighting Design",
-      descZh:"建築照明、商業空間光環境規劃",
-      descEn:"Architectural lighting, commercial lighting, and lighting environment planning"
-    },
+items:[
+{
+  zh:"照明設計",
+  en:"Lighting Design",
+  descZh:"現場勘查、照度評估與照明規劃設計",
+  descEn:"Site surveys, lighting analysis, and professional lighting design planning"
+},
 
-    {
-      zh:"工程施工",
-      en:"Engineering",
-      descZh:"景觀照明、外牆亮化工程整合",
-      descEn:"Landscape lighting, facade lighting, and integrated lighting engineering"
-    },
+{
+  zh:"燈具生產",
+  en:"Luminaire Manufacturing",
+  descZh:"依設計需求進行燈具開發、製造與客製化生產",
+  descEn:"Custom luminaire development, manufacturing, and production based on project requirements"
+},
 
-    {
-      zh:"建築外牆",
-      en:"Facade Lighting",
-      descZh:"洗牆燈、線燈立面照明應用",
-      descEn:"Wall washer lighting, linear lighting, and facade lighting applications"
-    },
+{
+  zh:"施工安裝",
+  en:"Installation Engineering",
+  descZh:"照明工程施工、設備安裝與現場整合執行",
+  descEn:"Lighting engineering, equipment installation, and on-site project integration"
+},
 
-    {
-      zh:"客製燈具",
-      en:"Custom Luminaires",
-      descZh:"條燈、光膜與客製照明整合",
-      descEn:"Linear lighting, stretch ceiling lighting, and custom lighting solutions"
-    }
-  ]
+{
+  zh:"燈光調較",
+  en:"Lighting Commissioning",
+  descZh:"燈光測試、調校優化與工程驗收服務",
+  descEn:"Lighting testing, commissioning, optimization, and project acceptance services"
+}
+]
 },
 
 
@@ -104,54 +104,55 @@ cta:{
 
 process:{
   tag:{
-    zh:"光的構成方式",
-    en:"OUR PROCESS"
+    zh:"合作流程",
+    en:"PROJECT WORKFLOW"
   },
 
   title:{
-    zh:"光的構成方式",
-    en:"Our Process"
+    zh:"專案合作流程",
+    en:"Project Workflow"
   },
 
-  items:[
+items:[
 
-    {
-      title:{ zh:"概念", en:"Concept" },
+  {
+    title:{ zh:"需求洽談", en:"Consultation" },
 
-      desc:{
-        zh:"理解場域與建築語彙，建立整體照明藍圖",
-        en:"Understanding the space and defining the role of light"
-      }
-    },
-
-    {
-      title:{ zh:"設計", en:"Design" },
-
-      desc:{
-        zh:"整合空間關係與照明需求，建立照明策略",
-        en:"Integrating spatial relationships and lighting requirements"
-      }
-    },
-
-    {
-      title:{ zh:"執行", en:"Execute" },
-
-      desc:{
-        zh:"精準施工與細節落實，確保設計完整呈現",
-        en:"Precise execution to ensure design integrity"
-      }
-    },
-
-    {
-      title:{ zh:"調光", en:"Lighting" },
-
-      desc:{
-        zh:"現場調光與測試，提升空間整體光環境品質",
-        en:"On-site tuning to create a more natural relationship between light and space"
-      }
+    desc:{
+      zh:"了解場域需求、預算規劃與專案溝通協調",
+      en:"Understanding project requirements, budget planning, and project consultation"
     }
+  },
 
-  ]
+  {
+    title:{ zh:"方案規劃", en:"Planning" },
+
+    desc:{
+      zh:"提出照明設計、燈具配置與整體工程規劃",
+      en:"Developing lighting designs, fixture layouts, and overall project planning"
+    }
+  },
+
+  {
+    title:{ zh:"施工執行", en:"Execution" },
+
+    desc:{
+      zh:"進行設備安裝、工程整合與現場施工管理",
+      en:"Managing installation, engineering integration, and on-site construction execution"
+    }
+  },
+
+  {
+    title:{ zh:"竣工驗收", en:"Commissioning" },
+
+  desc:{
+  zh:"測試與完成調光、竣工驗收與專案交付",
+  en:"Final lighting commissioning, project acceptance, and project handover"
+}
+  }
+
+]
+
 },
 
 footer:{
@@ -166,15 +167,33 @@ footer:{
 items:[
 
   {
-    zh:"室內系列",
-    en:"Indoor Series",
-    link:"/products?cat=INDOOR"
+    zh:"室內燈具",
+    en:"Indoor Lighting",
+    link:"/products?cat=INTERIOR_LIGHTING"
   },
 
   {
-    zh:"戶外系列",
-    en:"Outdoor Series",
+    zh:"戶外燈具",
+    en:"Outdoor Lighting",
     link:"/products?cat=OUTDOOR"
+  },
+
+  {
+    zh:"節慶燈具",
+    en:"Festival Lighting",
+    link:"/products?cat=FESTIVAL"
+  },
+
+  {
+    zh:"施工安裝",
+    en:"Installation Engineering",
+    link:"/products?cat=INSTALLATION"
+  },
+
+  {
+    zh:"照明設計",
+    en:"Lighting Design",
+    link:"/products?cat=LIGHTING_DESIGN"
   },
 
   {
@@ -184,7 +203,6 @@ items:[
   }
 
 ]
-
 
   },
 
