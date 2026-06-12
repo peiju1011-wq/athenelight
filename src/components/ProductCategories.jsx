@@ -1,12 +1,12 @@
 export default function ProductCategories({ active, setActive }){
 
 const items = [
-  { label:"燈光系列", key:"ALL" },
+  { label:"燈光系列All", key:"ALL" },
   { label:"室內照明", key:"INDOOR" },
   { label:"戶外照明", key:"OUTDOOR" },
   { key:"LIGHTING_DESIGN", zh:"照明設計", en:"LIGHTING DESIGN" },
 { key:"INTERIOR_LIGHTING", zh:"室內燈具", en:"INTERIOR LIGHTING" },
-{ key:"FESTIVAL", zh:"節慶", en:"FESTIVAL" },
+{ key:"FESTIVAL", zh:"節慶燈具", en:"FESTIVAL" },
 { key:"INSTALLATION", zh:"施工安裝", en:"INSTALLATION" },
 { key:"CUSTOM", zh:"訂製燈具", en:"CUSTOM LIGHTING" },
   { label:"智慧控制", key:"SMART" }

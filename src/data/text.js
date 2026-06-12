@@ -175,7 +175,7 @@ company:{
   title:{ zh:"下載", en:"DOWNLOAD" },
 
   items:[
-    { label:{ zh:"燈條型錄", en:"Linear lighting Catalog" }, link:"/pdf/neon-catalog.pdf", download:true },
+    { label:{ zh:"霓虹燈條型錄", en:"Linear lighting Catalog" }, link:"/pdf/neon-catalog.pdf", download:true },
 
 
   ]

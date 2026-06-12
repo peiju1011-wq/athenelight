@@ -974,7 +974,7 @@ window.location.href =
   </option>
 
   <option value="FESTIVAL">
-    節慶
+    節慶燈具
   </option>
 
   <option value="INSTALLATION">

@@ -357,7 +357,7 @@ drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]
       <div>
         <img src="/images/about/emotion2.jpg" className="w-full object-cover" />
         <p className="mt-3 text-xs text-black/50 tracking-[0.2em]">
-          {lang === "en" ? "▲ MATERIAL" : "▲ 材質"}
+          {lang === "en" ? "▲ MATERIAL" : "▲ 外牆亮化工程"}
         </p>
       </div>
 
@@ -365,7 +365,7 @@ drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]
       <div>
         <img src="/images/about/emotion1.jpg" className="w-full object-cover" />
         <p className="mt-3 text-xs text-black/50 tracking-[0.2em]">
-          {lang === "en" ? "▲ DETAIL" : "▲ 細節"}
+          {lang === "en" ? "▲ DETAIL" : "▲ 條燈安裝工程"}
         </p>
       </div>
 
@@ -373,7 +373,7 @@ drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]
       <div>
         <img src="/images/about/emotion3.jpg" className="w-full object-cover" />
         <p className="mt-3 text-xs text-black/50 tracking-[0.2em]">
-          {lang === "en" ? "▲ LIGHT" : "▲ 光影"}
+          {lang === "en" ? "▲ LIGHT" : "▲ 室內外照明設計"}
         </p>
       </div>
 
