@@ -16,8 +16,35 @@ const [newGallery3,setNewGallery3] = useState(null);
   const { slug } = useParams();
 
   const [project,setProject] = useState(null);
+const [role,setRole] = useState("");
 
-  useEffect(()=>{
+useEffect(()=>{
+
+    async function loadRole(){
+
+      const {
+        data: { user }
+      } = await supabase.auth.getUser();
+
+      if(!user) return;
+
+      const { data,error } = await supabase
+        .from("users")
+        .select("role")
+        .eq("email", user.email)
+        .single();
+
+      if(error){
+        console.log(error);
+        return;
+      }
+
+      if(data){
+        setRole(data.role);
+        console.log("ROLE =", data.role);
+      }
+
+    }
 
     async function loadProject(){
 
@@ -36,7 +63,8 @@ const [newGallery3,setNewGallery3] = useState(null);
 
     }
 
-    loadProject();
+   loadRole();
+loadProject();
 
   },[slug]);
 
@@ -296,6 +324,16 @@ const { error } = await supabase
   images: imageUrls,
 
   featured: project.featured,
+
+seo_title:
+  project.seo_title ||
+  `${project.title_zh}｜ATHENE LIGHT`,
+
+seo_description:
+  project.seo_description ||
+  `${project.title_zh} ${project.category} 案例介紹`,
+
+
   published: project.published
 
   })
@@ -658,6 +696,56 @@ const { error } = await supabase
     text-black
   "
 />
+
+
+{role === "ADMIN" && (
+<>
+
+<h2 className="text-xl text-white mt-10 mb-4">
+  SEO
+</h2>
+
+<input
+  value={project.seo_title || ""}
+  onChange={(e)=>
+    setProject({
+      ...project,
+      seo_title:e.target.value
+    })
+  }
+  placeholder={`${project.title_zh}｜ATHENE LIGHT`}
+  className="
+    w-full
+    p-3
+    mb-4
+    border
+    bg-white
+    text-black
+  "
+/>
+
+<textarea
+  value={project.seo_description || ""}
+  onChange={(e)=>
+    setProject({
+      ...project,
+      seo_description:e.target.value
+    })
+  }
+  placeholder={`${project.title_zh} ${project.category} 案例介紹`}
+  rows="4"
+  className="
+    w-full
+    p-3
+    mb-4
+    border
+    bg-white
+    text-black
+  "
+/>
+
+</>
+)}
 
 <label className="text-white flex gap-2 mb-4">
 

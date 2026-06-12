@@ -2,6 +2,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { supabase } from "../lib/supabase";
+import { Helmet } from "react-helmet-async";
 
 export default function ProjectDetail(){
 
@@ -39,7 +40,7 @@ if(data){
 
   const [project,setProject] = useState(null);
 
-const [current, setCurrent] = useState(1);
+const [current, setCurrent] = useState(0);
 useEffect(() => {
 
   setCurrent(0);
@@ -96,8 +97,52 @@ const desc =
 
 
 console.log("cover =", project.cover);
+return(
+<>
+  <Helmet>
+    <title>
+      {project.seo_title ||
+        `${project.title_zh}｜ATHENE LIGHT`}
+    </title>
 
-  return(
+    <meta
+      name="description"
+      content={
+        project.seo_description ||
+        `${project.title_zh} ${project.category} 案例介紹`
+      }
+    />
+
+
+    <meta
+  property="og:title"
+  content={
+    project.seo_title ||
+    `${project.title_zh}｜ATHENE LIGHT`
+  }
+/>
+
+<meta
+  property="og:description"
+  content={
+    project.seo_description ||
+    `${project.title_zh} ${project.category} 案例介紹`
+  }
+/>
+
+<meta
+  property="og:image"
+  content={project.cover}
+/>
+
+<meta
+  property="og:type"
+  content="website"
+/>
+  </Helmet>
+
+
+
    <main className="flex flex-col lg:flex-row min-h-screen bg-white">
 
       {/* ================= 左圖 ================= */}
@@ -124,7 +169,11 @@ console.log("cover =", project.cover);
 
   console.log("RENDER", img);
 
+  
+
   return(
+
+    
 
   <div
     key={i}
@@ -189,6 +238,10 @@ style={{
   );
 
 })}
+
+
+
+
         {/* ===== BACK（完全修好🔥） ===== */}
         <button
           onClick={()=>navigate(-1)}
@@ -285,6 +338,7 @@ className="
 
       </div>
 
-    </main>
-  );
+</main>
+</>
+);
 }

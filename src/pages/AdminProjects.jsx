@@ -260,7 +260,17 @@ return(
 
 </div>
 
-<div className="flex justify-between items-center mb-10">
+<div
+  className="
+    flex
+    flex-col
+    md:flex-row
+    md:justify-between
+    md:items-center
+    gap-6
+    mb-10
+  "
+>
 
   <h1 className="text-3xl text-white">
     Projects Admin
@@ -269,10 +279,12 @@ return(
 <div
   className="
     grid
+    grid-cols-2
     md:grid-cols-4
     xl:grid-cols-8
     gap-4
-    mb-8
+    mb-4
+    w-full
   "
 >
 
@@ -358,7 +370,13 @@ return(
 
 </div>
 
-  <div className="flex gap-4">
+ <div
+  className="
+    flex
+    gap-4
+    flex-wrap
+  "
+>
 
     <Link
       to="/admin/projects/new"
@@ -395,20 +413,33 @@ return(
 
    {projects.map((item,index) => (
 
-      <div
-        key={item.id}
-        className="
-          border
-          border-white/10
-          p-4
-          rounded
-          flex
-          justify-between
-          items-center
-        "
-      >
+<div
+  key={item.id}
+  className="
+    border
+    border-white/10
+    p-4
+    rounded
 
-<div className="flex items-center gap-4">
+    flex
+    flex-col
+
+    md:flex-row
+    md:justify-between
+    md:items-center
+
+    gap-4
+  "
+>
+
+<div
+  className="
+    flex
+    items-start
+    gap-4
+    w-full
+  "
+>
 
   {item.cover && (
     <img
@@ -456,7 +487,16 @@ return(
 
 </div>
 
-<div className="flex gap-3 items-center">
+<div
+  className="
+    flex
+    flex-wrap
+    gap-3
+    items-center
+
+    md:justify-end
+  "
+>
 
 <button
   onClick={() => moveUp(item,index)}

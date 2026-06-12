@@ -150,29 +150,76 @@ console.log(data.specs);
 
 setSpecs(data.specs || []);
 
+
+console.log("FEATURES");
+console.log(data.features);
+
+
+
+console.log(
+  JSON.stringify(
+    data.features,
+    null,
+    2
+  )
+);
+
+
 setFeatures(
+
   data.features?.length
-    ? data.features
+
+    ? data.features.map(f => ({
+
+        img: f.img || "",
+
+        titleZh:
+          f.titleZh ||
+          f.title?.zh ||
+          "",
+
+        titleEn:
+          f.titleEn ||
+          f.title?.en ||
+          "",
+
+        descZh:
+          f.descZh ||
+          f.desc?.zh ||
+          "",
+
+        descEn:
+          f.descEn ||
+          f.desc?.en ||
+          ""
+
+      }))
+
     : [
+
         {
           titleZh:"",
           titleEn:"",
           descZh:"",
           descEn:""
         },
+
         {
           titleZh:"",
           titleEn:"",
           descZh:"",
           descEn:""
         },
+
         {
           titleZh:"",
           titleEn:"",
           descZh:"",
           descEn:""
         }
+
       ]
+
 );
 
 setFeatured(data.featured || false);
@@ -438,7 +485,21 @@ const { error } = await supabase
 
 tags,
   specs,
-  features,
+  features: features.map(f => ({
+
+  img: f.img || "",
+
+  title: {
+    zh: f.titleZh || "",
+    en: f.titleEn || ""
+  },
+
+  desc: {
+    zh: f.descZh || "",
+    en: f.descEn || ""
+  }
+
+})),
   featured,
   published
 })

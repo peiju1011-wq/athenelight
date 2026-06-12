@@ -64,6 +64,9 @@ const tags =
     console.log(product.tags);
 console.log(typeof product.tags);
 
+console.log("FEATURE 0");
+console.log(product.features?.[0]);
+
   /* ===== 🔥 全部圖片 ===== */
 const allImages = [
   product.cover,
@@ -611,24 +614,40 @@ className="
 
         <div>
 
-<h3 className="
-  text-[28px]
-  mb-8
-  tracking-[0.12em]
-">
+<h3
+  className="
+    text-[28px]
+    mb-8
+    tracking-[0.12em]
+  "
+>
   {lang === "en"
-    ? feature.title?.en
-    : feature.title?.zh}
+    ? (
+        feature.titleEn ||
+        feature.title?.en
+      )
+    : (
+        feature.titleZh ||
+        feature.title?.zh
+      )}
 </h3>
 
-<p className="
-  text-[15px]
-  text-black/60
-  leading-[2.1]
-">
+<p
+  className="
+    text-[15px]
+    text-black/60
+    leading-[2.1]
+  "
+>
   {lang === "en"
-    ? feature.desc?.en
-    : feature.desc?.zh}
+    ? (
+        feature.descEn ||
+        feature.desc?.en
+      )
+    : (
+        feature.descZh ||
+        feature.desc?.zh
+      )}
 </p>
 
         </div>
