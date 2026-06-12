@@ -36,15 +36,24 @@ export default function SiteFooter() {
               {t?.footer?.products?.title?.[lang]}
             </h4>
 
-            <ul className="space-y-3 text-[13px]">
-              {t?.footer?.products?.items?.map((item,i)=>(
-                <li key={i}>
-                  <Link to="/products" className="hover:text-[#C8A46A] transition">
-                    {item?.[lang]}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+       <ul className="space-y-3 text-[13px]">
+  {t?.footer?.products?.items?.map((item,i)=>(
+
+    <li key={i}>
+      <Link
+        to={
+          lang === "en"
+            ? `/en${item.link}`
+            : `/zh${item.link}`
+        }
+        className="hover:text-[#C8A46A] transition"
+      >
+        {item?.[lang]}
+      </Link>
+    </li>
+
+  ))}
+</ul>
           </div>
 
 

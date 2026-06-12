@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const text = {
 hero:{
   bottom:{
@@ -162,10 +164,25 @@ footer:{
     title:{ zh:"產品", en:"PRODUCTS" },
 
 items:[
-  { zh:"室內照明", en:"Indoor Lighting" },
-  { zh:"戶外照明", en:"Outdoor Lighting" },
-  { zh:"施工安裝", en:"Installation" },
-  { zh:"訂製燈具", en:"Custom Lighting" }
+
+  {
+    zh:"室內系列",
+    en:"Indoor Series",
+    link:"/products?cat=INDOOR"
+  },
+
+  {
+    zh:"戶外系列",
+    en:"Outdoor Series",
+    link:"/products?cat=OUTDOOR"
+  },
+
+  {
+    zh:"鏡燈產品",
+    en:"Mirror Products",
+    link:"/products/mirror"
+  }
+
 ]
 
 
