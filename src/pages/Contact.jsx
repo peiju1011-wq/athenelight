@@ -70,6 +70,7 @@ return(
   <h2 className="text-[24px] tracking-[0.12em] text-[#1d1d1d] font-light leading-[1.4]">
     {lang === "en" ? "Contact Info" : "聯絡資訊"}
   </h2>
+  
 
   {/* 線 */}
   <div className="w-6 h-px bg-[#C8A46A] mt-5 opacity-70"></div>
@@ -83,7 +84,7 @@ return(
 <div className="space-y-3">
 
   <p className="text-[10px] tracking-[0.32em] text-[#b7afa1]">
-    總公司 Head Office
+    辦公室
   </p>
 
   <p className="text-[14px] leading-[2] text-[#555] max-w-[280px]">
@@ -96,24 +97,11 @@ return(
 <div className="space-y-3">
 
   <p className="text-[10px] tracking-[0.32em] text-[#b7afa1]">
-    製造基地 Manufacturing Facility
+    總公司 
   </p>
 
   <p className="text-[14px] leading-[2] text-[#555] max-w-[280px]">
-    China
-  </p>
-
-</div>
-
-{/* Service */}
-<div className="space-y-3">
-
-  <p className="text-[10px] tracking-[0.32em] text-[#b7afa1]">
-    照明設計與工程服務
-  </p>
-
-  <p className="text-[14px] leading-[2] text-[#555] max-w-[280px]">
-    Engineering Services & Lighting Design
+    Head Office, China
   </p>
 
 </div>
@@ -127,7 +115,7 @@ return(
     </p>
 
     <p className="text-[14px] tracking-[0.08em] text-[#555]">
-      02-8521-8383
+      +886-8521-8383
     </p>
 
   </div>
