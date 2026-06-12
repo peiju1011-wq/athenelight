@@ -59,11 +59,16 @@ export default function AdminStorageCleaner(){
         );
       }
 
-      item.gallery?.forEach(img=>{
-        productUsed.add(
-          getFileName(img,"products")
-        );
-      });
+(item.gallery || []).forEach(img=>{
+  productUsed.add(
+    getFileName(
+      typeof img === "string"
+        ? img
+        : img?.src,
+      "products"
+    )
+  );
+});
 
     });
 const {
@@ -122,14 +127,16 @@ deletedProducts?.forEach(item=>{
     );
   }
 
-  p?.gallery?.forEach(img=>{
-    productUsed.add(
-      getFileName(
-        img,
-        "products"
-      )
-    );
-  });
+(p?.gallery || []).forEach(img=>{
+  productUsed.add(
+    getFileName(
+      typeof img === "string"
+        ? img
+        : img?.src,
+      "products"
+    )
+  );
+});
 
 });
 
@@ -185,30 +192,68 @@ console.log(productError);
 
     const projectUsed = new Set();
 
-    const { data: projects } =
-      await supabase
-        .from("projects")
-        .select("*");
+console.log("BEFORE PROJECT QUERY");
 
-    projects?.forEach(item=>{
+const {
+  data: projects,
+  error: projectsError
+} = await supabase
+  .from("projects")
+  .select("*");
 
-      if(item.cover){
-        projectUsed.add(
-          getFileName(
-            item.cover,
-            "projects"
-          )
-        );
-      }
+console.log("AFTER PROJECT QUERY");
 
-      item.gallery?.forEach(img=>{
-        projectUsed.add(
-          getFileName(
-            img,
-            "projects"
-          )
-        );
-      });
+console.log("PROJECTS");
+console.log(projects);
+
+console.log("PROJECTS");
+console.log(projects);
+
+console.log("PROJECTS ERROR");
+console.log(projectsError);
+
+
+
+
+
+  console.log("PROJECT COUNT");
+console.log(projects?.length);      
+
+projects?.forEach(item=>{
+
+  if(item.cover){
+    projectUsed.add(
+      getFileName(
+        item.cover,
+        "projects"
+      )
+    );
+  }
+
+  (item.images || []).forEach(img=>{
+    projectUsed.add(
+      getFileName(
+        typeof img === "string"
+          ? img
+          : img?.src,
+        "projects"
+      )
+    );
+  });
+
+  (item.gallery || []).forEach(img=>{
+    projectUsed.add(
+      getFileName(
+        typeof img === "string"
+          ? img
+          : img?.src,
+        "projects"
+      )
+    );
+  });
+
+
+
 
     });
 
@@ -218,29 +263,43 @@ console.log(productError);
       .from("deleted_projects")
       .select("*");
 
-    deletedProjects?.forEach(item=>{
+deletedProjects?.forEach(item=>{
 
-      const p = item.data;
+  const p = item.data;
 
-      if(p?.cover){
-        projectUsed.add(
-          getFileName(
-            p.cover,
-            "projects"
-          )
-        );
-      }
+  if(p?.cover){
+    projectUsed.add(
+      getFileName(
+        p.cover,
+        "projects"
+      )
+    );
+  }
 
-      p?.gallery?.forEach(img=>{
-        projectUsed.add(
-          getFileName(
-            img,
-            "projects"
-          )
-        );
-      });
+(p?.images || []).forEach(img=>{
+  projectUsed.add(
+    getFileName(
+      typeof img === "string"
+        ? img
+        : img?.src,
+      "projects"
+    )
+  );
+});
 
-    });
+
+(p?.gallery || []).forEach(img=>{
+  projectUsed.add(
+    getFileName(
+      typeof img === "string"
+        ? img
+        : img?.src,
+      "projects"
+    )
+  );
+});
+
+});
 
 const {
   data: projectFiles,
@@ -257,7 +316,8 @@ console.log(projectFiles);
 console.log("PROJECT ERROR");
 console.log(projectError);
 
-
+console.log("PROJECT USED");
+console.log([...projectUsed]);
 
 
 const projectOrphansFound =
@@ -296,10 +356,11 @@ const projectOrphansFound =
       productOrphansFound
     );
 
-    console.log(
-      "PROJECT ORPHANS",
-      projectOrphansFound
-    );
+console.table(
+  projectOrphansFound.map(
+    x => x.name
+  )
+);
 
     setLoading(false);
   }
