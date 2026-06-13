@@ -17,12 +17,25 @@ const searchParam = searchParams.get("search") || "";
 
 const [active, setActive] = useState(activeParam);
 const [keyword, setKeyword] = useState(searchParam);
-const [openIndoor, setOpenIndoor] = useState(true);
-const [openOutdoor, setOpenOutdoor] = useState(true);
 
-const [openIndoorLight, setOpenIndoorLight] = useState(true);
-const [openOutdoorLight, setOpenOutdoorLight] = useState(true);
-const [openFestivalLight, setOpenFestivalLight] = useState(true);
+
+const isMobile =
+  window.innerWidth < 1024;
+
+const [openIndoor, setOpenIndoor] =
+  useState(!isMobile);
+
+const [openOutdoor, setOpenOutdoor] =
+  useState(!isMobile);
+
+const [openIndoorLight, setOpenIndoorLight] =
+  useState(!isMobile);
+
+const [openOutdoorLight, setOpenOutdoorLight] =
+  useState(!isMobile);
+
+const [openFestivalLight, setOpenFestivalLight] =
+  useState(!isMobile);
 
 
 const itemsPerPage = 12;
@@ -290,7 +303,7 @@ return(
 
   <div className="max-w-[1200px] mx-auto px-6">
 
-<section className="mb-16 mt-20 lg:mt-10">
+<section className="mb-16 mt-6 lg:mt-10">
 
 <div className="
   flex
@@ -428,8 +441,33 @@ tracking-[0.08em]
     </div>
   ))}
 </div>
+<button
+  onClick={() => {
+    navigate(`/${lang}/products/mirror`);
+  }}
+  className="
+    block
+    mt-4
+
+    text-[12px]
+    tracking-[0.12em]
+
+    text-[#666]
+    hover:text-[#C8A46A]
+
+    transition
+  "
+>
+  鏡燈產品
+</button>
+ 
+
   </div>
 )}
+
+
+
+
       <button
         onClick={() => {
           setActive("CUSTOM");
@@ -635,20 +673,7 @@ className="
   )}
 
 </div>
-      <button
-        onClick={() => {
-          navigate(`/${lang}/products/mirror`);
-        }}
-        className="
-          text-[12px]
-         tracking-[0.12em]
-          text-[#666]
-hover:text-[#C8A46A]
-          transition
-        "
-      >
-        鏡燈產品 All
-      </button>
+
 
 </aside>
 

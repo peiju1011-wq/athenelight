@@ -61,6 +61,7 @@ const tags =
     ? JSON.parse(product.tags)
     : [];
 
+    
     console.log(product.tags);
 console.log(typeof product.tags);
 
