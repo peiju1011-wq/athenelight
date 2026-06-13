@@ -736,71 +736,82 @@ className="
 {/* 右側內容 */}
 <div className="w-full">
 
-  {/* 搜尋框 */}
+ /* 搜尋框 */
 <div
   className="
     flex
-
     justify-center
-    mt-8
+
+    -mt-6
 
     lg:justify-end
     lg:mt-0
 
-    mb-12
+    mb-4
+    lg:mb-12
   "
 >
 
-<div
-  className="
-    relative
-    w-full
-    max-w-[260px]
+  <div
+    className="
+      relative
+      w-full
+      max-w-[260px]
 
-    mx-auto
-    lg:mx-0
-  "
->
+      mx-auto
+      lg:mx-0
+    "
+  >
 
-      <input
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-        placeholder={
-          lang === "en"
-            ? "Search products / size / model"
-            : "搜尋產品 / 尺寸 / 型號"
-        }
-        className="
-          w-full bg-transparent
-          border-b border-[#ccc]
-          pb-2 pr-8
-          text-[12px]
-          tracking-[0.18em]
-          text-[#333]
-          focus:outline-none
-          focus:border-black
-          transition
-          placeholder:text-[#aaa]
-        "
-      />
+    <input
+      value={keyword}
+      onChange={(e) => setKeyword(e.target.value)}
+      placeholder={
+        lang === "en"
+          ? "Search products / size / model"
+          : "搜尋產品 / 尺寸 / 型號"
+      }
+      className="
+        w-full
+        bg-transparent
+        border-b border-[#ccc]
+        pb-2
+        pr-8
+        text-[12px]
+        tracking-[0.18em]
+        text-[#333]
+        focus:outline-none
+        focus:border-black
+        transition
+        placeholder:text-[#aaa]
+      "
+    />
 
-      <svg
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-[14px] h-[14px] text-[#999]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        viewBox="0 0 24 24"
-      >
-        <circle cx="11" cy="11" r="7" />
-        <line x1="20" y1="20" x2="16.5" y2="16.5" />
-      </svg>
-
-    </div>
+    <svg
+      className="
+        absolute
+        right-0
+        top-1/2
+        -translate-y-1/2
+        w-[14px]
+        h-[14px]
+        text-[#999]
+      "
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      viewBox="0 0 24 24"
+    >
+      <circle cx="11" cy="11" r="7" />
+      <line x1="20" y1="20" x2="16.5" y2="16.5" />
+    </svg>
 
   </div>
 
-  {/* GRID */}
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+</div>
+
+{/* GRID */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
     {paginatedProducts.map(item => {
 
       const url = item.link;
