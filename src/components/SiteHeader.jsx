@@ -80,19 +80,31 @@ const isDarkPage = darkPages.some(path =>
   {/* LOGO */}
   <Link to={isEnglish ? "/en" : "/"} className="flex items-center gap-3 z-10 ml-6 md:ml-[70px]">
 
-    <img src="/images/logo.svg" className="h-8 w-auto"/>
+<img
+  src="/images/logo.svg"
+  className="h-7 md:h-8 w-auto"
+/>
 
-    <div className="flex flex-col leading-none">
+<div className="flex flex-col leading-none">
 
-      <span className="text-lg font-bold text-white">
-        {isEnglish ? "Athene Light" : "宇碩光"}
-      </span>
+  <span className="text-[16px] md:text-lg font-bold text-white">
+    {isEnglish ? "Athene Light" : "宇碩光"}
+  </span>
 
-      <span className="text-[10px] tracking-[0.35em] uppercase text-white opacity-70">
-        {isEnglish ? "LIGHTING DESIGN" : "ATHENE LIGHT"}
-      </span>
+  <span
+    className="
+      hidden md:block
+      text-[10px]
+      tracking-[0.35em]
+      uppercase
+      text-white
+      opacity-70
+    "
+  >
+    {isEnglish ? "LIGHTING DESIGN" : "ATHENE LIGHT"}
+  </span>
 
-    </div>
+</div>
 
   </Link>
 
