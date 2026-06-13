@@ -209,7 +209,7 @@ className="
 
     uppercase
 
-    text-white/45
+    text-white/80
     hover:text-[#C8A46A]
 
     transition-all
@@ -227,7 +227,7 @@ className="
     hover:after:w-full
   "
 >
-  {isEnglish ? "LOGIN" : "登入"}
+  {isEnglish ? "LOGIN" : "LOGIN"}
 </Link>
 
 
