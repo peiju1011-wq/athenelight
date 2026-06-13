@@ -141,94 +141,91 @@ const isDarkPage = darkPages.some(path =>
   </nav>
 
   {/* 右側 */}
-<div className="flex items-center gap-6 mr-20">
+<div className="flex items-center gap-8 mr-20">
 
   {/* 語言切換 */}
-  <button
-    onClick={toggleLang}
-className="
-  relative
-  text-[14px]
-  md:text-[15px]
-  tracking-[0.32em]
-  text-white
-  hover:opacity-70
-  transition-all duration-300
-  group
-"
-  >
-    {isEnglish ? "中" : "EN"}
-
-    {/* 底線（主效果🔥） */}
-    <span className="
-      absolute left-0 bottom-[-4px]
-      w-0 h-[1px]
-      bg-[#e3c198]
-      transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)]
-      group-hover:w-full
-    "/>
-
-    {/* 微光（高級感🔥） */}
-<span className="
-  absolute inset-0
-  opacity-0
-  group-hover:opacity-100
-  transition duration-500
-
-  text-[#C8A46A]
-  tracking-[0.3em]
-
-  after:content-['']
-  after:absolute
-  after:left-0
-  after:bottom-[-6px]
-  after:w-0
-  after:h-[2px]
-  after:bg-[#C8A46A]
-  after:transition-all
-  after:duration-500
-  after:ease-[cubic-bezier(0.22,1,0.36,1)]
-
-  group-hover:after:w-full
-">
-  {isEnglish ? "中" : "EN"}
-</span>
-
-  </button>
-
-<Link
-  to="/admin/login"
+{/* 語言切換 */}
+<button
+  onClick={toggleLang}
   className="
-    relative
+    text-[13px]
+    md:text-[15px]
 
-    text-[10px]
-    md:text-[12px]
-
-    tracking-[0.25em]
-    md:tracking-[0.4em]
-
-    uppercase
+    tracking-[0.1em]
 
     text-white/80
     hover:text-[#C8A46A]
 
     transition-all
     duration-500
-
-    after:absolute
-    after:left-0
-    after:-bottom-[4px]
-    after:w-0
-    after:h-[1px]
-    after:bg-[#C8A46A]
-    after:transition-all
-    after:duration-500
-
-    hover:after:w-full
   "
 >
-  {isEnglish ? "LOGIN" : "LOGIN"}
+  {isEnglish ? "中" : "EN"}
+</button>
+
+<Link
+  to="/admin/login"
+  aria-label="Login"
+  className="
+    relative
+    group
+
+    text-white/80
+    hover:text-[#C8A46A]
+
+    transition-all
+    duration-500
+  "
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-[17px] h-[17px] md:w-[18px] md:h-[18px]"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth="1.6"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+    />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M4.5 20.118a7.5 7.5 0 0115 0"
+    />
+  </svg>
+
+  <span
+    className="
+      absolute
+      left-1/2
+      top-[28px]
+
+      -translate-x-1/2
+
+      text-[10px]
+      tracking-[0.18em]
+      whitespace-nowrap
+
+      text-[#C8A46A]
+
+      opacity-0
+      translate-y-1
+
+      transition-all
+      duration-300
+
+      group-hover:opacity-100
+      group-hover:translate-y-0
+    "
+  >
+    {isEnglish ? "Login" : "登入"}
+  </span>
 </Link>
+
+
 
 
 
