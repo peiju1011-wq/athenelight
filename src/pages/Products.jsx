@@ -736,18 +736,18 @@ className="
 {/* 右側內容 */}
 <div className="w-full">
 
- /* 搜尋框 */
+{/* 搜尋框 */}
 <div
   className="
     flex
     justify-center
 
-    -mt-6
+    -mt-3
 
     lg:justify-end
     lg:mt-0
 
-    mb-4
+    mb-9
     lg:mb-12
   "
 >
