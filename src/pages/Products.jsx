@@ -268,32 +268,38 @@ useEffect(() => {
 ========================= */
 
 const indoorTypes = [
-  "軌道燈",
-  "吊燈",
-  "崁燈",
-  "吸頂燈",
-  "線型燈",
-  "壁燈",
-  "磁吸軌道燈"
+
+  { zh:"軌道燈", en:"Track Light" },
+  { zh:"吊燈", en:"Pendant Light" },
+  { zh:"崁燈", en:"Downlight" },
+  { zh:"吸頂燈", en:"Ceiling Light" },
+  { zh:"線型燈", en:"Linear Light" },
+  { zh:"壁燈", en:"Wall Light" },
+  { zh:"磁吸軌道燈", en:"Magnetic Track Light" }
+
 ];
   
 const outdoorTypes = [
-  "泛光燈",
-  "洗牆燈",
-  "投射燈",
-  "地埋燈",
-  "插地燈",
-  "景觀燈",
-  "矮柱燈",
-  "水底燈",
-  "階梯燈"
+
+  { zh:"泛光燈", en:"Flood Light" },
+  { zh:"洗牆燈", en:"Wall Washer" },
+  { zh:"投射燈", en:"Spot Light" },
+  { zh:"地埋燈", en:"In-ground Light" },
+  { zh:"插地燈", en:"Spike Light" },
+  { zh:"景觀燈", en:"Landscape Light" },
+  { zh:"矮柱燈", en:"Bollard Light" },
+  { zh:"水底燈", en:"Underwater Light" },
+  { zh:"階梯燈", en:"Step Light" }
+
 ];
 
 const festivalTypes = [
-  "點光源",
-  "燈串",
-  "輪廓燈",
-  "造型燈飾"
+
+  { zh:"點光源", en:"Pixel Light" },
+  { zh:"燈串", en:"String Light" },
+  { zh:"輪廓燈", en:"Outline Light" },
+  { zh:"造型燈飾", en:"Decorative Light" }
+
 ];
 
 
@@ -323,28 +329,32 @@ return(
 tracking-[0.08em]
     ">
 
-      <button
-        onClick={() => {
-          setActive("ALL");
+<button
+  onClick={() => {
+    setActive("ALL");
 
-          setSearchParams(prev => {
-            prev.set("cat", "ALL");
-            prev.set("page", 1);
-            return prev;
-          });
-        }}
-    className="
-  block
-  text-[12px]
-  tracking-[0.12em]
-  text-black
-  hover:text-[#C8A46A]
-  transition
-  mb-8
-"
-      >
-        燈光系列 All
-      </button>
+    setSearchParams(prev => {
+      prev.set("cat", "ALL");
+      prev.set("page", 1);
+      return prev;
+    });
+  }}
+  className="
+    block
+    text-[12px]
+    tracking-[0.12em]
+    text-black
+    hover:text-[#C8A46A]
+    transition
+    mb-8
+  "
+>
+  {lang === "en"
+    ? "Lighting Series All"
+    : "燈光系列 All"}
+</button>
+
+
 {/* 室內 */}
 <div className="mb-6">
 
@@ -358,8 +368,21 @@ tracking-[0.08em]
       transition
     "
   >
-    <span>{openIndoor ? "▾" : "▸"}</span>
-    室內系列
+   <span
+  className="
+    text-[16px]
+    font-light
+    leading-none
+  "
+>
+  {openIndoor ? "▾" : "▸"}
+</span>
+    {lang === "en"
+  ? "Indoor Series"
+  : "室內系列"}
+  
+
+
   </button>
 
   {openIndoor && (
@@ -377,8 +400,9 @@ tracking-[0.08em]
         className={active==="LIGHTING_DESIGN"
           ? "text-black"
           : "text-[#666] hover:text-[#C8A46A]"}
-      >
-        照明設計
+      >{lang === "en"
+  ? "Lighting Design"
+  : "照明設計"}
       </button>
 
 <button
@@ -393,17 +417,18 @@ tracking-[0.08em]
 >
 <span
   className={`
-    text-[8px]
+    text-[16px]
     transition-transform
     duration-300
     inline-block
     ${openIndoorLight ? "rotate-90" : ""}
   `}
 >
-▸
+  ▸
 </span>
-
-  室內燈具
+{lang === "en"
+  ? "Indoor Lighting"
+  : "室內燈具"}
 </button>
 
 {openIndoorLight && (
@@ -428,18 +453,22 @@ tracking-[0.08em]
     text-[12px]
   "
 >
-  {indoorTypes.map(item => (
-    <div
-      key={item}
-      className="
-        hover:text-[#C8A46A]
-        transition-colors
-        cursor-pointer
-      "
-    >
-      {item}
-    </div>
-  ))}
+{indoorTypes.map(item => (
+  <div
+    key={item.zh}
+    className="
+      hover:text-[#C8A46A]
+      transition-colors
+      cursor-pointer
+    "
+  >
+    {lang === "en"
+      ? item.en
+      : item.zh}
+  </div>
+))}
+
+
 </div>
 <button
   onClick={() => {
@@ -458,7 +487,9 @@ tracking-[0.08em]
     transition
   "
 >
-  鏡燈產品
+{lang === "en"
+  ? "Mirror Series"
+  : "鏡燈產品"}
 </button>
  
 
@@ -481,7 +512,9 @@ tracking-[0.08em]
           ? "text-black"
           : "text-[#666] hover:text-[#C8A46A]"}
       >
-        訂製燈具
+      {lang === "en"
+  ? "Custom Lighting"
+  : "訂製燈具"}
       </button>
 
     </div>
@@ -502,8 +535,18 @@ tracking-[0.08em]
       transition
     "
   >
-    <span>{openOutdoor ? "▾" : "▸"}</span>
-    戶外系列
+  <span
+  className="
+    text-[16px]
+    font-light
+    leading-none
+  "
+>
+{openOutdoor ? "▾" : "▸"}
+</span>
+   {lang === "en"
+  ? "Outdoor Series"
+  : "戶外系列"}
   </button>
 
   {openOutdoor && (
@@ -526,7 +569,9 @@ tracking-[0.08em]
       : "text-[#666] hover:text-[#C8A46A]"}
   `}
 >
-  照明設計
+ {lang === "en"
+  ? "Lighting Design"
+  : "照明設計"}
 </button>
 
 
@@ -542,19 +587,20 @@ className="
   transition
 "
 >
-  <span
-    className={`
-      text-[8px]
-      transition-transform
-      duration-300
-      inline-block
-      ${openOutdoorLight ? "rotate-90" : ""}
-    `}
-  >
-    ▸
-  </span>
-
-  戶外燈具
+<span
+  className={`
+    text-[16px]
+    transition-transform
+    duration-300
+    inline-block
+    ${openOutdoorLight ? "rotate-90" : ""}
+  `}
+>
+  ▸
+</span>
+{lang === "en"
+  ? "Outdoor Lighting"
+  : "戶外燈具"}
 </button>
 
       {openOutdoorLight && (
@@ -568,14 +614,16 @@ className="
 ">
 {outdoorTypes.map(item => (
   <div
-    key={item}
+    key={item.zh}
     className="
       hover:text-[#C8A46A]
       transition-colors
       cursor-pointer
     "
   >
-    {item}
+  {lang === "en"
+  ? item.en
+  : item.zh}
   </div>
 ))}
         </div>
@@ -592,19 +640,21 @@ className="
   transition
 "
 >
-  <span
-    className={`
-      text-[8px]
-      transition-transform
-      duration-300
-      inline-block
-      ${openFestivalLight ? "rotate-90" : ""}
-    `}
-  >
-    ▸
-  </span>
+<span
+  className={`
+    text-[16px]
+    transition-transform
+    duration-300
+    inline-block
+   ${openFestivalLight ? "rotate-90" : ""}
+  `}
+>
+  ▸
+</span>
 
-  節慶燈具
+{lang === "en"
+  ? "Festival Lighting"
+  : "節慶燈具"}
 </button>
 
       {openFestivalLight && (
@@ -618,14 +668,16 @@ className="
 ">
 {festivalTypes.map(item => (
   <div
-    key={item}
+   key={item.zh}
     className="
       hover:text-[#C8A46A]
       transition-colors
       cursor-pointer
     "
   >
-    {item}
+    {lang === "en"
+  ? item.en
+  : item.zh}
   </div>
 ))}
         </div>
@@ -648,7 +700,9 @@ className="
       : "text-[#666] hover:text-[#C8A46A]"}
   `}
 >
-  施工安裝
+{lang === "en"
+  ? "Installation"
+  : "施工安裝"}
 </button>
 
 
@@ -666,7 +720,9 @@ className="
     ? "text-black"
     : "text-[#666] hover:text-[#C8A46A]"}
 >
-  訂製燈具
+{lang === "en"
+  ? "Custom Lighting"
+  : "訂製燈具"}
 </button>
 
     </div>
