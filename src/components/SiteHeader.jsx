@@ -141,9 +141,9 @@ const isDarkPage = darkPages.some(path =>
   </nav>
 
   {/* 右側 */}
-<div className="flex items-center gap-8 mr-20">
+<div className="flex items-center gap-7 mr-20">
 
-  {/* 語言切換 */}
+
 {/* 語言切換 */}
 <button
   onClick={toggleLang}
@@ -179,7 +179,7 @@ const isDarkPage = darkPages.some(path =>
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="w-[17px] h-[17px] md:w-[18px] md:h-[18px]"
+   className="w-[20px] h-[20px] md:w-[18px] md:h-[18px]"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
