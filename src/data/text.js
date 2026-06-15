@@ -166,11 +166,6 @@ footer:{
 
 items:[
 
-  {
-    zh:"室內燈具",
-    en:"Indoor Lighting",
-    link:"/products?cat=INTERIOR_LIGHTING"
-  },
 
   {
     zh:"戶外燈具",
@@ -184,6 +179,13 @@ items:[
     link:"/products?cat=FESTIVAL"
   },
 
+    {
+    zh:"室內燈具",
+    en:"Indoor Lighting",
+    link:"/products?cat=INTERIOR_LIGHTING"
+  },
+
+
   {
     zh:"施工安裝",
     en:"Installation Engineering",
@@ -194,12 +196,6 @@ items:[
     zh:"照明設計",
     en:"Lighting Design",
     link:"/products?cat=LIGHTING_DESIGN"
-  },
-
-  {
-    zh:"鏡燈產品",
-    en:"Mirror Products",
-    link:"/products/mirror"
   }
 
 ]

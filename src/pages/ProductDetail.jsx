@@ -2,23 +2,26 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import manualSpecs from "../data/manualSpecs";
-import { getRelatedProducts } from "../utils/getRelatedProducts";
-import { getProductById } from "../utils/getProductById";
-import { supabase } from "../lib/supabase";
-import { useEffect } from "react";
+
 
 export default function ProductDetail(){
+  
+const { productId } = useParams();
 
-  const { slug } = useParams();
+  const slug = productId;
+
   const navigate = useNavigate();
   const location = useLocation();
 
-  const lang = location.pathname.startsWith("/en") ? "en" : "zh";
+  const lang =
+    location.pathname.startsWith("/en")
+      ? "en"
+      : "zh";
 
- const id = slug?.toLowerCase();
+  const id = slug?.toLowerCase();
 
-  /* 🔥 修正 id */
   let fixedId = id;
+
 
   if (!manualSpecs?.[fixedId]) {
     const parts = fixedId?.split("-");
@@ -33,35 +36,16 @@ export default function ProductDetail(){
     }
   }
 
+const product = manualSpecs[fixedId];
 
+if(!product){
+  return(
+    <div className="min-h-screen flex items-center justify-center">
+      Product Not Found
+    </div>
+  );
+}
 
-const [product,setProduct] = useState(null);
-
-useEffect(()=>{
-
-  async function loadProduct(){
-
-    console.log("slug =", slug);
-console.log("Number(slug) =", Number(slug));
-
-   const { data,error } = await supabase
-  .from("products")
-  .select("*")
-  .eq("slug", slug)
-  .single();
-
-    if(error){
-      console.log(error);
-      setProduct(false);
-      return;
-    }
-
-    setProduct(data);
-  }
-
-  loadProduct();
-
-},[slug]);
 
   /* =========================
      🔥 修復核心：規格統一
@@ -87,10 +71,12 @@ const specs = normalizeSpecs(product?.specs || []);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const current = specs[activeIndex] || {};
-  const prefix = fixedId.split("-")[0];
 
-const mainImg = product?.cover || "";
-const detailImg = null;
+const prefix =
+  fixedId?.split("-")?.[0] || "";
+
+const mainImg = product?.main || "";
+const detailImg = product?.detail || "";
 
   /* =========================
      🔥 Lightbox
@@ -103,47 +89,33 @@ const detailImg = null;
   ========================= */
 const seoTitle =
 `${lang === "en"
-  ? product?.title_en
-  : product?.title_zh
+    ? product?.title?.en
+    : product?.title?.zh
 } | ATHENE LIGHT`;
 
 const mirrorDesc =
   lang === "en"
-    ? product?.desc_en
-    : product?.desc_zh;
-  (
-    lang === "en"
-      ? "Modern LED bathroom mirror with ambient lighting, clean lines, and practical size options for residential and commercial spaces."
-      : "現代 LED 浴室鏡，結合簡潔線條、氛圍照明與多種尺寸選擇，適合住宅與商業空間使用。"
-  );
-
-const seoDesc = mirrorDesc;
-
-
-
-// const related = getRelatedProducts(
-//   product.series,
-//   id
-// );
+    ? product?.desc?.en
+    : product?.desc?.zh;
 
 
 
 
-if(product === null){
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      Loading...
-    </div>
-  );
-}
+const seoDesc =
+  mirrorDesc ||
+  "ATHENE LIGHT LED Bathroom Mirror";
 
-if(product === false){
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      Product Not Found
-    </div>
-  );
-}
+
+const related = Object.values(manualSpecs)
+  .filter(item =>
+    item.series === product.series &&
+    item.id !== product.id
+  )
+  .slice(0,4);
+
+
+
+
 
 
 return(
@@ -295,8 +267,8 @@ return(
 
 <h1 className="text-[34px] tracking-[0.14em] font-light mb-6 text-black">
 {lang === "en"
-  ? product.title_en
-  : product.title_zh}
+  ? product.title?.en
+  : product.title?.zh}
 </h1>
 
 <p className="text-[13px] leading-[2] text-[#666] mb-10 max-w-[420px]">
@@ -329,41 +301,49 @@ return(
 
       </div>
 
-      {/* RELATED 
-      <div className="max-w-[1100px] mx-auto px-6 mt-32">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+{/* RELATED */}
+<div className="max-w-[1100px] mx-auto px-6 mt-32">
 
-{related.map((item)=>(
+  <h2 className="text-[11px] tracking-[0.4em] mb-10">
+    RELATED PRODUCTS
+  </h2>
 
-  <div
-    key={item.id}
+<div className="grid grid-cols-2 md:grid-cols-4 gap-6">
 
-    onClick={()=>
-      navigate(
-        `/${lang}/products/mirror/${item.series.toLowerCase()}/${item.id}`
-      )
-    }
+    {related.map(item=>(
 
-    className="cursor-pointer group"
-  >
+      <div
+        key={item.id}
+        onClick={()=>
+          navigate(
+            `/${lang}/products/mirror/${item.series.toLowerCase()}/${item.id}`
+          )
+        }
+        className="cursor-pointer group"
+      >
 
-    <img
-      src={item.main}
-      alt={`${item.id.toUpperCase()} LED Bathroom Mirror`}
-      className="w-full transition group-hover:scale-105"
-    />
+        <img
+          src={item.main}
+          alt={item.id}
+          className="
+            w-full
+            transition
+            duration-300
+            group-hover:scale-105
+          "
+        />
 
-    <p className="text-center text-[11px] mt-2 text-[#555]">
-      {item.id.toUpperCase()}
-    </p>
+        <p className="text-center text-[11px] mt-3 text-[#666]">
+          {item.id.toUpperCase()}
+        </p>
+
+      </div>
+
+    ))}
 
   </div>
 
-))}
-
-        </div>
-      </div>
-*/}
+</div>
       {/* Lightbox */}
       {lightboxIndex !== null && (
         <div

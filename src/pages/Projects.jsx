@@ -60,10 +60,10 @@ const categories =
     : [
         "全部",
         "照明設計",
-        "外牆",
-        "景觀",
+        "外牆照明",
+        "景觀照明",
         "商業空間",
-        "室內空間",
+        "室內照明",
         "亮化工程",
         "燈會"
       ];
@@ -71,10 +71,10 @@ const categories =
 const typeMap = {
   "全部": "ALL",
   "照明設計": "LIGHTING DESIGN",
-  "外牆": "FACADE",
-  "景觀": "LANDSCAPE",
+  "外牆照明": "FACADE",
+  "景觀照明": "LANDSCAPE",
   "商業空間": "COMMERCIAL",
-  "室內空間": "INTERIOR",
+  "室內照明": "INTERIOR",
   "亮化工程": "ILLUMINATION",
   "燈會": "FESTIVAL"
 };

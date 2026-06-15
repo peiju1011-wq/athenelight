@@ -47,7 +47,12 @@ const [tags,setTags] = useState([
   { zh:"", en:"" }
 ]);
 
-const { slug } = useParams();
+const { series, slug } = useParams();
+
+console.log(series);
+console.log(slug);
+
+
 
 const navigate = useNavigate();
 
