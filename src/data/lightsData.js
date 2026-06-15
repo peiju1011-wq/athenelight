@@ -1533,71 +1533,119 @@ and modern commercial interiors.`
 
 
 {
-
   id:9,
+
   slug:"ginkgo-light",
+
+  sku:"ATH-LIGHT-009",
+
+  category:"PENDANT",
+
+  featured:true,
+
+  published:true,
+
+  lineLink:
+    "https://athenelight.com/lights/ginkgo-light",
 
   title:{
     zh:"銀杏吊燈",
     en:"GINKGO LEAF CHANDELIER"
   },
 
+  /* 🔥 舊系統保留 */
+  name:{
+    zh:"銀杏吊燈",
+    en:"GINKGO LEAF CHANDELIER"
+  },
+
+  subtitle:{
+    zh:"花草系溫暖風格吊燈",
+    en:"Botanical Warm Pendant Light"
+  },
+
   desc:{
-    zh:"以銀杏葉為靈感，打造自然流動的光影層次",
-    en:"Inspired by ginkgo leaves, creating a flowing lighting form"
+    zh:`以銀杏葉為靈感，
+打造自然流動的光影層次`,
+    en:`Inspired by ginkgo leaves,
+creating a flowing lighting form`
   },
 
   descLong:{
-    zh:`適用於客廳、餐廳、臥室與商業空間。
+    zh:`以銀杏葉優雅輪廓為設計靈感，
 
-柔和光線搭配金屬與霧白葉片，
-呈現自然與現代融合的空間氛圍。`,
+透過柔和曲線與層次光影，
+營造自然溫潤且富有溫馨的空間氛圍。
 
-    en:`Perfect for living rooms and dining areas.
+適合餐廳、客廳、臥室與商業空間，
+展現自然美學與現代照明設計的和諧融合。`,
 
-Soft lighting blends nature and modern aesthetics.`
+    en:`Inspired by the graceful form of ginkgo leaves,
+
+this pendant light combines gentle curves with layered lighting effects
+to create a warm, refined, and welcoming ambiance.
+
+Perfect for dining areas, living rooms, bedrooms, and commercial spaces,
+it embodies the harmonious balance between nature-inspired beauty and contemporary lighting design.`
   },
 
-  category:"PENDANT",
-
+  /* 🔥 舊系統保留 */
   cover:"/images/lights/pd6-2.png",
+
+  /* 🔥 新 schema */
+  images:[
+    {
+      src:"/images/lights/pd6-2.png",
+      alt:"銀杏吊燈主視覺",
+      position:"center",
+      type:"cover"
+    },
+    {
+      src:"/images/lights/pd6-3.jpg",
+      alt:"銀杏葉造型吊燈情境照",
+      position:"center",
+      type:"gallery"
+    },
+    {
+      src:"/images/lights/pd6-4.png",
+      alt:"銀杏吊燈光影細節",
+      position:"center",
+      type:"gallery"
+    },
+    {
+      src:"/images/lights/pd6-5.png",
+      alt:"花草系溫暖吊燈空間照",
+      position:"center",
+      type:"gallery"
+    },
+    {
+      src:"/images/lights/pd6-6.png",
+      alt:"自然風格金屬吊燈細節",
+      position:"center",
+      type:"gallery"
+    }
+  ],
 
   cover2:"/images/lights/pd6-3.jpg",
 
+  /* 🔥 舊 gallery 保留 */
   gallery:[
     "/images/lights/pd6-4.png",
     "/images/lights/pd6-5.png",
     "/images/lights/pd6-6.png"
   ],
 
-  features:[
-    {
-      img:"/images/lights/pd6-9.jpg",
-
-      desc:{
-        zh:"自然造型設計，提升空間藝術感。",
-        en:"Organic elegant design."
-      }
-    },
-
-    {
-      img:"/images/lights/pd6-10.jpg",
-
-      desc:{
-        zh:"光線均勻柔和，穩定耐用。",
-        en:"Soft and stable lighting."
-      }
-    },
-
-    {
-      img:"/images/lights/pd6-11.jpg",
-
-      desc:{
-        zh:"高溫鍛造，質感細膩。",
-        en:"Premium metal finish."
-      }
-    }
+  tags:[
+    "銀杏吊燈",
+    "花草系吊燈",
+    "自然風格照明",
+    "客廳吊燈"
   ],
+
+  seo:{
+    title:"銀杏吊燈｜宇碩光 ATHENE LIGHT",
+    description:"銀杏葉造型吊燈設計，結合金屬工藝與柔和光影層次，打造自然溫潤且富有藝術感的空間氛圍。"
+  },
 
   specs:[
     {
@@ -1606,8 +1654,34 @@ Soft lighting blends nature and modern aesthetics.`
         en:"Φ60 × H40cm"
       },
 
+      material:{
+        zh:"五金燈體",
+        en:"Metal Hardware Body"
+      },
+
+      style:{
+        zh:"自然花草系",
+        en:"Botanical Style"
+      },
+
       power:"36W",
-      space:"8–15㎡"
+
+      voltage:"110-220V",
+
+      lightColor:{
+        zh:"暖光",
+        en:"Warm Light"
+      },
+
+      install:{
+        zh:"吊線型",
+        en:"Pendant Type"
+      },
+
+      space:{
+        zh:"8–15㎡",
+        en:"8–15㎡"
+      }
     },
 
     {
@@ -1616,8 +1690,34 @@ Soft lighting blends nature and modern aesthetics.`
         en:"Φ80 × H40cm"
       },
 
+      material:{
+        zh:"五金燈體",
+        en:"Metal Hardware Body"
+      },
+
+      style:{
+        zh:"自然花草系",
+        en:"Botanical Style"
+      },
+
       power:"54W",
-      space:"12–20㎡"
+
+      voltage:"110-220V",
+
+      lightColor:{
+        zh:"暖光",
+        en:"Warm Light"
+      },
+
+      install:{
+        zh:"吊線型",
+        en:"Pendant Type"
+      },
+
+      space:{
+        zh:"12–20㎡",
+        en:"12–20㎡"
+      }
     },
 
     {
@@ -1626,8 +1726,34 @@ Soft lighting blends nature and modern aesthetics.`
         en:"Φ100 × H40cm"
       },
 
+      material:{
+        zh:"五金燈體",
+        en:"Metal Hardware Body"
+      },
+
+      style:{
+        zh:"自然花草系",
+        en:"Botanical Style"
+      },
+
       power:"72W",
-      space:"18–28㎡"
+
+      voltage:"110-220V",
+
+      lightColor:{
+        zh:"暖光",
+        en:"Warm Light"
+      },
+
+      install:{
+        zh:"吊線型",
+        en:"Pendant Type"
+      },
+
+      space:{
+        zh:"18–28㎡",
+        en:"18–28㎡"
+      }
     },
 
     {
@@ -1636,8 +1762,101 @@ Soft lighting blends nature and modern aesthetics.`
         en:"Φ120 × H40cm"
       },
 
+      material:{
+        zh:"五金燈體",
+        en:"Metal Hardware Body"
+      },
+
+      style:{
+        zh:"自然花草系",
+        en:"Botanical Style"
+      },
+
       power:"90W",
-      space:"20–35㎡"
+
+      voltage:"110-220V",
+
+      lightColor:{
+        zh:"暖光",
+        en:"Warm Light"
+      },
+
+      install:{
+        zh:"吊線型",
+        en:"Pendant Type"
+      },
+
+      space:{
+        zh:"20–35㎡",
+        en:"20–35㎡"
+      }
+    }
+  ],
+
+  variants:[
+    {
+      label:{
+        zh:"銀杏葉造型",
+        en:"Ginkgo Leaf Design"
+      }
+    },
+
+    {
+      label:{
+        zh:"暖光氛圍",
+        en:"Warm Ambient Lighting"
+      }
+    },
+
+    {
+      label:{
+        zh:"自然花草系風格",
+        en:"Botanical Natural Style"
+      }
+    }
+  ],
+
+  features:[
+    {
+      title:{
+        zh:"銀杏葉造型設計",
+        en:"Ginkgo-Inspired Design"
+      },
+
+      desc:{
+        zh:"以銀杏葉優雅輪廓為靈感，營造自然且富有藝術感的空間氛圍。",
+        en:"Inspired by the elegant form of ginkgo leaves, creating a natural and artistic spatial atmosphere."
+      },
+
+      img:"/images/lights/pd6-9.jpg"
+    },
+
+    {
+      title:{
+        zh:"柔和氛圍照明",
+        en:"Soft Ambient Illumination"
+      },
+
+      desc:{
+        zh:"光線均勻柔和，提升空間舒適度與氛圍質感。",
+        en:"Soft and evenly distributed illumination enhances comfort and ambient lighting quality."
+      },
+
+      img:"/images/lights/pd6-10.jpg"
+    },
+
+    {
+      title:{
+        zh:"高溫鍛造金屬燈體",
+        en:"Premium Forged Metal Body"
+      },
+
+      desc:{
+        zh:"高溫鍛造金屬燈體，工藝細膩且兼具耐用性。",
+        en:"Premium forged metal construction with refined craftsmanship and lasting durability."
+      },
+
+      img:"/images/lights/pd6-11.jpg"
     }
   ]
 }

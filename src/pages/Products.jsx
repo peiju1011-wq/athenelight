@@ -91,15 +91,22 @@ const categories = [
 
   { key:"OUTDOOR_LIGHTING", zh:"戶外燈具", en:"OUTDOOR LIGHTING" },
 
-  { key:"FLOOD", zh:"泛光燈", en:"FLOOD LIGHT" },
-  { key:"WASHER", zh:"洗牆燈", en:"WALL WASHER" },
-  { key:"SPOT", zh:"投射燈", en:"SPOT LIGHT" },
-  { key:"INGROUND", zh:"地埋燈", en:"IN-GROUND LIGHT" },
-  { key:"SPIKE", zh:"插地燈", en:"SPIKE LIGHT" },
-  { key:"LANDSCAPE", zh:"景觀燈", en:"LANDSCAPE LIGHT" },
-  { key:"BOLLARD", zh:"矮柱燈", en:"BOLLARD LIGHT" },
-  { key:"UNDERWATER", zh:"水底燈", en:"UNDERWATER LIGHT" },
-  { key:"STEP", zh:"階梯燈", en:"STEP LIGHT" },
+
+
+{ key:"FLOOD", zh:"泛光燈", en:"FLOOD LIGHT" },
+{ key:"WASHER", zh:"洗牆燈", en:"WALL WASHER" },
+{ key:"SPOT", zh:"投射燈", en:"SPOT LIGHT" },
+
+{ key:"LANDSCAPE_POLE", zh:"景觀高燈", en:"LANDSCAPE POLE LIGHT" },
+{ key:"LANDSCAPE_BOLLARD", zh:"景觀矮燈", en:"LANDSCAPE BOLLARD LIGHT" },
+
+{ key:"SPIKE", zh:"插地燈", en:"SPIKE LIGHT" },
+{ key:"INGROUND", zh:"地埋燈", en:"IN-GROUND LIGHT" },
+{ key:"UNDERWATER", zh:"水底燈", en:"UNDERWATER LIGHT" },
+{ key:"STEP", zh:"階梯燈", en:"STEP LIGHT" },
+
+
+
 
   { key:"FESTIVAL", zh:"節慶燈具", en:"FESTIVAL LIGHTING" },
 
@@ -284,10 +291,12 @@ const outdoorTypes = [
   { zh:"泛光燈", en:"Flood Light" },
   { zh:"洗牆燈", en:"Wall Washer" },
   { zh:"投射燈", en:"Spot Light" },
-  { zh:"地埋燈", en:"In-ground Light" },
+
+  { zh:"景觀高燈", en:"Landscape Pole Light" },
+  { zh:"景觀矮燈", en:"Landscape Bollard Light" },
+
   { zh:"插地燈", en:"Spike Light" },
-  { zh:"景觀燈", en:"Landscape Light" },
-  { zh:"矮柱燈", en:"Bollard Light" },
+  { zh:"地埋燈", en:"In-ground Light" },
   { zh:"水底燈", en:"Underwater Light" },
   { zh:"階梯燈", en:"Step Light" }
 
