@@ -983,9 +983,6 @@ window.location.href =
     訂製燈具
   </option>
 
-  <option value="MIRROR">
-    鏡燈產品
-  </option>
 
 </select>
 <input

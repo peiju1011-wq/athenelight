@@ -628,7 +628,7 @@ window.location.href =
   <option value="FESTIVAL">節慶燈具</option>
   <option value="INSTALLATION">施工安裝</option>
   <option value="CUSTOM">訂製燈具</option>
-  <option value="MIRROR">鏡燈產品All</option>
+ 
 </select>
 
 
