@@ -447,8 +447,13 @@ seo_description:
 
 <select
   className="w-full p-3 mb-4 border bg-white text-black"
-  value={category}
-  onChange={(e)=>setCategory(e.target.value)}
+  value={project.category || ""}
+  onChange={(e)=>
+    setProject({
+      ...project,
+      category:e.target.value
+    })
+  }
 >
   <option value="LIGHTING_DESIGN">
     照明設計
