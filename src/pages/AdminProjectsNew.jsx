@@ -17,10 +17,7 @@ const [descEn,setDescEn] = useState("");
 
 
 const [category,setCategory] =
-  useState("LIGHTING DESIGN");
-
-
-
+  useState("INDOOR");
 
 
 const [featured,setFeatured] =

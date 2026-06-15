@@ -42,20 +42,27 @@ const itemsPerPage = 12;
 
 const lang = useLang();
 const navigate = useNavigate();
+
+
 useEffect(() => {
 
   async function loadProducts() {
 
-const { data, error } = await supabase
-  .from("products")
-  .select("*")
-  .order("sort_order", { ascending: true });
-
-
-    console.log("PRODUCTS:", data);
-    console.log("ERROR:", error);
+    const { data, error } = await supabase
+      .from("products")
+      .select("*")
+      .order("sort_order", { ascending: true });
 
     if(data){
+
+      console.log("=== PRODUCTS DATA ===");
+      console.log(data);
+
+      console.log("=== CATEGORY LIST ===");
+      console.log(
+        data.map(item => item.category)
+      );
+
       setProductsData(data);
     }
 
@@ -70,14 +77,14 @@ const { data, error } = await supabase
       ? "Products"
       : "產品介紹";
 
-  /* ===== 分類 ===== */
+/* ===== 分類 ===== */
 const categories = [
 
   { key:"ALL", zh:"燈光系列All", en:"Lighting" },
 
   { key:"LIGHTING_DESIGN", zh:"照明設計", en:"LIGHTING DESIGN" },
 
-  { key:"INTERIOR_LIGHTING", zh:"室內燈具", en:"INTERIOR LIGHTING" },
+  { key:"INDOOR", zh:"室內燈具", en:"INDOOR LIGHTING" },
 
   { key:"TRACK", zh:"軌道燈", en:"TRACK LIGHT" },
   { key:"PENDANT", zh:"吊燈", en:"PENDANT LIGHT" },
@@ -87,26 +94,19 @@ const categories = [
   { key:"WALL", zh:"壁燈", en:"WALL LIGHT" },
   { key:"MAGNETIC", zh:"磁吸軌道燈", en:"MAGNETIC TRACK LIGHT" },
 
-  { key:"INSTALLATION", zh:"施工安裝", en:"INSTALLATION" },
+  { key:"OUTDOOR", zh:"戶外燈具", en:"OUTDOOR LIGHTING" },
 
-  { key:"OUTDOOR_LIGHTING", zh:"戶外燈具", en:"OUTDOOR LIGHTING" },
+  { key:"WASHER", zh:"洗牆燈", en:"WALL WASHER" },
+  { key:"SPOT", zh:"投射燈", en:"SPOT LIGHT" },
+  { key:"FLOOD", zh:"泛光燈", en:"FLOOD LIGHT" },
 
+  { key:"LANDSCAPE_POLE", zh:"景觀高燈", en:"LANDSCAPE POLE LIGHT" },
+  { key:"LANDSCAPE_BOLLARD", zh:"景觀矮燈", en:"LANDSCAPE BOLLARD LIGHT" },
 
-
-{ key:"FLOOD", zh:"泛光燈", en:"FLOOD LIGHT" },
-{ key:"WASHER", zh:"洗牆燈", en:"WALL WASHER" },
-{ key:"SPOT", zh:"投射燈", en:"SPOT LIGHT" },
-
-{ key:"LANDSCAPE_POLE", zh:"景觀高燈", en:"LANDSCAPE POLE LIGHT" },
-{ key:"LANDSCAPE_BOLLARD", zh:"景觀矮燈", en:"LANDSCAPE BOLLARD LIGHT" },
-
-{ key:"SPIKE", zh:"插地燈", en:"SPIKE LIGHT" },
-{ key:"INGROUND", zh:"地埋燈", en:"IN-GROUND LIGHT" },
-{ key:"UNDERWATER", zh:"水底燈", en:"UNDERWATER LIGHT" },
-{ key:"STEP", zh:"階梯燈", en:"STEP LIGHT" },
-
-
-
+  { key:"SPIKE", zh:"插地燈", en:"SPIKE LIGHT" },
+  { key:"INGROUND", zh:"地埋燈", en:"IN-GROUND LIGHT" },
+  { key:"STEP", zh:"階梯燈", en:"STEP LIGHT" },
+  { key:"UNDERWATER", zh:"水底燈", en:"UNDERWATER LIGHT" },
 
   { key:"FESTIVAL", zh:"節慶燈具", en:"FESTIVAL LIGHTING" },
 
@@ -114,6 +114,8 @@ const categories = [
   { key:"STRING", zh:"燈串", en:"STRING LIGHT" },
   { key:"OUTLINE", zh:"輪廓燈", en:"OUTLINE LIGHT" },
   { key:"DECORATIVE", zh:"造型燈飾", en:"DECORATIVE LIGHT" },
+
+  { key:"INSTALLATION", zh:"施工安裝", en:"INSTALLATION" },
 
   { key:"CUSTOM", zh:"訂製燈具", en:"CUSTOM LIGHTING" },
 
@@ -215,12 +217,25 @@ const isSearching = keyword.trim() !== "";
 
 const filteredAll = allItems.filter(item => {
 
-  
-
   if(!isSearching){
+
     if(item.type === "light"){
-      return active === "ALL" || item.cat === active;
+
+      if(active === "ALL"){
+        return true;
+      }
+
+if(active === "INDOOR"){
+  return item.cat === "INDOOR";
+}
+
+if(active === "OUTDOOR"){
+  return item.cat === "OUTDOOR";
+}
+
+      return item.cat === active;
     }
+
     return active === "MIRROR";
   }
 
@@ -233,6 +248,15 @@ const filteredAll = allItems.filter(item => {
 
   return keywords.every(k => text.includes(k));
 });
+
+console.log(
+  "CATEGORYS",
+  [...new Set(
+    productsData.map(
+      item => item.category
+    )
+  )]
+);
 
 console.log("ALL ITEMS", allItems.length);
 console.log("FILTERED", filteredAll.length);
@@ -274,40 +298,40 @@ useEffect(() => {
    UI（完全不動🔥）
 ========================= */
 
-const indoorTypes = [
-
-  { zh:"軌道燈", en:"Track Light" },
-  { zh:"吊燈", en:"Pendant Light" },
-  { zh:"崁燈", en:"Downlight" },
-  { zh:"吸頂燈", en:"Ceiling Light" },
-  { zh:"線型燈", en:"Linear Light" },
-  { zh:"壁燈", en:"Wall Light" },
-  { zh:"磁吸軌道燈", en:"Magnetic Track Light" }
-
-];
-  
 const outdoorTypes = [
 
-  { zh:"泛光燈", en:"Flood Light" },
-  { zh:"洗牆燈", en:"Wall Washer" },
-  { zh:"投射燈", en:"Spot Light" },
+{ key:"WASHER", zh:"洗牆燈", en:"Wall Washer" },
+{ key:"SPOT", zh:"投射燈", en:"Spot Light" },
+{ key:"FLOOD", zh:"泛光燈", en:"Flood Light" },
 
-  { zh:"景觀高燈", en:"Landscape Pole Light" },
-  { zh:"景觀矮燈", en:"Landscape Bollard Light" },
+{ key:"LANDSCAPE_POLE", zh:"景觀高燈", en:"Landscape Pole Light" },
+{ key:"LANDSCAPE_BOLLARD", zh:"景觀矮燈", en:"Landscape Bollard Light" },
 
-  { zh:"插地燈", en:"Spike Light" },
-  { zh:"地埋燈", en:"In-ground Light" },
-  { zh:"水底燈", en:"Underwater Light" },
-  { zh:"階梯燈", en:"Step Light" }
+{ key:"SPIKE", zh:"插地燈", en:"Spike Light" },
+{ key:"INGROUND", zh:"地埋燈", en:"In-ground Light" },
+{ key:"STEP", zh:"階梯燈", en:"Step Light" },
+{ key:"UNDERWATER", zh:"水底燈", en:"Underwater Light" }
+
+];
+
+const indoorTypes = [
+
+  { key:"TRACK", zh:"軌道燈", en:"Track Light" },
+  { key:"PENDANT", zh:"吊燈", en:"Pendant Light" },
+  { key:"DOWNLIGHT", zh:"崁燈", en:"Downlight" },
+  { key:"CEILING", zh:"吸頂燈", en:"Ceiling Light" },
+  { key:"LINEAR", zh:"線型燈", en:"Linear Light" },
+  { key:"WALL", zh:"壁燈", en:"Wall Light" },
+  { key:"MAGNETIC", zh:"磁吸軌道燈", en:"Magnetic Track Light" }
 
 ];
 
 const festivalTypes = [
 
-  { zh:"點光源", en:"Pixel Light" },
-  { zh:"燈串", en:"String Light" },
-  { zh:"輪廓燈", en:"Outline Light" },
-  { zh:"造型燈飾", en:"Decorative Light" }
+  { key:"PIXEL", zh:"點光源", en:"Pixel Light" },
+  { key:"STRING", zh:"燈串", en:"String Light" },
+  { key:"OUTLINE", zh:"輪廓燈", en:"Outline Light" },
+  { key:"DECORATIVE", zh:"造型燈飾", en:"Decorative Light" }
 
 ];
 
@@ -415,29 +439,42 @@ tracking-[0.08em]
       </button>
 
 <button
-  onClick={() => setOpenIndoorLight(!openIndoorLight)}
- className="
-  flex items-center
-  gap-2
-  text-[#666]
-  hover:text-[#C8A46A]
-  transition
-"
+  onClick={() => {
+
+    setActive("INDOOR");
+
+    setSearchParams(prev => {
+      prev.set("cat", "INDOOR");
+      prev.set("page", 1);
+      return prev;
+    });
+
+    setOpenIndoorLight(!openIndoorLight);
+
+  }}
+  className="
+    flex items-center
+    gap-2
+    text-[#666]
+    hover:text-[#C8A46A]
+    transition
+  "
 >
-<span
-  className={`
-    text-[16px]
-    transition-transform
-    duration-300
-    inline-block
-    ${openIndoorLight ? "rotate-90" : ""}
-  `}
->
-  ▸
-</span>
-{lang === "en"
-  ? "Indoor Lighting"
-  : "室內燈具"}
+  <span
+    className={`
+      text-[16px]
+      transition-transform
+      duration-300
+      inline-block
+      ${openIndoorLight ? "rotate-90" : ""}
+    `}
+  >
+    ▸
+  </span>
+
+  {lang === "en"
+    ? "Indoor Lighting"
+    : "室內燈具"}
 </button>
 
 {openIndoorLight && (
@@ -464,7 +501,16 @@ tracking-[0.08em]
 >
 {indoorTypes.map(item => (
   <div
-    key={item.zh}
+    key={item.key}
+    onClick={() => {
+      setActive(item.key);
+
+      setSearchParams(prev => {
+        prev.set("cat", item.key);
+        prev.set("page", 1);
+        return prev;
+      });
+    }}
     className="
       hover:text-[#C8A46A]
       transition-colors
@@ -586,30 +632,43 @@ tracking-[0.08em]
 
 
 <button
-  onClick={() => setOpenOutdoorLight(!openOutdoorLight)}
-className="
-  flex items-center
-  gap-2
-  text-[#666]
-  text-[12px]
-  hover:text-[#C8A46A]
-  transition
-"
+  onClick={() => {
+
+    setActive("OUTDOOR");
+
+    setSearchParams(prev => {
+      prev.set("cat", "OUTDOOR");
+      prev.set("page", 1);
+      return prev;
+    });
+
+    setOpenOutdoorLight(!openOutdoorLight);
+
+  }}
+  className="
+    flex items-center
+    gap-2
+    text-[#666]
+    text-[12px]
+    hover:text-[#C8A46A]
+    transition
+  "
 >
-<span
-  className={`
-    text-[16px]
-    transition-transform
-    duration-300
-    inline-block
-    ${openOutdoorLight ? "rotate-90" : ""}
-  `}
->
-  ▸
-</span>
-{lang === "en"
-  ? "Outdoor Lighting"
-  : "戶外燈具"}
+  <span
+    className={`
+      text-[16px]
+      transition-transform
+      duration-300
+      inline-block
+      ${openOutdoorLight ? "rotate-90" : ""}
+    `}
+  >
+    ▸
+  </span>
+
+  {lang === "en"
+    ? "Outdoor Lighting"
+    : "戶外燈具"}
 </button>
 
       {openOutdoorLight && (
@@ -623,16 +682,25 @@ className="
 ">
 {outdoorTypes.map(item => (
   <div
-    key={item.zh}
+    key={item.key}
+    onClick={() => {
+      setActive(item.key);
+
+      setSearchParams(prev => {
+        prev.set("cat", item.key);
+        prev.set("page", 1);
+        return prev;
+      });
+    }}
     className="
       hover:text-[#C8A46A]
       transition-colors
       cursor-pointer
     "
   >
-  {lang === "en"
-  ? item.en
-  : item.zh}
+    {lang === "en"
+      ? item.en
+      : item.zh}
   </div>
 ))}
         </div>
@@ -677,7 +745,18 @@ className="
 ">
 {festivalTypes.map(item => (
   <div
-   key={item.zh}
+    key={item.key}
+    onClick={() => {
+
+      setActive(item.key);
+
+      setSearchParams(prev => {
+        prev.set("cat", item.key);
+        prev.set("page", 1);
+        return prev;
+      });
+
+    }}
     className="
       hover:text-[#C8A46A]
       transition-colors
@@ -685,8 +764,8 @@ className="
     "
   >
     {lang === "en"
-  ? item.en
-  : item.zh}
+      ? item.en
+      : item.zh}
   </div>
 ))}
         </div>

@@ -79,7 +79,10 @@ projects:{
   tag:{ zh:"精選案例", en:"FEATURED PROJECTS" },
   title:{ zh:"實績案例", en:"Projects" },
   items:[
-    { zh:"城市光廊地標", en:"Urban Landmark" },
+    {
+  zh:"鹿谷鄉小半天橋亮化工程",
+  en:"Xiaobantian Bridge Illumination Project"
+},
     { zh:"大橋光環境", en:"Bridge Lighting" },
     { zh:"豪宅會所照明", en:"Luxury Residence" },
     { zh:"商辦光環境", en:"Commercial Lighting" },

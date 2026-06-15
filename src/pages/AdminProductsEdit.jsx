@@ -738,15 +738,15 @@ return(
   value={category}
   onChange={(e)=>setCategory(e.target.value)}
 >
-  <option value="INDOOR">室內</option>
-  <option value="INTERIOR_LIGHTING">室內燈具</option>
-  <option value="OUTDOOR">戶外</option>
+  <option value="INDOOR">室內燈具</option>
+  <option value="OUTDOOR">戶外燈具</option>
   <option value="LIGHTING_DESIGN">照明設計</option>
   <option value="FESTIVAL">節慶燈具</option>
   <option value="INSTALLATION">施工安裝</option>
   <option value="CUSTOM">訂製燈具</option>
-  <option value="MIRROR">鏡燈產品All</option>
+  <option value="MIRROR">鏡燈產品</option>
 </select>
+
             </div>
 
           </div>

@@ -3,6 +3,7 @@ import { supabase } from "../lib/supabase";
 import imageCompression from "browser-image-compression";
 import { Link } from "react-router-dom";
 
+
 export default function AdminProductsNew(){
 
 
@@ -951,6 +952,7 @@ window.location.href =
   </div>
 
 </div>
+
 <select
   className="w-full p-3 mb-4 border bg-white text-black"
   value={category}
@@ -958,19 +960,15 @@ window.location.href =
 >
 
   <option value="INDOOR">
-    室內
+    室內燈具
   </option>
 
   <option value="OUTDOOR">
-    戶外
+    戶外燈具
   </option>
 
   <option value="LIGHTING_DESIGN">
     照明設計
-  </option>
-
-  <option value="INTERIOR_LIGHTING">
-    室內燈具
   </option>
 
   <option value="FESTIVAL">
@@ -986,11 +984,10 @@ window.location.href =
   </option>
 
   <option value="MIRROR">
-    鏡類產品
+    鏡燈產品
   </option>
 
 </select>
-
 <input
   placeholder="LINE 購買連結"
   value={lineLink}
