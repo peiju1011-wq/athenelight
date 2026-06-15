@@ -510,7 +510,7 @@ whitespace-normal
       <div className="md:col-span-2 group relative overflow-hidden bg-white reveal h-[340px]">
 
         <img
-  src="/images/projects/project1.png"
+  src="/images/projects/p1-3.png"
   className="
     w-full h-full
     object-cover
