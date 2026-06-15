@@ -688,92 +688,124 @@ object-[50%_50%]
 
     </div>
 
-
 {/* GRID（倒排版🔥） */}
 
 {/* ROW 1 */}
 <div className="grid md:grid-cols-3 gap-8 items-end mb-20">
 
-  {/* 小（左） */}
+  {/* 小（左） PRODUCT 01 */}
   <div className="group relative overflow-hidden bg-white reveal h-[260px] md:mt-[40px]">
 
-<img
-  src={products[1]?.img}
-  className="
-    w-full h-full
+    <img
+      src={products[1]?.img}
+      className="
+        w-full h-full
+        object-cover
+        object-[50%_42%]
+        scale-[1.03]
+        brightness-[0.9]
+        contrast-[1.06]
+        saturate-[0.92]
+        transition duration-700
+        ease-[cubic-bezier(0.22,1,0.36,1)]
+        group-hover:scale-[1.08]
+      "
+    />
 
-    object-cover
-    object-[50%_42%]
+    <div
+      className="
+        absolute inset-0
+        bg-gradient-to-t
+        from-black/36
+        via-black/[0.10]
+        to-black/[0.02]
+        opacity-95
+      "
+    />
 
-    scale-[1.03]
+    <div
+      className="
+        absolute inset-0
+        bg-[radial-gradient(circle_at_50%_38%,rgba(255,255,255,0.05),transparent_58%)]
+        opacity-60
+        mix-blend-mode:screen
+      "
+    />
 
-    brightness-[0.9]
-    contrast-[1.06]
-    saturate-[0.92]
+    <div className="absolute bottom-6 left-6 z-10">
 
-    transition duration-700
-    ease-[cubic-bezier(0.22,1,0.36,1)]
+      <p
+        className="
+          text-[10px]
+          tracking-[0.35em]
+          text-[#C8A46A]
+          mb-1
+          drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)]
+        "
+      >
+        PRODUCT 01
+      </p>
 
-    group-hover:scale-[1.08]
-  "
-/>
+      <h3
+        className="
+          text-[13px]
+          tracking-[0.25em]
+          text-white
+          font-light
+          drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)]
+        "
+      >
+        {products[1]?.title?.[lang]}
+      </h3>
 
-
-<div
-  className="
-    absolute inset-0
-
-    bg-gradient-to-t
-    from-black/36
-    via-black/[0.10]
-    to-black/[0.02]
-
-    opacity-95
-  "
-/>
-
-
-<div
-  className="
-    absolute inset-0
-
-    bg-[radial-gradient(circle_at_50%_38%,rgba(255,255,255,0.05),transparent_58%)]
-
-    opacity-60
-    mix-blend-mode:screen
-  "
-/>
-
- <h3 className="absolute bottom-6 left-6 text-[13px] tracking-[0.25em] text-white font-light z-10">
-  {products[1]?.title?.[lang]}
-</h3>
+    </div>
 
   </div>
 
-
-  {/* 大（右） */}
+  {/* 大（右） PRODUCT 02 */}
   <div className="md:col-span-2 group relative overflow-hidden bg-white reveal h-[340px]">
 
-<img
-  src={products[0]?.img}
-  className="
-    w-full h-full
-    object-cover
-
-  object-[38%_19%]
-
-    transition duration-700
-    ease-[cubic-bezier(0.22,1,0.36,1)]
-
-    group-hover:scale-105
-  "
-/>
+    <img
+      src={products[0]?.img}
+      className="
+        w-full h-full
+        object-cover
+        object-[38%_19%]
+        transition duration-700
+        ease-[cubic-bezier(0.22,1,0.36,1)]
+        group-hover:scale-105
+      "
+    />
 
     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"/>
 
-<h3 className="absolute bottom-6 left-6 text-[13px] tracking-[0.25em] text-white font-light z-10">
-  {products[0]?.title?.[lang]}
-</h3>
+    <div className="absolute bottom-6 left-6 z-10">
+
+      <p
+        className="
+          text-[10px]
+          tracking-[0.35em]
+          text-[#C8A46A]
+          mb-1
+          drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)]
+        "
+      >
+        PRODUCT 02
+      </p>
+
+      <h3
+        className="
+          text-[13px]
+          tracking-[0.25em]
+          text-white
+          font-light
+          drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)]
+        "
+      >
+        {products[0]?.title?.[lang]}
+      </h3>
+
+    </div>
 
   </div>
 
@@ -788,11 +820,10 @@ object-[50%_50%]
       "md:mt-[40px]",
       "",
       "md:mt-[-60px]"
-    ]
+    ];
 
-    /* 🔥 每張圖獨立設定 */
     const imageStyle = [
-      // 光紗吊燈
+
       `
       object-[50%_42%]
       scale-[1.03]
@@ -802,21 +833,15 @@ object-[50%_50%]
       group-hover:scale-[1.08]
       `,
 
-      // 石材壁燈
-   // 星雨吊燈 ✨
-`
-object-[50%_38%]
+      `
+      object-[50%_38%]
+      scale-[1.04]
+      brightness-[0.9]
+      contrast-[1.08]
+      saturate-[0.92]
+      group-hover:scale-[1.08]
+      `,
 
-scale-[1.04]
-
-brightness-[0.9]
-contrast-[1.08]
-saturate-[0.92]
-
-group-hover:scale-[1.08]
-`,
-
-      // 光境中島
       `
       object-[50%_95%]
       scale-[1.03]
@@ -825,19 +850,17 @@ group-hover:scale-[1.08]
       saturate-[0.95]
       group-hover:scale-[1.05]
       `
-    ]
+    ];
 
-    /* 🔥 每張圖不同遮罩 */
     const overlayStyle = [
-      // 吊燈
-      `
-  from-black/22
-  via-black/[0.05]
-  to-transparent
-  opacity-85
-  `,
 
-      // 石材壁燈
+      `
+      from-black/22
+      via-black/[0.05]
+      to-transparent
+      opacity-85
+      `,
+
       `
       from-black/26
       via-black/[0.04]
@@ -845,16 +868,16 @@ group-hover:scale-[1.08]
       opacity-85
       `,
 
-      // 光境中島
       `
       from-black/22
       via-black/[0.03]
       to-transparent
       opacity-85
       `
-    ]
+    ];
 
     return(
+
       <div
         key={i}
         className={`
@@ -872,13 +895,12 @@ group-hover:scale-[1.08]
         <img
           src={products[i]?.img}
           className={`
-            w-full h-full
-
+            w-full
+            h-full
             object-cover
-
-            transition duration-700
+            transition
+            duration-700
             ease-[cubic-bezier(0.22,1,0.36,1)]
-
             ${imageStyle[idx]}
           `}
         />
@@ -887,31 +909,43 @@ group-hover:scale-[1.08]
         <div
           className={`
             absolute inset-0
-
             bg-gradient-to-t
-
             ${overlayStyle[idx]}
           `}
         />
 
-        {/* TITLE */}
-        <h3
-          className="
-            absolute bottom-6 left-6
-            text-[13px]
-            tracking-[0.25em]
-            text-white
-            font-light
-            z-10
+        {/* TEXT */}
+        <div className="absolute bottom-6 left-6 z-10">
 
-            drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]
-          "
-        >
-          {products[i]?.title?.[lang]}
-        </h3>
+          <p
+            className="
+              text-[10px]
+              tracking-[0.35em]
+              text-[#C8A46A]
+              mb-1
+              drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)]
+            "
+          >
+            PRODUCT {String(i + 1).padStart(2,"0")}
+          </p>
+
+          <h3
+            className="
+              text-[13px]
+              tracking-[0.25em]
+              text-white
+              font-light
+              drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)]
+            "
+          >
+            {products[i]?.title?.[lang]}
+          </h3>
+
+        </div>
 
       </div>
-    )
+
+    );
 
   })}
 
