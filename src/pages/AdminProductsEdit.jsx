@@ -744,7 +744,7 @@ return(
   <option value="FESTIVAL">節慶燈具</option>
   <option value="INSTALLATION">施工安裝</option>
   <option value="CUSTOM">訂製燈具</option>
-  <option value="MIRROR">鏡燈產品</option>
+
 </select>
 
             </div>

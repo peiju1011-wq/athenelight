@@ -15,7 +15,7 @@ export default function AdminProductsNew(){
 const [descZh,setDescZh] = useState("");
 const [descEn,setDescEn] = useState("");
 
-const [category,setCategory] = useState("INTERIOR_LIGHTING");
+const [category,setCategory] = useState("INDOOR");
 
 const [file,setFile] = useState(null);
 

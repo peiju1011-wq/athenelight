@@ -17,7 +17,7 @@ const [descEn,setDescEn] = useState("");
 
 
 const [category,setCategory] =
-  useState("INDOOR");
+  useState("LIGHTING_DESIGN");
 
 
 const [featured,setFeatured] =
@@ -621,14 +621,33 @@ window.location.href =
   value={category}
   onChange={(e)=>setCategory(e.target.value)}
 >
-  <option value="INDOOR">室內</option>
-  <option value="INTERIOR_LIGHTING">室內燈具</option>
-  <option value="OUTDOOR">戶外</option>
-  <option value="LIGHTING_DESIGN">照明設計</option>
-  <option value="FESTIVAL">節慶燈具</option>
-  <option value="INSTALLATION">施工安裝</option>
-  <option value="CUSTOM">訂製燈具</option>
- 
+  <option value="LIGHTING_DESIGN">
+    照明設計
+  </option>
+
+  <option value="INTERIOR">
+    室內空間
+  </option>
+
+  <option value="COMMERCIAL">
+    商業空間
+  </option>
+
+  <option value="FACADE">
+    外牆照明
+  </option>
+
+  <option value="LANDSCAPE">
+    景觀照明
+  </option>
+
+  <option value="ILLUMINATION">
+    亮化工程
+  </option>
+
+  <option value="FESTIVAL">
+    燈會活動
+  </option>
 </select>
 
 

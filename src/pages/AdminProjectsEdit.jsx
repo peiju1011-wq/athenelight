@@ -446,29 +446,37 @@ seo_description:
       
 
 <select
-  value={project.category || ""}
-  onChange={(e)=>
-    setProject({
-      ...project,
-      category:e.target.value
-    })
-  }
-  className="
-    w-full
-    p-3
-    mb-4
-    border
-    bg-white
-    text-black
-  "
+  className="w-full p-3 mb-4 border bg-white text-black"
+  value={category}
+  onChange={(e)=>setCategory(e.target.value)}
 >
-  <option value="LIGHTING DESIGN">照明設計</option>
-  <option value="FACADE">外牆</option>
-  <option value="LANDSCAPE">景觀</option>
-  <option value="COMMERCIAL">商業空間</option>
-  <option value="INTERIOR">室內空間</option>
-  <option value="ILLUMINATION">亮化工程</option>
-  <option value="FESTIVAL">燈會</option>
+  <option value="LIGHTING_DESIGN">
+    照明設計
+  </option>
+
+  <option value="INTERIOR">
+    室內空間
+  </option>
+
+  <option value="COMMERCIAL">
+    商業空間
+  </option>
+
+  <option value="FACADE">
+    外牆照明
+  </option>
+
+  <option value="LANDSCAPE">
+    景觀照明
+  </option>
+
+  <option value="ILLUMINATION">
+    亮化工程
+  </option>
+
+  <option value="FESTIVAL">
+    燈會活動
+  </option>
 </select>
 
 <h2 className="text-xl text-white mb-6">
