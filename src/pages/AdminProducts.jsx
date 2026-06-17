@@ -390,17 +390,49 @@ return(
         "
       >
 
-        <div>
+<div
+  className="
+    flex
+    items-start
+    gap-4
+  "
+>
 
-          <p className="text-white">
-            {item.title_zh}
-          </p>
+  {item.cover && (
+    <img
+      src={item.cover}
+      alt={item.title_zh}
+      className="
+        w-20
+        h-20
+        object-cover
+        rounded
+        bg-white/10
+      "
+    />
+  )}
 
-          <p className="text-white/50 text-sm">
-            {item.slug}
-          </p>
+  <div>
 
-        </div>
+    <p className="text-white">
+      {item.title_zh}
+    </p>
+
+    <p className="text-white/50 text-sm">
+      {item.slug}
+    </p>
+
+    <p className="text-[#C8A46A] text-xs">
+      {item.category}
+    </p>
+
+    <p className="text-white/40 text-xs">
+      排序：{item.sort_order}
+    </p>
+
+  </div>
+
+</div>
 
 <div className="flex gap-3 items-center">
 
