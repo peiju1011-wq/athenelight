@@ -32,7 +32,8 @@ const [descLongZh,setDescLongZh] = useState("");
 const [descLongEn,setDescLongEn] = useState("");
 
 const [cover2,setCover2] = useState("");
-
+const [subCategory,setSubCategory] =
+  useState("");
 
 const [scene1,setScene1] = useState(null);
 const [scene2,setScene2] = useState(null);
@@ -135,6 +136,9 @@ console.log(
 setCover(data.cover || "");
 setCategory(data.category || "");
 
+setSubCategory(
+  data.sub_category || ""
+);
 setSubtitleZh(data.subtitle_zh || "");
 setSubtitleEn(data.subtitle_en || "");
 
@@ -486,7 +490,10 @@ const { error } = await supabase
   desc_long_zh: descLongZh,
   desc_long_en: descLongEn,
 
-  gallery: finalGallery,
+
+  category,
+  sub_category: subCategory,
+
 
 tags,
   specs,
@@ -727,16 +734,18 @@ return(
 
 
             {/* CATEGORY */}
-            <div>
 
-              <p className="mb-2 text-sm text-white/60">
-                產品分類
-              </p>
+<h3 className="text-white text-xl mt-10 mb-4">
+產品分類
+</h3>
 
 <select
   className="w-full p-3 mb-4 border bg-white text-black"
   value={category}
-  onChange={(e)=>setCategory(e.target.value)}
+  onChange={(e)=>{
+    setCategory(e.target.value);
+    setSubCategory("");
+  }}
 >
   <option value="INDOOR">室內燈具</option>
   <option value="OUTDOOR">戶外燈具</option>
@@ -744,10 +753,65 @@ return(
   <option value="FESTIVAL">節慶燈具</option>
   <option value="INSTALLATION">施工安裝</option>
   <option value="CUSTOM">訂製燈具</option>
-
 </select>
 
-            </div>
+
+{[
+  "INDOOR",
+  "OUTDOOR",
+  "FESTIVAL"
+].includes(category) && (
+
+<select
+  className="w-full p-3 mb-6 border bg-white text-black"
+  value={subCategory}
+  onChange={(e)=>setSubCategory(e.target.value)}
+>
+  <option value="">
+    請選擇子分類
+  </option>
+
+  {category === "INDOOR" && (
+    <>
+      <option value="TRACK">軌道燈</option>
+      <option value="PENDANT">吊燈</option>
+      <option value="DOWNLIGHT">崁燈</option>
+      <option value="CEILING">吸頂燈</option>
+      <option value="LINEAR">線型燈</option>
+      <option value="WALL">壁燈</option>
+      <option value="MAGNETIC">磁吸軌道燈</option>
+    </>
+  )}
+
+  {category === "OUTDOOR" && (
+    <>
+      <option value="WASHER">洗牆燈</option>
+      <option value="SPOT">投射燈</option>
+      <option value="FLOOD">泛光燈</option>
+      <option value="LANDSCAPE_POLE">景觀高燈</option>
+      <option value="LANDSCAPE_BOLLARD">景觀矮燈</option>
+      <option value="SPIKE">插地燈</option>
+      <option value="INGROUND">地埋燈</option>
+      <option value="STEP">階梯燈</option>
+      <option value="UNDERWATER">水底燈</option>
+    </>
+  )}
+
+  {category === "FESTIVAL" && (
+    <>
+      <option value="PIXEL">點光源</option>
+      <option value="STRING">燈串</option>
+      <option value="OUTLINE">輪廓燈</option>
+      <option value="DECORATIVE">造型燈飾</option>
+    </>
+  )}
+  
+</select>
+
+  
+)}
+
+
 
           </div>
 

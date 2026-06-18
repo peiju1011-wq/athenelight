@@ -43,7 +43,8 @@ const [featured,setFeatured] =
 
 const [published,setPublished] =
   useState(true);
-
+const [subCategory,setSubCategory] =
+  useState("");
 
 
 const [specs,setSpecs] = useState([
@@ -329,10 +330,10 @@ for(const img of galleryImages){
           seo_description:seoDescription,
 
           line_link:lineLink,
+category,
+sub_category: subCategory,
 
-          category,
-
-  cover:imageUrl,
+cover:imageUrl,
   cover2:imageUrl2,
 
 gallery:
@@ -345,7 +346,8 @@ features,
 tags,
 
 featured,
-published
+published,
+sort_order: -Date.now()
         }
       ]);
 
@@ -476,7 +478,7 @@ window.location.href =
   }
 />
 
-精選案例
+精選產品
 
 </label>
 
@@ -953,38 +955,92 @@ window.location.href =
 
 </div>
 
+
+<h3 className="text-white text-xl mt-10 mb-4">
+產品分類
+</h3>
+
 <select
   className="w-full p-3 mb-4 border bg-white text-black"
   value={category}
-  onChange={(e)=>setCategory(e.target.value)}
+  onChange={(e)=>{
+    setCategory(e.target.value);
+    setSubCategory("");
+  }}
 >
-
-  <option value="INDOOR">
-    室內燈具
-  </option>
-
-  <option value="OUTDOOR">
-    戶外燈具
-  </option>
-
-  <option value="LIGHTING_DESIGN">
-    照明設計
-  </option>
-
-  <option value="FESTIVAL">
-    節慶燈具
-  </option>
-
-  <option value="INSTALLATION">
-    施工安裝
-  </option>
-
-  <option value="CUSTOM">
-    訂製燈具
-  </option>
-
-
+  <option value="INDOOR">室內燈具</option>
+  <option value="OUTDOOR">戶外燈具</option>
+  <option value="LIGHTING_DESIGN">照明設計</option>
+  <option value="FESTIVAL">節慶燈具</option>
+  <option value="INSTALLATION">施工安裝</option>
+  <option value="CUSTOM">訂製燈具</option>
 </select>
+
+
+{[
+  "INDOOR",
+  "OUTDOOR",
+  "FESTIVAL"
+].includes(category) && (
+
+<select
+  className="w-full p-3 mb-6 border bg-white text-black"
+  value={subCategory}
+  onChange={(e)=>setSubCategory(e.target.value)}
+>
+  <option value="">
+    請選擇子分類
+  </option>
+
+  {category === "INDOOR" && (
+    <>
+      <option value="TRACK">軌道燈</option>
+      <option value="PENDANT">吊燈</option>
+      <option value="DOWNLIGHT">崁燈</option>
+      <option value="CEILING">吸頂燈</option>
+      <option value="LINEAR">線型燈</option>
+      <option value="WALL">壁燈</option>
+      <option value="MAGNETIC">磁吸軌道燈</option>
+    </>
+  )}
+
+  {category === "OUTDOOR" && (
+    <>
+      <option value="WASHER">洗牆燈</option>
+      <option value="SPOT">投射燈</option>
+      <option value="FLOOD">泛光燈</option>
+      <option value="LANDSCAPE_POLE">景觀高燈</option>
+      <option value="LANDSCAPE_BOLLARD">景觀矮燈</option>
+      <option value="SPIKE">插地燈</option>
+      <option value="INGROUND">地埋燈</option>
+      <option value="STEP">階梯燈</option>
+      <option value="UNDERWATER">水底燈</option>
+    </>
+  )}
+
+  {category === "FESTIVAL" && (
+    <>
+      <option value="PIXEL">點光源</option>
+      <option value="STRING">燈串</option>
+      <option value="OUTLINE">輪廓燈</option>
+      <option value="DECORATIVE">造型燈飾</option>
+    </>
+  )}
+  
+</select>
+
+  
+)}
+
+
+
+
+
+
+<h3 className="text-white text-xl mt-10 mb-4">
+購買資訊
+</h3>
+
 <input
   placeholder="LINE 購買連結"
   value={lineLink}
@@ -993,6 +1049,9 @@ window.location.href =
 />
 
 
+<h3 className="text-white text-xl mt-10 mb-4">
+產品特徵
+</h3>
 
 {/* 選項1 */}
 <div className="grid md:grid-cols-2 gap-3 mb-3">
@@ -1093,11 +1152,17 @@ window.location.href =
 
 </div>
 
+
+
+<h3 className="text-white text-xl mt-10 mb-4">
+SEO 設定
+</h3>
+
 <input
   placeholder="SEO Title"
   value={seoTitle}
   onChange={(e)=>setSeoTitle(e.target.value)}
-  className="w-full p-3 mb-4 mt-10 border bg-white text-black"
+ className="w-full p-3 mb-4 border bg-white text-black"
 />
 
 <textarea
@@ -1143,7 +1208,7 @@ window.location.href =
 />
 
 <h3 className="text-white text-xl mt-10 mb-4">
-案例資訊
+產品規格
 </h3>
 
 {specs.map((spec,index)=>(

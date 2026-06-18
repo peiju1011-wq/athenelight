@@ -421,10 +421,22 @@ return(
     <p className="text-white/50 text-sm">
       {item.slug}
     </p>
+    
+<p className="text-[#C8A46A] text-xs">
 
-    <p className="text-[#C8A46A] text-xs">
-      {item.category}
-    </p>
+  {item.category === "INDOOR" && "室內燈具"}
+  {item.category === "OUTDOOR" && "戶外燈具"}
+  {item.category === "FESTIVAL" && "節慶燈具"}
+
+  {item.sub_category === "TRACK" && " / 軌道燈"}
+  {item.sub_category === "PENDANT" && " / 吊燈"}
+  {item.sub_category === "DOWNLIGHT" && " / 崁燈"}
+  {item.sub_category === "CEILING" && " / 吸頂燈"}
+  {item.sub_category === "LINEAR" && " / 線型燈"}
+  {item.sub_category === "WALL" && " / 壁燈"}
+  {item.sub_category === "MAGNETIC" && " / 磁吸軌道燈"}
+
+</p>
 
     <p className="text-white/40 text-xs">
       排序：{item.sort_order}
