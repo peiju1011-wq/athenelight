@@ -135,23 +135,25 @@ const products = productsData
 
     console.log("ITEM =", item);
 
-    return {
-      id:item.id,
-      slug:item.slug,
+return {
+  id:item.id,
+  slug:item.slug,
 
-      title:{
-        zh:item.title_zh,
-        en:item.title_en
-      },
+  title:{
+    zh:item.title_zh,
+    en:item.title_en
+  },
 
-      img:item.cover,
+  img:item.cover,
 
-      type:"light",
+  type:"light",
 
-      cat:item.category?.toUpperCase(),
+  cat:item.category?.toUpperCase(),
 
-      link:item.slug
-    };
+  subCat:item.sub_category?.toUpperCase(),
+
+  link:item.slug
+};
 
   });
 
@@ -190,8 +192,11 @@ const allItems = [
     slug: p.slug,
 
     type: "light",
+    
 
     cat: p.cat,
+
+    subCat: p.subCat,
 
     img: p.img,
 
@@ -233,7 +238,14 @@ if(active === "OUTDOOR"){
   return item.cat === "OUTDOOR";
 }
 
-      return item.cat === active;
+if(active === "FESTIVAL"){
+  return item.cat === "FESTIVAL";
+}
+
+return (
+  item.cat === active ||
+  item.subCat === active
+);
     }
 
     return active === "MIRROR";
