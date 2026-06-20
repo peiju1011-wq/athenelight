@@ -264,8 +264,8 @@ return(
     relative
     overflow-hidden
 
-    min-w-[130px]
-    h-[50px]
+    min-w-[170px]
+    h-[48px]
 
     rounded-full
     border border-[#d9c7a0]
@@ -274,7 +274,8 @@ return(
 
     text-[#C8A46A]
     text-[12px]
-    tracking-[0.38em]
+    b
+    tracking-[0.25em]
     font-light
 
     transition-all duration-500
