@@ -33,7 +33,9 @@ return(
 {/* ===== CONTENT ===== */}
 <section
   className={`
-    mb-20
+
+    relative z-10
+    -mb-5
     overflow-hidden
     rounded-[32px]
     border border-[#ebe7df]
@@ -274,7 +276,6 @@ return(
 
     text-[#C8A46A]
     text-[12px]
-    b
     tracking-[0.25em]
     font-light
 
@@ -334,7 +335,7 @@ return(
 
 
 {/* ===== CONTACT SOCIAL ===== */}
-<section className="py-20 bg-[#f3f0ec]">
+<section className="  py-20 -mt-18 bg-[#f3f0ec]">
 
   <div className="max-w-[900px] mx-auto px-6 text-center">
 
@@ -487,7 +488,7 @@ hover:shadow-[0_8px_24px_rgba(200,164,106,0.28)]
 
 
 {/* ===== MAP ===== */}
-<section className={`mt-20 ${ani("page-delay-2")}`}>
+<section className={`mt-16 ${ani("page-delay-2")}`}>
 
   <div className="relative w-full rounded-[8px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.12)]">
 
