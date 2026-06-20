@@ -266,8 +266,11 @@ return(
     relative
     overflow-hidden
 
-    min-w-[170px]
-    h-[48px]
+    min-w-[160px]
+    md:min-w-[170px]
+
+    h-[46px]
+    md:h-[48px]
 
     rounded-full
     border border-[#d9c7a0]
@@ -275,8 +278,6 @@ return(
     flex items-center justify-center
 
     text-[#C8A46A]
-    text-[12px]
-    tracking-[0.25em]
     font-light
 
     transition-all duration-500
@@ -288,7 +289,6 @@ return(
   "
 >
 
-  {/* 左→右滑入 */}
   <span
     className="
       absolute inset-0
@@ -303,7 +303,17 @@ return(
     "
   />
 
-  <span className="relative z-[2]">
+  <span
+    className={`
+      relative z-[2]
+
+      ${
+        lang === "en"
+          ? "text-[10px] md:text-[12px] tracking-[0.12em] md:tracking-[0.25em]"
+          : "text-[14px] tracking-[0.25em]"
+      }
+    `}
+  >
     {loading
       ? (lang === "en" ? "SENDING..." : "傳送中...")
       : (lang === "en" ? "SEND MESSAGE" : "送出訊息")}
