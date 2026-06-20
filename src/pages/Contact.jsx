@@ -309,7 +309,7 @@ return(
 
       ${
         lang === "en"
-          ? "text-[10px] md:text-[12px] tracking-[0.25em] md:tracking-[0.25em]"
+          ? "text-[10px] md:text-[12px] tracking-[0.18em] md:tracking-[0.25em]"
           : "text-[13px] tracking-[0.3em]"
       }
     `}
