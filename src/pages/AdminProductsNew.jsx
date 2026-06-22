@@ -969,7 +969,9 @@ window.location.href =
   }}
 >
   <option value="INDOOR">室內燈具</option>
-  <option value="OUTDOOR">戶外燈具</option>
+ <option value="OUTDOOR">
+  戶外系列
+</option>
   <option value="LIGHTING_DESIGN">照明設計</option>
   <option value="FESTIVAL">節慶燈具</option>
   <option value="INSTALLATION">施工安裝</option>
@@ -992,41 +994,105 @@ window.location.href =
     請選擇子分類
   </option>
 
-  {category === "INDOOR" && (
-    <>
-      <option value="TRACK">軌道燈</option>
-      <option value="PENDANT">吊燈</option>
-      <option value="DOWNLIGHT">崁燈</option>
-      <option value="CEILING">吸頂燈</option>
-      <option value="LINEAR">線型燈</option>
-      <option value="WALL">壁燈</option>
-      <option value="MAGNETIC">磁吸軌道燈</option>
-    </>
-  )}
+{category === "INDOOR" && (
+  <>
+    <option value="LOBBY_PENDANT">
+      大廳吊燈
+    </option>
 
-  {category === "OUTDOOR" && (
-    <>
-      <option value="WASHER">洗牆燈</option>
-      <option value="SPOT">投射燈</option>
-      <option value="FLOOD">泛光燈</option>
-      <option value="LANDSCAPE_POLE">景觀高燈</option>
-      <option value="LANDSCAPE_BOLLARD">景觀矮燈</option>
-      <option value="SPIKE">插地燈</option>
-      <option value="INGROUND">地埋燈</option>
-      <option value="STEP">階梯燈</option>
-      <option value="UNDERWATER">水底燈</option>
-    </>
-  )}
+    <option value="DINING_PENDANT">
+      餐廳吊燈
+    </option>
 
-  {category === "FESTIVAL" && (
-    <>
-      <option value="PIXEL">點光源</option>
-      <option value="STRING">燈串</option>
-      <option value="OUTLINE">輪廓燈</option>
-      <option value="DECORATIVE">造型燈飾</option>
-    </>
-  )}
-  
+    <option value="CUSTOM_PENDANT">
+      訂製吊燈
+    </option>
+
+    <option value="LIGHT_FILM">
+      光膜
+    </option>
+
+    <option value="CRYSTAL_FILM">
+      晶膜屏
+    </option>
+
+    <option value="LINEAR">
+      線條燈
+    </option>
+
+    <option value="WALL">
+      壁燈
+    </option>
+  </>
+)}
+
+{category === "OUTDOOR" && (
+  <>
+    <option value="LANDSCAPE_POLE">
+      景觀高燈
+    </option>
+
+    <option value="LANDSCAPE_BOLLARD">
+      景觀矮燈
+    </option>
+
+    <option value="POST_TOP">
+      柱頭燈
+    </option>
+
+    <option value="LANDSCAPE_INGROUND">
+      景觀地埋燈
+    </option>
+
+    <option value="UNDERWATER">
+      水底燈
+    </option>
+
+    <option value="LINEAR_FACADE">
+      外牆線型燈
+    </option>
+
+    <option value="FLOOD">
+      投光燈
+    </option>
+
+    <option value="WALL_LIGHT">
+      外牆壁燈
+    </option>
+
+    <option value="RECESSED_WALL">
+      崁壁燈
+    </option>
+
+    <option value="STEP">
+      階梯燈
+    </option>
+
+    <option value="INGROUND">
+      外牆地埋燈
+    </option>
+  </>
+)}
+
+{category === "FESTIVAL" && (
+  <>
+    <option value="NET_LIGHT">
+      網燈
+    </option>
+
+    <option value="STRING">
+      燈串
+    </option>
+
+    <option value="FENCE_LIGHT">
+      柵欄燈
+    </option>
+
+    <option value="CURTAIN_LIGHT">
+      窗簾燈
+    </option>
+  </>
+)}
 </select>
 
   

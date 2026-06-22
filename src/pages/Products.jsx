@@ -104,23 +104,23 @@ const outdoorTypes = [
     ]
   },
 
-  {
-    key:"CUSTOM_OUTDOOR",
-    zh:"訂製燈",
-    en:"Custom Lighting"
-  },
+{
+  key:"CUSTOM",
+  zh:"訂製燈",
+  en:"Custom Lighting"
+},
 
-  {
-    key:"INSTALLATION",
-    zh:"施工",
-    en:"Installation"
-  },
+{
+  key:"INSTALLATION",
+  zh:"施工",
+  en:"Installation"
+},
 
-  {
-    key:"LIGHTING_DESIGN",
-    zh:"設計",
-    en:"Lighting Design"
-  }
+{
+  key:"LIGHTING_DESIGN",
+  zh:"設計",
+  en:"Lighting Design"
+}
 
 ];
 
@@ -492,25 +492,27 @@ tracking-[0.08em]
 
       <div key={item.key}>
 
-        <div
-          onClick={() => {
+<div
+  onClick={() => {
 
-            setActive(item.key);
+    if(item.children) return;
 
-            setSearchParams(prev => {
-              prev.set("cat", item.key);
-              prev.set("page", 1);
-              return prev;
-            });
+    setActive(item.key);
 
-          }}
-          className="
-            text-[#666]
-            hover:text-[#C8A46A]
-            transition-colors
-            cursor-pointer
-          "
-        >
+    setSearchParams(prev => {
+      prev.set("cat", item.key);
+      prev.set("page", 1);
+      return prev;
+    });
+
+  }}
+  className="
+    text-[#666]
+    hover:text-[#C8A46A]
+    transition-colors
+    cursor-pointer
+  "
+>
           {lang === "en"
             ? item.en
             : item.zh}
@@ -636,26 +638,28 @@ tracking-[0.08em]
 
   <div key={item.key}>
 
-    <div
-      onClick={() => {
+<div
+  onClick={() => {
 
-        setActive(item.key);
+    if(item.children) return;
 
-        setSearchParams(prev => {
-          prev.set("cat", item.key);
-          prev.set("page", 1);
-          return prev;
-        });
+    setActive(item.key);
 
-      }}
-      className="
-        text-[#666]
-        text-[12px]
-        hover:text-[#C8A46A]
-        transition-colors
-        cursor-pointer
-      "
-    >
+    setSearchParams(prev => {
+      prev.set("cat", item.key);
+      prev.set("page", 1);
+      return prev;
+    });
+
+  }}
+  className="
+    text-[#666]
+    text-[12px]
+    hover:text-[#C8A46A]
+    transition-colors
+    cursor-pointer
+  "
+>
       {lang === "en"
         ? item.en
         : item.zh}
