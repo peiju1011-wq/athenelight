@@ -491,7 +491,6 @@ const { error } = await supabase
   desc_long_en: descLongEn,
 
 
-  category,
   sub_category: subCategory,
 
 

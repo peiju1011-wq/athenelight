@@ -37,7 +37,7 @@ const [role,setRole] = useState("");
 
           title_zh: `${product.title_zh} 複製`,
 
-          sort_order: Date.now()
+          sort_order: -Date.now()
         }
       ]);
 
@@ -166,7 +166,7 @@ async function loadRole(){
     .from("users")
     .select("role")
     .eq("email", user.email)
-    .single();
+    .maybeSingle()
 
   if(error){
     console.log(error);
@@ -204,10 +204,12 @@ async function loadProducts(){
 
       total:data.length,
 
-      indoor:
-        data.filter(
-          p => p.category === "INDOOR"
-        ).length,
+    indoor:
+  data.filter(
+    p =>
+      p.category === "INDOOR" ||
+      p.category === "INTERIOR_LIGHTING"
+  ).length,
 
       outdoor:
         data.filter(
@@ -241,7 +243,14 @@ useEffect(() => {
 return(
 
 
-<main className="pt-[140px] px-10 pb-20">
+<main
+  className="
+    pt-[140px]
+    px-4
+    md:px-10
+    pb-20
+  "
+>
 
 <div
   className="
@@ -379,15 +388,21 @@ return(
 
       <div
         key={item.id}
-        className="
-          border
-          border-white/10
-          p-4
-          rounded
-          flex
-          justify-between
-          items-center
-        "
+className="
+  border
+  border-white/10
+  p-4
+  rounded
+
+  flex
+  flex-col
+
+  lg:flex-row
+  lg:justify-between
+  lg:items-center
+
+  gap-4
+"
       >
 
 <div
@@ -395,6 +410,8 @@ return(
     flex
     items-start
     gap-4
+    flex-1
+    min-w-0
   "
 >
 
@@ -414,7 +431,12 @@ return(
 
   <div>
 
-    <p className="text-white">
+   <p
+  className="
+    text-white
+    break-words
+  "
+>
       {item.title_zh}
     </p>
 
@@ -425,8 +447,17 @@ return(
 <p className="text-[#C8A46A] text-xs">
 
   {item.category === "INDOOR" && "室內燈具"}
+  {item.category === "INTERIOR_LIGHTING" && "室內燈具"}
+
   {item.category === "OUTDOOR" && "戶外燈具"}
+
   {item.category === "FESTIVAL" && "節慶燈具"}
+
+  {item.category === "INSTALLATION" && "施工安裝"}
+
+  {item.category === "CUSTOM" && "訂製燈具"}
+
+  {item.category === "LIGHTING_DESIGN" && "照明設計"}
 
   {item.sub_category === "TRACK" && " / 軌道燈"}
   {item.sub_category === "PENDANT" && " / 吊燈"}
@@ -435,6 +466,16 @@ return(
   {item.sub_category === "LINEAR" && " / 線型燈"}
   {item.sub_category === "WALL" && " / 壁燈"}
   {item.sub_category === "MAGNETIC" && " / 磁吸軌道燈"}
+
+  {item.sub_category === "WASHER" && " / 洗牆燈"}
+  {item.sub_category === "SPOT" && " / 投射燈"}
+  {item.sub_category === "FLOOD" && " / 泛光燈"}
+  {item.sub_category === "LANDSCAPE_POLE" && " / 景觀高燈"}
+  {item.sub_category === "LANDSCAPE_BOLLARD" && " / 景觀矮燈"}
+  {item.sub_category === "SPIKE" && " / 插地燈"}
+  {item.sub_category === "INGROUND" && " / 地埋燈"}
+  {item.sub_category === "STEP" && " / 階梯燈"}
+  {item.sub_category === "UNDERWATER" && " / 水底燈"}
 
 </p>
 
@@ -446,77 +487,83 @@ return(
 
 </div>
 
-<div className="flex gap-3 items-center">
-
-<button
-  onClick={() => moveUp(item,index)}
+<div
   className="
-    text-green-400
-    text-sm
+    flex
+    flex-col
+    gap-3
   "
 >
-  ↑
-</button>
 
-<button
-  onClick={() => moveDown(item,index)}
-  className="
-    text-blue-400
-    text-sm
-  "
->
-  ↓
-</button>
+  <div className="flex gap-4">
 
+    <button
+      onClick={() => moveUp(item,index)}
+      className="text-green-400 text-sm"
+    >
+      ↑
+    </button>
 
-<button
-  onClick={()=>{
-    alert(item.slug);
+    <button
+      onClick={() => moveDown(item,index)}
+      className="text-blue-400 text-sm"
+    >
+      ↓
+    </button>
 
-    window.location.href =
-      `/admin/products/${item.slug}`;
-  }}
->
-  EDIT
-</button>
+  </div>
 
+  <div className="flex gap-3 items-center">
 
+    <button
+      onClick={()=>{
+        if(!item.slug){
+          alert("找不到 slug");
+          return;
+        }
 
-<button
-  onClick={() => handleDuplicate(item)}
-  className="
-    px-3 py-2
-    text-xs
-    border
-    border-white/20
-  "
->
-  複製
-</button>
+        navigate(`/admin/products/${item.slug}`);
+      }}
+    >
+      EDIT
+    </button>
 
-<button
- onClick={() => handleDelete(item)}
-  className="
-    px-3 py-2
-    text-xs
-    border
-    border-red-500/40
-    text-red-400
-  "
->
-  刪除
-</button>
+    <button
+      onClick={() => handleDuplicate(item)}
+      className="
+        px-3 py-2
+        text-xs
+        border
+        border-white/20
+      "
+    >
+      複製
+    </button>
+
+    <button
+      onClick={() => handleDelete(item)}
+      className="
+        px-3 py-2
+        text-xs
+        border
+        border-red-500/40
+        text-red-400
+      "
+    >
+      刪除
+    </button>
+
+  </div>
 
 </div>
 
-      </div>
+</div>
 
     ))}
 
   </div>
 
 </main>
-
 
 );
 
