@@ -76,8 +76,8 @@ if(cover){
   const ext =
     cover.name.split(".").pop();
 
-  const fileName =
-    `${slug}-${Date.now()}.${ext}`;
+const fileName =
+`${slug}-cover.${ext}`;
 
   let compressedCover = cover;
 
@@ -98,10 +98,13 @@ if(cover){
   const { error: uploadError } =
     await supabase.storage
       .from("projects")
-      .upload(
-        fileName,
-        compressedCover
-      );
+    .upload(
+  fileName,
+  compressedCover,
+  {
+    upsert:true
+  }
+);
 
   if(uploadError){
     alert(uploadError.message);
@@ -124,8 +127,8 @@ if(gallery1){
   const ext =
     gallery1.name.split(".").pop();
 
-  const fileName =
-    `${slug}-g1-${Date.now()}.${ext}`;
+const fileName =
+`${slug}-01.${ext}`;
 
   let compressedGallery1 =
     gallery1;
@@ -150,6 +153,10 @@ await imageCompression(
       .upload(
         fileName,
         compressedGallery1
+        ,
+  {
+    upsert:true
+  }
       );
 
   if(uploadError){
@@ -174,8 +181,8 @@ if(gallery2){
   const ext =
     gallery2.name.split(".").pop();
 
-  const fileName =
-    `${slug}-g2-${Date.now()}.${ext}`;
+ const fileName =
+`${slug}-02.${ext}`;
 
   let compressedGallery2 =
     gallery2;
@@ -200,6 +207,10 @@ await imageCompression(
       .upload(
         fileName,
         compressedGallery2
+        ,
+  {
+    upsert:true
+  }
       );
 
   if(uploadError){
@@ -225,7 +236,7 @@ if(gallery3){
     gallery3.name.split(".").pop();
 
   const fileName =
-    `${slug}-g3-${Date.now()}.${ext}`;
+`${slug}-03.${ext}`;
 
   let compressedGallery3 =
     gallery3;
@@ -250,6 +261,10 @@ await imageCompression(
       .upload(
         fileName,
         compressedGallery3
+        ,
+  {
+    upsert:true
+  }
       );
 
   if(uploadError){

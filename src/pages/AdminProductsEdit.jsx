@@ -317,32 +317,36 @@ async function handleSave(){
     const ext =
       coverFile.name.split(".").pop();
 
-    const fileName =
-      `${productSlug}-cover-${Date.now()}.${ext}`;
+const fileName =
+`${productSlug}-cover.${ext}`
 
     let compressedCover =
       coverFile;
 
-    if(coverFile.size > 800 * 1024){
+if(coverFile.size > 8 * 1024 * 1024){
 
-      compressedCover =
-        await imageCompression(
-          coverFile,
-          {
-            maxSizeMB: 1,
-            maxWidthOrHeight: 1920
-          }
-        );
+  compressedCover =
+    await imageCompression(
+      coverFile,
+      {
+        maxSizeMB: 8,
+        useWebWorker: true,
+        maxWidthOrHeight: 3840
+      }
+    );
 
-    }
+}
 
     const { error: uploadError } =
       await supabase.storage
         .from("products")
-        .upload(
-          fileName,
-          compressedCover
-        );
+   .upload(
+  fileName,
+  compressedCover,
+  {
+    upsert:true
+  }
+)
 
     if(uploadError){
       alert(uploadError.message);
@@ -361,32 +365,36 @@ if(cover2File){
   const ext =
     cover2File.name.split(".").pop();
 
-  const fileName =
-    `${productSlug}-cover2-${Date.now()}.${ext}`;
+const fileName =
+`${productSlug}-cover2.${ext}`;
 
   let compressedCover2 =
     cover2File;
 
-  if(cover2File.size > 800 * 1024){
+if(cover2File.size > 8 * 1024 * 1024){
 
-    compressedCover2 =
-      await imageCompression(
-        cover2File,
-        {
-          maxSizeMB: 1,
-          maxWidthOrHeight: 1920
-        }
-      );
+  compressedCover2 =
+    await imageCompression(
+      cover2File,
+      {
+        maxSizeMB: 8,
+        useWebWorker: true,
+        maxWidthOrHeight: 3840
+      }
+    );
 
-  }
+}
 
   const { error: uploadError } =
     await supabase.storage
       .from("products")
-      .upload(
-        fileName,
-        compressedCover2
-      );
+.upload(
+  fileName,
+  compressedCover2,
+  {
+    upsert:true
+  }
+);
 
   if(uploadError){
     alert(uploadError.message);
@@ -418,46 +426,51 @@ for(let i = 0; i < galleryImages.length; i++){
   const ext =
     file.name.split(".").pop();
 
-  const fileName =
-    `${productSlug}-gallery-${i}-${Date.now()}.${ext}`;
 
-  let compressedFile =
-    file;
 
-  if(file.size > 800 * 1024){
+const fileName =
+`${productSlug}-${i + 1}.${ext}`;
 
-    compressedFile =
-      await imageCompression(
-        file,
-        {
-          maxSizeMB: 1,
-          maxWidthOrHeight: 1920
-        }
-      );
+let compressedFile =
+  file;
 
-  }
+if(file.size > 8 * 1024 * 1024){
 
-  const { error: uploadError } =
-    await supabase.storage
-      .from("products")
-      .upload(
-        fileName,
-        compressedFile
-      );
+  compressedFile =
+    await imageCompression(
+      file,
+      {
+        maxSizeMB: 8,
+        useWebWorker: true,
+        maxWidthOrHeight: 3840
+      }
+    );
 
-  if(uploadError){
-    alert(uploadError.message);
-    return;
-  }
+}
 
-  const { data } =
-    supabase.storage
-      .from("products")
-      .getPublicUrl(fileName);
+const { error: uploadError } =
+  await supabase.storage
+    .from("products")
+    .upload(
+      fileName,
+      compressedFile,
+      {
+        upsert: true
+      }
+    );
 
-  finalGallery[i] =
-    data.publicUrl;
+if(uploadError){
+  alert(uploadError.message);
+  return;
+}
 
+const { data } =
+  supabase.storage
+    .from("products")
+    .getPublicUrl(fileName);
+
+finalGallery[i] =
+  data.publicUrl;
 }
 
 console.log(tags);

@@ -91,8 +91,8 @@ if(newCover){
   const ext =
     newCover.name.split(".").pop();
 
-  const fileName =
-    `${project.slug}-cover-${Date.now()}.${ext}`;
+const fileName =
+`${slug}-cover.${ext}`;
 
 let compressedCover =
   newCover;
@@ -116,13 +116,13 @@ if(newCover.size > COMPRESS_LIMIT){
   const { error: uploadError } =
     await supabase.storage
       .from("projects")
-      .upload(
-        fileName,
-        compressedCover,
-        {
-          upsert:true
-        }
-      );
+     .upload(
+  fileName,
+  compressedCover,
+  {
+    upsert:true
+  }
+);
 
   if(uploadError){
     alert(uploadError.message);
@@ -142,8 +142,8 @@ if(newGallery1){
   const ext =
     newGallery1.name.split(".").pop();
 
-  const fileName =
-    `${project.slug}-g1-${Date.now()}.${ext}`;
+ const fileName =
+`${slug}-01.${ext}`;
 
   let compressedGallery1 =
     newGallery1;
@@ -197,7 +197,7 @@ if(newGallery2){
     newGallery2.name.split(".").pop();
 
   const fileName =
-    `${project.slug}-g2-${Date.now()}.${ext}`;
+`${slug}-02.${ext}`;
 
   let compressedGallery2 =
     newGallery2;
@@ -251,7 +251,7 @@ if(newGallery3){
     newGallery3.name.split(".").pop();
 
   const fileName =
-    `${project.slug}-g3-${Date.now()}.${ext}`;
+`${slug}-03.${ext}`;
 
   let compressedGallery3 =
     newGallery3;

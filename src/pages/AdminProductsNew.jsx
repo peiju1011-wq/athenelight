@@ -164,8 +164,8 @@ if(file){
   const ext =
     file.name.split(".").pop();
 
-  const fileName =
-    `${slug}-cover-${Date.now()}.${ext}`;
+const fileName =
+`${slug}-cover.${ext}`;
 
   let compressedCover =
     file;
@@ -187,10 +187,13 @@ if(file){
   const { error: uploadError } =
     await supabase.storage
       .from("products")
-      .upload(
-        fileName,
-        compressedCover
-      );
+     .upload(
+  fileName,
+  compressedCover,
+  {
+    upsert:true
+  }
+);
 
   if(uploadError){
     alert(uploadError.message);
@@ -214,7 +217,7 @@ if(file2){
     file2.name.split(".").pop();
 
   const fileName2 =
-    `${slug}-cover2-${Date.now()}.${ext}`;
+    `${slug}-cover2.${ext}`
 
   let compressedCover2 =
     file2;
@@ -236,10 +239,13 @@ if(file2){
   const { error: uploadError2 } =
     await supabase.storage
       .from("products")
-      .upload(
-        fileName2,
-        compressedCover2
-      );
+.upload(
+  fileName2,
+  compressedCover2,
+  {
+    upsert:true
+  }
+);
 
   if(uploadError2){
     alert(uploadError2.message);
@@ -254,18 +260,16 @@ if(file2){
 imageUrl2 = data.publicUrl;
 }
 
-for(const img of galleryImages){
+for(let i = 0; i < galleryImages.length; i++){
+
+  const img = galleryImages[i];
 
   if(!img) continue;
 
-  const ext =
-    img.name.split(".").pop();
-
   const fileName =
-    `${slug}-gallery-${Date.now()}-${Math.random()}.${ext}`;
+    `${slug}-${i + 1}.png`;
 
-  let compressedImg =
-    img;
+  let compressedImg = img;
 
   if(img.size > COMPRESS_LIMIT){
 
@@ -273,9 +277,9 @@ for(const img of galleryImages){
       await imageCompression(
         img,
         {
-          maxSizeMB: 1,
+          maxSizeMB: 8,
           useWebWorker: true,
-          maxWidthOrHeight: 1920
+          maxWidthOrHeight: 3840
         }
       );
 
@@ -286,7 +290,10 @@ for(const img of galleryImages){
       .from("products")
       .upload(
         fileName,
-        compressedImg
+        compressedImg,
+        {
+          upsert:true
+        }
       );
 
   if(uploadError){
