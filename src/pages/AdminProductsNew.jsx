@@ -124,7 +124,7 @@ const [features,setFeatures] = useState([
 async function handleSave(){
 
 const COMPRESS_LIMIT =
-  1024 * 1024;
+  8 * 1024 * 1024;
   // 先檢查 slug
 
 if(!slug.trim()){

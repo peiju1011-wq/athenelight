@@ -75,8 +75,8 @@ loadProject();
 
 async function handleUpdate(){
 
-  const COMPRESS_LIMIT =
-  1024 * 1024;
+ const COMPRESS_LIMIT =
+  8 * 1024 * 1024;
 
   let coverUrl = project.cover;
 
@@ -102,11 +102,11 @@ if(newCover.size > COMPRESS_LIMIT){
   compressedCover =
     await imageCompression(
       newCover,
-      {
-        maxSizeMB: 1,
-        useWebWorker: true,
-        maxWidthOrHeight: 1920
-      }
+{
+  maxSizeMB: 8,
+  useWebWorker: true,
+  maxWidthOrHeight: 3840
+}
     );
 
 }
@@ -153,11 +153,11 @@ if(newGallery1){
     compressedGallery1 =
       await imageCompression(
         newGallery1,
-        {
-          maxSizeMB: 1,
-          useWebWorker: true,
-          maxWidthOrHeight: 1920
-        }
+{
+  maxSizeMB: 8,
+  useWebWorker: true,
+  maxWidthOrHeight: 3840
+}
       );
 
   }
@@ -207,11 +207,11 @@ if(newGallery2){
     compressedGallery2 =
       await imageCompression(
         newGallery2,
-        {
-          maxSizeMB: 1,
-          useWebWorker: true,
-          maxWidthOrHeight: 1920
-        }
+{
+  maxSizeMB: 8,
+  useWebWorker: true,
+  maxWidthOrHeight: 3840
+}
       );
 
   }
@@ -261,11 +261,11 @@ if(newGallery3){
     compressedGallery3 =
       await imageCompression(
         newGallery3,
-        {
-          maxSizeMB: 1,
-          useWebWorker: true,
-          maxWidthOrHeight: 1920
-        }
+{
+  maxSizeMB: 8,
+  useWebWorker: true,
+  maxWidthOrHeight: 3840
+}
       );
 
   }

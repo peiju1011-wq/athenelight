@@ -46,7 +46,7 @@ const [gallery3,setGallery3] = useState(null);
 async function handleSave(){
 
   const COMPRESS_LIMIT =
-  1024 * 1024;
+  8 * 1024 * 1024;
 
 if(!slug.trim()){
 alert("請輸入 Slug");
@@ -87,9 +87,9 @@ if(cover){
       await imageCompression(
         cover,
 {
-  maxSizeMB: 1,
+  maxSizeMB: 8,
   useWebWorker: true,
-  maxWidthOrHeight: 1920
+  maxWidthOrHeight: 3840
 }
       );
 
@@ -135,11 +135,11 @@ if(gallery1.size > COMPRESS_LIMIT){
     compressedGallery1 =
 await imageCompression(
   gallery1,
-  {
-    maxSizeMB: 1,
-    useWebWorker: true,
-    maxWidthOrHeight: 1920
-  }
+{
+  maxSizeMB: 8,
+  useWebWorker: true,
+  maxWidthOrHeight: 3840
+}
 );
 
   }
@@ -185,11 +185,11 @@ if(gallery2){
 compressedGallery2 =
 await imageCompression(
   gallery2,
-  {
-    maxSizeMB: 1,
-    useWebWorker: true,
-    maxWidthOrHeight: 1920
-  }
+{
+  maxSizeMB: 8,
+  useWebWorker: true,
+  maxWidthOrHeight: 3840
+}
 );
 
   }
@@ -235,11 +235,11 @@ if(gallery3){
     compressedGallery3 =
 await imageCompression(
   gallery3,
-  {
-    maxSizeMB: 1,
-    useWebWorker: true,
-    maxWidthOrHeight: 1920
-  }
+{
+  maxSizeMB: 8,
+  useWebWorker: true,
+  maxWidthOrHeight: 3840
+}
 );
 
   }
@@ -283,8 +283,8 @@ title_en: titleEn,
 
       category,
 
-      cover: imageUrl,
-     gallery: galleryUrls || [],
+    cover: imageUrl,
+images: galleryUrls || [],
 
       featured,
       published,
