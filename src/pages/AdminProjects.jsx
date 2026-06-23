@@ -184,7 +184,7 @@ if(data){
 
     lighting:
       data.filter(
-        p => p.category === "LIGHTING DESIGN"
+        p => p.category === "LIGHTING_DESIGN"
       ).length,
 
     facade:

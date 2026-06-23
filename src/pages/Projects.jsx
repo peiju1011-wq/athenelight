@@ -49,7 +49,7 @@ const categories =
   lang === "en"
     ? [
         "ALL",
-        "LIGHTING DESIGN",
+        "LIGHTING_DESIGN",
         "FACADE",
         "LANDSCAPE",
         "COMMERCIAL",
@@ -70,7 +70,7 @@ const categories =
 
 const typeMap = {
   "全部": "ALL",
-  "照明設計": "LIGHTING DESIGN",
+  "照明設計": "LIGHTING_DESIGN",
   "外牆照明": "FACADE",
   "景觀照明": "LANDSCAPE",
   "商業空間": "COMMERCIAL",

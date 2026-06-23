@@ -212,7 +212,7 @@ const projects = [
   type:"照明設計",
 
   category:"照明設計",
-  category_en:"LIGHTING DESIGN",
+  category_en:"LIGHTING_DESIGN",
 
   title:"鳥籠燈裝置設計",
   title_en:"Decorative Ceiling Light Installation",
