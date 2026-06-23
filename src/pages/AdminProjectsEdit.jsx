@@ -124,17 +124,29 @@ if(newCover.size > COMPRESS_LIMIT){
   }
 );
 
-  if(uploadError){
-    alert(uploadError.message);
-    return;
-  }
+if(uploadError){
 
+  console.log("UPLOAD ERROR");
+  console.log(uploadError);
+
+  alert(
+    JSON.stringify(
+      uploadError,
+      null,
+      2
+    )
+  );
+
+  return;
+
+}
   const { data } =
     supabase.storage
       .from("projects")
       .getPublicUrl(fileName);
 
-  coverUrl = data.publicUrl;
+ coverUrl =
+  `${data.publicUrl}?v=${Date.now()}`;
 }
 
 if(newGallery1){
@@ -173,20 +185,30 @@ if(newGallery1){
         }
       );
 
-  if(uploadError){
-    alert(uploadError.message);
-    return;
-  }
+if(uploadError){
+
+  console.log("UPLOAD ERROR");
+  console.log(uploadError);
+
+  alert(
+    JSON.stringify(
+      uploadError,
+      null,
+      2
+    )
+  );
+
+  return;
+
+}
 
   const { data } =
     supabase.storage
       .from("projects")
       .getPublicUrl(fileName);
 
-imageUrls[0] = {
-  ...imageUrls[0],
-  src: data.publicUrl
-};
+imageUrls[0] =
+  `${data.publicUrl}?v=${Date.now()}`;
 }
 
 
@@ -227,20 +249,30 @@ if(newGallery2){
         }
       );
 
-  if(uploadError){
-    alert(uploadError.message);
-    return;
-  }
+if(uploadError){
+
+  console.log("UPLOAD ERROR");
+  console.log(uploadError);
+
+  alert(
+    JSON.stringify(
+      uploadError,
+      null,
+      2
+    )
+  );
+
+  return;
+
+}
 
   const { data } =
     supabase.storage
       .from("projects")
       .getPublicUrl(fileName);
 
-imageUrls[1] = {
-  ...imageUrls[1],
-  src: data.publicUrl
-};
+imageUrls[1] =
+  `${data.publicUrl}?v=${Date.now()}`;
 }
 
 
@@ -281,27 +313,44 @@ if(newGallery3){
         }
       );
 
-  if(uploadError){
-    alert(uploadError.message);
-    return;
-  }
+if(uploadError){
 
+  console.log("UPLOAD ERROR");
+  console.log(uploadError);
+
+  alert(
+    JSON.stringify(
+      uploadError,
+      null,
+      2
+    )
+  );
+
+  return;
+
+}
   const { data } =
     supabase.storage
       .from("projects")
       .getPublicUrl(fileName);
 
 
-imageUrls[2] = {
-  ...imageUrls[2],
-  src: data.publicUrl
-};
+imageUrls[2] =
+  `${data.publicUrl}?v=${Date.now()}`;
 }
 
+
+console.log("UPDATE DATA");
+console.log({
+  cover: coverUrl,
+  images: imageUrls
+});
 
 const { error } = await supabase
   .from("projects")
   .update({
+
+    
 
     title_zh: project.title_zh,
     title_en: project.title_en,
@@ -318,38 +367,47 @@ const { error } = await supabase
 
     category: project.category,
 
-    // ★新增
     cover: coverUrl,
 
-  images: imageUrls,
+    images: imageUrls,
 
-  featured: project.featured,
+    featured: project.featured,
 
-seo_title:
-  project.seo_title ||
-  `${project.title_zh}｜ATHENE LIGHT`,
+    seo_title:
+      project.seo_title ||
+      `${project.title_zh}｜ATHENE LIGHT`,
 
-seo_description:
-  project.seo_description ||
-  `${project.title_zh} ${project.category} 案例介紹`,
+    seo_description:
+      project.seo_description ||
+      `${project.title_zh} ${project.category} 案例介紹`,
 
-
-  published: project.published
+    published: project.published
 
   })
-  .eq("id", project.id);
+  .eq("slug", slug);
 
-  if(error){
-    alert(error.message);
-    return;
-  }
+if(error){
 
-  alert("✅ 更新成功");
+  console.log("FULL ERROR");
+  console.log(error);
 
-  window.location.href =
-    "/admin/projects";
+  alert(
+    JSON.stringify(
+      error,
+      null,
+      2
+    )
+  );
+
+  return;
 }
 
+alert("✅ 更新成功");
+
+window.location.href =
+  "/admin/projects";
+
+  }
 
   if(!project){
 
@@ -539,11 +597,11 @@ seo_description:
     </p>
 
     <img
-  src={
-    newGallery1
-      ? URL.createObjectURL(newGallery1)
-      : project.images?.[0]?.src
-  }
+src={
+  newGallery1
+    ? URL.createObjectURL(newGallery1)
+    : project.images?.[0]
+}
       alt=""
       className="
         w-full
@@ -580,11 +638,11 @@ seo_description:
     </p>
 
    <img
-  src={
-    newGallery2
-      ? URL.createObjectURL(newGallery2)
-      : project.images?.[1]?.src
-  }
+src={
+  newGallery2
+    ? URL.createObjectURL(newGallery2)
+    : project.images?.[1]
+}
       alt=""
       className="
         w-full
@@ -621,11 +679,11 @@ seo_description:
     </p>
 
    <img
-  src={
-    newGallery3
-      ? URL.createObjectURL(newGallery3)
-      : project.images?.[2]?.src
-  }
+src={
+  newGallery3
+    ? URL.createObjectURL(newGallery3)
+    : project.images?.[2]
+}
       alt=""
       className="
         w-full
