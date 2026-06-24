@@ -53,6 +53,9 @@ const images = [
 ].filter(Boolean);
 
 
+console.log("IMAGES DATA");
+console.log(project?.images);
+
 console.log("SLIDER");
 console.log(images);
 
@@ -175,14 +178,12 @@ return(
 
     
 
-  <div
-    key={i}
-    className={`
-      absolute
-      inset-x-0
-      top-[70px]
-      bottom-0
-      z-0
+<div
+  key={i}
+  className={`
+    absolute
+    inset-0
+    z-0
 
       transition-all
       duration-[1400ms]
@@ -199,20 +200,23 @@ return(
   src={
     typeof img === "string"
       ? img
-      : img?.src
+      : (
+          img?.src ||
+          img?.url
+        )
   }
   alt={img?.alt || project.title_zh}
-style={{
-  objectPosition:
-    typeof img === "string"
-      ? "center"
-      : img?.position || "center"
-}}
-  className="
-    w-full
-    h-full
-    object-cover
-  "
+
+ className="
+  w-full
+  h-full
+  object-cover
+  border-0
+"
+  
+  onLoad={()=>{
+    console.log("IMAGE LOADED");
+  }}
   onError={()=>{
     console.log("IMAGE ERROR");
     console.log(img);

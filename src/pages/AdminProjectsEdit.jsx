@@ -46,22 +46,28 @@ useEffect(()=>{
 
     }
 
-    async function loadProject(){
+async function loadProject(){
 
-      const { data,error } = await supabase
-        .from("projects")
-        .select("*")
-        .eq("slug",slug)
-        .single();
+  console.log("SLUG =", slug);
 
-      if(error){
-        console.log(error);
-        return;
-      }
+  const { data,error } = await supabase
+    .from("projects")
+    .select("*")
+    .eq("slug",slug);
 
-      setProject(data);
+  console.log("DATA =", data);
+  console.log("ERROR =", error);
 
-    }
+  if(error){
+    console.log(error);
+    return;
+  }
+
+  if(data?.length){
+    setProject(data[0]);
+  }
+
+}
 
    loadRole();
 loadProject();
@@ -556,35 +562,35 @@ window.location.href =
     </p>
 
 <img
-  src={
-    newCover
-      ? URL.createObjectURL(newCover)
-      : project.cover
-  }
+src={
+  newCover
+    ? URL.createObjectURL(newCover)
+    : project?.cover
+}
   alt=""
   className="
     w-full
-    h-[280px]
+    h-[220px]
     object-cover
     rounded
     mb-4
   "
 />
 
-    <input
-      type="file"
-      accept="image/*"
-      onChange={(e)=>
-        setNewCover(e.target.files[0])
-      }
-      className="
-        w-full
-        p-3
-        border
-        bg-white
-        text-black
-      "
-    />
+<input
+  type="file"
+  accept="image/*"
+  onChange={(e)=>
+    setNewCover(e.target.files[0])
+  }
+  className="
+    w-full
+    p-3
+    border
+    bg-white
+    text-black
+  "
+/>
 
   </div>
 
@@ -596,36 +602,40 @@ window.location.href =
       Gallery 1
     </p>
 
-    <img
-src={
-  newGallery1
-    ? URL.createObjectURL(newGallery1)
-    : project.images?.[0]
-}
-      alt=""
-      className="
-        w-full
-        h-[220px]
-        object-cover
-        rounded
-        mb-4
-      "
-    />
+<img
+  src={
+    newGallery1
+      ? URL.createObjectURL(newGallery1)
+      : (
+          typeof project?.images?.[0] === "string"
+            ? project.images[0]
+            : project?.images?.[0]?.src
+        )
+  }
+  alt=""
+  className="
+    w-full
+    h-[220px]
+    object-cover
+    rounded
+    mb-4
+  "
+/>
 
-    <input
-      type="file"
-      accept="image/*"
-      onChange={(e)=>
-        setNewGallery1(e.target.files[0])
-      }
-      className="
-        w-full
-        p-3
-        border
-        bg-white
-        text-black
-      "
-    />
+<input
+  type="file"
+  accept="image/*"
+  onChange={(e)=>
+    setNewGallery1(e.target.files[0])
+  }
+  className="
+    w-full
+    p-3
+    border
+    bg-white
+    text-black
+  "
+/>
 
   </div>
 
@@ -637,36 +647,40 @@ src={
       Gallery 2
     </p>
 
-   <img
-src={
-  newGallery2
-    ? URL.createObjectURL(newGallery2)
-    : project.images?.[1]
-}
-      alt=""
-      className="
-        w-full
-        h-[220px]
-        object-cover
-        rounded
-        mb-4
-      "
-    />
+<img
+  src={
+    newGallery2
+      ? URL.createObjectURL(newGallery2)
+      : (
+typeof project?.images?.[1] === "string"
+  ? project.images[1]
+  : project?.images?.[1]?.src
+        )
+  }
+  alt=""
+  className="
+    w-full
+    h-[220px]
+    object-cover
+    rounded
+    mb-4
+  "
+/>
 
-    <input
-      type="file"
-      accept="image/*"
-      onChange={(e)=>
-        setNewGallery2(e.target.files[0])
-      }
-      className="
-        w-full
-        p-3
-        border
-        bg-white
-        text-black
-      "
-    />
+<input
+  type="file"
+  accept="image/*"
+  onChange={(e)=>
+   setNewGallery2(e.target.files[0])
+  }
+  className="
+    w-full
+    p-3
+    border
+    bg-white
+    text-black
+  "
+/>
 
   </div>
 
@@ -678,36 +692,40 @@ src={
       Gallery 3
     </p>
 
-   <img
-src={
-  newGallery3
-    ? URL.createObjectURL(newGallery3)
-    : project.images?.[2]
-}
-      alt=""
-      className="
-        w-full
-        h-[220px]
-        object-cover
-        rounded
-        mb-4
-      "
-    />
+<img
+  src={
+    newGallery3
+      ? URL.createObjectURL(newGallery3)
+      : (
+typeof project?.images?.[2] === "string"
+  ? project.images[2]
+  : project?.images?.[2]?.src
+        )
+  }
+  alt=""
+  className="
+    w-full
+    h-[220px]
+    object-cover
+    rounded
+    mb-4
+  "
+/>
 
-    <input
-      type="file"
-      accept="image/*"
-      onChange={(e)=>
-        setNewGallery3(e.target.files[0])
-      }
-      className="
-        w-full
-        p-3
-        border
-        bg-white
-        text-black
-      "
-    />
+<input
+  type="file"
+  accept="image/*"
+  onChange={(e)=>
+   setNewGallery3(e.target.files[0])
+  }
+  className="
+    w-full
+    p-3
+    border
+    bg-white
+    text-black
+  "
+/>
 
   </div>
 

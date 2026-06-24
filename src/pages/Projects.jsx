@@ -353,8 +353,9 @@ className={`
 
 <img
   src={
-    p.images?.[0]?.src ||
-    p.cover
+   p.cover
+  ? p.cover
+  : p.images?.[0]?.src
   }
   className="
     w-full h-full
@@ -447,19 +448,21 @@ to-transparent
 
 <img
   src={
-    group[0].images?.[0]?.src ||
-    group[0].cover
+    group[0].cover ||
+    (
+      typeof group[0].images?.[0] === "string"
+        ? group[0].images[0]
+        : group[0].images?.[0]?.src
+    )
   }
   className="
     w-full h-full
     object-cover
-
-  object-center
-
-  transition duration-700
-  group-hover:scale-[1.03]
-"
-                />
+    object-center
+    transition duration-700
+    group-hover:scale-[1.03]
+  "
+/>
 
            <div
   className="
@@ -548,8 +551,10 @@ to-transparent
 
 <img
   src={
-    p.images?.[0]?.src ||
-    p.cover
+p.cover ||
+(typeof p.images?.[0] === "string"
+  ? p.images[0]
+  : p.images?.[0]?.src)
   }
   className="
     w-full h-full
