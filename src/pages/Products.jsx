@@ -22,13 +22,22 @@ const [keyword, setKeyword] = useState(searchParam);
 const isMobile =
   window.innerWidth < 1024;
 
-const [openIndoor, setOpenIndoor] =
+
+
+const [openLighting, setOpenLighting] =
   useState(!isMobile);
 
-const [openOutdoor, setOpenOutdoor] =
-  useState(!isMobile);
+const [openIndoorMenu, setOpenIndoorMenu] =
+  useState(false);
 
+const [openOutdoorMenu, setOpenOutdoorMenu] =
+  useState(false);
 
+const [openLandscapeMenu, setOpenLandscapeMenu] =
+ useState(false);
+
+const [openFestivalMenu, setOpenFestivalMenu] =
+  useState(false);
 
 const [openFestivalLight, setOpenFestivalLight] =
   useState(!isMobile);
@@ -400,392 +409,378 @@ return(
   lg:gap-12
 ">
 
-    {/* 左側分類 */}
-<aside className="
-  w-full
-  lg:sticky
-  lg:top-[120px]
-      text-[12px]
-tracking-[0.08em]
-    ">
 
-<button
-  onClick={() => {
-    setActive("ALL");
-
-    setSearchParams(prev => {
-      prev.set("cat", "ALL");
-      prev.set("page", 1);
-      return prev;
-    });
-  }}
+{/* 左側分類 */}
+<aside
   className="
-    block
+    w-full
+    lg:sticky
+    lg:top-[120px]
     text-[12px]
-    tracking-[0.12em]
-    text-black
-    hover:text-[#C8A46A]
-    transition
-    mb-8
+    tracking-[0.08em]
   "
 >
-  {lang === "en"
-    ? "Lighting Series All"
-    : "燈光系列 All"}
-</button>
 
 
-{/* 室內 */}
-<div className="mb-6">
+{/* 照明燈具 */}
 
-  <button
-    onClick={() => setOpenIndoor(!openIndoor)}
-    className="
-      flex items-center gap-2
-      text-black
-      mb-3
-      hover:text-[#C8A46A]
-      transition
-    "
-  >
-   <span
-  className="
-    text-[16px]
-    font-light
-    leading-none
-  "
->
-  {openIndoor ? "▾" : "▸"}
-</span>
-    {lang === "en"
-  ? "Indoor Series"
-  : "室內系列"}
-  
-
-
-  </button>
-{openIndoor && (
-  <div className="space-y-3">
-
-    <button
-      onClick={() => {
-        setActive("LIGHTING_DESIGN");
-
-        setSearchParams(prev => {
-          prev.set("cat","LIGHTING_DESIGN");
-          prev.set("page",1);
-          return prev;
-        });
-      }}
-      className={
-        active==="LIGHTING_DESIGN"
-          ? "text-black"
-          : "text-[#666] hover:text-[#C8A46A]"
-      }
-    >
-      {lang === "en"
-        ? "Lighting Design"
-        : "照明設計"}
-    </button>
-
-    {indoorTypes.map(item => (
-
-      <div key={item.key}>
-
-<div
-  onClick={() => {
-
-    if(item.children) return;
-
-    setActive(item.key);
-
-    setSearchParams(prev => {
-      prev.set("cat", item.key);
-      prev.set("page", 1);
-      return prev;
-    });
-
-  }}
-  className="
-    text-[#666]
-    hover:text-[#C8A46A]
-    transition-colors
-    cursor-pointer
-  "
->
-          {lang === "en"
-            ? item.en
-            : item.zh}
-        </div>
-
-        {item.children && (
-          <div
-            className="
-              ml-4
-              mt-2
-              pl-3
-              border-l border-[#ddd]
-              space-y-2
-            "
-          >
-            {item.children.map(child => (
-
-              <div
-                key={child.key}
-                onClick={() => {
-
-                  setActive(child.key);
-
-                  setSearchParams(prev => {
-                    prev.set("cat", child.key);
-                    prev.set("page", 1);
-                    return prev;
-                  });
-
-                }}
-                className="
-                  text-[#666]
-                  hover:text-[#C8A46A]
-                  transition-colors
-                  cursor-pointer
-                "
-              >
-                {lang === "en"
-                  ? child.en
-                  : child.zh}
-              </div>
-
-            ))}
-          </div>
-        )}
-
-      </div>
-
-    ))}
-
-    <button
-      onClick={() => {
-        navigate(`/${lang}/products/mirror`);
-      }}
-      className="
-        block
-        text-[#666]
-        hover:text-[#C8A46A]
-        transition
-      "
-    >
-      {lang === "en"
-        ? "Mirror Series"
-        : "鏡燈產品"}
-    </button>
-
-    <button
-      onClick={() => {
-        setActive("CUSTOM");
-
-        setSearchParams(prev => {
-          prev.set("cat","CUSTOM");
-          prev.set("page",1);
-          return prev;
-        });
-      }}
-      className={
-        active==="CUSTOM"
-          ? "text-black"
-          : "text-[#666] hover:text-[#C8A46A]"
-      }
-    >
-      {lang === "en"
-        ? "Custom Lighting"
-        : "訂製燈具"}
-    </button>
-
-  </div>
-)}
-
-</div>
-
-{/* 戶外 */}
 <div className="mb-8">
 
   <button
-    onClick={() => setOpenOutdoor(!openOutdoor)}
-    className="
-      flex items-center gap-2
-      text-black
-      mb-3
-      hover:text-[#C8A46A]
-      transition
-    "
+    onClick={() =>
+      setOpenLighting(!openLighting)
+    }
+className="
+  flex items-center gap-2
+  text-[13px]
+  tracking-[0.12em]
+  text-black
+  mb-4
+  hover:text-[#C8A46A]
+  transition
+"
   >
-  <span
-  className="
-    text-[16px]
-    font-light
-    leading-none
-  "
->
-{openOutdoor ? "▾" : "▸"}
-</span>
-   {lang === "en"
-  ? "Outdoor Series"
-  : "戶外系列"}
+    <span>
+      {openLighting ? "▾" : "▸"}
+    </span>
+
+    照明燈具
   </button>
-{openOutdoor && (
-  <div className="space-y-3">
 
-  {outdoorTypes.map(item => (
+  {openLighting && (
 
-  <div key={item.key}>
+<div className="space-y-4 ml-4">
 
-<div
-  onClick={() => {
-
-    if(item.children) return;
-
-    setActive(item.key);
-
-    setSearchParams(prev => {
-      prev.set("cat", item.key);
-      prev.set("page", 1);
-      return prev;
-    });
-
-  }}
-  className="
-    text-[#666]
-    text-[12px]
-    hover:text-[#C8A46A]
-    transition-colors
-    cursor-pointer
-  "
->
-      {lang === "en"
-        ? item.en
-        : item.zh}
-    </div>
-
-    {item.children && (
-      <div
-        className="
-          ml-4
-          mt-2
-          pl-3
-          border-l border-[#ddd]
-          space-y-2
-        "
-      >
-        {item.children.map(child => (
-
-          <div
-            key={child.key}
-            onClick={() => {
-
-              setActive(child.key);
-
-              setSearchParams(prev => {
-                prev.set("cat", child.key);
-                prev.set("page", 1);
-                return prev;
-              });
-
-            }}
-            className="
-              text-[#666]
-              hover:text-[#C8A46A]
-              transition-colors
-              cursor-pointer
-            "
-          >
-            {lang === "en"
-              ? child.en
-              : child.zh}
-          </div>
-
-        ))}
-      </div>
-    )}
-
-  </div>
-
-))}
-
+{/* 室內 */}
 
 <button
-  onClick={() => setOpenFestivalLight(!openFestivalLight)}
+  onClick={() =>
+    setOpenIndoorMenu(!openIndoorMenu)
+  }
   className="
-    flex items-center
-    gap-2
+    flex items-center gap-2
     text-[#666]
-    text-[12px]
     hover:text-[#C8A46A]
     transition
   "
 >
-  <span
-    className={`
-      text-[16px]
-      transition-transform
-      duration-300
-      inline-block
-      ${openFestivalLight ? "rotate-90" : ""}
-    `}
-  >
-    ▸
+  <span>
+    {openIndoorMenu ? "▾" : "▸"}
   </span>
 
-  {lang === "en"
-    ? "Festival Lighting"
-    : "節慶燈具"}
+  室內
 </button>
 
-{openFestivalLight && (
+
+
+{openIndoorMenu && (
+
   <div
     className="
       ml-6
       pl-3
       border-l border-[#ddd]
       space-y-2
-      text-[#666]
       text-[12px]
+      text-[#666]
     "
   >
-    {festivalTypes.map(item => (
+
+    {indoorTypes.map(item => (
+
       <div
         key={item.key}
-        onClick={() => {
-
-          setActive(item.key);
-
-          setSearchParams(prev => {
-            prev.set("cat", item.key);
-            prev.set("page", 1);
-            return prev;
-          });
-
-        }}
         className="
           hover:text-[#C8A46A]
-          transition-colors
           cursor-pointer
+          transition
         "
       >
-        {lang === "en"
-          ? item.en
-          : item.zh}
+        {item.zh}
       </div>
+
     ))}
+
   </div>
+
 )}
 
 
 
 
-    </div>
-  )}
+
+{/* 戶外 */}
+
+<button
+  onClick={() =>
+    setOpenOutdoorMenu(!openOutdoorMenu)
+  }
+  className="
+    flex items-center gap-2
+    text-[#666]
+    hover:text-[#C8A46A]
+    transition
+  "
+>
+  <span>
+    {openOutdoorMenu ? "▾" : "▸"}
+  </span>
+
+  戶外
+</button>
+
+{openOutdoorMenu && (
+
+  <div
+    className="
+      ml-6
+      pl-3
+      border-l border-[#ddd]
+      space-y-2
+      text-[12px]
+      text-[#666]
+    "
+  >
+
+    {outdoorTypes
+      .find(item => item.key === "FACADE")
+      ?.children
+      ?.map(light => (
+
+        <div
+          key={light.key}
+          className="
+            hover:text-[#C8A46A]
+            cursor-pointer
+            transition
+          "
+        >
+          {light.zh}
+        </div>
+
+    ))}
+
+  </div>
+
+)}
+
+
+{/* 景觀 */}
+
+<button
+  onClick={() =>
+    setOpenLandscapeMenu(!openLandscapeMenu)
+  }
+  className="
+    flex items-center gap-2
+    text-[#666]
+    hover:text-[#C8A46A]
+    transition
+  "
+>
+  <span>
+    {openLandscapeMenu ? "▾" : "▸"}
+  </span>
+
+  景觀
+</button>
+
+{openLandscapeMenu && (
+
+  <div
+    className="
+      ml-6
+      pl-3
+      border-l border-[#ddd]
+      space-y-2
+      text-[12px]
+      text-[#666]
+    "
+  >
+
+    {outdoorTypes
+      .find(item => item.key === "LANDSCAPE")
+      ?.children
+      ?.map(light => (
+
+        <div
+          key={light.key}
+          className="
+            hover:text-[#C8A46A]
+            cursor-pointer
+            transition
+          "
+        >
+          {light.zh}
+        </div>
+
+    ))}
+
+  </div>
+
+)}
+
+<button
+  className="
+    flex items-center gap-2
+    text-[#666]
+    hover:text-[#C8A46A]
+    transition
+  "
+>
+
+  <span>
+    {openLandscapeMenu ? "▾" : "▸"}
+  </span>
+
+  訂製燈具
+</button>
+
+<button
+  onClick={()=>{
+    navigate(`/${lang}/products/mirror`);
+  }}
+   className="
+    flex items-center gap-2
+    text-[#666]
+    hover:text-[#C8A46A]
+    transition
+  "
+>
+  <span>
+    {openLandscapeMenu ? "▾" : "▸"}
+  </span>
+  鏡燈
+</button>
+
+<button
+  onClick={() =>
+    setOpenFestivalMenu(!openFestivalMenu)
+  }
+  className="
+    flex items-center gap-2
+    text-[#666]
+    hover:text-[#C8A46A]
+    transition
+  "
+>
+  <span>
+    {openFestivalMenu ? "▾" : "▸"}
+  </span>
+
+  節慶燈具
+</button>
+
+{openFestivalMenu && (
+
+  <div
+    className="
+      ml-6
+      pl-3
+      border-l border-[#ddd]
+      space-y-2
+      text-[12px]
+      text-[#666]
+    "
+  >
+
+    {festivalTypes.map(item => (
+
+      <div
+        key={item.key}
+        className="
+          hover:text-[#C8A46A]
+          cursor-pointer
+          transition
+        "
+      >
+        {item.zh}
+      </div>
+
+    ))}
+
+  </div>
+
+)}
+
+
+</div>
+)}
 
 </div>
 
+{/* 照明設計 */}
+
+
+{/* 照明設計 */}
+
+<div className="mb-6">
+
+  <button
+    onClick={() => {
+
+      setActive("LIGHTING_DESIGN");
+
+      setSearchParams(prev => {
+        prev.set(
+          "cat",
+          "LIGHTING_DESIGN"
+        );
+        prev.set("page",1);
+        return prev;
+      });
+
+    }}
+    className="
+    flex items-center gap-2
+    text-[#666]
+    hover:text-[#C8A46A]
+    transition
+  "
+  >
+
+  <span>
+    {openLandscapeMenu ? "▾" : "▸"}
+  </span>
+    照明設計
+  </button>
+
+</div>
+
+{/* 施工 */}
+
+<div className="mb-6">
+
+  <button
+    onClick={() => {
+
+      setActive("INSTALLATION");
+
+      setSearchParams(prev => {
+        prev.set(
+          "cat",
+          "INSTALLATION"
+        );
+        prev.set("page",1);
+        return prev;
+      });
+
+    }}
+     className="
+    flex items-center gap-2
+    text-[#666]
+    hover:text-[#C8A46A]
+    transition
+  "
+  >
+
+  <span>
+    {openLandscapeMenu ? "▾" : "▸"}
+  </span>
+    施工
+  </button>
+
+</div>
 
 </aside>
 

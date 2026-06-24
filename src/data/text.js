@@ -169,6 +169,12 @@ footer:{
 
 items:[
 
+  {
+    zh:"照明設計",
+    en:"Lighting Design",
+    link:"/products?cat=LIGHTING_DESIGN"
+  },
+
 
   {
     zh:"戶外燈具",
@@ -176,11 +182,6 @@ items:[
     link:"/products?cat=OUTDOOR"
   },
 
-  {
-    zh:"節慶燈具",
-    en:"Festival Lighting",
-    link:"/products?cat=FESTIVAL"
-  },
 
     {
     zh:"室內燈具",
@@ -189,17 +190,22 @@ items:[
   },
 
 
+
   {
     zh:"施工安裝",
     en:"Installation Engineering",
     link:"/products?cat=INSTALLATION"
   },
 
-  {
-    zh:"照明設計",
-    en:"Lighting Design",
-    link:"/products?cat=LIGHTING_DESIGN"
+
+
+
+    {
+    zh:"節慶燈具",
+    en:"Festival Lighting",
+    link:"/products?cat=FESTIVAL"
   }
+
 
 ]
 
