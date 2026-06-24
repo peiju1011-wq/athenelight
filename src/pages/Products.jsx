@@ -524,31 +524,42 @@ onClick={() => {
     </div>
 
     {item.children && (
-      <div
-        className="
-          ml-5
-          mt-2
-          border-l border-[#ddd]
-          pl-3
-          space-y-2
-        "
-      >
+<div
+  className="
+    flex
+    flex-wrap
+    gap-2
+    mt-2
+    ml-3
+  "
+>
         {item.children.map(child => (
 
-          <div
-            key={child.key}
-            onClick={() =>
-              handleCategoryClick(child.key)
-            }
-            className="
-              text-[11px]
-              hover:text-[#C8A46A]
-              cursor-pointer
-              transition
-            "
-          >
-            {child.zh}
-          </div>
+<div
+  key={child.key}
+  onClick={() =>
+    handleCategoryClick(child.key)
+  }
+  className="
+    px-3
+    py-1
+
+    text-[11px]
+
+    border
+    border-[#ddd]
+
+    rounded-full
+
+    hover:border-[#C8A46A]
+    hover:text-[#C8A46A]
+
+    cursor-pointer
+    transition
+  "
+>
+  {child.zh}
+</div>
 
         ))}
       </div>
