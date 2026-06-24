@@ -508,21 +508,55 @@ onClick={() => {
     "
   >
 
-    {indoorTypes.map(item => (
+{indoorTypes.map(item => (
 
+  <div key={item.key}>
+
+    <div
+      onClick={() => handleCategoryClick(item.key)}
+      className="
+        hover:text-[#C8A46A]
+        cursor-pointer
+        transition
+      "
+    >
+      {item.zh}
+    </div>
+
+    {item.children && (
       <div
-        key={item.key}
-        onClick={() => handleCategoryClick(item.key)}
         className="
-          hover:text-[#C8A46A]
-          cursor-pointer
-          transition
+          ml-5
+          mt-2
+          border-l border-[#ddd]
+          pl-3
+          space-y-2
         "
       >
-        {item.zh}
-      </div>
+        {item.children.map(child => (
 
-    ))}
+          <div
+            key={child.key}
+            onClick={() =>
+              handleCategoryClick(child.key)
+            }
+            className="
+              text-[11px]
+              hover:text-[#C8A46A]
+              cursor-pointer
+              transition
+            "
+          >
+            {child.zh}
+          </div>
+
+        ))}
+      </div>
+    )}
+
+  </div>
+
+))}
 
   </div>
 
