@@ -48,6 +48,17 @@ const itemsPerPage = 12;
 const lang = useLang();
 const navigate = useNavigate();
 
+function handleCategoryClick(key){
+
+  setActive(key);
+
+  setSearchParams(prev => {
+    prev.set("cat", key);
+    prev.set("page", 1);
+    return prev;
+  });
+
+}
 
 useEffect(() => {
 
@@ -244,12 +255,22 @@ if(active === "INDOOR"){
   return item.cat === "INDOOR";
 }
 
-if(active === "OUTDOOR"){
-  return item.cat === "OUTDOOR";
+if(active === "OUTDOOR_WALL"){
+  return item.cat === "OUTDOOR_WALL";
 }
 
 if(active === "FESTIVAL"){
   return item.cat === "FESTIVAL";
+}
+
+if(active === "PENDANT"){
+
+  return (
+    item.subCat === "LOBBY_PENDANT" ||
+    item.subCat === "DINING_PENDANT" ||
+    item.subCat === "CUSTOM_PENDANT"
+  );
+
 }
 
 return (
@@ -454,9 +475,10 @@ className="
 {/* 室內 */}
 
 <button
-  onClick={() =>
-    setOpenIndoorMenu(!openIndoorMenu)
-  }
+onClick={() => {
+  setOpenIndoorMenu(!openIndoorMenu);
+  handleCategoryClick("INDOOR");
+}}
   className="
     flex items-center gap-2
     text-[#666]
@@ -490,6 +512,7 @@ className="
 
       <div
         key={item.key}
+        onClick={() => handleCategoryClick(item.key)}
         className="
           hover:text-[#C8A46A]
           cursor-pointer
@@ -512,9 +535,10 @@ className="
 {/* 戶外 */}
 
 <button
-  onClick={() =>
-    setOpenOutdoorMenu(!openOutdoorMenu)
-  }
+onClick={() => {
+  setOpenOutdoorMenu(!openOutdoorMenu);
+  handleCategoryClick("OUTDOOR_WALL");
+}}
   className="
     flex items-center gap-2
     text-[#666]
@@ -549,6 +573,7 @@ className="
 
         <div
           key={light.key}
+          onClick={() => handleCategoryClick(light.key)}
           className="
             hover:text-[#C8A46A]
             cursor-pointer
@@ -568,9 +593,10 @@ className="
 {/* 景觀 */}
 
 <button
-  onClick={() =>
-    setOpenLandscapeMenu(!openLandscapeMenu)
-  }
+onClick={() => {
+  setOpenLandscapeMenu(!openLandscapeMenu);
+  handleCategoryClick("LANDSCAPE");
+}}
   className="
     flex items-center gap-2
     text-[#666]
@@ -604,7 +630,8 @@ className="
       ?.map(light => (
 
         <div
-          key={light.key}
+  key={light.key}
+  onClick={() => handleCategoryClick(light.key)}
           className="
             hover:text-[#C8A46A]
             cursor-pointer
@@ -621,6 +648,7 @@ className="
 )}
 
 <button
+  onClick={() => handleCategoryClick("CUSTOM")}
   className="
     flex items-center gap-2
     text-[#666]
@@ -629,17 +657,18 @@ className="
   "
 >
 
-  <span>
-    {openLandscapeMenu ? "▾" : "▸"}
-  </span>
+<span>
+  {openLandscapeMenu ? "▾" : "▸"}
+</span>
 
-  訂製燈具
+訂製燈具
 </button>
 
 <button
-  onClick={()=>{
-    navigate(`/${lang}/products/mirror`);
-  }}
+onClick={()=>{
+  setActive("MIRROR");
+  navigate(`/${lang}/products/mirror`);
+}}
    className="
     flex items-center gap-2
     text-[#666]
@@ -647,16 +676,18 @@ className="
     transition
   "
 >
-  <span>
-    {openLandscapeMenu ? "▾" : "▸"}
-  </span>
-  鏡燈
+<span>
+  {openLandscapeMenu ? "▾" : "▸"}
+</span>
+
+鏡燈
 </button>
 
 <button
-  onClick={() =>
-    setOpenFestivalMenu(!openFestivalMenu)
-  }
+onClick={() => {
+  setOpenFestivalMenu(!openFestivalMenu);
+  handleCategoryClick("FESTIVAL");
+}}
   className="
     flex items-center gap-2
     text-[#666]
@@ -685,8 +716,11 @@ className="
   >
 
     {festivalTypes.map(item => (
+      
 
       <div
+
+      onClick={() => handleCategoryClick(item.key)}
         key={item.key}
         className="
           hover:text-[#C8A46A]
@@ -709,7 +743,7 @@ className="
 
 </div>
 
-{/* 照明設計 */}
+
 
 
 {/* 照明設計 */}
@@ -739,10 +773,11 @@ className="
   "
   >
 
-  <span>
-    {openLandscapeMenu ? "▾" : "▸"}
-  </span>
-    照明設計
+<span>
+  {openLandscapeMenu ? "▾" : "▸"}
+</span>
+
+照明設計
   </button>
 
 </div>
@@ -773,11 +808,11 @@ className="
     transition
   "
   >
+<span>
+  {openLandscapeMenu ? "▾" : "▸"}
+</span>
 
-  <span>
-    {openLandscapeMenu ? "▾" : "▸"}
-  </span>
-    施工
+施工
   </button>
 
 </div>

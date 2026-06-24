@@ -975,20 +975,42 @@ window.location.href =
     setSubCategory("");
   }}
 >
-  <option value="INDOOR">室內燈具</option>
- <option value="OUTDOOR">
-  戶外系列
-</option>
-  <option value="LIGHTING_DESIGN">照明設計</option>
-  <option value="FESTIVAL">節慶燈具</option>
-  <option value="INSTALLATION">施工安裝</option>
-  <option value="CUSTOM">訂製燈具</option>
+
+  <option value="INDOOR">
+    室內燈具
+  </option>
+
+  <option value="OUTDOOR_WALL">
+    外牆燈系列
+  </option>
+
+  <option value="LANDSCAPE">
+    景觀燈系列
+  </option>
+
+  <option value="FESTIVAL">
+    節慶燈具
+  </option>
+
+  <option value="LIGHTING_DESIGN">
+    照明設計
+  </option>
+
+  <option value="INSTALLATION">
+    施工安裝
+  </option>
+
+  <option value="CUSTOM">
+    訂製燈具
+  </option>
+
 </select>
 
 
 {[
   "INDOOR",
-  "OUTDOOR",
+  "OUTDOOR_WALL",
+  "LANDSCAPE",
   "FESTIVAL"
 ].includes(category) && (
 
@@ -1033,7 +1055,7 @@ window.location.href =
   </>
 )}
 
-{category === "OUTDOOR" && (
+{category === "LANDSCAPE" && (
   <>
     <option value="LANDSCAPE_POLE">
       景觀高燈
@@ -1055,6 +1077,11 @@ window.location.href =
       水底燈
     </option>
 
+  </>
+)}
+
+{category === "OUTDOOR_WALL" && (
+  <>
     <option value="LINEAR_FACADE">
       外牆線型燈
     </option>
