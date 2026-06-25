@@ -121,7 +121,7 @@ export default function About() {
     : "媒體採訪｜美的in台灣"}
 </h3>
 
-<p className="text-white/70 mt-1 text-sm">
+<p className="hidden md:block text-white/70 mt-1 text-sm">
   {lang === "en"
     ? "Featuring ATHENE LIGHT's lighting philosophy, project experience, and integrated engineering services."
     : "介紹宇碩光照明理念、工程經驗與整合服務，分享專業照明設計與施工實務。"}
@@ -204,7 +204,7 @@ export default function About() {
     : "全方位照明整合服務"}
 </h3>
 
-<p className="text-white/80 mt-1 text-[12px] md:text-sm leading-[1.6]">
+<p className="hidden md:block text-white/80 mt-1 text-[12px] md:text-sm leading-[1.6]">
   {lang === "en"
     ? "Providing indoor lighting, outdoor landscape lighting, facade illumination, bridge lighting, and customized engineering solutions."
     : "提供室內照明、戶外景觀照明、建築外牆亮化、大橋亮化及客製化照明工程整合服務。"}
