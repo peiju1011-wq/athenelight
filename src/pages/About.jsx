@@ -115,17 +115,17 @@ export default function About() {
     {/* 文字 */}
      <div className={`absolute bottom-6 md:bottom-8 left-5 md:left-8 text-white z-30 max-w-[85%] ${playing2 ? "hidden" : ""}`}>
 
-        <h3 className="text-[16px] md:text-xl tracking-[0.08em] leading-[1.4]">
-          {lang === "en"
-            ? "Featured Project: Private Residence"
-            : "亮點工程案例：私人豪邸景觀"}
-        </h3>
+<h3 className="text-[16px] md:text-xl tracking-[0.08em] leading-[1.4]">
+  {lang === "en"
+    ? "Media Interview"
+    : "媒體採訪｜美的in台灣"}
+</h3>
 
-      <p className="text-white/70 mt-1 text-sm">
-        {lang === "en"
-          ? "From concept to completion"
-          : "從設計規劃到完美落成的完整紀錄"}
-      </p>
+<p className="text-white/70 mt-1 text-sm">
+  {lang === "en"
+    ? "Featuring ATHENE LIGHT's lighting philosophy, project experience, and integrated engineering services."
+    : "介紹宇碩光照明理念、工程經驗與整合服務，分享專業照明設計與施工實務。"}
+</p>
 
     </div>
 
@@ -198,17 +198,17 @@ export default function About() {
       {/*  文字（RWD 重點） */}
    <div className={`absolute bottom-6 md:bottom-8 left-5 md:left-8 text-white max-w-[85%] ${playing2 ? "hidden" : ""}`}>
 
-        <h3 className="text-[16px] md:text-xl tracking-[0.08em] leading-[1.4]">
-          {lang === "en"
-            ? "Brand Film 2024: Poetry of Light"
-            : "2024 年度品牌形象：光之詩"}
-        </h3>
+<h3 className="text-[16px] md:text-xl tracking-[0.08em] leading-[1.4]">
+  {lang === "en"
+    ? "Integrated Lighting Solutions"
+    : "全方位照明整合服務"}
+</h3>
 
-        <p className="text-white/80 mt-1 text-[12px] md:text-sm leading-[1.6]">
-          {lang === "en"
-            ? "Exploring how we blend architecture with light"
-            : "探索我們如何將建築與自然光影融合"}
-        </p>
+<p className="text-white/80 mt-1 text-[12px] md:text-sm leading-[1.6]">
+  {lang === "en"
+    ? "Providing indoor lighting, outdoor landscape lighting, facade illumination, bridge lighting, and customized engineering solutions."
+    : "提供室內照明、戶外景觀照明、建築外牆亮化、大橋亮化及客製化照明工程整合服務。"}
+</p>
 
       </div>
 
