@@ -85,7 +85,7 @@ return(
 {/* Head Office */}
 <div className="space-y-3">
 
-  <p className="text-[10px] tracking-[0.32em] text-[#b7afa1]">
+  <p className="text-[11px] tracking-[0.32em] text-[#b7afa1]">
     辦公室
   </p>
 
@@ -98,7 +98,7 @@ return(
 {/* Factory */}
 <div className="space-y-3">
 
-  <p className="text-[10px] tracking-[0.32em] text-[#b7afa1]">
+  <p className="text-[11px] tracking-[0.32em] text-[#b7afa1]">
     總公司 
   </p>
 
@@ -112,21 +112,30 @@ return(
   {/* 電話 */}
   <div className="space-y-3">
 
-    <p className="text-[10px] tracking-[0.32em] text-[#b7afa1] uppercase">
-      {lang === "en" ? "PHONE" : "電話"}
-    </p>
+  <p className="text-[11px] tracking-[0.32em] text-[#b7afa1] uppercase">
+    {lang === "en" ? "PHONE" : "電話"}
+  </p>
 
-    <p className="text-[14px] tracking-[0.08em] text-[#555]">
-      +886-8521-8383
-    </p>
+  <a
+    href="tel:+886285218383"
+    className="
+      text-[14px]
+      tracking-[0.08em]
+      text-[#555]
+      hover:text-[#C8A46A]
+      transition
+    "
+  >
+    +886 2 8521 8383
+  </a>
 
-  </div>
+</div>
 
 
   {/* Email */}
   <div className="space-y-3">
 
-    <p className="text-[10px] tracking-[0.32em] text-[#b7afa1] uppercase">
+    <p className="text-[11px] tracking-[0.32em] text-[#b7afa1] uppercase">
       {lang === "en" ? "EMAIL" : "信箱"}
     </p>
 
@@ -345,7 +354,7 @@ return(
 
 
 {/* ===== CONTACT SOCIAL ===== */}
-<section className="  py-20 -mt-18 bg-[#f3f0ec]">
+<section className="py-20 bg-[#f3f0ec]">
 
   <div className="max-w-[900px] mx-auto px-6 text-center">
 
@@ -497,169 +506,8 @@ hover:shadow-[0_8px_24px_rgba(200,164,106,0.28)]
 
 
 
-{/* ===== MAP ===== */}
-<section className={`mt-16 ${ani("page-delay-2")}`}>
-
-  <div className="relative w-full rounded-[8px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.12)]">
-
-    {/* ===== 電腦版 ===== */}
-    <div className="hidden md:block relative w-full h-[420px]">
-
-      <iframe
-        title={lang === "en" ? "Athene Light location map" : "宇碩光位置地圖"}
-        src="https://www.google.com/maps?q=新北市新莊區化成路186號2樓&output=embed"
-        className="w-full h-full border-0 brightness-90 contrast-105"
-        loading="lazy"
-      />
-
-      {/* ⭐ 地圖中央定位點 */}
-<div className="pointer-events-none absolute inset-0">
-
-  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-
-    <div className="relative flex items-center justify-center">
-
-      {/* 金色外圈 */}
-      <div className="
-        absolute w-6 h-6
-        rounded-full
-        border border-[#C8A46A]/60
-      "></div>
-
-      {/* 柔光擴散 */}
-      <div className="
-        absolute w-12 h-12
-        rounded-full
-        bg-[#C8A46A]/10
-        blur-[12px]
-      "></div>
-
-      {/* 白色跳動點 */}
-      <div className="
-        w-3 h-3
-        rounded-full
-        bg-white
-        shadow-[0_0_16px_rgba(200,164,106,0.8)]
-        animate-bounce
-      "></div>
-
-    </div>
-
-  </div>
-
-</div>
-
-      {/* 🔥 底部玻璃卡 */}
-      <div className="
-        absolute bottom-0 left-0 w-full
-        px-10 py-6
-        bg-black/40 backdrop-blur-lg
-      ">
-
-        <p className="text-[11px] tracking-[0.35em] text-[#C8A46A] mb-3">
-          LOCATION
-        </p>
-
-        <div className="flex items-start gap-4">
-
-          <div className="relative mt-1">
-            <div className="absolute w-6 h-6 rounded-full bg-[#C8A46A]/20 blur-[8px]"></div>
-            <svg viewBox="0 0 24 24" className="w-5 h-5 relative">
-              <path fill="#C8A46A" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-              <circle cx="12" cy="9" r="2.5" fill="white"/>
-            </svg>
-          </div>
-
-          <div>
-            <p className="text-[16px] tracking-[0.08em] text-white">
-              {lang === "en"
-                ? "No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
-                : "新北市新莊區化成路186號2樓"}
-            </p>
-
-            <p className="mt-2 text-[11px] tracking-[0.25em] text-white/60">
-              {lang === "en"
-                ? "OPEN IN GOOGLE MAPS"
-                : "點擊開啟 Google 地圖"}
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-      {/* 點擊 */}
-      <a
-        href="https://www.google.com/maps?q=新北市新莊區化成路186號2樓"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute inset-0"
-      />
-    </div>
-
-    {/* ===== 手機版 ===== */}
-    <a
-      href="https://www.google.com/maps?q=新北市新莊區化成路186號2樓"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="md:hidden relative block"
-    >
-
-<div className="w-full h-[330px] overflow-hidden">
-  <img
-    src="/images/map-bg.png"
-    className="w-full h-full object-cover object-top"
-  />
-</div>
-
-      {/* 🔥 底部玻璃卡 */}
-      <div className="
-        absolute bottom-0 left-0 w-full
-        px-6 py-4
-        bg-black/40 backdrop-blur-lg
-      ">
-
-        <p className="text-[11px] tracking-[0.35em] text-[#C8A46A] mb-3">
-          LOCATION
-        </p>
-
-        <div className="flex items-start gap-4">
-
-          <div className="relative mt-1">
-            <div className="absolute w-6 h-6 rounded-full bg-[#C8A46A]/20 blur-[8px]"></div>
-            <svg viewBox="0 0 24 24" className="w-5 h-5 relative">
-              <path fill="#C8A46A" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-              <circle cx="12" cy="9" r="2.5" fill="white"/>
-            </svg>
-          </div>
-
-          <div>
-            <p className="text-[15px] tracking-[0.08em] text-white">
-              {lang === "en"
-                ? "No.186, Huacheng Rd., Xinzhuang Dist., New Taipei City"
-                : "新北市新莊區化成路186號2樓"}
-            </p>
-
-            <p className="mt-2 text-[11px] tracking-[0.25em] text-white/60">
-              {lang === "en"
-                ? "OPEN IN GOOGLE MAPS"
-                : "點擊開啟 Google 地圖"}
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </a>
-
-  </div>
-
-</section>
-
-
 {/* ===== THANK YOU ===== */}
-<section className={` pt-16 border-t border-[#eee] text-center ${ani("page-delay-3")}`}>
+<section className={` pt-24 border-t border-[#eee] text-center ${ani("page-delay-3")}`}>
 
 <p className="text-[14px] text-[#C8A46A] leading-relaxed tracking-[0.1em] ">
   {lang === "en"
@@ -667,11 +515,11 @@ hover:shadow-[0_8px_24px_rgba(200,164,106,0.28)]
     : "感謝您洽詢宇碩光，我們將以專業的照明設計與工程經驗，為您打造最合適的光環境解決方案。"}
 </p>
 
-<p className="text-[12px] text-[#C8A46A] tracking-[0.2em] mt-4">
+<p className="text-[12px] text-[#C8A46A] tracking-[0.2em] mt-4 ">
   THANK YOU FOR CONNECTING WITH ATHENE LIGHT
 </p>
 
-<div className="flex justify-center mt-10">
+<div className="flex justify-center mt-10 ">
   <div className="light-line"></div>
 </div>
 
