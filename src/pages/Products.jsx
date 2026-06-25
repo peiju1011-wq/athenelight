@@ -127,7 +127,7 @@ const outdoorTypes = [
 {
   key:"CUSTOM",
   zh:"訂製燈",
-  en:"Custom Lighting"
+  en:"Custom Fixtures"
 },
 
 {
@@ -353,19 +353,19 @@ const indoorTypes = [
       {
         key:"LOBBY_PENDANT",
         zh:"大廳吊燈",
-        en:"Lobby Chandelier"
+        en:"Lobby Pendant"
       },
 
       {
         key:"DINING_PENDANT",
         zh:"餐廳吊燈",
-        en:"Dining Pendant Light"
+       en:"Dining Pendant"
       },
 
       {
         key:"CUSTOM_PENDANT",
         zh:"訂製吊燈",
-        en:"Custom Pendant Light"
+        en:"Custom Pendant"
       }
     ]
   },
@@ -465,7 +465,7 @@ className="
       {openLighting ? "▾" : "▸"}
     </span>
 
-    照明燈具
+ {lang === "en" ? "Lighting" : "照明燈具"}
   </button>
 
   {openLighting && (
@@ -490,7 +490,7 @@ onClick={() => {
     {openIndoorMenu ? "▾" : "▸"}
   </span>
 
-  室內
+{lang === "en" ? "Indoor" : "室內"}
 </button>
 
 
@@ -519,8 +519,7 @@ onClick={() => {
         cursor-pointer
         transition
       "
-    >
-      {item.zh}
+    >{lang === "en" ? item.en : item.zh}
     </div>
 
     {item.children && (
@@ -540,25 +539,31 @@ onClick={() => {
   onClick={() =>
     handleCategoryClick(child.key)
   }
-  className="
-    px-3
-    py-1
+className="
+  px-3
+  h-[34px]
 
-    text-[11px]
+  inline-flex
+  items-center
+  justify-center
 
-    border
-    border-[#ddd]
+  whitespace-nowrap
 
-    rounded-full
+  text-[11px]
+  leading-none
 
-    hover:border-[#C8A46A]
-    hover:text-[#C8A46A]
+  border
+  border-[#ddd]
+  rounded-full
 
-    cursor-pointer
-    transition
-  "
+  hover:border-[#C8A46A]
+  hover:text-[#C8A46A]
+
+  cursor-pointer
+  transition
+"
 >
-  {child.zh}
+  {lang === "en" ? child.en : child.zh}
 </div>
 
         ))}
@@ -595,7 +600,7 @@ onClick={() => {
     {openOutdoorMenu ? "▾" : "▸"}
   </span>
 
-  戶外
+ {lang === "en" ? "Outdoor" : "戶外"}
 </button>
 
 {openOutdoorMenu && (
@@ -625,7 +630,7 @@ onClick={() => {
             transition
           "
         >
-          {light.zh}
+         {lang === "en" ? light.en : light.zh}
         </div>
 
     ))}
@@ -653,7 +658,7 @@ onClick={() => {
     {openLandscapeMenu ? "▾" : "▸"}
   </span>
 
-  景觀
+ {lang === "en" ? "Landscape" : "景觀"}
 </button>
 
 {openLandscapeMenu && (
@@ -683,7 +688,7 @@ onClick={() => {
             transition
           "
         >
-          {light.zh}
+        {lang === "en" ? light.en : light.zh}
         </div>
 
     ))}
@@ -702,11 +707,9 @@ onClick={() => {
   "
 >
 
-<span>
-  {openLandscapeMenu ? "▾" : "▸"}
-</span>
+<span>▸</span>
 
-訂製燈具
+{lang === "en" ? "Custom Lighting" : "訂製燈具"}
 </button>
 
 <button
@@ -721,11 +724,9 @@ onClick={()=>{
     transition
   "
 >
-<span>
-  {openLandscapeMenu ? "▾" : "▸"}
-</span>
+<span>▸</span>
 
-鏡燈
+{lang === "en" ? "Mirror Lights" : "鏡燈"}
 </button>
 
 <button
@@ -744,7 +745,7 @@ onClick={() => {
     {openFestivalMenu ? "▾" : "▸"}
   </span>
 
-  節慶燈具
+{lang === "en" ? "Festive Lighting" : "節慶燈具"}
 </button>
 
 {openFestivalMenu && (
@@ -773,7 +774,7 @@ onClick={() => {
           transition
         "
       >
-        {item.zh}
+      {lang === "en" ? item.en : item.zh}
       </div>
 
     ))}
@@ -818,11 +819,9 @@ onClick={() => {
   "
   >
 
-<span>
-  {openLandscapeMenu ? "▾" : "▸"}
-</span>
+<span>▸</span>
 
-照明設計
+{lang === "en" ? "Lighting Design" : "照明設計"}
   </button>
 
 </div>
@@ -853,11 +852,9 @@ onClick={() => {
     transition
   "
   >
-<span>
-  {openLandscapeMenu ? "▾" : "▸"}
-</span>
+<span>▸</span>
 
-施工
+{lang === "en" ? "Installation" : "施工"}
   </button>
 
 </div>
