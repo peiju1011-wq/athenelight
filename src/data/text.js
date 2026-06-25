@@ -186,11 +186,7 @@ footer:{
 
 items:[
 
-  {
-    zh:"照明設計",
-    en:"Lighting Design",
-    link:"/products?cat=LIGHTING_DESIGN"
-  },
+
 
 
   {
@@ -206,6 +202,12 @@ items:[
     link:"/products?cat=INTERIOR_LIGHTING"
   },
 
+
+  {
+    zh:"照明設計",
+    en:"Lighting Design",
+    link:"/products?cat=LIGHTING_DESIGN"
+  },
 
 
   {

@@ -59,25 +59,69 @@ const categories =
       ]
     : [
         "全部",
-        "照明設計",
+        
         "外牆照明",
         "景觀照明",
         "商業空間",
         "室內照明",
+        "照明設計",
         "亮化工程",
         "燈會"
       ];
 
+const categoryName = {
+
+  FACADE: {
+    zh: "外牆照明",
+    en: "Facade Lighting"
+  },
+
+  LANDSCAPE: {
+    zh: "景觀照明",
+    en: "Landscape Lighting"
+  },
+
+  COMMERCIAL: {
+    zh: "商業空間",
+    en: "Commercial Space"
+  },
+
+  INTERIOR: {
+    zh: "室內照明",
+    en: "Interior Lighting"
+  },
+
+  LIGHTING_DESIGN: {
+    zh: "照明設計",
+    en: "Lighting Design"
+  },
+
+  ILLUMINATION: {
+    zh: "亮化工程",
+    en: "Illumination"
+  },
+
+  FESTIVAL: {
+    zh: "燈會",
+    en: "Festival"
+  }
+
+};
+
+
 const typeMap = {
   "全部": "ALL",
-  "照明設計": "LIGHTING_DESIGN",
+  
   "外牆照明": "FACADE",
   "景觀照明": "LANDSCAPE",
   "商業空間": "COMMERCIAL",
   "室內照明": "INTERIOR",
+  "照明設計": "LIGHTING_DESIGN",
   "亮化工程": "ILLUMINATION",
   "燈會": "FESTIVAL"
 };
+
+
 
   /* ===== 對照 ===== */
 const filtered = projects.filter((p) => {
@@ -326,7 +370,9 @@ className={`
 
   {currentData.length === 0 && (
     <div className="text-center text-[#aaa] py-40 tracking-[0.2em]">
-      NO RESULTS
+      {lang === "en"
+  ? "NO RESULTS"
+  : "查無符合結果"}
     </div>
   )}
 
@@ -397,7 +443,7 @@ to-transparent
 
   drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
 ">
-  {p.category}
+  {categoryName[p.category]?.[lang] || p.category}
 </p>
 
 <h3 className="
@@ -479,16 +525,15 @@ to-transparent
 
                 <div className="absolute bottom-6 left-6 text-white">
 
-                  <p className="
+<p className="
   text-[12px]
   tracking-[0.35em]
   text-[#D6B278]
   mb-1
-
   drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]
 ">
-                   {group[0].category}
-                  </p>
+  {categoryName[group[0].category]?.[lang] || group[0].category}
+</p>
 
 <h3
   className="
@@ -590,7 +635,7 @@ to-transparent
 
   drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
 ">
-                       {p.category}
+                       {categoryName[p.category]?.[lang] || p.category}
                       </p>
 
 <h3

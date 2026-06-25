@@ -91,18 +91,18 @@ const isDarkPage = darkPages.some(path =>
     {isEnglish ? "Athene Light" : "宇碩光"}
   </span>
 
-  <span
-    className="
-      hidden md:block
-      text-[10px]
-      tracking-[0.35em]
-      uppercase
-      text-white
-      opacity-70
-    "
-  >
-    {isEnglish ? "LIGHTING DESIGN" : "ATHENE LIGHT"}
-  </span>
+<span
+  className="
+    hidden lg:block
+    text-[10px]
+    tracking-[0.35em]
+    uppercase
+    text-white
+    opacity-70
+  "
+>
+  {isEnglish ? "LIGHTING DESIGN" : "ATHENE LIGHT"}
+</span>
 
 </div>
 
