@@ -109,7 +109,24 @@ const isDarkPage = darkPages.some(path =>
   </Link>
 
   {/* NAV */}
-  <nav className="hidden md:flex items-center space-x-10 text-sm tracking-[1.4px] uppercase text-white absolute left-1/2 -translate-x-1/2">
+<nav
+  className="
+    hidden md:flex
+    items-center
+
+    md:space-x-6
+    lg:space-x-10
+
+    text-sm
+    tracking-[1.4px]
+    uppercase
+    text-white
+
+    absolute
+    left-1/2
+    -translate-x-1/2
+  "
+>
 
     {[
 
@@ -123,8 +140,15 @@ const isDarkPage = darkPages.some(path =>
       <NavLink
         key={item.to}
         to={getPath(item.to)}
-        className={({ isActive }) => `
-        group relative transition-colors duration-300 hover:text-[#e3c198]
+       className={({ isActive }) => `
+group
+relative
+
+text-center
+leading-[1.4]
+
+transition-colors duration-300
+hover:text-[#e3c198]
 
         after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[0.5px]
         after:bg-[#e3c198]/40 after:w-0 after:transition-all
@@ -133,7 +157,21 @@ const isDarkPage = darkPages.some(path =>
         ${isActive ? "text-[#e3c198] after:w-full" : ""}
         `}
       >
-        {isEnglish ? item.en : item.zh}
+{isEnglish ? (
+  item.en
+) : (
+  <>
+    <span className="hidden lg:inline">
+      {item.zh}
+    </span>
+
+    <span className="hidden md:inline lg:hidden">
+      {item.zh.slice(0,2)}
+      <br />
+      {item.zh.slice(2)}
+    </span>
+  </>
+)}
       </NavLink>
 
     ))}
