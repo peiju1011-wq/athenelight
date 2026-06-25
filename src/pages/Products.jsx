@@ -445,7 +445,7 @@ return(
 
 {/* 照明燈具 */}
 
-<div className="mb-8">
+<div className="mb-6">
 
   <button
     onClick={() =>
