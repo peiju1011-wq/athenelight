@@ -658,20 +658,13 @@ object-[50%_50%]
     <div className="text-center mb-14 reveal">
 
       <p className="
-        text-[#C8A46A]
-        tracking-[0.45em]
-        text-[10px]
-        mb-5
-        opacity-80
+        text-[#C8A46A] tracking-[0.45em] text-[11px] mb-4
       ">
         {t?.productsHome?.tag?.[lang]}
       </p>
 
       <h2 className="
-        text-[28px] md:text-[36px]
-        tracking-[0.08em]
-        text-[#222]
-        font-light
+        text-[26px] md:text-[34px] tracking-[0.08em] text-[#222]
       ">
         {t?.productsHome?.title?.[lang]}
       </h2>
