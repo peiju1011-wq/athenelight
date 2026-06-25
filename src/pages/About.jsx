@@ -161,7 +161,7 @@ export default function About() {
       {/*  封面圖（關鍵） */}
       {!playing1 && (
         <img
-          src="/images/about/video-cover2.png" 
+          src="/images/hero/hero6.jpg" 
           className="absolute inset-0 w-full h-full object-cover"
         />
       )}
@@ -338,20 +338,22 @@ drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]
 
     {/* TITLE */}
     <h3 className="text-[14px] tracking-[0.3em] text-black/60 mb-6">
-      {lang === "en" ? "DOME CUSTOM SERVICE" : "DOME 訂製服務"}
-    </h3>
+  {lang === "en"
+    ? "END-TO-END PRODUCTION & INSTALLATION"
+    : "生產到施工整合服務"}
+</h3>
 
-    {/* DESC（優化過🔥） */}
-    <p className="text-sm text-black/60 leading-7 max-w-2xl mx-auto mb-16">
-      {lang === "en"
-        ? "We begin with understanding your needs, shaping light through materials and form to create a unique spatial experience."
-        : "讓燈光從需求開始被定義，透過材料與光的組合，打造專屬的光環境體驗。"}
-    </p>
+{/* DESC */}
+<p className="text-sm text-black/60 leading-7 max-w-2xl mx-auto mb-16">
+  {lang === "en"
+    ? "From production to installation, we provide integrated lighting solutions with precise manufacturing, professional installation, and reliable project execution."
+    : "從生產到施工，提供一站式照明整合服務，結合精準製造、專業安裝與完善工程執行。"}
+</p>
 
     {/* 主圖 */}
     <div className="mb-20">
       <img
-        src="/images/about/emotion-main.jpg"
+        src="/images/about/emotion-main.png"
         className="w-full object-cover"
       />
     </div>
@@ -361,27 +363,30 @@ drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]
 
       {/* MATERIAL */}
       <div>
-        <img src="/images/about/emotion2.jpg" className="w-full object-cover" />
+        <img src="/images/about/emotion2.png" className="w-full object-cover" />
         <p className="mt-3 text-xs text-black/50 tracking-[0.2em]">
           {lang === "en" ? "▲ MATERIAL" : "▲ 外牆亮化工程"}
         </p>
       </div>
 
-      {/* DETAIL */}
+    {/* LIGHT */}
       <div>
-        <img src="/images/about/emotion1.jpg" className="w-full object-cover" />
+        <img src="/images/about/emotion3.png" className="w-full object-cover" />
         <p className="mt-3 text-xs text-black/50 tracking-[0.2em]">
-          {lang === "en" ? "▲ DETAIL" : "▲ 條燈安裝工程"}
+          {lang === "en" ? "▲ LIGHT" : "▲ 室內照明設計"}
         </p>
       </div>
 
-      {/* LIGHT */}
+
+      {/* DETAIL */}
       <div>
-        <img src="/images/about/emotion3.jpg" className="w-full object-cover" />
+        <img src="/images/about/emotion1.png" className="w-full object-cover" />
         <p className="mt-3 text-xs text-black/50 tracking-[0.2em]">
-          {lang === "en" ? "▲ LIGHT" : "▲ 室內外照明設計"}
+          {lang === "en" ? "▲ DETAIL" : "▲ 施工安裝"}
         </p>
       </div>
+
+  
 
     </div>
 
