@@ -91,7 +91,24 @@ projects:{
 },
 
 
+productsHome:{
 
+  tag:{
+    zh:"精選產品",
+    en:"FEATURED PRODUCTS"
+  },
+
+  title:{
+    zh:"產品介紹",
+    en:"Products"
+  },
+
+  viewAll:{
+    zh:"查看全部產品",
+    en:"VIEW ALL PRODUCTS"
+  }
+
+},
 
 
 
