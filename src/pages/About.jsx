@@ -54,7 +54,7 @@ export default function About() {
 
   {/* 標題 */}
 <h2 className="text-[15px] md:text-[17px] tracking-[0.45em] uppercase text-[#333] font-light">
-    {lang === "en" ? "PROJECT SHOWCASE" : "實績展示"}
+    {lang === "en" ? "PROJECT SHOWCASE" : "媒體採訪"}
   </h2>
 
   {/* 右延伸線（這是關鍵✨） */}
