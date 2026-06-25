@@ -501,7 +501,7 @@ onClick={() => {
     className="
       ml-6
       pl-3
-      border-l border-[#ddd]
+      border-l border-[#f3f3f3]
       space-y-2
       text-[12px]
       text-[#666]
@@ -604,7 +604,7 @@ onClick={() => {
     className="
       ml-6
       pl-3
-      border-l border-[#ddd]
+      border-l border-[#f3f3f3]
       space-y-2
       text-[12px]
       text-[#666]
@@ -662,7 +662,7 @@ onClick={() => {
     className="
       ml-6
       pl-3
-      border-l border-[#ddd]
+      border-l border-[#f3f3f3]
       space-y-2
       text-[12px]
       text-[#666]
@@ -753,7 +753,7 @@ onClick={() => {
     className="
       ml-6
       pl-3
-      border-l border-[#ddd]
+      border-l border-[#f3f3f3]
       space-y-2
       text-[12px]
       text-[#666]
