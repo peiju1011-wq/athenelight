@@ -35,6 +35,12 @@ const [cover2,setCover2] = useState("");
 const [subCategory,setSubCategory] =
   useState("");
 
+useEffect(() => {
+
+  setSubCategory("");
+
+}, [category]);
+
 const [scene1,setScene1] = useState(null);
 const [scene2,setScene2] = useState(null);
 const [scene3,setScene3] = useState(null);
@@ -771,12 +777,13 @@ return(
 產品分類
 </h3>
 
+{/* ===== 修改1：產品分類 ===== */}
+
 <select
   className="w-full p-3 mb-4 border bg-white text-black"
   value={category}
   onChange={(e)=>{
     setCategory(e.target.value);
-    setSubCategory("");
   }}
 >
 
@@ -810,135 +817,73 @@ return(
 
 </select>
 
-
-{[
-  "INDOOR",
-  "OUTDOOR_WALL",
-  "LANDSCAPE",
-  "FESTIVAL"
-].includes(category) && (
+{/* ===== 修改2：子分類（固定存在，不再卸載） ===== */}
 
 <select
-  className="w-full p-3 mb-6 border bg-white text-black"
+  key={category}
+  className={`w-full p-3 mb-6 border bg-white text-black ${
+    [
+      "INDOOR",
+      "OUTDOOR_WALL",
+      "LANDSCAPE",
+      "FESTIVAL"
+    ].includes(category)
+      ? ""
+      : "hidden"
+  }`}
   value={subCategory}
   onChange={(e)=>setSubCategory(e.target.value)}
 >
+
   <option value="">
     請選擇子分類
   </option>
 
-{category === "INDOOR" && (
-  <>
-    <option value="LOBBY_PENDANT">
-      大廳吊燈
-    </option>
+  {category === "INDOOR" && (
+    <>
+      <option value="LOBBY_PENDANT">大廳吊燈</option>
+      <option value="DINING_PENDANT">餐廳吊燈</option>
+      <option value="CUSTOM_PENDANT">訂製吊燈</option>
+      <option value="LIGHT_FILM">光膜</option>
+      <option value="CRYSTAL_FILM">晶膜屏</option>
+      <option value="LINEAR">線條燈</option>
+      <option value="WALL">壁燈</option>
+    </>
+  )}
 
-    <option value="DINING_PENDANT">
-      餐廳吊燈
-    </option>
+  {category === "LANDSCAPE" && (
+    <>
+      <option value="LANDSCAPE_POLE">景觀高燈</option>
+      <option value="LANDSCAPE_BOLLARD">景觀矮燈</option>
+      <option value="POST_TOP">柱頭燈</option>
+      <option value="LANDSCAPE_INGROUND">景觀地埋燈</option>
+      <option value="UNDERWATER">水底燈</option>
+    </>
+  )}
 
-    <option value="CUSTOM_PENDANT">
-      訂製吊燈
-    </option>
+  {category === "OUTDOOR_WALL" && (
+    <>
+      <option value="LINEAR_FACADE">外牆線型燈</option>
+      <option value="FLOOD">投光燈</option>
+      <option value="WALL_LIGHT">外牆壁燈</option>
+      <option value="RECESSED_WALL">崁壁燈</option>
+      <option value="STEP">階梯燈</option>
+      <option value="INGROUND">外牆地埋燈</option>
+    </>
+  )}
 
-    <option value="LIGHT_FILM">
-      光膜
-    </option>
+  {category === "FESTIVAL" && (
+    <>
+      <option value="NET_LIGHT">網燈</option>
+      <option value="STRING">燈串</option>
+      <option value="FENCE_LIGHT">柵欄燈</option>
+      <option value="CURTAIN_LIGHT">窗簾燈</option>
+    </>
+  )}
 
-    <option value="CRYSTAL_FILM">
-      晶膜屏
-    </option>
-
-    <option value="LINEAR">
-      線條燈
-    </option>
-
-    <option value="WALL">
-      壁燈
-    </option>
-  </>
-)}
-
-
-
-{category === "LANDSCAPE" && (
-  <>
-    <option value="LANDSCAPE_POLE">
-      景觀高燈
-    </option>
-
-    <option value="LANDSCAPE_BOLLARD">
-      景觀矮燈
-    </option>
-
-    <option value="POST_TOP">
-      柱頭燈
-    </option>
-
-    <option value="LANDSCAPE_INGROUND">
-      景觀地埋燈
-    </option>
-
-    <option value="UNDERWATER">
-      水底燈
-    </option>
-
-
-  </>
-)}
-
-{category === "OUTDOOR_WALL" && (
-  <>
-    <option value="LINEAR_FACADE">
-      外牆線型燈
-    </option>
-
-    <option value="FLOOD">
-      投光燈
-    </option>
-
-    <option value="WALL_LIGHT">
-      外牆壁燈
-    </option>
-
-    <option value="RECESSED_WALL">
-      崁壁燈
-    </option>
-
-    <option value="STEP">
-      階梯燈
-    </option>
-
-    <option value="INGROUND">
-      外牆地埋燈
-    </option>
-  </>
-)}
-
-{category === "FESTIVAL" && (
-  <>
-    <option value="NET_LIGHT">
-      網燈
-    </option>
-
-    <option value="STRING">
-      燈串
-    </option>
-
-    <option value="FENCE_LIGHT">
-      柵欄燈
-    </option>
-
-    <option value="CURTAIN_LIGHT">
-      窗簾燈
-    </option>
-  </>
-)}
-  
 </select>
-
   
-)}
+
 
 
 
