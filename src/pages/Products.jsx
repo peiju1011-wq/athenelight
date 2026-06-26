@@ -437,6 +437,9 @@ return(
     w-full
     lg:sticky
     lg:top-[120px]
+
+    lg:mt-24
+
     text-[12px]
     tracking-[0.08em]
   "
