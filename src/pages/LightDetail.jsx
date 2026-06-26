@@ -16,17 +16,20 @@ useEffect(() => {
 
 
     
-    const { data,error } = await supabase
-      .from("products")
-      .select("*")
-      .eq("slug",slug)
-      .single();
+const { data, error } = await supabase
+  .from("products")
+  .select("*")
+  .eq("slug", slug)
+  .single();
 
+if (error) {
+  console.error(error);
+  return;
+}
 
-
-    if(data){
-      setProduct(data);
-    }
+if (data) {
+  setProduct(data);
+}
 
   }
 
@@ -84,7 +87,6 @@ const seoDesc =
     ? product.desc_en
     : product.desc_zh) ||
   "Architectural lighting and modern pendant light collection.";
-
 
 const currentUrl =
   `https://athenelight.com/${lang}/lights/${slug}`;
@@ -415,7 +417,7 @@ rounded-[8px]
 )}
 
 {/* ================= SPECS ================= */}
-{false && (
+{product.specs?.length > 0 && (
   <section className="px-6 mb-32">
 
     <h3 className="text-center tracking-[0.3em] text-sm mb-12">
@@ -443,9 +445,6 @@ rounded-[8px]
   </div>
 
   {product.specs.some(s => s.voltage) && (
-
-
-
     <div className="flex-1">
       {lang==="en"?"VOLTAGE":"電壓"}
     </div>
@@ -459,7 +458,6 @@ rounded-[8px]
 
 {/* 內容 */}
 {product.specs.map((s,i)=>(
-
 
   <div
     key={i}
