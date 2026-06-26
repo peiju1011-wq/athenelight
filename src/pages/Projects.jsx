@@ -44,7 +44,7 @@ const searchParam = searchParams.get("search") || "";
 const [active, setActive] = useState(typeParam);
 const [keyword, setKeyword] = useState(searchParam);
 
-const perPage = 9;
+const perPage = 12;
 const categories =
   lang === "en"
     ? [
@@ -235,11 +235,11 @@ useEffect(() => {
       </section>
 
       {/* CONTENT */}
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 pb-40 mt-20">
+   <div className="max-w-[1800px] mx-auto px-8 md:px-6 pb-40 mt-20">
 
 
 {/* ===== FILTER（高級版🔥） */}
-<section className="mb-20">
+<section className="mb-12">
 
   <div className="flex flex-col md:flex-row justify-between items-center gap-8">
 
@@ -395,7 +395,7 @@ className={`
 
   <div className="bg-white p-2 rounded-md shadow-sm">
 
-    <div className="relative aspect-[4/5] overflow-hidden group shadow-sm">
+    <div className="relative aspect-[1/1] overflow-hidden group shadow-sm">
 
 <img
   src={
@@ -475,202 +475,90 @@ to-transparent
     })}
 
   </div>
+<div className="hidden md:grid grid-cols-4 gap-x-5 gap-y-12">
 
-{/* ===== 桌機版（🔥一定要包起來） ===== */}
-<div className="hidden md:block ">
+  {currentData.map((p) => {
 
-  {Array.from({ length: Math.ceil(currentData.length / 3) }).map(
-    (_, groupIndex) => {
+    const title =
+      lang === "en"
+        ? p.title_en
+        : p.title_zh;
 
-      const group = currentData.slice(groupIndex * 3, groupIndex * 3 + 3);
+    return (
 
-      return (
-     <div key={groupIndex} className="space-y-8 mb-8">
+      <Link
+        key={p.id}
+        to={`/${lang}/projects/${p.slug}`}
+        className="block"
+      >
 
-          {/* 長圖 */}
-          {group[0] && (
-           <Link to={`/${lang}/projects/${group[0].slug}`}>
-             <div className="relative aspect-[16/8] overflow-hidden group">
+        <div className="relative aspect-[5/4] overflow-hidden group">
 
-<img
-  src={
-    group[0].cover ||
-    (
-      typeof group[0].images?.[0] === "string"
-        ? group[0].images[0]
-        : group[0].images?.[0]?.src
-    )
-  }
-  className="
-    w-full h-full
-    object-cover
-    object-center
-    transition duration-700
-    group-hover:scale-[1.03]
-  "
-/>
+          <img
+            src={
+              p.cover ||
+              (
+                typeof p.images?.[0] === "string"
+                  ? p.images[0]
+                  : p.images?.[0]?.src
+              )
+            }
+            className="
+              w-full
+              h-full
+              object-cover
+              object-center
+              transition
+              duration-700
+              group-hover:scale-[1.03]
+            "
+          />
 
-           <div
-  className="
-    absolute inset-0
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-black/55
+              via-black/[0.18]
+              to-transparent
+            "
+          />
 
-    bg-gradient-to-t
-from-black/55
-via-black/[0.18]
-to-transparent
+          <div className="absolute bottom-6 left-6 text-white">
 
-    opacity-95
-  "
-/>
+            <p className="
+              text-[12px]
+              tracking-[0.35em]
+              text-[#D6B278]
+              mb-1
+              drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
+            ">
+              {categoryName[p.category]?.[lang] || p.category}
+            </p>
 
-                <div className="absolute bottom-6 left-6 text-white">
-
-<p className="
-  text-[12px]
-  tracking-[0.35em]
-  text-[#D6B278]
-  mb-1
-  drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]
-">
-  {categoryName[group[0].category]?.[lang] || group[0].category}
-</p>
-
-<h3
-  className="
-    text-[13px]
-    md:text-[17px]
-
-    leading-[1.5]
-    tracking-[0.08em]
-
-    font-light
-
-    text-white
-
-    drop-shadow-[0_4px_18px_rgba(0,0,0,1)]
-
-    max-w-[420px]
-  "
->
-                    {lang === "en"
-                      ? group[0].title_en
-                      : group[0].title_zh}
-                  </h3>
-
-                </div>
-
-              </div>
-            </Link>
-          )}
-
-          {/* 短圖 */}
-          <div className="grid grid-cols-2 gap-8">
-
-          {group.slice(1).map((p, idx) => {
-
-              const title = lang === "en" ? p.title_en : p.title_zh;
-
-
-
-
-
-
-              return (
-               <Link
-  key={p.id}
-  to={`/${lang}/projects/${p.slug}`}
-  className="block"
->
-<div
-  className={`
-    relative
-    overflow-hidden
-    group
-    ${
-      idx % 2 === 0
-        ? "aspect-[4/5]"
-        : "aspect-[4/4.2]"
-    }
-  `}
->
-
-<img
-  src={
-p.cover ||
-(typeof p.images?.[0] === "string"
-  ? p.images[0]
-  : p.images?.[0]?.src)
-  }
-  className="
-    w-full h-full
-    object-cover
-
-  object-center
-
-  transition duration-700
-  group-hover:scale-[1.03]
-"
-                    />
-
-                    <div
-  className="
-    absolute inset-0
-
-    bg-gradient-to-t
-from-black/55
-via-black/[0.18]
-to-transparent
-
-    opacity-85
-  "
-/>
-
-                    <div className="absolute bottom-6 left-6 text-white">
-
-                     <p className="
-  text-[12px]
-  tracking-[0.35em]
-  text-[#D6B278]
-  mb-1
-
-  drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
-">
-                       {categoryName[p.category]?.[lang] || p.category}
-                      </p>
-
-<h3
-  className="
-    text-[13px]
-    md:text-[17px]
-
-    leading-[1.5]
-    tracking-[0.08em]
-
-    font-light
-
-    text-white
-
-    drop-shadow-[0_4px_18px_rgba(0,0,0,1)]
-
-    max-w-[420px]
-  "
->                    {title}
-                      </h3>
-
-                    </div>
-
-                  </div>
-
-                </Link>
-              );
-            })}
+            <h3
+              className="
+                text-[18px]
+                leading-[1.5]
+                tracking-[0.08em]
+                font-light
+                text-white
+                drop-shadow-[0_4px_18px_rgba(0,0,0,1)]
+              "
+            >
+              {title}
+            </h3>
 
           </div>
 
         </div>
-      );
-    }
-  )}
+
+      </Link>
+
+    );
+
+  })}
 
 </div>
 
