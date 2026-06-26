@@ -2351,12 +2351,15 @@ if(coverFile.size > 8 * 1024 * 1024){
       return;
     }
 
-    const { data } =
-      supabase.storage
-        .from("products")
-        .getPublicUrl(fileName);
+const { data } =
+  supabase.storage
+    .from("products")
+    .getPublicUrl(fileName);
 
-    finalCover = data.publicUrl;
+finalCover =
+  `${data.publicUrl}?v=${Date.now()}`;
+
+
   }
 if(cover2File){
 
@@ -2468,7 +2471,7 @@ const { data } =
     .getPublicUrl(fileName);
 
 finalGallery[i] =
-  data.publicUrl;
+  `${data.publicUrl}?v=${Date.now()}`;
 }
 
 const finalFeatures = [...features];
