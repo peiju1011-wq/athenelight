@@ -415,7 +415,8 @@ if(cover2File.size > 8 * 1024 * 1024){
       .from("products")
       .getPublicUrl(fileName);
 
-  finalCover2 = data.publicUrl;
+  finalCover2 =
+`${data.publicUrl}?v=${Date.now()}`
 }
 
 const galleryImages = [
