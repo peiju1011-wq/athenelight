@@ -473,6 +473,21 @@ finalGallery[i] =
   data.publicUrl;
 }
 
+const finalFeatures = [...features];
+
+for (let i = 0; i < 3; i++) {
+
+  if (finalGallery[i + 3]) {
+
+    finalFeatures[i] = {
+      ...finalFeatures[i],
+      img: finalGallery[i + 3]
+    };
+
+  }
+
+}
+
 console.log(tags);
 console.log(typeof tags);
 
@@ -492,6 +507,8 @@ const { error } = await supabase
   cover: finalCover,
   cover2: finalCover2,
 
+  gallery: finalGallery,
+
   subtitle_zh: subtitleZh,
   subtitle_en: subtitleEn,
 
@@ -509,7 +526,7 @@ const { error } = await supabase
 
 tags,
   specs,
-  features: features.map(f => ({
+features: finalFeatures.map(f => ({
 
   img: f.img || "",
 

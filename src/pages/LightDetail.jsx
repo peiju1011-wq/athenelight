@@ -39,8 +39,8 @@ useEffect(() => {
  const [currentIndex, setCurrentIndex] = useState(0);
 const [imgLoading, setImgLoading] = useState(true);
 
-if(product === null){
-  return(
+if (!product) {
+  return (
     <div className="pt-40 text-center">
       Loading...
     </div>
@@ -62,11 +62,7 @@ const tags =
     : [];
 
     
-    console.log(product.tags);
-console.log(typeof product.tags);
 
-console.log("FEATURE 0");
-console.log(product.features?.[0]);
 
   /* ===== 🔥 全部圖片 ===== */
 const allImages = [
@@ -83,17 +79,17 @@ product.seo_title ||
   : product.title_zh} | ATHENE LIGHT`;
 
 const seoDesc =
-product.seo_description ||
-(lang === "en"
-  ? product.desc_en
-  : product.desc_zh);
+  product.seo_description ||
+  (lang === "en"
+    ? product.desc_en
+    : product.desc_zh) ||
   "Architectural lighting and modern pendant light collection.";
+
 
 const currentUrl =
   `https://athenelight.com/${lang}/lights/${slug}`;
 
-const ogImage =
-  `https://athenelight.com${product.cover}`;
+const ogImage = product.cover;
 
 
 
@@ -419,7 +415,7 @@ rounded-[8px]
 )}
 
 {/* ================= SPECS ================= */}
-{product.specs?.length > 0 && (
+{false && (
   <section className="px-6 mb-32">
 
     <h3 className="text-center tracking-[0.3em] text-sm mb-12">
@@ -447,6 +443,9 @@ rounded-[8px]
   </div>
 
   {product.specs.some(s => s.voltage) && (
+
+
+
     <div className="flex-1">
       {lang==="en"?"VOLTAGE":"電壓"}
     </div>
@@ -460,6 +459,7 @@ rounded-[8px]
 
 {/* 內容 */}
 {product.specs.map((s,i)=>(
+
 
   <div
     key={i}
