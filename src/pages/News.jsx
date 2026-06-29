@@ -35,14 +35,16 @@ const news = newsData;
 
        {hero.video ? (
 
-  <video
-    src={hero.video}
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="w-full h-[260px] md:h-[420px] object-cover transition duration-700 group-hover:scale-105"
-  />
+<video
+  src={hero.video}
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  disablePictureInPicture
+  className="w-full h-[260px] md:h-[420px] object-cover transition duration-700 group-hover:scale-105"
+/>
 
 ) : (
 
@@ -54,19 +56,61 @@ const news = newsData;
 
 )}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+       <div
+  className="
+    absolute
+    inset-0
+
+    bg-gradient-to-r
+    from-black/21
+    via-black/35
+    to-transparent
+  "
+></div>
+
+<div
+  className="
+    absolute
+    inset-0
+
+    bg-gradient-to-t
+    from-black/70
+    via-black/10
+    to-transparent
+  "
+></div>
 
         <div className="absolute bottom-6 left-6 md:left-10 text-white max-w-[480px]">
 
-          <h2 className="text-[16px] md:text-[26px] tracking-[0.12em] mb-2">
+          <h2  className="
+    text-[16px]
+    md:text-[26px]
+    tracking-[0.12em]
+    mb-2
+    drop-shadow-[0_3px_10px_rgba(0,0,0,0.65)]
+  ">
             {hero.title?.[lang]}
           </h2>
 
-          <p className="text-white/70 text-[12px] mb-3">
-            {hero.desc?.[lang]}
-          </p>
+<p
+  className="
+    text-white/90
+    text-[13px]
+    leading-7
+    mb-3
+    drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)]
+  "
+  dangerouslySetInnerHTML={{
+    __html: hero.desc?.[lang]
+  }}
+/>
 
-          <span className="text-[#C8A46A] text-[11px] tracking-[0.25em]">
+          <span className="
+    text-[#D8B678]
+    text-[11px]
+    tracking-[0.25em]
+    drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
+  ">
             {lang === "en" ? "VIEW MORE" : "查看更多"}
           </span>
 
@@ -127,14 +171,17 @@ const news = newsData;
       {item.title?.[lang]}
     </h3>
 
-   <p className="
-  text-[#5E5E5E]
-  text-[12px]
-  leading-relaxed
-  mb-3
-">
-      {item.desc?.[lang]}
-    </p>
+<p
+  className="
+    text-[#5E5E5E]
+    text-[12px]
+    leading-relaxed
+    mb-3
+  "
+  dangerouslySetInnerHTML={{
+    __html: item.desc?.[lang]
+  }}
+/>
 
     <span className="text-[#C8A46A] text-[11px] tracking-[0.25em] group-hover:opacity-60">
       {lang === "en" ? "VIEW" : "查看"}
@@ -238,10 +285,12 @@ const news = newsData;
         {viewer.title?.[lang]}
       </h3>
 
-      <p className="text-white/70 text-center text-sm mb-6">
-        {viewer.desc?.[lang]}
-      </p>
-
+   <p
+  className="text-white/70 text-center text-sm mb-6 leading-8"
+  dangerouslySetInnerHTML={{
+    __html: viewer.desc?.[lang]
+  }}
+/>
       {viewer.link && (
         <a
           href={viewer.link}
