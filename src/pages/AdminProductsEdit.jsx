@@ -65,7 +65,7 @@ const navigate = useNavigate();
 
 const [product,setProduct] = useState(null);
 const [role,setRole] = useState("");
-const [saved,setSaved] = useState(false);
+
 const [productSlug,setProductSlug] = useState("");
 
 const [cover2File,setCover2File] =
@@ -306,7 +306,57 @@ setProductSlug(data.slug || "");
 
 },[slug]);
 
+async function handleRemoveCover2(){
 
+  const ok = window.confirm("確定要移除 Cover2？");
+
+  if(!ok) return;
+
+  const fileName =
+    cover2
+      ?.split("/products/")[1]
+      ?.split("?")[0];
+
+  // 先嘗試刪除 Storage 圖片
+  if(fileName){
+
+    const { error: removeError } =
+      await supabase.storage
+        .from("products")
+        .remove([fileName]);
+
+    if(removeError){
+      console.warn(removeError.message);
+    }
+
+  }
+
+  // 清空資料庫 cover2
+  const { error } =
+    await supabase
+      .from("products")
+      .update({
+        cover2: ""
+      })
+      .eq("slug", slug);
+
+  if(error){
+    alert(error.message);
+    return;
+  }
+
+  // 更新畫面
+  setCover2("");
+  setCover2File(null);
+
+  setProduct(prev => ({
+    ...prev,
+    cover2: ""
+  }));
+
+  alert("✅ Cover2 已移除");
+
+}
 
 async function handleSave(){
 
@@ -498,79 +548,71 @@ for (let i = 0; i < 3; i++) {
 
 }
 
-console.log(tags);
-console.log(typeof tags);
+
 
 const { error } = await supabase
   .from("products")
-.update({
-  slug: productSlug,
+  .update({
+    slug: productSlug,
 
-  title_zh: titleZh,
-  title_en: titleEn,
+    title_zh: titleZh,
+    title_en: titleEn,
 
-  desc_zh: descZh,
-  desc_en: descEn,
+    desc_zh: descZh,
+    desc_en: descEn,
 
-  category,
+    category,
 
-  cover: finalCover,
-  cover2: finalCover2,
+    cover: finalCover,
+    cover2: finalCover2,
 
-  gallery: finalGallery,
+    gallery: finalGallery,
 
-  subtitle_zh: subtitleZh,
-  subtitle_en: subtitleEn,
+    subtitle_zh: subtitleZh,
+    subtitle_en: subtitleEn,
 
-  line_link: lineLink,
+    line_link: lineLink,
 
-  seo_title: seoTitle,
-  seo_description: seoDescription,
+    seo_title: seoTitle,
+    seo_description: seoDescription,
 
-  desc_long_zh: descLongZh,
-  desc_long_en: descLongEn,
+    desc_long_zh: descLongZh,
+    desc_long_en: descLongEn,
 
+    sub_category: subCategory,
 
-  sub_category: subCategory,
+    tags,
+    specs,
 
+    features: finalFeatures.map(f => ({
+      img: f.img || "",
 
-tags,
-  specs,
-features: finalFeatures.map(f => ({
+      title: {
+        zh: f.titleZh || "",
+        en: f.titleEn || ""
+      },
 
-  img: f.img || "",
+      desc: {
+        zh: f.descZh || "",
+        en: f.descEn || ""
+      }
+    })),
 
-  title: {
-    zh: f.titleZh || "",
-    en: f.titleEn || ""
-  },
+    featured,
+    published
+  })
+  .eq("slug", slug)
+  .select()
+  .single();
 
-  desc: {
-    zh: f.descZh || "",
-    en: f.descEn || ""
-  }
+if(error){
+  alert(error.message);
+  return;
+}
 
-})),
-  featured,
-  published
-})
-  .eq("slug", slug);
+alert("✅ 儲存成功");
 
-
-  if(error){
-    alert(error.message);
-    return;
-  }
-
-  alert("✅ 儲存成功");
-
-  navigate(`/admin/products/${productSlug}`);
-
-  setSaved(true);
-
-  setTimeout(()=>{
-    setSaved(false);
-  },3000);
+navigate(`/admin/products/${productSlug}`);
 
 }
 
@@ -647,20 +689,8 @@ return(
 
       </div>
 
-      {/* SAVE MESSAGE */}
-      {saved && (
 
-        <div className="
-          mb-8
-          border border-green-500/30
-          bg-green-500/10
-          text-green-300
-          px-5 py-4
-        ">
-          Product saved successfully.
-        </div>
 
-      )}
 
       {/* FORM */}
       <div className="space-y-10 max-w-[1100px]">
@@ -996,28 +1026,54 @@ return(
 
     
   </div>
+<div>
 
-  <div>
-    <p className="text-white/60 text-sm mb-2">
+  <div className="flex items-center justify-between mb-2">
+
+    <p className="text-white/60 text-sm">
       Cover2 上傳
     </p>
 
-    <input
-      type="file"
-      accept="image/*"
-      onChange={(e)=>
-        setCover2File(e.target.files[0])
-      }
-      className="
-        w-full
-        p-3
-        bg-white
-        text-black
-        border
-        border-white/20
-      "
-    />
+{(cover2 || cover2File) && (
+  <button
+    type="button"
+    onClick={handleRemoveCover2}
+    className="
+      px-3
+      py-1
+      text-xs
+      rounded
+      bg-red-600
+      hover:bg-red-700
+      transition-colors
+      text-white
+    "
+  >
+    移除 Cover2
+  </button>
+)}
+
   </div>
+
+  <input
+    type="file"
+    accept="image/*"
+    onChange={(e)=>
+      setCover2File(e.target.files[0])
+    }
+    className="
+      w-full
+      p-3
+      bg-white
+      text-black
+      border
+      border-white/20
+    "
+  />
+
+</div>
+
+  
 
 </div>
 

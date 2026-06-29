@@ -33,11 +33,26 @@ const news = newsData;
 
       <div className="relative overflow-hidden group">
 
-        <img
-          src={hero.img}
-          alt=""
-          className="w-full h-[260px] md:h-[420px] object-cover transition duration-700 group-hover:scale-105"
-        />
+       {hero.video ? (
+
+  <video
+    src={hero.video}
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-[260px] md:h-[420px] object-cover transition duration-700 group-hover:scale-105"
+  />
+
+) : (
+
+  <img
+    src={hero.img}
+    alt=""
+    className="w-full h-[260px] md:h-[420px] object-cover transition duration-700 group-hover:scale-105"
+  />
+
+)}
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
@@ -79,11 +94,26 @@ const news = newsData;
 >
 
   <div className="overflow-hidden">
-    <img
-      src={item.img}
-      alt=""
-      className="w-full h-[200px] object-cover transition duration-700 group-hover:scale-105"
-    />
+{item.video ? (
+
+  <video
+    src={item.video}
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-[200px] object-cover transition duration-700 group-hover:scale-105"
+  />
+
+) : (
+
+  <img
+    src={item.img}
+    alt=""
+    className="w-full h-[200px] object-cover transition duration-700 group-hover:scale-105"
+  />
+
+)}
   </div>
 
   <div className="pt-4">
@@ -185,6 +215,15 @@ const news = newsData;
   >
     {lang === "en" ? "Watch on Facebook" : "前往 Facebook 觀看"}
   </a>
+
+) : viewer.video ? (
+
+  <video
+    src={viewer.video}
+    controls
+    autoPlay
+    className="w-full max-h-[70vh] rounded-xl mb-6"
+  />
 
 ) : (
 

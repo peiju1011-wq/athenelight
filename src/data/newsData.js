@@ -1,24 +1,23 @@
 const newsData = [
-  {
-    title: {
-      zh: "建築外牆光環境設計",
-      en: "Facade Lighting Design"
-    },
-
-    desc: {
-      zh: "透過光影層次，重新定義建築輪廓。",
-      en: "Redefining architectural outlines through layers of light."
-    },
-
-    img: "/images/news/n1.jpg",
-
-    hero: true,
-
-    link:
-      "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F954635407094412%2F&show_text=false",
-
-    type: "horizontal"
+{
+  title: {
+    zh: "飄帶燈",
+    en: "Ribbon Light"
   },
+
+  desc: {
+    zh: "大型藝術飄帶燈，打造建築空間最具識別性的光影裝置。",
+    en: "Large-scale ribbon lighting for iconic architectural spaces."
+  },
+
+  img: "/images/news/ribbon-light-cover.jpg",
+
+  video: "/images/news/ribbon-light.mp4",
+
+  hero: true,
+
+  type: "horizontal"
+},
 
   {
     title: {
