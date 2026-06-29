@@ -94,10 +94,14 @@ const news = newsData;
 
 <p
   className="
+    hidden
+    md:block
+
     text-white/90
     text-[13px]
     leading-7
     mb-3
+
     drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)]
   "
   dangerouslySetInnerHTML={{
