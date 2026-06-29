@@ -19,6 +19,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 
 import About from "./pages/About";
 import News from "./pages/News";
+import NewsDetail from "./pages/NewsDetail";
 import Contact from "./pages/Contact";
 
 import AdminProducts from "./pages/AdminProducts";
@@ -134,6 +135,8 @@ useLayoutEffect(() => {
   element={<AdminProductsNew />}
 />
 
+
+
 <Route
   path="admin/products/:slug"
   element={<AdminProductsEdit />}
@@ -197,6 +200,10 @@ useLayoutEffect(() => {
 
           <Route path="about" element={<About />} />
           <Route path="news" element={<News />} />
+          <Route
+  path="news/:slug"
+  element={<NewsDetail />}
+/>
           <Route path="contact" element={<Contact />} />
         </Route>
 
@@ -301,6 +308,10 @@ useLayoutEffect(() => {
 
           <Route path="about" element={<About />} />
           <Route path="news" element={<News />} />
+          <Route
+  path="news/:slug"
+  element={<NewsDetail />}
+/>
           <Route path="contact" element={<Contact />} />
         </Route>
 
@@ -405,6 +416,10 @@ useLayoutEffect(() => {
 
           <Route path="about" element={<About />} />
           <Route path="news" element={<News />} />
+          <Route
+  path="news/:slug"
+  element={<NewsDetail />}
+/>
           <Route path="contact" element={<Contact />} />
         </Route>
 

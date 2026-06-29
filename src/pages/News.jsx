@@ -1,14 +1,15 @@
 import useLang from "../hooks/useLang";
 import { text } from "../data/text";
-import { useState } from "react";
+
 import newsData from "../data/newsData";
+import { useNavigate } from "react-router-dom";
 export default function News() {
 
   const lang = useLang();
-const [viewer, setViewer] = useState(null);
+
   /* ===== 資料（雙語🔥） ===== */
 const news = newsData;
-
+const navigate = useNavigate();
 
 
   const hero = news.find(n => n.hero);
@@ -27,7 +28,16 @@ const news = newsData;
   <section className="mb-24">
 
     <div
-      onClick={() => setViewer(hero)}
+     onClick={() => {
+  const prefix =
+    lang === "en"
+      ? "/en"
+      : lang === "zh"
+      ? "/zh"
+      : "";
+
+  navigate(`${prefix}/news/${hero.slug}`);
+}}
       className="block cursor-pointer"
     >
 
@@ -109,12 +119,17 @@ const news = newsData;
   }}
 />
 
-          <span className="
+<span
+  className="
     text-[#D8B678]
     text-[11px]
     tracking-[0.25em]
+    transition-all
+    duration-300
+    group-hover:opacity-70
     drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
-  ">
+  "
+>
             {lang === "en" ? "VIEW MORE" : "查看更多"}
           </span>
 
@@ -137,7 +152,16 @@ const news = newsData;
             {list.map((item, i) => (
 <div
   key={i}
-  onClick={() => setViewer(item)}
+  onClick={() => {
+    const prefix =
+      lang === "en"
+        ? "/en"
+        : lang === "zh"
+        ? "/zh"
+        : "";
+
+    navigate(`${prefix}/news/${item.slug}`);
+  }}
   className="group overflow-hidden block cursor-pointer"
 >
 
@@ -158,7 +182,7 @@ const news = newsData;
   <img
     src={item.img}
     alt=""
-    className="w-full h-[200px] object-cover transition duration-700 group-hover:scale-105"
+    className="w-full h-[200px] object-cover transition duration-700 pointer-events-none group-hover:scale-105"
   />
 
 )}
@@ -215,100 +239,10 @@ const news = newsData;
 
       </div>
 
-{viewer && (
-  <div
-    className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center px-6"
-    onClick={() => setViewer(null)}
-  >
 
-    <div
-      className="max-w-[900px] w-full"
-      onClick={(e) => e.stopPropagation()}
-    >
 
-      {/* 關閉按鈕 */}
-      <div className="flex justify-end mb-4">
-        <button
-          onClick={() => setViewer(null)}
-          className="text-white text-2xl"
-        >
-          ×
-        </button>
-      </div>
+  
 
-{viewer.link && !viewer.blocked ? (
-
-  <div
-    className={
-      viewer.type === "vertical"
-        ? "w-full max-w-[400px] mx-auto mb-6"
-        : "w-full mb-6"
-    }
-  >
-    <iframe
-      src={viewer.link}
-      className={
-        viewer.type === "vertical"
-          ? "w-full aspect-[9/16] rounded-xl"
-          : "w-full aspect-video rounded-xl"
-      }
-      allow="autoplay; encrypted-media"
-      allowFullScreen
-    />
-  </div>
-
-) : viewer.link ? (
-
-  <a
-    href={viewer.link}
-    target="_blank"
-    className="block text-center text-white/80 underline mb-6"
-  >
-    {lang === "en" ? "Watch on Facebook" : "前往 Facebook 觀看"}
-  </a>
-
-) : viewer.video ? (
-
-  <video
-    src={viewer.video}
-    controls
-    autoPlay
-    className="w-full max-h-[70vh] rounded-xl mb-6"
-  />
-
-) : (
-
-  <img
-    src={viewer.img}
-    className="w-full max-h-[70vh] object-contain rounded-xl mb-6"
-  />
-
-)}
-
-      <h3 className="text-white text-center mb-2 text-[18px] tracking-[0.08em]">
-        {viewer.title?.[lang]}
-      </h3>
-
-   <p
-  className="text-white/70 text-center text-sm mb-6 leading-8"
-  dangerouslySetInnerHTML={{
-    __html: viewer.desc?.[lang]
-  }}
-/>
-      {viewer.link && (
-        <a
-          href={viewer.link}
-          target="_blank"
-          className="block text-center text-[#C8A46A] text-sm"
-        >
-          {lang === "en" ? "VIEW FULL VIDEO" : "觀看完整影片"}
-        </a>
-      )}
-
-    </div>
-
-  </div>
-)}
 
 
 
