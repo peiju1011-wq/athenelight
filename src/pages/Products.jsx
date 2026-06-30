@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import "../styles/products.css";
 import useLang from "../hooks/useLang";
@@ -14,7 +14,7 @@ const [searchParams, setSearchParams] = useSearchParams();
 const currentPage = Number(searchParams.get("page")) || 1;
 const activeParam = searchParams.get("cat") || "ALL";
 const searchParam = searchParams.get("search") || "";
-
+const firstLoad = useRef(true);
 const [active, setActive] = useState(activeParam);
 const [keyword, setKeyword] = useState(searchParam);
 
@@ -314,16 +314,7 @@ const paginatedProducts = isSearching
   : filteredAll.slice(startIndex, startIndex + itemsPerPage);
 
 /* ===== effect ===== */
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setSearchParams(prev => {
-      prev.set("search", keyword);
-      prev.set("page", 1);
-      return prev;
-    });
-  }, 300);
-  return () => clearTimeout(timer);
-}, [keyword]);
+
 
 useEffect(() => {
   setActive(activeParam);
@@ -331,12 +322,28 @@ useEffect(() => {
 }, [activeParam, searchParam]);
 
 useEffect(() => {
-  setSearchParams(prev => {
-    prev.set("page", 1);
-    return prev;
-  });
-}, [active, lang]);
 
+  if (firstLoad.current) {
+    firstLoad.current = false;
+    return;
+  }
+
+  const timer = setTimeout(() => {
+
+    setSearchParams(prev => {
+
+      prev.set("search", keyword);
+      prev.set("page", "1");
+
+      return prev;
+
+    });
+
+  }, 300);
+
+  return () => clearTimeout(timer);
+
+}, [keyword]);
 /* =========================
    UI（完全不動🔥）
 ========================= */
