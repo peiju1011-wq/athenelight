@@ -450,10 +450,31 @@ return(
 
 <div className="mb-6">
 
-  <button
-    onClick={() =>
-      setOpenLighting(!openLighting)
+ <button
+  onClick={() => {
+
+    const next = !openLighting;
+
+    setOpenLighting(next);
+
+    // 電腦版全部一起展開
+    if (next) {
+
+      setOpenIndoorMenu(true);
+      setOpenOutdoorMenu(true);
+      setOpenLandscapeMenu(true);
+      setOpenFestivalMenu(true);
+
+    } else {
+
+      setOpenIndoorMenu(false);
+      setOpenOutdoorMenu(false);
+      setOpenLandscapeMenu(false);
+      setOpenFestivalMenu(false);
+
     }
+
+  }}
 className="
   flex items-center gap-2
   text-[13px]
