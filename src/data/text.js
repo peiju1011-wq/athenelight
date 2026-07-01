@@ -185,23 +185,17 @@ footer:{
     title:{ zh:"產品", en:"PRODUCTS" },
 
 items:[
-
-
-
+  {
+    zh:"室內燈具",
+    en:"Indoor Lighting",
+    link:"/products?cat=INDOOR"
+  },
 
   {
     zh:"戶外燈具",
     en:"Outdoor Lighting",
-    link:"/products?cat=OUTDOOR"
+    link:"/products?cat=OUTDOOR_WALL"
   },
-
-
-    {
-    zh:"室內燈具",
-    en:"Indoor Lighting",
-    link:"/products?cat=INTERIOR_LIGHTING"
-  },
-
 
   {
     zh:"照明設計",
@@ -209,23 +203,17 @@ items:[
     link:"/products?cat=LIGHTING_DESIGN"
   },
 
-
   {
     zh:"施工安裝",
     en:"Installation Engineering",
     link:"/products?cat=INSTALLATION"
   },
 
-
-
-
-    {
+  {
     zh:"節慶燈具",
     en:"Festival Lighting",
     link:"/products?cat=FESTIVAL"
   }
-
-
 ]
 
   },
@@ -234,8 +222,59 @@ company:{
   title:{ zh:"下載", en:"DOWNLOAD" },
 
   items:[
-    { label:{ zh:"霓虹燈條型錄", en:"Linear lighting Catalog" }, link:"/pdf/neon-catalog.pdf", download:true },
+{
+  label:{ zh:"霓虹燈條型錄", en:"Neon Strip Catalog" },
+  link:"/pdf/neon-catalog.pdf",
+  download:true
+},
 
+{
+  label:{ zh:"LED燈條型錄", en:"LED Strip Catalog" },
+  link:"https://drive.google.com/file/d/1GQTxLczw5kc6aq8D_GCjeYegOFMkF2qe/view?usp=sharing",
+  download:true
+},
+
+{
+  label:{ zh:"光模型錄", en:"Light Panel Catalog" },
+  link:"https://drive.google.com/file/d/1bkVMvbHQjWOD8B2Bn_vAJMADdKhSDFzd/view?usp=sharing",
+  download:false
+},
+
+{
+  label:{ zh:"前置層板燈", en:"Shelf Lighting Catalog" },
+  link:"https://drive.google.com/file/d/1bkVMvbHQjWOD8B2Bn_vAJMADdKhSDFzd/view?usp=sharing",
+  download:false
+},
+
+{
+  label:{ zh:"水波紋燈型錄", en:"Ripple Lighting Catalog" },
+  link:"https://drive.google.com/file/d/13-usvXezUYjQg8R2j3UbxxoAxgAWqhp7/view?usp=sharing",
+  download:false
+},
+
+{
+  label:{ zh:"訂製燈型錄", en:"Custom Lighting Catalog" },
+  link:"https://drive.google.com/file/d/1rv06YC_Wugcg0DH3hXaL1BfDKpOygUHG/view?usp=sharing",
+  download:false
+},
+
+{
+  label:{ zh:"裝飾燈型錄", en:"Decorative Lighting Catalog" },
+  link:"https://drive.google.com/file/d/1U40HP24-thoSeUi0qhDl6EjlIh1L-NkZ/view?usp=sharing",
+  download:false
+},
+
+{
+  label:{ zh:"戶外燈具型錄", en:"Outdoor Lighting Catalog" },
+  link:"https://drive.google.com/file/d/1XR9-K1WvDCT3KbWtN30XURsPhmIQ0Y5m/view?usp=sharing",
+  download:false
+},
+
+{
+  label:{ zh:"天花燈型錄", en:"Ceiling Lighting Catalog" },
+  link:"https://drive.google.com/file/d/1a8DYAoz61YMy5UyZvL__CqpWezyoCVGJ/view?usp=sharing",
+  download:false
+}
 
   ]
 },

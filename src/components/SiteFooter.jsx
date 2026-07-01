@@ -65,38 +65,50 @@ export default function SiteFooter() {
 
             <ul className="space-y-3 text-[13px]">
 
-              {t?.footer?.company?.items?.map((item,i)=>{
+             {t?.footer?.company?.items?.map((item,i)=>{
 
-                const textLabel = item?.label?.[lang];
+  const textLabel = item?.label?.[lang];
 
-                // 🔥 PDF下載
-                if(item.download){
-                  return (
-                    <li key={i}>
-                      <a
-                        href={item.link}
-                        download
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-[#C8A46A] transition flex items-center gap-2"
-                      >
-                        {textLabel}
-                        <span className="text-[10px] opacity-60">↓</span>
-                      </a>
-                    </li>
-                  );
-                }
+  const isExternal =
+    item.link.startsWith("http");
 
-                // 🔥 一般頁面
-                return (
-                  <li key={i}>
-                    <Link to={item.link} className="hover:text-[#C8A46A] transition">
-                      {textLabel}
-                    </Link>
-                  </li>
-                );
+  return (
+    <li key={i}>
+<a
+  href={item.link}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer" : undefined}
+  download={!isExternal && item.download ? true : undefined}
+className="
+  group
+  inline-flex
+  items-center
+  gap-2
+  py-0.5
+  hover:text-[#C8A46A]
+  transition-all
+  duration-300
+"
+>
+  <span>{textLabel}</span>
 
-              })}
+  <span
+    className="
+      text-[10px]
+      opacity-60
+      transition-all
+      duration-300
+      group-hover:translate-y-0.5
+      group-hover:opacity-100
+    "
+  >
+    ↓
+  </span>
+</a>
+    </li>
+  );
+
+})}
 
             </ul>
           </div>
