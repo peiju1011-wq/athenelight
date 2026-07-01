@@ -35,11 +35,7 @@ const [cover2,setCover2] = useState("");
 const [subCategory,setSubCategory] =
   useState("");
 
-useEffect(() => {
 
-  setSubCategory("");
-
-}, [category]);
 
 const [scene1,setScene1] = useState(null);
 const [scene2,setScene2] = useState(null);
@@ -814,7 +810,15 @@ return(
   className="w-full p-3 mb-4 border bg-white text-black"
   value={category}
   onChange={(e)=>{
-    setCategory(e.target.value);
+
+    const newCategory = e.target.value;
+
+    if(newCategory !== category){
+      setSubCategory("");
+    }
+
+    setCategory(newCategory);
+
   }}
 >
 
@@ -851,7 +855,6 @@ return(
 {/* ===== 修改2：子分類（固定存在，不再卸載） ===== */}
 
 <select
-  key={category}
   className={`w-full p-3 mb-6 border bg-white text-black ${
     [
       "INDOOR",
