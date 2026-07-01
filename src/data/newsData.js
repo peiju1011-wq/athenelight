@@ -7,14 +7,13 @@ const newsData = [
       en: "Ribbon Light"
     },
 
-    desc: {
+desc: {
 
-      zh: "光膜，大器無眩光，許多人都知道這個名字源自宇碩光。<br>我們始終堅持提供優質、 創新且舒適的光源，<br>讓光融入空間，提升整體美感，成就更具質感的照明體驗。<br>飄帶燈，宇碩光又一創新燈具，邀您細細品味。",
+  zh: "飄帶燈，流動而優雅，<br>以流暢曲線詮釋空間美學。<br>我們始終堅持提供創新、<br>柔和且舒適的光源，<br>讓光融入空間，勾勒流暢線條，<br>成就更具質感的照明體驗。<br>飄帶燈，點亮空間美學，<br>邀您細細品味。",
 
-      zh: "光膜，大器無眩光，<br>許多人都知道這個名字源自宇碩光。<br>我們始終堅持提供優質、<br>創新且舒適的光源，<br>讓光融入空間，提升整體美感，</br>成就更具質感的照明體驗。<br>飄帶燈，宇碩光又一創新燈具，</br>邀您細細品味。",
+  en: "Ribbon Light, flowing with elegance.<br>Inspired by the beauty of seamless light.<br>We are committed to delivering innovative,<br>soft and comfortable lighting solutions,<br>bringing light naturally into every space<br>to create refined lighting experiences.<br>Ribbon Light, illuminating spatial elegance,<br>inviting you to experience its beauty."
 
-      en: "Light Membrane, a name pioneered by Athene Light, has become synonymous with elegant glare-free illumination.<br><br>We are committed to delivering innovative, premium, and comfortable lighting solutions that seamlessly integrate with architectural spaces while enhancing their beauty and atmosphere.<br><br>Ribbon Light is our latest lighting innovation, inviting you to experience a new level of architectural lighting design."
-    },
+},
 
   
 
