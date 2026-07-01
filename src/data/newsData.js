@@ -39,10 +39,10 @@ const newsData = [
       en: "Commercial Lighting Case"
     },
 
-    desc: {
-      zh: "戶外防水 LED 燈條結合線性光環境設計，打造高質感商業空間。",
-      en: "Outdoor waterproof LED strip lighting for premium commercial environments."
-    },
+  desc: {
+  zh: "線性光環境設計，打造高質感商業空間。",
+  en: "Architectural linear lighting solutions for premium commercial spaces."
+},
 
     img: "/images/news/n6.png",
 
@@ -90,15 +90,15 @@ const newsData = [
   {
     slug: "led-linear-lighting",
 
-    title: {
-      zh: "LED線性照明應用",
-      en: "LED Linear Lighting"
-    },
+title: {
+  zh: "光膜應用",
+  en: "Light Membrane Solutions"
+},
 
-    desc: {
-      zh: "打造極簡現代空間的線性照明。",
-      en: "Minimal architectural lighting with LED linear systems."
-    },
+  desc: {
+  zh: "打造均勻柔和、無眩光的現代光膜照明空間。",
+  en: "Seamless illuminated ceilings for modern architectural spaces."
+},
 
     img: "/images/news/n7.jpg",
 
