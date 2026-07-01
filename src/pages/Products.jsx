@@ -371,7 +371,7 @@ const indoorTypes = [
 
       {
         key:"CUSTOM_PENDANT",
-        zh:"訂製吊燈",
+        zh:"飄帶燈",
         en:"Custom Pendant"
       }
     ]
