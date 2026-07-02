@@ -241,21 +241,92 @@ useEffect(() => {
 {/* ===== FILTER（高級版🔥） */}
 <section className="mb-12">
 
-  <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+<div className="flex flex-col md:flex-row gap-12">
 
     {/* ===== 分類（恢復你之前高級版） */}
-<div className="
-
-  w-full
-  flex flex-wrap
-  gap-6
-  justify-center md:justify-start
-">
+<div
+  className="
+    hidden md:flex
+    w-[220px]
+    shrink-0
+    flex-col
+    gap-5
+sticky
+top-[120px]
+mt-24
+  "
+>
 
 {categories.map((c) => {
 
 const isActive = active === c;
 
+
+    return (
+<button
+  key={c}
+  onClick={() => {
+    setActive(c);
+
+    setSearchParams(prev => {
+      prev.set("type", c);
+      prev.set("page", 1);
+      return prev;
+    });
+
+
+  }}
+  className={`
+    flex
+    items-center
+    gap-2
+
+    w-full
+
+    text-left
+
+    text-[13px]
+
+    transition
+
+    ${
+      isActive
+        ? "text-[#C8A46A]"
+        : "text-[#666] hover:text-[#C8A46A]"
+    }
+  `}
+>
+
+  <span className="w-[14px]">
+    {isActive ? "▾" : "▸"}
+  </span>
+
+  <span
+    className={
+      lang === "en"
+        ? "tracking-[0.12em]"
+        : "tracking-[0.2em]"
+    }
+  >
+    {c}
+  </span>
+
+</button>
+    );
+  })}
+
+</div>
+
+
+
+
+<div className="flex-1">
+
+
+{/* ===== 手機版分類 ===== */}
+<div className="md:hidden flex flex-wrap justify-center gap-4 mb-8">
+  {categories.map((c) => {
+    const isActive = active === c;
 
     return (
       <button
@@ -269,86 +340,63 @@ const isActive = active === c;
             return prev;
           });
 
-          window.scrollTo({ top: 0, behavior: "smooth" });
+
         }}
-className={`
-  group
-  relative
-  text-[12px] md:text-[13px]
-  transition
-  pb-2
+        className={`
+          group
+          relative
+          text-[12px]
+          pb-2
+          transition
 
-  ${lang === "en"
-    ? "tracking-[0.1em]"
-    : "tracking-[0.25em]"
-  }
-
-
-
-  ${isActive
-    ? "text-black"
-    : "text-[#aaa] hover:text-black"
-  }
-
-  after:content-['']
-  after:absolute
-  after:left-1/2
-  after:-translate-x-1/2
-  after:bottom-0
-  after:h-[1px]
-  after:bg-[#C8A46A]
-
-  after:transition-all
-  after:duration-500
-
-  ${isActive
-    ? "after:w-6"
-    : "after:w-0 hover:after:w-6"}
-`}
+          ${
+            isActive
+              ? "text-black"
+              : "text-[#aaa]"
+          }
+        `}
       >
         {c}
       </button>
     );
   })}
-
 </div>
 
-    {/* ===== 搜尋（精修版🔥） */}
+  {/* ===== 搜尋 ===== */}
+  <div className="flex justify-end mb-12">
+
     <div className="relative w-[240px]">
 
-      {/* input */}
       <input
         placeholder={lang === "en" ? "Search project" : "搜尋專案"}
         value={keyword}
-       onChange={(e) => {
-  const value = e.target.value;
+        onChange={(e) => {
+          const value = e.target.value;
 
-  setKeyword(value);
+          setKeyword(value);
 
-  setSearchParams(prev => {
-    prev.set("search", value);
-    prev.set("page", 1);
-    return prev;
-  });
-}}
+          setSearchParams(prev => {
+            prev.set("search", value);
+            prev.set("page", 1);
+            return prev;
+          });
+        }}
         className="
           w-full
           border-b border-[#ddd]
           py-2 pr-8
-          text-[13px] text-[#111]   /* 🔥 修復透明 */
+          text-[13px]
+          text-[#111]
           placeholder:text-[#bbb]
-
           bg-transparent
           outline-none
-
           focus:border-black
           transition
         "
       />
 
-      {/* 🔥 高級放大鏡（SVG） */}
       <svg
-        className="absolute right-0 top-[50%] translate-y-[-50%] w-[14px] h-[14px] text-[#999]"
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-[14px] h-[14px] text-[#999]"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.8"
@@ -362,20 +410,16 @@ className={`
 
   </div>
 
-</section>
+  {/* ===== GRID ===== */}
+  <section className="space-y-10">
 
-
-{/* ===== GRID ===== */}
-<section className="space-y-10">
-
-  {currentData.length === 0 && (
-    <div className="text-center text-[#aaa] py-40 tracking-[0.2em]">
-      {lang === "en"
-  ? "NO RESULTS"
-  : "查無符合結果"}
-    </div>
-  )}
-
+    {currentData.length === 0 && (
+      <div className="text-center text-[#aaa] py-40 tracking-[0.2em]">
+        {lang === "en"
+          ? "NO RESULTS"
+          : "查無符合結果"}
+      </div>
+    )}
   {/* ===== 手機版（🔥一格一格） ===== */}
 <div className="md:hidden space-y-3 sm:space-y-8">
 
@@ -562,8 +606,6 @@ to-transparent
 
 </div>
 
-</section>
-
 {totalPages > 1 && (
   <div className="flex justify-center items-center gap-3 mt-20">
 
@@ -634,9 +676,19 @@ onClick={() => {
 
   </div>
 )}
-      </div>
-    </div>
+
+</section>   {/* GRID 結束 */}
+
+</div>       {/* flex-1 */}
+
+</div>       {/* flex-row */}
+
+</section>   {/* FILTER */}
+
+</div>       {/* CONTENT */}
+
+</div>    
+
   );
 }
-
 
