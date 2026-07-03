@@ -339,8 +339,6 @@ const isActive = active === c;
             prev.set("page", 1);
             return prev;
           });
-
-
         }}
         className={`
           group
@@ -354,6 +352,22 @@ const isActive = active === c;
               ? "text-black"
               : "text-[#aaa]"
           }
+
+          after:content-['']
+          after:absolute
+          after:left-1/2
+          after:-translate-x-1/2
+          after:bottom-0
+          after:h-[1px]
+          after:bg-[#C8A46A]
+          after:transition-all
+          after:duration-500
+
+          ${
+            isActive
+              ? "after:w-6"
+              : "after:w-0 hover:after:w-6"
+          }
         `}
       >
         {c}
@@ -363,9 +377,9 @@ const isActive = active === c;
 </div>
 
   {/* ===== 搜尋 ===== */}
-  <div className="flex justify-end mb-12">
+<div className="flex justify-center md:justify-end mb-12">
 
-    <div className="relative w-[240px]">
+   <div className="relative w-full max-w-[240px]">
 
       <input
         placeholder={lang === "en" ? "Search project" : "搜尋專案"}
