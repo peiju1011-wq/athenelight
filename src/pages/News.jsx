@@ -1,19 +1,46 @@
-import useLang from "../hooks/useLang";
-import { text } from "../data/text";
-
-import newsData from "../data/newsData";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { supabase } from "../lib/supabase";
+
+import useLang from "../hooks/useLang";
+
 export default function News() {
 
-  const lang = useLang();
-
-  /* ===== 資料（雙語🔥） ===== */
-const news = newsData;
+const lang = useLang();
 const navigate = useNavigate();
 
+const [news, setNews] = useState([]);
 
-  const hero = news.find(n => n.hero);
-  const list = news.filter(n => !n.hero);
+useEffect(() => {
+
+
+async function loadNews() {
+
+  const { data, error } = await supabase
+    .from("news")
+    .select("*")
+    .eq("published", true)
+    .order("sort_order");
+
+  console.log("DATA", data);
+  console.log("ERROR", error);
+
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  setNews(data || []);
+}
+
+  loadNews();
+
+}, []);
+
+
+const hero = news.find(item => item.hero === true);
+const list = news.filter(item => item.hero !== true);
 
   return (
     <main className="bg-[#f7f7f7] pt-[160px]  pb-32 min-h-screen">
@@ -43,7 +70,7 @@ const navigate = useNavigate();
 
       <div className="relative overflow-hidden group">
 
-       {hero.video ? (
+     {hero?.video ? (
 
 <video
   src={hero.video}
@@ -59,7 +86,7 @@ const navigate = useNavigate();
 ) : (
 
   <img
-    src={hero.img}
+   src={hero.cover}
     alt=""
     className="w-full h-[260px] md:h-[420px] object-cover transition duration-700 group-hover:scale-105"
   />
@@ -92,15 +119,19 @@ const navigate = useNavigate();
 
         <div className="absolute bottom-6 left-6 md:left-10 text-white max-w-[480px]">
 
-          <h2  className="
+<h2
+  className="
     text-[16px]
     md:text-[26px]
     tracking-[0.12em]
     mb-2
     drop-shadow-[0_3px_10px_rgba(0,0,0,0.65)]
-  ">
-            {hero.title?.[lang]}
-          </h2>
+  "
+>
+  {lang === "en"
+    ? hero.title_en
+    : hero.title_zh}
+</h2>
 
 <p
   className="
@@ -114,9 +145,12 @@ const navigate = useNavigate();
 
     drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)]
   "
-  dangerouslySetInnerHTML={{
-    __html: hero.desc?.[lang]
-  }}
+dangerouslySetInnerHTML={{
+  __html:
+    lang === "en"
+      ? hero.desc_en
+      : hero.desc_zh
+}}
 />
 
 <span
@@ -151,7 +185,7 @@ const navigate = useNavigate();
 
             {list.map((item, i) => (
 <div
-  key={i}
+ key={item.id}
   onClick={() => {
     const prefix =
       lang === "en"
@@ -180,7 +214,7 @@ const navigate = useNavigate();
 ) : (
 
   <img
-    src={item.img}
+    src={item.cover}
     alt=""
     className="w-full h-[200px] object-cover transition duration-700 pointer-events-none group-hover:scale-105"
   />
@@ -196,7 +230,9 @@ const navigate = useNavigate();
   text-[#1A1A1A]
   mb-2
 ">
-      {item.title?.[lang]}
+     {lang === "en"
+  ? item.title_en
+  : item.title_zh}
     </h3>
 
 <p
@@ -207,7 +243,10 @@ const navigate = useNavigate();
     mb-3
   "
   dangerouslySetInnerHTML={{
-    __html: item.desc?.[lang]
+    __html:
+  lang === "en"
+    ? item.desc_en
+    : item.desc_zh
   }}
 />
 

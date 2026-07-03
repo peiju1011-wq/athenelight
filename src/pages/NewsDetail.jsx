@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import useLang from "../hooks/useLang";
-import newsData from "../data/newsData";
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabase";
 
 export default function NewsDetail() {
 
@@ -8,11 +9,42 @@ export default function NewsDetail() {
   const navigate = useNavigate();
   const lang = useLang();
 
-  const news = newsData.find(item => item.slug === slug);
+ const [news, setNews] = useState(null);
+const [loading, setLoading] = useState(true);
 
-  if (!news) {
+
+useEffect(() => {
+
+async function loadNews(){
+
+  const { data } = await supabase
+    .from("news")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
+  if(data){
+    setNews(data);
+  }
+
+  setLoading(false);
+}
+
+  loadNews();
+
+}, [slug]);
+
+if (loading) {
+  return (
+    <main className="min-h-screen flex items-center justify-center bg-black text-white">
+  Loading...
+</main>
+  );
+}
+
+if (!news) {
     return (
-      <main className="pt-[180px] pb-32 text-center">
+     <main className="min-h-screen bg-black pt-[180px] pb-32 text-center text-white">
 
         <h1 className="text-3xl mb-6">
           404
@@ -73,84 +105,74 @@ export default function NewsDetail() {
 >
   <span className="text-lg leading-none">←</span>
 
-  <span>BACK</span>
+<span>
+  {lang === "en" ? "BACK" : "返回"}
+</span>
 </button>
 
-        {/* 影片 / 圖片 */}
+{/* 影片 / 圖片 */}
 
-        {news.link && !news.blocked ? (
+{news.video ? (
 
-          <div
-            className={
-              news.type === "vertical"
-                ? "max-w-[420px] mx-auto mb-10"
-                : "mb-10"
-            }
-          >
-            <iframe
-              src={news.link}
-              className={
-                news.type === "vertical"
-                  ? "w-full aspect-[9/16] rounded-xl"
-                  : "w-full aspect-video rounded-xl"
-              }
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            />
-          </div>
+ <video
+  src={news.video}
+  poster={news.cover || undefined}
+  controls
+  playsInline
+  preload="metadata"
+  className="w-full rounded-xl mb-10"
+/>
 
-        ) : news.video ? (
+) : news.cover ? (
 
-          <video
-            src={news.video}
-            controls
-            autoPlay
-            playsInline
-            preload="metadata"
-            className="w-full rounded-xl mb-10"
-          />
+  <img
+    src={news.cover}
+    alt={
+      lang === "en"
+        ? news.title_en
+        : news.title_zh
+    }
+    className="w-full rounded-xl mb-10"
+  />
 
-        ) : (
-
-          <img
-            src={news.img}
-            alt={news.title?.[lang]}
-            className="w-full rounded-xl mb-10"
-          />
-
-        )}
+) : null}
 
         {/* 標題 */}
 
-        <h1
-          className="
-            text-white
-            text-center
-            text-[22px]
-            md:text-[32px]
-            tracking-[0.08em]
-            mb-8
-          "
-        >
-          {news.title?.[lang]}
-        </h1>
+<h1
+  className="
+    text-white
+    text-center
+    text-[22px]
+    md:text-[32px]
+    tracking-[0.08em]
+    mb-8
+  "
+>
+  {lang === "en"
+    ? news.title_en
+    : news.title_zh}
+</h1>
 
         {/* 內文 */}
 
-        <div
-          className="
-            text-white/70
-            text-center
-            text-[15px]
-            leading-9
-            max-w-[760px]
-            mx-auto
-            mb-12
-          "
-          dangerouslySetInnerHTML={{
-            __html: news.desc?.[lang]
-          }}
-        />
+<div
+  className="
+    text-white/70
+    text-left
+    text-[15px]
+    leading-9
+    max-w-[760px]
+    mx-auto
+    mb-12
+  "
+  dangerouslySetInnerHTML={{
+    __html:
+      lang === "en"
+        ? news.content_en || news.desc_en
+        : news.content_zh || news.desc_zh
+  }}
+/>
 
 
 
@@ -158,27 +180,7 @@ export default function NewsDetail() {
 
         {/* Facebook 外連 */}
 
-        {news.link && news.blocked && (
 
-          <a
-            href={news.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              block
-              text-center
-              text-[#C8A46A]
-              tracking-[0.18em]
-              hover:opacity-70
-              transition
-            "
-          >
-            {lang === "en"
-              ? "VIEW FULL VIDEO"
-              : "觀看完整影片"}
-          </a>
-
-        )}
 
       </div>
 

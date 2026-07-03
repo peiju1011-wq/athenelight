@@ -18,6 +18,7 @@ const [titleEn,setTitleEn] = useState("");
 const [descZh,setDescZh] = useState("");
 const [descEn,setDescEn] = useState("");
 const [cover,setCover] = useState("");
+
 const [category,setCategory] = useState("");
 
 const [subtitleZh,setSubtitleZh] = useState("");
@@ -638,20 +639,50 @@ return(
 
   
 
-      {/* HEADER */}
-      <div className="flex items-start justify-between mb-12">
+{/* HEADER */}
+<div className="flex items-start justify-between mb-12">
 
-        <div>
+  <div>
 
-          <p className="text-sm tracking-[0.3em] text-white/40 mb-2">
-            CMS
-          </p>
+    <p className="text-sm tracking-[0.3em] text-white/40 mb-2">
+      CMS
+    </p>
 
-          <h1 className="text-4xl font-light tracking-[0.08em]">
-            Edit Product
-          </h1>
+    <h1 className="text-4xl font-light tracking-[0.08em]">
+      Edit News
+    </h1>
 
-        </div>
+  </div>
+
+  <div className="flex gap-4">
+
+    <button
+      onClick={handleSave}
+      disabled={saving}
+      className="
+        px-6 py-3
+        bg-[#C8A46A]
+        text-black
+        rounded
+      "
+    >
+      {saving ? "儲存中..." : "儲存"}
+    </button>
+
+    <button
+      onClick={()=>navigate("/admin/news")}
+      className="
+        px-6 py-3
+        border border-white/20
+        rounded
+      "
+    >
+      返回列表
+    </button>
+
+  </div>
+
+
 
 
 

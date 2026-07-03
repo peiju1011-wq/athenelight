@@ -177,7 +177,10 @@ useLayoutEffect(() => {
   element={<AdminNews />}
 />
 
-
+<Route
+  path="admin/news/:slug"
+  element={<AdminNewsEdit />}
+/>
 
 <Route
   path="lights/:slug"
@@ -283,7 +286,7 @@ useLayoutEffect(() => {
 />
 
 <Route
-  path="admin/news/:id"
+  path="admin/news/:slug"
   element={<AdminNewsEdit />}
 />
 
@@ -390,7 +393,7 @@ useLayoutEffect(() => {
 />
 
 <Route
-  path="admin/news/:id"
+  path="admin/news/:slug"
   element={<AdminNewsEdit />}
 />
 

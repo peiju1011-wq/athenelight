@@ -1,3 +1,5 @@
+import { supabase } from "../lib/supabase";
+
 const newsData = [
   {
     slug: "ribbon-light",
