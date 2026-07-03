@@ -35,6 +35,19 @@ export default function AdminDashboard(){
       link: "/admin/news"
     },
 
+
+    {
+  title: "🏠 首頁管理",
+  desc: "管理首頁 Hero、產品、案例",
+  link: "/admin/home"
+},
+
+{
+  title: "📁 Footer",
+  desc: "管理型錄下載與產品連結",
+  link: "/admin/footer"
+},
+
     {
       title: "🗑 垃圾桶",
       desc: "還原或永久刪除資料",
@@ -46,6 +59,9 @@ export default function AdminDashboard(){
       desc: "掃描未使用圖片",
       link: "/admin/storage-cleaner"
     }
+
+
+
 
   ];
 

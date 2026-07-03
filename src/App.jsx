@@ -30,6 +30,7 @@ import AdminProjectsEdit from "./pages/AdminProjectsEdit";
 
 import AdminNews from "./pages/AdminNews";
 import AdminNewsEdit from "./pages/AdminNewsEdit";
+import AdminHome from "./pages/AdminHome";
 import TestProducts from "./pages/TestProducts";
 import AdminProductsNew from "./pages/AdminProductsNew";
 import AdminProjectsNew from "./pages/AdminProjectsNew";
@@ -178,6 +179,12 @@ useLayoutEffect(() => {
 />
 
 <Route
+  path="admin/home"
+  element={<AdminHome />}
+/>
+
+
+<Route
   path="admin/news/:slug"
   element={<AdminNewsEdit />}
 />
@@ -244,6 +251,13 @@ useLayoutEffect(() => {
   path="admin/products/new"
   element={<AdminProductsNew />}
 />
+
+
+<Route
+  path="admin/home"
+  element={<AdminHome />}
+/>
+
 
 <Route
   path="admin/products/:slug"
@@ -391,6 +405,12 @@ useLayoutEffect(() => {
   path="admin/news"
   element={<AdminNews />}
 />
+
+<Route
+  path="admin/home"
+  element={<AdminHome />}
+/>
+
 
 <Route
   path="admin/news/:slug"
