@@ -307,53 +307,91 @@ loadHome();
       {/* HERO */}
       {/* ====================================================== */}
 
-      <section className="mb-20">
+<section className="mb-20">
 
-        <h2 className="text-2xl text-[#C8A46A] mb-8">
-          Hero
-        </h2>
+  <h2 className="text-2xl text-[#C8A46A] mb-8">
+    Hero
+  </h2>
 
-        <p className="text-white/60 mb-2">
-          Hero 中文標題
-        </p>
+  <p className="text-white/60 mb-2">
+    Hero 主標（中文）
+  </p>
 
-        <input
-          value={heroTitleZh}
-          onChange={(e)=>setHeroTitleZh(e.target.value)}
-          className="w-full p-3 mb-5 border bg-white text-black"
-        />
+  <input
+    value={heroTitleZh}
+    onChange={(e)=>setHeroTitleZh(e.target.value)}
+    placeholder="例如：ATHENE LIGHT"
+    className="
+      w-full
+      p-4
+      mb-6
+      border
+      border-white/10
+      bg-white
+      text-black
+      text-lg
+    "
+  />
 
-        <p className="text-white/60 mb-2">
-          Hero 英文標題
-        </p>
+  <p className="text-white/60 mb-2">
+    Hero 主標（英文）
+  </p>
 
-        <input
-          value={heroTitleEn}
-          onChange={(e)=>setHeroTitleEn(e.target.value)}
-          className="w-full p-3 mb-5 border bg-white text-black"
-        />
+  <input
+    value={heroTitleEn}
+    onChange={(e)=>setHeroTitleEn(e.target.value)}
+    placeholder="Example：ATHENE LIGHT"
+    className="
+      w-full
+      p-4
+      mb-6
+      border
+      border-white/10
+      bg-white
+      text-black
+      text-lg
+    "
+  />
 
-        <p className="text-white/60 mb-2">
-          Hero 中文副標
-        </p>
+  <p className="text-white/60 mb-2">
+    Hero 副標（中文）
+  </p>
 
-        <textarea
-          rows="3"
-          value={heroSubZh}
-          onChange={(e)=>setHeroSubZh(e.target.value)}
-          className="w-full p-3 mb-5 border bg-white text-black"
-        />
+  <textarea
+    rows="3"
+    value={heroSubZh}
+    onChange={(e)=>setHeroSubZh(e.target.value)}
+    placeholder="例如：光，為空間留下溫度"
+    className="
+      w-full
+      p-4
+      mb-6
+      border
+      border-white/10
+      bg-white
+      text-black
+    "
+  />
 
-        <p className="text-white/60 mb-2">
-          Hero 英文副標
-        </p>
+  <p className="text-white/60 mb-2">
+    Hero 副標（英文）
+  </p>
 
-        <textarea
-          rows="3"
-          value={heroSubEn}
-          onChange={(e)=>setHeroSubEn(e.target.value)}
-          className="w-full p-3 mb-5 border bg-white text-black"
-        />
+  <textarea
+    rows="3"
+    value={heroSubEn}
+    onChange={(e)=>setHeroSubEn(e.target.value)}
+    placeholder="Example：Leave Warmth in Every Space"
+    className="
+      w-full
+      p-4
+      mb-8
+      border
+      border-white/10
+      bg-white
+      text-black
+    "
+  />
 
 <p className="text-white/60 mb-2">
   Hero 影片網址
