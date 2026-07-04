@@ -39,6 +39,8 @@ export default function AdminHome() {
 
   async function loadHome() {
 
+    
+
     const { data, error } = await supabase
       .from("home_settings")
       .select("*")
@@ -51,7 +53,18 @@ export default function AdminHome() {
       return;
     }
 
+    
+
 if (data) {
+
+   console.log("HOME DATA");
+  console.log(data);
+
+  console.log("HOME PRODUCTS");
+  console.log(data.products);
+
+  console.log("HOME PROJECTS");
+  console.log(data.projects);
 
 console.log(data.products);
 console.log(Array.isArray(data.products));
@@ -66,25 +79,33 @@ console.log(Array.isArray(data.products));
 
   setHeroCover(data.hero_cover || "");
 
-  setProducts(
-    data.products?.length
+setProducts(
+  typeof data.products === "string"
+    ? JSON.parse(data.products)
+    : Array.isArray(data.products)
       ? data.products
       : [
           { image:"", link:"" },
           { image:"", link:"" },
+          { image:"", link:"" },
+          { image:"", link:"" },
           { image:"", link:"" }
         ]
-  );
+);
 
-  setProjects(
-    data.projects?.length
+setProjects(
+  typeof data.projects === "string"
+    ? JSON.parse(data.projects)
+    : Array.isArray(data.projects)
       ? data.projects
       : [
           { image:"", link:"" },
           { image:"", link:"" },
+          { image:"", link:"" },
+          { image:"", link:"" },
           { image:"", link:"" }
         ]
-  );
+);
 
 }
 
@@ -111,11 +132,11 @@ async function handleSave(){
         .toLowerCase();
 
     const fileName =
-      `home/hero.${ext}`;
+      `hero.${ext}`;
 
     const { error: uploadError } =
       await supabase.storage
-        .from("projects")
+        .from("home")
         .upload(
           fileName,
           heroCoverFile,
@@ -136,7 +157,7 @@ async function handleSave(){
 
     const { data } =
       supabase.storage
-        .from("projects")
+        .from("home")
         .getPublicUrl(fileName);
 
     finalHeroCover =
@@ -155,12 +176,13 @@ async function handleSave(){
         (saveProducts[i].file.name.split(".").pop() || "jpg")
           .toLowerCase();
 
-      const fileName =
-        `home/product-${i}.${ext}`;
+    
+        const fileName =
+  `product-${i}.${ext}`;
 
       const { error } =
         await supabase.storage
-          .from("projects")
+          .from("home")
           .upload(
             fileName,
             saveProducts[i].file,
@@ -181,7 +203,7 @@ async function handleSave(){
 
       const { data } =
         supabase.storage
-          .from("projects")
+          .from("home")
           .getPublicUrl(fileName);
 
       saveProducts[i].image =
@@ -205,12 +227,12 @@ async function handleSave(){
         (saveProjects[i].file.name.split(".").pop() || "jpg")
           .toLowerCase();
 
-      const fileName =
-        `home/project-${i}.${ext}`;
+    const fileName =
+  `project-${i}.${ext}`;
 
       const { error } =
         await supabase.storage
-          .from("projects")
+          .from("home")
           .upload(
             fileName,
             saveProjects[i].file,
@@ -231,7 +253,7 @@ async function handleSave(){
 
       const { data } =
         supabase.storage
-          .from("projects")
+          .from("home")
           .getPublicUrl(fileName);
 
       saveProjects[i].image =

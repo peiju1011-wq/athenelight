@@ -1,45 +1,137 @@
 import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabase";
+
 import "../styles/portal.css";
-import Brands from "../components/Brands";
 import "../styles/animations.css";
+
+import Brands from "../components/Brands";
+
 import { Link } from "react-router-dom";
-import useLang from "../hooks/useLang"
-import { text } from "../data/text"
+
+import useLang from "../hooks/useLang";
+import { text } from "../data/text";
 import products from "../data/products";
-
-
+import projects from "../data/projects";
 export default function Portal() {
 
   const lang = useLang();
 
 
 
-  const [index, setIndex] = useState(0); // 🔥 slider
-
   const t = text;
 
+  /* ===========================
+      Home Settings
+  =========================== */
+
+  const [home, setHome] = useState(null);
+
+  const [loadingHome, setLoadingHome] = useState(true);
+
+  const [homeProducts, setHomeProducts] = useState([]);
+
+  const [homeProjects, setHomeProjects] = useState([]);
+
+  /* ===========================
+      Slider
+  =========================== */
+
+  const [index, setIndex] = useState(0);
+
+  /* ===========================
+      Load Home
+  =========================== */
+
+  async function loadHome() {
+
+    const { data, error } = await supabase
+      .from("home_settings")
+      .select("*")
+      .eq("id", 1)
+      .single();
+
+    if (error) {
+
+   
+
+      setLoadingHome(false);
+
+      return;
+
+    }
 
 
-  /* REVEAL ANIMATION */
+setHome(data);
+
+setHomeProducts(
+  typeof data.products === "string"
+    ? JSON.parse(data.products)
+    : (data.products || [])
+);
+
+setHomeProjects(
+  typeof data.projects === "string"
+    ? JSON.parse(data.projects)
+    : (data.projects || [])
+);
+
+setLoadingHome(false);
+  }
+
+  /* ===========================
+      Reveal Animation
+  =========================== */
 
   useEffect(() => {
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-      });
-    }, { threshold: 0.15 });
 
-    const elements = document.querySelectorAll(".reveal");
-    elements.forEach((el) => observer.observe(el));
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("show");
+
+        }
+
+      });
+
+    }, {
+
+      threshold: 0.15
+
+    });
+
+    const elements =
+      document.querySelectorAll(".reveal");
+
+    elements.forEach((el) =>
+      observer.observe(el)
+    );
 
     return () => observer.disconnect();
 
   }, []);
 
+  /* ===========================
+      Load Home Once
+  =========================== */
+
+  useEffect(() => {
+
+   
+
+
+    loadHome();
+
+  }, []);
+
+
+
+
   return (
+
+    
 
     <div className="portal">
 
@@ -54,7 +146,10 @@ export default function Portal() {
   loop
   playsInline
 
-  poster="/images/hero-poster.png"
+  poster={
+    home?.hero_cover ||
+    "/images/hero-poster.png"
+  }
 
   preload="metadata"
 
@@ -65,8 +160,16 @@ export default function Portal() {
     scale-[1.02]
   "
 >
-    <source src="/videos/hero.mp4" type="video/mp4" />
-  </video>
+
+  <source
+    src={
+      home?.hero_video ||
+      "/videos/hero.mp4"
+    }
+    type="video/mp4"
+  />
+
+</video>
 
 {/* 🔥 OVERLAY */}
 <div className="
@@ -119,7 +222,9 @@ md:text-[40px]
 
       drop-shadow-[0_2px_18px_rgba(0,0,0,0.42)]
     ">
-      ATHENE LIGHT
+     {lang === "en"
+  ? (home?.hero_title_en || "ATHENE LIGHT")
+  : (home?.hero_title_zh || "ATHENE LIGHT")}
     </div>
 
     {/* 金線 */}
@@ -154,9 +259,19 @@ md:text-[40px]
 
       drop-shadow-[0_2px_10px_rgba(0,0,0,0.32)]
     ">
-      {lang === "en"
-        ? "Light, leaving warmth in space."
-        : "光。為空間留下溫度"}
+ {lang === "en"
+
+  ? (
+      home?.hero_sub_en ||
+      "Light, leaving warmth in space."
+    )
+
+  : (
+      home?.hero_sub_zh ||
+      "光。為空間留下溫度"
+    )
+
+}
     </div>
 
   </div>
@@ -504,25 +619,44 @@ whitespace-normal
 
 
     {/* GRID */}
-    <div className="grid md:grid-cols-3 gap-8 items-end mb-20">
+    <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8 items-end mb-20">
 
       {/* BIG */}
-      <div className="md:col-span-2 group relative overflow-hidden bg-white reveal h-[340px]">
+    <Link
+  to={
+    homeProjects[0]?.link ||
+    "/projects"
+  }
+>
+<div
+  className="
+    md:col-span-2
+    w-full
+    h-[360px]
+    group
+    relative
+    overflow-hidden
+    bg-white
+    reveal
+  "
+>
 
-        <img
-  src="/images/projects/p1-3.png"
+<img
+  src={
+    homeProjects[0]?.image ||
+    "/images/projects/p1-3.png"
+  }
   className="
     w-full h-full
     object-cover
-
-    scale-[]
-object-[50%_50%]
+    object-[50%_50%]
     transition duration-700
     ease-[cubic-bezier(0.22,1,0.36,1)]
-
     group-hover:scale-110
   "
 />
+
+
 
         {/* 遮罩 */}
        <div className="
@@ -546,11 +680,31 @@ object-[50%_50%]
 
       </div>
 
+</Link>
+
 
       {/* SMALL */}
-      <div className="group relative overflow-hidden bg-white reveal h-[260px] md:mb-[-60px]">
+     <Link
+  to={
+    homeProjects[1]?.link ||
+    "/projects"
+  }
+>
 
-        <img src="/images/projects/project2.png"
+<div className="
+  group
+  relative
+  overflow-hidden
+  bg-white
+  reveal
+  h-[260px]
+">
+
+  <img
+  src={
+    homeProjects[1]?.image ||
+    "/images/projects/project2.png"
+  }
           className="w-full h-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
         />
 
@@ -573,7 +727,7 @@ object-[50%_50%]
         </div>
 
       </div>
-
+</Link>
     </div>
 
 
@@ -589,13 +743,30 @@ object-[50%_50%]
         ]
 
         return(
-          <div
-            key={i}
-            className={`group relative overflow-hidden bg-white reveal h-[260px] ${offset[idx]}`}
-          >
+        <Link
+  key={i}
+  to={
+    homeProjects[i]?.link ||
+    "/projects"
+  }
+>
 
-           <img
-  src={`/images/projects/project${i+1}.png`}
+<div
+  className={`
+    group
+    relative
+    overflow-hidden
+    bg-white
+    reveal
+    h-[260px]
+    ${offset[idx]}
+  `}
+>
+     <img
+  src={
+    homeProjects[i]?.image ||
+    `/images/projects/project${i+1}.png`
+  }
   className={`
     w-full h-full object-cover
     transition duration-700
@@ -625,8 +796,9 @@ object-[50%_50%]
                 {t?.projects?.items?.[i]?.[lang]}
               </h3>
             </div>
+</div>
 
-          </div>
+</Link>
         )
 
       })}
@@ -684,13 +856,31 @@ object-[50%_50%]
 {/* GRID（倒排版🔥） */}
 
 {/* ROW 1 */}
-<div className="grid md:grid-cols-3 gap-8 items-end mb-20">
+<div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 items-end mb-20">
 
   {/* 小（左） PRODUCT 01 */}
-  <div className="group relative overflow-hidden bg-white reveal h-[260px] md:mt-[40px]">
+<Link
+  to={
+    homeProducts[1]?.link ||
+    "/products"
+  }
+>
 
-    <img
-      src={products[1]?.img}
+<div className="
+  group
+  relative
+  overflow-hidden
+  bg-white
+  reveal
+  h-[260px]
+  md:mt-[40px]
+">
+
+<img
+  src={
+    homeProducts[1]?.image ||
+    products[1]?.img
+  }
       className="
         w-full h-full
         object-cover
@@ -748,18 +938,41 @@ object-[50%_50%]
           drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)]
         "
       >
-        {products[1]?.title?.[lang]}
+       {homeProducts[1]?.title || ""}
       </h3>
 
     </div>
 
-  </div>
+</div>
+
+</Link>
 
   {/* 大（右） PRODUCT 02 */}
-  <div className="md:col-span-2 group relative overflow-hidden bg-white reveal h-[340px]">
+<Link
+  to={
+    homeProducts[0]?.link ||
+    "/products"
+  }
+>
 
-    <img
-      src={products[0]?.img}
+<div className="
+  group
+  relative
+  overflow-hidden
+  bg-white
+  reveal
+
+  h-[340px]
+  md:h-[420px]
+">
+
+<img
+  src={homeProducts[0]?.image}
+  onLoad={() => console.log("圖片成功")}
+  onError={(e) => {
+ 
+  }}
+
       className="
         w-full h-full
         object-cover
@@ -795,12 +1008,15 @@ object-[50%_50%]
           drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)]
         "
       >
-        {products[0]?.title?.[lang]}
+     {homeProducts[0]?.title || ""}
       </h3>
 
     </div>
 
+ 
   </div>
+
+</Link>
 
 </div>
 
@@ -809,12 +1025,11 @@ object-[50%_50%]
 
   {[2,3,4].map((i,idx)=>{
 
-    const offset = [
-      "md:mt-[40px]",
-      "",
-      "md:mt-[-60px]"
-    ];
-
+   const offset = [
+  "md:mt-[40px]",
+  "",
+  "md:mt-[-60px]"
+];
     const imageStyle = [
 
       `
@@ -871,22 +1086,32 @@ object-[50%_50%]
 
     return(
 
-      <div
-        key={i}
-        className={`
-          group
-          relative
-          overflow-hidden
-          bg-white
-          reveal
-          h-[260px]
-          ${offset[idx]}
-        `}
-      >
+     <Link
+  key={i}
+  to={
+    homeProducts[i]?.link ||
+    "/products"
+  }
+>
+
+<div
+  className={`
+    group
+    relative
+    overflow-hidden
+    bg-white
+    reveal
+    h-[260px]
+    ${offset[idx]}
+  `}
+>
 
         {/* IMAGE */}
-        <img
-          src={products[i]?.img}
+     <img
+ src={
+  homeProducts[i]?.image ||
+  products[i]?.img
+}
           className={`
             w-full
             h-full
@@ -931,12 +1156,14 @@ object-[50%_50%]
               drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)]
             "
           >
-            {products[i]?.title?.[lang]}
+            {homeProducts[i]?.title || ""}
           </h3>
 
         </div>
 
-      </div>
+   </div>
+
+</Link>
 
     );
 
