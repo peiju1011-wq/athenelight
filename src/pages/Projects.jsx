@@ -19,15 +19,22 @@ export default function Projects() {
     c => c.parent_key
   );
 
-  const grandChildCategories = categories.filter(c => {
+/* ===== 修改：真正的第三層 ===== */
+const grandChildCategories = categories.filter(c => {
 
-    const parent = categories.find(
-      p => p.category_key === c.parent_key
-    );
+  const parent = categories.find(
+    p => p.category_key === c.parent_key
+  );
 
-    return parent?.parent_key;
+  if(!parent) return false;
 
-  });
+  const grand = categories.find(
+    p => p.category_key === parent.parent_key
+  );
+
+  return !!grand;
+
+});
 
   useEffect(() => {
 
