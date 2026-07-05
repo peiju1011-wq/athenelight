@@ -17,11 +17,19 @@ export default function AdminDashboard(){
 
   const cards = [
 
+    
+
     {
       title: "📦 產品管理",
       desc: "管理燈具資料",
       link: "/admin/products"
     },
+
+    {
+  title: "🗂️ 分類管理",
+  desc: "管理產品與案例分類",
+  link: "/admin/categories"
+},
 
     {
       title: "🏗 案例管理",

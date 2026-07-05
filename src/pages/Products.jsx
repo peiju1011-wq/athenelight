@@ -9,6 +9,8 @@ import { supabase } from "../lib/supabase";
 export default function Products(){
 
 const [productsData, setProductsData] = useState([]);
+const [categories, setCategories] = useState([]);
+
 const [searchParams, setSearchParams] = useSearchParams();
 
 const currentPage = Number(searchParams.get("page")) || 1;
@@ -27,26 +29,37 @@ const isMobile =
 const [openLighting, setOpenLighting] =
   useState(!isMobile);
 
-const [openIndoorMenu, setOpenIndoorMenu] =
-  useState(false);
 
-const [openOutdoorMenu, setOpenOutdoorMenu] =
-  useState(false);
+const [expanded, setExpanded] = useState({});
 
-const [openLandscapeMenu, setOpenLandscapeMenu] =
- useState(false);
-
-const [openFestivalMenu, setOpenFestivalMenu] =
-  useState(false);
-
-const [openFestivalLight, setOpenFestivalLight] =
-  useState(!isMobile);
 
 
 const itemsPerPage = 12;
 
 const lang = useLang();
 const navigate = useNavigate();
+
+const mainCategories = categories.filter(
+  c => !c.parent_key
+);
+
+
+const childCategories = categories.filter(
+  c => c.parent_key
+);
+
+const grandChildCategories = categories.filter(c => {
+
+  const parent = categories.find(
+    p => p.category_key === c.parent_key
+  );
+
+  return parent?.parent_key;
+
+});
+
+
+
 
 function handleCategoryClick(key){
 
@@ -84,7 +97,27 @@ useEffect(() => {
 
   }
 
-  loadProducts();
+loadProducts();
+  loadCategories();
+
+async function loadCategories() {
+
+  const { data, error } = await supabase
+    .from("categories")
+    .select("*")
+    .eq("type", "product")
+    .eq("enabled", true)
+    .order("sort_order");
+
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  setCategories(data || []);
+
+}
+
 
 }, []);
 
@@ -93,7 +126,9 @@ useEffect(() => {
       ? "Products"
       : "產品介紹";
 
-const outdoorTypes = [
+
+/*
+      const outdoorTypes = [
 
   {
     key:"LANDSCAPE",
@@ -143,6 +178,8 @@ const outdoorTypes = [
 }
 
 ];
+
+*/
 
   /* ===== 燈具產品（🔥已修正） ===== */
 const products = productsData
@@ -255,20 +292,24 @@ if(active === "INDOOR"){
   return item.cat === "INDOOR";
 }
 
-if(active === "OUTDOOR_WALL"){
-  return item.cat === "OUTDOOR_WALL";
+if(active === "OUTDOOR"){
+  return item.cat === "OUTDOOR";
 }
 
 if(active === "FESTIVAL"){
   return item.cat === "FESTIVAL";
 }
 
-if(active === "PENDANT"){
+
+const selected = categories.find(
+  c => c.category_key === active
+);
+
+if (selected?.parent_key) {
 
   return (
-    item.subCat === "LOBBY_PENDANT" ||
-    item.subCat === "DINING_PENDANT" ||
-    item.subCat === "CUSTOM_PENDANT"
+    item.subCat === active ||
+    item.cat === active
   );
 
 }
@@ -344,10 +385,10 @@ useEffect(() => {
   return () => clearTimeout(timer);
 
 }, [keyword]);
-/* =========================
-   UI（完全不動🔥）
-========================= */
 
+
+
+/*
 
 const indoorTypes = [
 
@@ -376,6 +417,8 @@ const indoorTypes = [
       }
     ]
   },
+
+  
 
   {
     key:"LIGHT_FILM",
@@ -419,6 +462,8 @@ const festivalTypes = [
 
 ];
 
+*/
+
 
 return(  
 
@@ -458,30 +503,11 @@ return(
 <div className="mb-6">
 
  <button
-  onClick={() => {
+onClick={() => {
 
-    const next = !openLighting;
+  setOpenLighting(!openLighting);
 
-    setOpenLighting(next);
-
-    // 電腦版全部一起展開
-    if (next) {
-
-      setOpenIndoorMenu(true);
-      setOpenOutdoorMenu(true);
-      setOpenLandscapeMenu(true);
-      setOpenFestivalMenu(true);
-
-    } else {
-
-      setOpenIndoorMenu(false);
-      setOpenOutdoorMenu(false);
-      setOpenLandscapeMenu(false);
-      setOpenFestivalMenu(false);
-
-    }
-
-  }}
+}}
 className="
   flex items-center gap-2
   text-[13px]
@@ -503,235 +529,476 @@ className="
 
 <div className="space-y-4 ml-4">
 
-{/* 室內 */}
+{/* ===== 室內 ===== */}
+
+{mainCategories
+  .filter(c => c.category_key === "INDOOR")
+  .map(main => (
+
+<div key={main.category_key}>
 
 <button
-onClick={() => {
-  setOpenIndoorMenu(!openIndoorMenu);
-  handleCategoryClick("INDOOR");
-}}
+  onClick={() => {
+
+   setExpanded(prev => ({
+
+  ...prev,
+
+  [main.category_key]:
+    !prev[main.category_key]
+
+}));
+
+    handleCategoryClick(main.category_key);
+
+  }}
   className="
-    flex items-center gap-2
+    flex
+    items-center
+    gap-2
     text-[#666]
     hover:text-[#C8A46A]
     transition
   "
 >
+
   <span>
-    {openIndoorMenu ? "▾" : "▸"}
+
+{expanded[main.category_key] ? "▾" : "▸"}
+
   </span>
 
-{lang === "en" ? "Indoor" : "室內"}
+  {lang === "en"
+    ? main.en
+    : main.zh}
+
 </button>
 
+{expanded[main.category_key] && (
 
-
-{openIndoorMenu && (
-
-  <div
-    className="
-      ml-6
-      pl-3
-      border-l border-[#f3f3f3]
-      space-y-2
-      text-[12px]
-      text-[#666]
-    "
-  >
-
-{indoorTypes.map(item => (
-
-  <div key={item.key}>
-
-    <div
-      onClick={() => handleCategoryClick(item.key)}
-      className="
-        hover:text-[#C8A46A]
-        cursor-pointer
-        transition
-      "
-    >{lang === "en" ? item.en : item.zh}
-    </div>
-
-    {item.children && (
 <div
   className="
-    flex
-    flex-wrap
-    gap-2
-    mt-2
-    ml-3
+    ml-6
+    pl-3
+    border-l
+    border-[#f3f3f3]
+    space-y-2
+    text-[12px]
+    text-[#666]
   "
 >
-        {item.children.map(child => (
 
-<div
-  key={child.key}
-  onClick={() =>
-    handleCategoryClick(child.key)
-  }
-className="
-  px-3
-  h-[34px]
+{childCategories
+  .filter(
+    c => c.parent_key === main.category_key
+  )
+  .map(child => {
 
-  inline-flex
-  items-center
-  justify-center
+    const grandChildren =
+      grandChildCategories.filter(
+        g => g.parent_key === child.category_key
+      );
 
-  whitespace-nowrap
+    return (
 
-  text-[11px]
-  leading-none
+      <div key={child.category_key}>
 
-  border
-  border-[#ddd]
-  rounded-full
+        {/* 子分類 */}
 
-  hover:border-[#C8A46A]
-  hover:text-[#C8A46A]
+        <div
+          onClick={() =>
+            handleCategoryClick(child.category_key)
+          }
+          className="
+            hover:text-[#C8A46A]
+            cursor-pointer
+            transition
+          "
+        >
 
-  cursor-pointer
-  transition
-"
->
-  {lang === "en" ? child.en : child.zh}
+          {lang === "en"
+            ? child.en
+            : child.zh}
+
+        </div>
+
+        {/* ===== 孫分類 ===== */}
+
+        {grandChildren.length > 0 && (
+
+          <div
+            className="
+              ml-5
+              mt-2
+              space-y-2
+              border-l
+              border-[#f3f3f3]
+              pl-3
+            "
+          >
+
+            {grandChildren.map(grand => (
+
+              <div
+                key={grand.category_key}
+                onClick={() =>
+                  handleCategoryClick(
+                    grand.category_key
+                  )
+                }
+                className="
+                  text-[11px]
+                  text-[#888]
+                  hover:text-[#C8A46A]
+                  cursor-pointer
+                  transition
+                "
+              >
+
+                {lang === "en"
+                  ? grand.en
+                  : grand.zh}
+
+              </div>
+
+            ))}
+
+          </div>
+
+        )}
+
+      </div>
+
+    );
+
+  })}
+
 </div>
 
-        ))}
-      </div>
-    )}
+)}
 
-  </div>
+</div>
 
 ))}
 
-  </div>
 
-)}
+{/* ===== 戶外 ===== */}
 
+{mainCategories
+  .filter(c => c.category_key === "OUTDOOR")
+  .map(main => (
 
-
-
-
-{/* 戶外 */}
+<div key={main.category_key}>
 
 <button
-onClick={() => {
-  setOpenOutdoorMenu(!openOutdoorMenu);
-  handleCategoryClick("OUTDOOR_WALL");
-}}
+  onClick={() => {
+
+setExpanded(prev => ({
+
+  ...prev,
+
+  [main.category_key]:
+    !prev[main.category_key]
+
+}));
+
+    handleCategoryClick(main.category_key);
+
+  }}
   className="
-    flex items-center gap-2
+    flex
+    items-center
+    gap-2
     text-[#666]
     hover:text-[#C8A46A]
     transition
   "
 >
+
   <span>
-    {openOutdoorMenu ? "▾" : "▸"}
+
+{expanded[main.category_key] ? "▾" : "▸"}
+
   </span>
 
- {lang === "en" ? "Outdoor" : "戶外"}
+  {lang === "en"
+    ? main.en
+    : main.zh}
+
 </button>
 
-{openOutdoorMenu && (
+{expanded[main.category_key] && (
 
-  <div
-    className="
-      ml-6
-      pl-3
-      border-l border-[#f3f3f3]
-      space-y-2
-      text-[12px]
-      text-[#666]
-    "
-  >
+<div
+  className="
+    ml-6
+    pl-3
+    border-l
+    border-[#f3f3f3]
+    space-y-2
+    text-[12px]
+    text-[#666]
+  "
+>
 
-    {outdoorTypes
-      .find(item => item.key === "FACADE")
-      ?.children
-      ?.map(light => (
+{childCategories
+  .filter(
+    c => c.parent_key === main.category_key
+  )
+  .map(child => {
+
+    const grandChildren =
+      grandChildCategories.filter(
+        g => g.parent_key === child.category_key
+      );
+
+    return (
+
+      <div key={child.category_key}>
+
+        {/* 子分類 */}
 
         <div
-          key={light.key}
-          onClick={() => handleCategoryClick(light.key)}
+          onClick={() =>
+            handleCategoryClick(child.category_key)
+          }
           className="
             hover:text-[#C8A46A]
             cursor-pointer
             transition
           "
         >
-         {lang === "en" ? light.en : light.zh}
+
+          {lang === "en"
+            ? child.en
+            : child.zh}
+
         </div>
 
-    ))}
+        {/* ===== 孫分類 ===== */}
 
-  </div>
+        {grandChildren.length > 0 && (
+
+          <div
+            className="
+              ml-5
+              mt-2
+              space-y-2
+              border-l
+              border-[#f3f3f3]
+              pl-3
+            "
+          >
+
+            {grandChildren.map(grand => (
+
+              <div
+                key={grand.category_key}
+                onClick={() =>
+                  handleCategoryClick(
+                    grand.category_key
+                  )
+                }
+                className="
+                  text-[11px]
+                  text-[#888]
+                  hover:text-[#C8A46A]
+                  cursor-pointer
+                  transition
+                "
+              >
+
+                {lang === "en"
+                  ? grand.en
+                  : grand.zh}
+
+              </div>
+
+            ))}
+
+          </div>
+
+        )}
+
+      </div>
+
+    );
+
+  })}
+
+</div>
 
 )}
 
+</div>
 
-{/* 景觀 */}
+))}
+
+{/* ===== 景觀 ===== */}
+
+{mainCategories
+  .filter(c => c.category_key === "LANDSCAPE")
+  .map(main => (
+
+<div key={main.category_key}>
 
 <button
-onClick={() => {
-  setOpenLandscapeMenu(!openLandscapeMenu);
-  handleCategoryClick("LANDSCAPE");
-}}
+  onClick={() => {
+
+ setExpanded(prev => ({
+
+  ...prev,
+
+  [main.category_key]:
+    !prev[main.category_key]
+
+}));
+
+    handleCategoryClick(main.category_key);
+
+  }}
   className="
-    flex items-center gap-2
+    flex
+    items-center
+    gap-2
     text-[#666]
     hover:text-[#C8A46A]
     transition
   "
 >
+
   <span>
-    {openLandscapeMenu ? "▾" : "▸"}
+
+{expanded[main.category_key] ? "▾" : "▸"}
   </span>
 
- {lang === "en" ? "Landscape" : "景觀"}
+  {lang === "en"
+    ? main.en
+    : main.zh}
+
 </button>
 
-{openLandscapeMenu && (
+{expanded[main.category_key] && (
 
-  <div
-    className="
-      ml-6
-      pl-3
-      border-l border-[#f3f3f3]
-      space-y-2
-      text-[12px]
-      text-[#666]
-    "
-  >
+<div
+  className="
+    ml-6
+    pl-3
+    border-l
+    border-[#f3f3f3]
+    space-y-2
+    text-[12px]
+    text-[#666]
+  "
+>
+{childCategories
+  .filter(
+    c => c.parent_key === main.category_key
+  )
+  .map(child => {
 
-    {outdoorTypes
-      .find(item => item.key === "LANDSCAPE")
-      ?.children
-      ?.map(light => (
+    const grandChildren =
+      grandChildCategories.filter(
+        g => g.parent_key === child.category_key
+      );
+
+    return (
+
+      <div key={child.category_key}>
+
+        {/* 子分類 */}
 
         <div
-  key={light.key}
-  onClick={() => handleCategoryClick(light.key)}
+          onClick={() =>
+            handleCategoryClick(child.category_key)
+          }
           className="
             hover:text-[#C8A46A]
             cursor-pointer
             transition
           "
         >
-        {lang === "en" ? light.en : light.zh}
+
+          {lang === "en"
+            ? child.en
+            : child.zh}
+
         </div>
 
-    ))}
+        {/* ===== 孫分類 ===== */}
 
-  </div>
+        {grandChildren.length > 0 && (
+
+          <div
+            className="
+              ml-5
+              mt-2
+              space-y-2
+              border-l
+              border-[#f3f3f3]
+              pl-3
+            "
+          >
+
+            {grandChildren.map(grand => (
+
+              <div
+                key={grand.category_key}
+                onClick={() =>
+                  handleCategoryClick(
+                    grand.category_key
+                  )
+                }
+                className="
+                  text-[11px]
+                  text-[#888]
+                  hover:text-[#C8A46A]
+                  cursor-pointer
+                  transition
+                "
+              >
+
+                {lang === "en"
+                  ? grand.en
+                  : grand.zh}
+
+              </div>
+
+            ))}
+
+          </div>
+
+        )}
+
+      </div>
+
+    );
+
+  })}
+
+</div>
 
 )}
 
+</div>
+
+))}
+
+{/* ===== 訂製燈具 ===== */}
+
+{mainCategories
+  .filter(c => c.category_key === "CUSTOM")
+  .map(main => (
+
 <button
-  onClick={() => handleCategoryClick("CUSTOM")}
+  key={main.category_key}
+  onClick={() =>
+    handleCategoryClick(main.category_key)
+  }
   className="
-    flex items-center gap-2
+    flex
+    items-center
+    gap-2
     text-[#666]
     hover:text-[#C8A46A]
     transition
@@ -740,153 +1007,256 @@ onClick={() => {
 
 <span>▸</span>
 
-{lang === "en" ? "Custom Lighting" : "訂製燈具"}
+{lang === "en"
+  ? main.en
+  : main.zh}
+
 </button>
+
+))}
+
+{/* ===== 鏡燈 ===== */}
 
 <button
 onClick={()=>{
   setActive("MIRROR");
   navigate(`/${lang}/products/mirror`);
 }}
-   className="
-    flex items-center gap-2
-    text-[#666]
-    hover:text-[#C8A46A]
-    transition
-  "
+className="
+  flex
+  items-center
+  gap-2
+  text-[#666]
+  hover:text-[#C8A46A]
+  transition
+"
 >
+
 <span>▸</span>
 
-{lang === "en" ? "Mirror Lights" : "鏡燈"}
+{lang === "en"
+  ? "Mirror Lights"
+  : "鏡燈"}
+
 </button>
+
+{/* ===== 節慶 ===== */}
+
+{mainCategories
+  .filter(c => c.category_key === "FESTIVAL")
+  .map(main => (
+
+<div key={main.category_key}>
 
 <button
-onClick={() => {
-  setOpenFestivalMenu(!openFestivalMenu);
-  handleCategoryClick("FESTIVAL");
-}}
+  onClick={() => {
+
+   setExpanded(prev => ({
+
+  ...prev,
+
+  [main.category_key]:
+    !prev[main.category_key]
+
+}));
+
+    handleCategoryClick(main.category_key);
+
+  }}
   className="
-    flex items-center gap-2
+    flex
+    items-center
+    gap-2
     text-[#666]
     hover:text-[#C8A46A]
     transition
   "
 >
-  <span>
-    {openFestivalMenu ? "▾" : "▸"}
-  </span>
 
-{lang === "en" ? "Festive Lighting" : "節慶燈具"}
+<span>
+
+{expanded[main.category_key] ? "▾" : "▸"}
+
+</span>
+
+{lang === "en"
+  ? main.en
+  : main.zh}
+
 </button>
 
-{openFestivalMenu && (
+{expanded[main.category_key] && (
 
-  <div
-    className="
-      ml-6
-      pl-3
-      border-l border-[#f3f3f3]
-      space-y-2
-      text-[12px]
-      text-[#666]
-    "
-  >
+<div
+  className="
+    ml-6
+    pl-3
+    border-l
+    border-[#f3f3f3]
+    space-y-2
+    text-[12px]
+    text-[#666]
+  "
+>
 
-    {festivalTypes.map(item => (
-      
+{childCategories
+  .filter(
+    c => c.parent_key === main.category_key
+  )
+  .map(child => {
 
-      <div
+    const grandChildren =
+      grandChildCategories.filter(
+        g => g.parent_key === child.category_key
+      );
 
-      onClick={() => handleCategoryClick(item.key)}
-        key={item.key}
-        className="
-          hover:text-[#C8A46A]
-          cursor-pointer
-          transition
-        "
-      >
-      {lang === "en" ? item.en : item.zh}
+    return (
+
+      <div key={child.category_key}>
+
+        {/* 子分類 */}
+
+        <div
+          onClick={() =>
+            handleCategoryClick(child.category_key)
+          }
+          className="
+            hover:text-[#C8A46A]
+            cursor-pointer
+            transition
+          "
+        >
+
+          {lang === "en"
+            ? child.en
+            : child.zh}
+
+        </div>
+
+        {/* ===== 孫分類 ===== */}
+
+        {grandChildren.length > 0 && (
+
+          <div
+            className="
+              ml-5
+              mt-2
+              space-y-2
+              border-l
+              border-[#f3f3f3]
+              pl-3
+            "
+          >
+
+            {grandChildren.map(grand => (
+
+              <div
+                key={grand.category_key}
+                onClick={() =>
+                  handleCategoryClick(
+                    grand.category_key
+                  )
+                }
+                className="
+                  text-[11px]
+                  text-[#888]
+                  hover:text-[#C8A46A]
+                  cursor-pointer
+                  transition
+                "
+              >
+
+                {lang === "en"
+                  ? grand.en
+                  : grand.zh}
+
+              </div>
+
+            ))}
+
+          </div>
+
+        )}
+
       </div>
 
-    ))}
+    );
 
-  </div>
-
-)}
-
+  })}
 
 </div>
+
 )}
 
 </div>
 
+))}
 
+{/* ===== 照明設計 ===== */}
 
+{mainCategories
+  .filter(c => c.category_key === "LIGHTING_DESIGN")
+  .map(main => (
 
-{/* 照明設計 */}
-
-<div className="mb-6">
-
-  <button
-    onClick={() => {
-
-      setActive("LIGHTING_DESIGN");
-
-      setSearchParams(prev => {
-        prev.set(
-          "cat",
-          "LIGHTING_DESIGN"
-        );
-        prev.set("page",1);
-        return prev;
-      });
-
-    }}
-    className="
-    flex items-center gap-2
+<button
+  key={main.category_key}
+  onClick={() =>
+    handleCategoryClick(main.category_key)
+  }
+  className="
+    flex
+    items-center
+    gap-2
     text-[#666]
     hover:text-[#C8A46A]
     transition
   "
-  >
+>
 
 <span>▸</span>
 
-{lang === "en" ? "Lighting Design" : "照明設計"}
-  </button>
+{lang === "en"
+  ? main.en
+  : main.zh}
 
-</div>
+</button>
 
-{/* 施工 */}
+))}
+{/* ===== 施工 ===== */}
 
-<div className="mb-6">
+{mainCategories
+  .filter(c => c.category_key === "INSTALLATION")
+  .map(main => (
 
-  <button
-    onClick={() => {
-
-      setActive("INSTALLATION");
-
-      setSearchParams(prev => {
-        prev.set(
-          "cat",
-          "INSTALLATION"
-        );
-        prev.set("page",1);
-        return prev;
-      });
-
-    }}
-     className="
-    flex items-center gap-2
+<button
+  key={main.category_key}
+  onClick={() =>
+    handleCategoryClick(main.category_key)
+  }
+  className="
+    flex
+    items-center
+    gap-2
     text-[#666]
     hover:text-[#C8A46A]
     transition
   "
-  >
+>
+
 <span>▸</span>
 
-{lang === "en" ? "Installation" : "施工"}
-  </button>
+{lang === "en"
+  ? main.en
+  : main.zh}
+
+</button>
+
+))}
+
+
+</div>
+
+)}
 
 </div>
 

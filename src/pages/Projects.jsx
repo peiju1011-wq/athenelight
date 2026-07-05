@@ -8,203 +8,216 @@ import { Link, useSearchParams } from "react-router-dom";
 
 export default function Projects() {
 
-  const [projects,setProjects] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [expanded, setExpanded] = useState({});
+  const mainCategories = categories.filter(
+    c => !c.parent_key
+  );
+
+  const childCategories = categories.filter(
+    c => c.parent_key
+  );
+
+  const grandChildCategories = categories.filter(c => {
+
+    const parent = categories.find(
+      p => p.category_key === c.parent_key
+    );
+
+    return parent?.parent_key;
+
+  });
 
   useEffect(() => {
 
-  async function loadProjects(){
+    async function loadProjects() {
 
-    const { data,error } = await supabase
-      .from("projects")
+      const { data, error } = await supabase
+        .from("projects")
+        .select("*")
+        .order("sort_order", { ascending: true });
+
+      if (error) {
+        console.log(error);
+        return;
+      }
+
+      if (data) {
+        setProjects(data);
+      }
+
+    }
+
+    loadProjects();
+
+  }, []);
+  const lang = useLang();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const currentPage = Number(searchParams.get("page")) || 1;
+  const typeParam = searchParams.get("type") || (lang === "en" ? "ALL" : "全部");
+  const searchParam = searchParams.get("search") || "";
+
+  const [active, setActive] = useState(typeParam);
+  const [keyword, setKeyword] = useState(searchParam);
+
+  const perPage = 12;
+  async function loadCategories() {
+
+    const { data, error } = await supabase
+      .from("categories")
       .select("*")
-      .order("sort_order",{ ascending:true });
+      .eq("type", "project")
+      .eq("enabled", true)
+      .order("level", { ascending: true })
+      .order("parent_key", { ascending: true })
+      .order("sort_order", { ascending: true })
 
-    if(error){
+    console.log("PROJECT CATEGORIES");
+    console.log(data);
+
+    if (error) {
       console.log(error);
       return;
     }
 
-    if(data){
-      setProjects(data);
+    setCategories([
+      {
+        category_key: "ALL",
+        zh: "全部",
+        en: "ALL"
+      },
+      ...(data || [])
+    ]);
+  }
+
+  useEffect(() => {
+    loadCategories();
+  }, []);
+
+
+  useEffect(() => {
+
+    const current = categories.find(
+      c => c.category_key === active
+    );
+
+    if (current?.parent_key) {
+
+      setExpanded(prev => ({
+        ...prev,
+        [current.parent_key]: true
+      }));
+
     }
 
-  }
-
-  loadProjects();
-
-},[]);
-  const lang = useLang();
-
-const [searchParams, setSearchParams] = useSearchParams();
-
-const currentPage = Number(searchParams.get("page")) || 1;
-const typeParam = searchParams.get("type") || (lang === "en" ? "ALL" : "全部");
-const searchParam = searchParams.get("search") || "";
-
-const [active, setActive] = useState(typeParam);
-const [keyword, setKeyword] = useState(searchParam);
-
-const perPage = 12;
-const categories =
-  lang === "en"
-    ? [
-        "ALL",
-        "LIGHTING_DESIGN",
-        "FACADE",
-        "LANDSCAPE",
-        "COMMERCIAL",
-        "INTERIOR",
-        "ILLUMINATION",
-        "FESTIVAL"
-      ]
-    : [
-        "全部",
-        
-        "外牆照明",
-        "景觀照明",
-        "商業空間",
-        "室內照明",
-        "照明設計",
-        "亮化工程",
-        "燈會"
-      ];
-
-const categoryName = {
-
-  FACADE: {
-    zh: "外牆照明",
-    en: "Facade Lighting"
-  },
-
-  LANDSCAPE: {
-    zh: "景觀照明",
-    en: "Landscape Lighting"
-  },
-
-  COMMERCIAL: {
-    zh: "商業空間",
-    en: "Commercial Space"
-  },
-
-  INTERIOR: {
-    zh: "室內照明",
-    en: "Interior Lighting"
-  },
-
-  LIGHTING_DESIGN: {
-    zh: "照明設計",
-    en: "Lighting Design"
-  },
-
-  ILLUMINATION: {
-    zh: "亮化工程",
-    en: "Illumination"
-  },
-
-  FESTIVAL: {
-    zh: "燈會",
-    en: "Festival"
-  }
-
-};
-
-
-const typeMap = {
-  "全部": "ALL",
-  
-  "外牆照明": "FACADE",
-  "景觀照明": "LANDSCAPE",
-  "商業空間": "COMMERCIAL",
-  "室內照明": "INTERIOR",
-  "照明設計": "LIGHTING_DESIGN",
-  "亮化工程": "ILLUMINATION",
-  "燈會": "FESTIVAL"
-};
-
+  }, [active, categories]);
 
 
   /* ===== 對照 ===== */
-const filtered = projects.filter((p) => {
+  const filtered = projects.filter((p) => {
 
-  
 
-  const title =
-    (lang === "en"
-      ? p.title_en
-      : p.title_zh) || "";
 
-  const desc =
-    (lang === "en"
-      ? p.desc_en
-      : p.desc_zh) || "";
+    const title =
+      (lang === "en"
+        ? p.title_en
+        : p.title_zh) || "";
 
-  const categoryText =
-    p.category || "";
+    const desc =
+      (lang === "en"
+        ? p.desc_en
+        : p.desc_zh) || "";
 
-  const typeText =
-    p.category || "";
+    const categoryText =
+      p.sub_category ||
+      p.category ||
+      "";
 
-  const searchText = (
-    title +
-    " " +
-    desc +
-    " " +
-    categoryText +
-    " " +
-    typeText
-  )
-    .toLowerCase()
-    .replace(/\s+/g, "");
+    const typeText =
+      p.sub_category ||
+      p.category ||
+      "";
 
-  const keywordLower = keyword
-    .toLowerCase()
-    .replace(/\s+/g, "");
+    const searchText = (
+      title +
+      " " +
+      desc +
+      " " +
+      categoryText +
+      " " +
+      typeText
+    )
+      .toLowerCase()
+      .replace(/\s+/g, "");
 
-  const projectType = p.category || "全部";
-  
+    const keywordLower = keyword
+      .toLowerCase()
+      .replace(/\s+/g, "");
 
-  const normalizedActive =
-    typeMap[active] || active;
+    const projectType =
+      p.sub_category ||
+      p.category ||
+      "全部";
 
-  const isAll =
-    active === "ALL" ||
-    active === "全部";
 
-  const matchCategory = isAll
-    ? true
-    : projectType === normalizedActive;
+    const normalizedActive = active;
 
-const matchKeyword =
-  !keywordLower ||
-  searchText.includes(keywordLower);
+    const isAll =
+      active === "ALL" ||
+      active === "全部";
 
-return matchCategory && matchKeyword;
+    const selected = categories.find(
+      c => c.category_key === normalizedActive
+    );
 
-});
+    const isMainCategory =
+      selected && !selected.parent_key;
+
+    const matchCategory = isAll
+      ? true
+      : isMainCategory
+        ? (
+          p.category === normalizedActive ||
+          categories.find(
+            c => c.category_key === p.sub_category
+          )?.parent_key === normalizedActive
+        )
+        : projectType === normalizedActive;
+
+    const matchKeyword =
+      !keywordLower ||
+      searchText.includes(keywordLower);
+
+    return matchCategory && matchKeyword;
+
+  });
   /* ===== 分頁 ===== */
   const start = (currentPage - 1) * perPage;
   const currentData = filtered.slice(start, start + perPage);
-const totalPages = Math.ceil(filtered.length / perPage);
-useEffect(() => {
-  setSearchParams(prev => {
-    prev.set("page", 1);
-    return prev;
-  });
-}, [active, keyword, lang]);
-
-useEffect(() => {
-  setActive(typeParam);
-  setKeyword(searchParam);
-}, [typeParam, searchParam]);
-
-useEffect(() => {
-  if (currentPage > totalPages && totalPages > 0) {
+  const totalPages = Math.ceil(filtered.length / perPage);
+  useEffect(() => {
     setSearchParams(prev => {
-      prev.set("page", totalPages);
+      prev.set("page", 1);
       return prev;
     });
-  }
-}, [currentPage, totalPages]);
+  }, [active, keyword, lang]);
+
+  useEffect(() => {
+    setActive(typeParam);
+    setKeyword(searchParam);
+  }, [typeParam, searchParam]);
+
+  useEffect(() => {
+    if (currentPage > totalPages && totalPages > 0) {
+      setSearchParams(prev => {
+        prev.set("page", totalPages);
+        return prev;
+      });
+    }
+  }, [currentPage, totalPages]);
 
   /* ===== UI ===== */
   return (
@@ -235,17 +248,17 @@ useEffect(() => {
       </section>
 
       {/* CONTENT */}
-   <div className="max-w-[1800px] mx-auto px-8 md:px-6 pb-40 mt-20">
+      <div className="max-w-[1800px] mx-auto px-8 md:px-6 pb-40 mt-20">
 
 
-{/* ===== FILTER（高級版🔥） */}
-<section className="mb-12">
+        {/* ===== FILTER（高級版🔥） */}
+        <section className="mb-12">
 
-<div className="flex flex-col md:flex-row gap-12">
+          <div className="flex flex-col md:flex-row gap-12">
 
-    {/* ===== 分類（恢復你之前高級版） */}
-<div
-  className="
+            {/* ===== 分類（恢復你之前高級版） */}
+            <div
+              className="
     hidden md:flex
     w-[220px]
     shrink-0
@@ -255,147 +268,418 @@ sticky
 top-[120px]
 mt-24
   "
->
+            >
 
-{categories.map((c) => {
+              {mainCategories.map(main => {
 
-const isActive = active === c;
+                const key = main.category_key;
 
+                const label =
+                  lang === "en"
+                    ? main.en
+                    : main.zh;
 
-    return (
-<button
-  key={c}
-  onClick={() => {
-    setActive(c);
+                const isActive =
+                  active === key;
 
-    setSearchParams(prev => {
-      prev.set("type", c);
-      prev.set("page", 1);
-      return prev;
-    });
-
-
-  }}
-  className={`
-    flex
-    items-center
-    gap-2
-
-    w-full
-
-    text-left
-
-    text-[13px]
-
-    transition
-
-    ${
-      isActive
-        ? "text-[#C8A46A]"
-        : "text-[#666] hover:text-[#C8A46A]"
-    }
-  `}
->
-
-  <span className="w-[14px]">
-    {isActive ? "▾" : "▸"}
-  </span>
-
-  <span
-    className={
-      lang === "en"
-        ? "tracking-[0.12em]"
-        : "tracking-[0.2em]"
-    }
-  >
-    {c}
-  </span>
-
-</button>
-    );
-  })}
-
-</div>
+                const children =
+                  childCategories.filter(
+                    c => c.parent_key === key
+                  );
 
 
 
 
-<div className="flex-1">
+                return (
 
+                  <div
+                    key={key}
+                    className="space-y-2"
+                  >
 
-{/* ===== 手機版分類 ===== */}
-<div className="md:hidden flex flex-wrap justify-center gap-4 mb-8">
-  {categories.map((c) => {
-    const isActive = active === c;
+                    {/* ===== 主分類 ===== */}
 
-    return (
-      <button
-        key={c}
-        onClick={() => {
-          setActive(c);
+                    <button
+                      onClick={() => {
 
-          setSearchParams(prev => {
-            prev.set("type", c);
-            prev.set("page", 1);
-            return prev;
-          });
-        }}
-        className={`
-          group
-          relative
-          text-[12px]
-          pb-2
+                        setExpanded(prev => ({
+                          ...prev,
+                          [key]: !prev[key]
+                        }));
+
+                        setActive(key);
+
+                        setSearchParams(prev => {
+                          prev.set("type", key);
+                          prev.set("page", 1);
+                          return prev;
+                        });
+
+                      }}
+                      className={`
+          flex
+          items-center
+          gap-2
+          w-full
+          text-left
+          text-[13px]
           transition
-
-          ${
-            isActive
-              ? "text-black"
-              : "text-[#aaa]"
-          }
-
-          after:content-['']
-          after:absolute
-          after:left-1/2
-          after:-translate-x-1/2
-          after:bottom-0
-          after:h-[1px]
-          after:bg-[#C8A46A]
-          after:transition-all
-          after:duration-500
-
-          ${
-            isActive
-              ? "after:w-6"
-              : "after:w-0 hover:after:w-6"
-          }
+          ${isActive
+                          ? "text-[#C8A46A]"
+                          : "text-[#666] hover:text-[#C8A46A]"
+                        }
         `}
-      >
-        {c}
-      </button>
-    );
-  })}
-</div>
+                    >
 
-  {/* ===== 搜尋 ===== */}
-<div className="flex justify-center md:justify-end mb-12">
+                      <span className="w-[14px]">
+                        {children.length
+                          ? expanded[key]
+                            ? "▾"
+                            : "▸"
+                          : "▸"}
+                      </span>
 
-   <div className="relative w-full max-w-[240px]">
+                      <span>
+                        {label}
+                      </span>
 
-      <input
-        placeholder={lang === "en" ? "Search project" : "搜尋專案"}
-        value={keyword}
-        onChange={(e) => {
-          const value = e.target.value;
+                    </button>
 
-          setKeyword(value);
+                    {/* ===== 子分類 ===== */}
 
-          setSearchParams(prev => {
-            prev.set("search", value);
-            prev.set("page", 1);
-            return prev;
-          });
-        }}
-        className="
+                    {children.length > 0 &&
+                      expanded[key] && (
+
+                        <div className="ml-6 space-y-2">
+
+                          {children.map(child => {
+
+                            const grandChildren =
+                              grandChildCategories.filter(
+                                g => g.parent_key === child.category_key
+                              );
+
+                            return (
+
+                              <div key={child.category_key}>
+
+                                {/* 子分類 */}
+
+                                <button
+                                  onClick={() => {
+
+                                    setActive(child.category_key);
+
+                                    setSearchParams(prev => {
+                                      prev.set("type", child.category_key);
+                                      prev.set("page", 1);
+                                      return prev;
+                                    });
+
+                                  }}
+                                  className={`
+                    block
+                    w-full
+                    text-left
+                    text-[12px]
+                    transition
+                    ${active === child.category_key
+                                      ? "text-[#C8A46A]"
+                                      : "text-[#666] hover:text-[#C8A46A]"
+                                    }
+                  `}
+                                >
+
+                                  {lang === "en"
+                                    ? child.en
+                                    : child.zh}
+
+                                </button>
+
+                                {/* ===== 孫分類 ===== */}
+
+                                {grandChildren.length > 0 && (
+
+                                  <div className="ml-5 mt-2 space-y-2">
+
+                                    {grandChildren.map(g => (
+
+                                      <button
+                                        key={g.category_key}
+                                        onClick={() => {
+
+                                          setActive(g.category_key);
+
+                                          setSearchParams(prev => {
+                                            prev.set("type", g.category_key);
+                                            prev.set("page", 1);
+                                            return prev;
+                                          });
+
+                                        }}
+                                        className={`
+                          block
+                          w-full
+                          text-left
+                          text-[11px]
+                          transition
+                          ${active === g.category_key
+                                            ? "text-[#C8A46A]"
+                                            : "text-[#999] hover:text-[#C8A46A]"
+                                          }
+                        `}
+                                      >
+
+                                        {lang === "en"
+                                          ? g.en
+                                          : g.zh}
+
+                                      </button>
+
+                                    ))}
+
+                                  </div>
+
+                                )}
+
+                              </div>
+
+                            );
+
+                          })}
+
+                        </div>
+
+                      )}
+
+                  </div>
+
+                );
+
+              })}
+
+              </div>
+
+
+              <div className="flex-1">
+
+
+                {/* ===== 手機版分類 ===== */}
+                <div className="md:hidden space-y-4 mb-8">
+
+                  {mainCategories.map(main => {
+
+                    const key = main.category_key;
+
+                    const label =
+                      lang === "en"
+                        ? main.en
+                        : main.zh;
+
+                    const isActive =
+                      active === key;
+
+                    const children =
+                      childCategories.filter(
+                        c => c.parent_key === key
+                      );
+
+
+
+
+                    return (
+
+                      <div
+                        key={key}
+                        className="space-y-2"
+                      >
+
+                        {/* 主分類 */}
+
+                        <button
+                          onClick={() => {
+
+                            setExpanded(prev => ({
+                              ...prev,
+                              [key]: !prev[key]
+                            }));
+
+                            setActive(key);
+
+                            setSearchParams(prev => {
+                              prev.set("type", key);
+                              prev.set("page", 1);
+                              return prev;
+                            });
+
+                          }}
+                          className={`
+          flex
+          items-center
+          gap-2
+          w-full
+          text-left
+          text-[13px]
+          transition
+          ${isActive
+                              ? "text-[#C8A46A]"
+                              : "text-[#666] hover:text-[#C8A46A]"
+                            }
+        `}
+                        >
+
+                          <span className="w-[14px]">
+                            {children.length
+                              ? expanded[key]
+                                ? "▾"
+                                : "▸"
+                              : "▸"}
+                          </span>
+
+                          <span>
+                            {label}
+                          </span>
+
+                        </button>
+
+                        {/* 子分類 */}
+
+                        {children.length > 0 &&
+                          expanded[key] && (
+
+                            <div className="ml-6 space-y-2">
+
+                              {children.map(child => {
+
+                                const grandChildren =
+                                  grandChildCategories.filter(
+                                    g => g.parent_key === child.category_key
+                                  );
+
+                                return (
+
+                                  <div key={child.category_key}>
+
+                                    {/* 子分類 */}
+
+                                    <button
+                                      onClick={() => {
+
+                                        setActive(child.category_key);
+
+                                        setSearchParams(prev => {
+                                          prev.set("type", child.category_key);
+                                          prev.set("page", 1);
+                                          return prev;
+                                        });
+
+                                      }}
+                                      className={`
+              block
+              w-full
+              text-left
+              text-[12px]
+              transition
+              ${active === child.category_key
+                                          ? "text-[#C8A46A]"
+                                          : "text-[#666] hover:text-[#C8A46A]"
+                                        }
+            `}
+                                    >
+
+                                      {lang === "en"
+                                        ? child.en
+                                        : child.zh}
+
+                                    </button>
+
+                                    {/* ===== 孫分類 ===== */}
+
+                                    {grandChildren.length > 0 && (
+
+                                      <div className="ml-5 mt-2 space-y-2">
+
+                                        {grandChildren.map(g => (
+
+                                          <button
+                                            key={g.category_key}
+                                            onClick={() => {
+
+                                              setActive(g.category_key);
+
+                                              setSearchParams(prev => {
+                                                prev.set("type", g.category_key);
+                                                prev.set("page", 1);
+                                                return prev;
+                                              });
+
+                                            }}
+                                            className={`
+                    block
+                    w-full
+                    text-left
+                    text-[11px]
+                    transition
+                    ${active === g.category_key
+                                                ? "text-[#C8A46A]"
+                                                : "text-[#999] hover:text-[#C8A46A]"
+                                              }
+                  `}
+                                          >
+
+                                            {lang === "en"
+                                              ? g.en
+                                              : g.zh}
+
+                                          </button>
+
+                                        ))}
+
+                                      </div>
+
+                                    )}
+
+                                  </div>
+
+                                );
+
+                              })}
+
+                            </div>
+
+                          )}
+
+                      </div>
+
+                    );
+
+                  })}
+
+                </div>
+
+      
+
+
+              {/* ===== 搜尋 ===== */}
+              <div className="flex justify-center md:justify-end mb-12">
+
+                <div className="relative w-full max-w-[240px]">
+
+                  <input
+                    placeholder={lang === "en" ? "Search project" : "搜尋專案"}
+                    value={keyword}
+                    onChange={(e) => {
+                      const value = e.target.value;
+
+                      setKeyword(value);
+
+                      setSearchParams(prev => {
+                        prev.set("search", value);
+                        prev.set("page", 1);
+                        return prev;
+                      });
+                    }}
+                    className="
           w-full
           border-b border-[#ddd]
           py-2 pr-8
@@ -407,61 +691,61 @@ const isActive = active === c;
           focus:border-black
           transition
         "
-      />
+                  />
 
-      <svg
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-[14px] h-[14px] text-[#999]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        viewBox="0 0 24 24"
-      >
-        <circle cx="11" cy="11" r="7" />
-        <line x1="20" y1="20" x2="16.5" y2="16.5" />
-      </svg>
+                  <svg
+                    className="absolute right-0 top-1/2 -translate-y-1/2 w-[14px] h-[14px] text-[#999]"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="20" y1="20" x2="16.5" y2="16.5" />
+                  </svg>
 
-    </div>
+                </div>
 
-  </div>
+              </div>
 
-  {/* ===== GRID ===== */}
-  <section className="space-y-10">
+              {/* ===== GRID ===== */}
+              <section className="space-y-10">
 
-    {currentData.length === 0 && (
-      <div className="text-center text-[#aaa] py-40 tracking-[0.2em]">
-        {lang === "en"
-          ? "NO RESULTS"
-          : "查無符合結果"}
-      </div>
-    )}
-  {/* ===== 手機版（🔥一格一格） ===== */}
-<div className="md:hidden space-y-3 sm:space-y-8">
+                {currentData.length === 0 && (
+                  <div className="text-center text-[#aaa] py-40 tracking-[0.2em]">
+                    {lang === "en"
+                      ? "NO RESULTS"
+                      : "查無符合結果"}
+                  </div>
+                )}
+                {/* ===== 手機版（🔥一格一格） ===== */}
+                <div className="md:hidden space-y-3 sm:space-y-8">
 
-    {currentData.map((p) => {
+                  {currentData.map((p) => {
 
-      const title = lang === "en" ? p.title_en : p.title_zh;
-
-
+                    const title = lang === "en" ? p.title_en : p.title_zh;
 
 
-      return (
-<Link
-  key={p.id}
-  to={`/${lang}/projects/${p.slug}`}
-  className="block"
->
 
-  <div className="bg-white p-2 rounded-md shadow-sm">
 
-    <div className="relative aspect-[1/1] overflow-hidden group shadow-sm">
+                    return (
+                      <Link
+                        key={p.id}
+                        to={`/${lang}/projects/${p.slug}`}
+                        className="block"
+                      >
 
-<img
-  src={
-   p.cover
-  ? p.cover
-  : p.images?.[0]?.src
-  }
-  className="
+                        <div className="bg-white p-2 rounded-md shadow-sm">
+
+                          <div className="relative aspect-[1/1] overflow-hidden group shadow-sm">
+
+                            <img
+                              src={
+                                p.cover
+                                  ? p.cover
+                                  : p.images?.[0]?.src
+                              }
+                              className="
     w-full h-full
     object-cover
 
@@ -470,11 +754,11 @@ const isActive = active === c;
   transition duration-700
   group-hover:scale-[1.03]
 "
-      />
+                            />
 
-      {/* 🔥 這段補回來 */}
-    <div
-  className="
+                            {/* 🔥 這段補回來 */}
+                            <div
+                              className="
     absolute inset-0
 
     bg-gradient-to-t
@@ -484,11 +768,11 @@ to-transparent
 
     opacity-90
   "
-/>
+                            />
 
-      <div className="absolute bottom-6 left-6 text-white">
+                            <div className="absolute bottom-6 left-6 text-white">
 
-<p className="
+                              <p className="
   inline-block
 
   text-[11px]
@@ -501,10 +785,18 @@ to-transparent
 
   drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
 ">
-  {categoryName[p.category]?.[lang] || p.category}
-</p>
+                                {
+                                  categories.find(
+                                    c =>
+                                      c.category_key ===
+                                      (p.sub_category || p.category)
+                                  )?.[
+                                  lang === "en" ? "en" : "zh"
+                                  ] || p.category
+                                }
+                              </p>
 
-<h3 className="
+                              <h3 className="
   text-[15px]
 
   tracking-[0.08em]
@@ -519,49 +811,49 @@ to-transparent
 
   max-w-[420px]
 ">
-          {title}
-        </h3>
+                                {title}
+                              </h3>
 
-      </div>
+                            </div>
 
-    </div>
+                          </div>
 
-  </div>
+                        </div>
 
-</Link>
-      );
-    })}
+                      </Link>
+                    );
+                  })}
 
-  </div>
-<div className="hidden md:grid grid-cols-4 gap-x-5 gap-y-12">
+                </div>
+                <div className="hidden md:grid grid-cols-4 gap-x-5 gap-y-12">
 
-  {currentData.map((p) => {
+                  {currentData.map((p) => {
 
-    const title =
-      lang === "en"
-        ? p.title_en
-        : p.title_zh;
+                    const title =
+                      lang === "en"
+                        ? p.title_en
+                        : p.title_zh;
 
-    return (
+                    return (
 
-      <Link
-        key={p.id}
-        to={`/${lang}/projects/${p.slug}`}
-        className="block"
-      >
+                      <Link
+                        key={p.id}
+                        to={`/${lang}/projects/${p.slug}`}
+                        className="block"
+                      >
 
-        <div className="relative aspect-[5/4] overflow-hidden group">
+                        <div className="relative aspect-[5/4] overflow-hidden group">
 
-          <img
-            src={
-              p.cover ||
-              (
-                typeof p.images?.[0] === "string"
-                  ? p.images[0]
-                  : p.images?.[0]?.src
-              )
-            }
-            className="
+                          <img
+                            src={
+                              p.cover ||
+                              (
+                                typeof p.images?.[0] === "string"
+                                  ? p.images[0]
+                                  : p.images?.[0]?.src
+                              )
+                            }
+                            className="
               w-full
               h-full
               object-cover
@@ -570,10 +862,10 @@ to-transparent
               duration-700
               group-hover:scale-[1.03]
             "
-          />
+                          />
 
-          <div
-            className="
+                          <div
+                            className="
               absolute
               inset-0
               bg-gradient-to-t
@@ -581,22 +873,30 @@ to-transparent
               via-black/[0.18]
               to-transparent
             "
-          />
+                          />
 
-          <div className="absolute bottom-6 left-6 text-white">
+                          <div className="absolute bottom-6 left-6 text-white">
 
-            <p className="
+                            <p className="
               text-[12px]
               tracking-[0.35em]
               text-[#D6B278]
               mb-1
               drop-shadow-[0_2px_8px_rgba(0,0,0,1)]
             ">
-              {categoryName[p.category]?.[lang] || p.category}
-            </p>
+                              {
+                                categories.find(
+                                  c =>
+                                    c.category_key ===
+                                    (p.sub_category || p.category)
+                                )?.[
+                                lang === "en" ? "en" : "zh"
+                                ] || p.category
+                              }
+                            </p>
 
-            <h3
-              className="
+                            <h3
+                              className="
                 text-[18px]
                 leading-[1.5]
                 tracking-[0.08em]
@@ -604,104 +904,104 @@ to-transparent
                 text-white
                 drop-shadow-[0_4px_18px_rgba(0,0,0,1)]
               "
-            >
-              {title}
-            </h3>
+                            >
+                              {title}
+                            </h3>
 
-          </div>
+                          </div>
 
-        </div>
+                        </div>
 
-      </Link>
+                      </Link>
 
-    );
+                    );
 
-  })}
+                  })}
 
-</div>
+                </div>
 
-{totalPages > 1 && (
-  <div className="flex justify-center items-center gap-3 mt-20">
+                {totalPages > 1 && (
+                  <div className="flex justify-center items-center gap-3 mt-20">
 
-    {/* PREV */}
-    <button
-onClick={() => {
-  setSearchParams(prev => {
-    prev.set("page", Math.max(currentPage - 1, 1));
-    return prev;
-  });
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}}
-      disabled={currentPage === 1}
-      className={`
+                    {/* PREV */}
+                    <button
+                      onClick={() => {
+                        setSearchParams(prev => {
+                          prev.set("page", Math.max(currentPage - 1, 1));
+                          return prev;
+                        });
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                      disabled={currentPage === 1}
+                      className={`
         px-3 py-2 text-[11px] tracking-[0.2em] border transition
         ${currentPage === 1
-          ? "border-[#e5e5e5] text-[#ccc]"
-          : "border-[#ddd] text-[#666] hover:border-black hover:text-black"}
+                          ? "border-[#e5e5e5] text-[#ccc]"
+                          : "border-[#ddd] text-[#666] hover:border-black hover:text-black"}
       `}
-    >
-      {lang==="en" ? "PREV" : "上一頁"}
-    </button>
+                    >
+                      {lang === "en" ? "PREV" : "上一頁"}
+                    </button>
 
-    {/* 頁碼 */}
-    {Array.from({ length: totalPages }).map((_, i) => {
-      const page = i + 1;
-      return (
-        <button
-          key={page}
-       onClick={() => {
-  setSearchParams(prev => {
-    prev.set("page", page);
-    return prev;
-  });
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}}
-          className={`
+                    {/* 頁碼 */}
+                    {Array.from({ length: totalPages }).map((_, i) => {
+                      const page = i + 1;
+                      return (
+                        <button
+                          key={page}
+                          onClick={() => {
+                            setSearchParams(prev => {
+                              prev.set("page", page);
+                              return prev;
+                            });
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                          className={`
             w-9 h-9 text-[12px] border transition
             ${currentPage === page
-              ? "bg-black text-white border-black"
-              : "border-[#ddd] text-[#666] hover:border-black"}
+                              ? "bg-black text-white border-black"
+                              : "border-[#ddd] text-[#666] hover:border-black"}
           `}
-        >
-          {page}
-        </button>
-      );
-    })}
+                        >
+                          {page}
+                        </button>
+                      );
+                    })}
 
-    {/* NEXT */}
-    <button
-onClick={() => {
-  setSearchParams(prev => {
-    prev.set("page", Math.min(currentPage + 1, totalPages));
-    return prev;
-  });
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}}
-      disabled={currentPage === totalPages}
-      className={`
+                    {/* NEXT */}
+                    <button
+                      onClick={() => {
+                        setSearchParams(prev => {
+                          prev.set("page", Math.min(currentPage + 1, totalPages));
+                          return prev;
+                        });
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                      disabled={currentPage === totalPages}
+                      className={`
         px-3 py-2 text-[11px] tracking-[0.2em] border transition
         ${currentPage === totalPages
-          ? "border-[#e5e5e5] text-[#ccc]"
-          : "border-[#ddd] text-[#666] hover:border-black"}
+                          ? "border-[#e5e5e5] text-[#ccc]"
+                          : "border-[#ddd] text-[#666] hover:border-black"}
       `}
-    >
-      {lang==="en" ? "NEXT" : "下一頁"}
-    </button>
+                    >
+                      {lang === "en" ? "NEXT" : "下一頁"}
+                    </button>
 
-  </div>
-)}
+                  </div>
+                )}
 
-</section>   {/* GRID 結束 */}
+              </section>   {/* GRID 結束 */}
 
-</div>       {/* flex-1 */}
+            </div>       {/* flex-1 */}
 
-</div>       {/* flex-row */}
+          </div>       {/* flex-row */}
 
-</section>   {/* FILTER */}
+        </section>   {/* FILTER */}
 
-</div>       {/* CONTENT */}
+      </div>       {/* CONTENT */}
 
-</div>    
+    </div>
 
   );
 }

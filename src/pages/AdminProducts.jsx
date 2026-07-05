@@ -7,7 +7,7 @@ export default function AdminProducts(){
 
   const navigate = useNavigate();
 const [products,setProducts] = useState([]);
-const [role,setRole] = useState("");
+const [role, setRole] = useState("");
 
   const [stats,setStats] = useState({
 
@@ -211,10 +211,13 @@ async function loadProducts(){
       p.category === "INTERIOR_LIGHTING"
   ).length,
 
-      outdoor:
-        data.filter(
-          p => p.category === "OUTDOOR"
-        ).length,
+outdoor:
+data.filter(
+  p =>
+    p.category === "FACADE" ||
+    p.category === "LANDSCAPE" ||
+    p.category === "FESTIVAL"
+).length,
 
       installation:
         data.filter(
@@ -449,7 +452,9 @@ className="
   {item.category === "INDOOR" && "室內燈具"}
   {item.category === "INTERIOR_LIGHTING" && "室內燈具"}
 
-  {item.category === "OUTDOOR" && "戶外燈具"}
+{item.category === "FACADE" && "外牆照明"}
+{item.category === "LANDSCAPE" && "景觀照明"}
+
 
   {item.category === "FESTIVAL" && "節慶燈具"}
 

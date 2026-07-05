@@ -11,7 +11,7 @@ import Products from "./pages/Products";
 import Series from "./pages/Series";
 import Mirror from "./pages/Mirror"; 
 import ProductDetail from "./pages/ProductDetail";
-
+import AdminCategories from "./components/admin/AdminCategories";
 import LightDetail from "./pages/LightDetail";       
 
 import Projects from "./pages/Projects";
@@ -23,6 +23,7 @@ import NewsDetail from "./pages/NewsDetail";
 import Contact from "./pages/Contact";
 
 import AdminProducts from "./pages/AdminProducts";
+
 import AdminProductsEdit from "./pages/AdminProductsEdit";
 
 import AdminProjects from "./pages/AdminProjects";
@@ -144,6 +145,11 @@ useLayoutEffect(() => {
 />
 
 <Route
+  path="admin/categories"
+  element={<AdminCategories />}
+/>
+
+<Route
   path="admin/projects/trash"
   element={<AdminProjectsTrash />}
 />
@@ -252,6 +258,10 @@ useLayoutEffect(() => {
   element={<AdminProductsNew />}
 />
 
+<Route
+  path="admin/categories"
+  element={<AdminCategories />}
+/>
 
 <Route
   path="admin/home"
@@ -263,6 +273,8 @@ useLayoutEffect(() => {
   path="admin/products/:slug"
   element={<AdminProductsEdit />}
 />
+
+
 
 <Route
   path="admin/projects/trash"
@@ -369,6 +381,11 @@ useLayoutEffect(() => {
 <Route
   path="admin/products/:slug"
   element={<AdminProductsEdit />}
+/>
+
+<Route
+  path="admin/categories"
+  element={<AdminCategories />}
 />
 
 <Route

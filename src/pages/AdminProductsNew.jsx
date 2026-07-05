@@ -126,7 +126,28 @@ const [features,setFeatures] = useState([
 }
 ]);
 
+const [categories,setCategories] = useState([]);
 
+useEffect(() => {
+
+  async function loadCategories() {
+
+    const { data } = await supabase
+      .from("categories")
+      .select("*")
+      .eq("type","product")
+      .eq("enabled",true)
+      .order("level")
+      .order("parent_key")
+      .order("sort_order");
+
+    setCategories(data || []);
+
+  }
+
+  loadCategories();
+
+}, []);
 async function handleSave(){
 
 const COMPRESS_LIMIT =
@@ -974,59 +995,52 @@ window.location.href =
 </h3>
 
 {/* ===== 修改1：產品分類 ===== */}
-
 <select
-  className="w-full p-3 mb-4 border bg-white text-black"
+className="
+    w-full
+    p-3
+    mb-4
+    border
+    bg-white
+    text-black"
   value={category}
   onChange={(e)=>{
+
     setCategory(e.target.value);
+    setSubCategory("");
+
   }}
 >
 
-  <option value="INDOOR">
-    室內燈具
-  </option>
+<option value="">請選擇主分類</option>
 
-  <option value="OUTDOOR_WALL">
-    外牆燈系列
-  </option>
+{categories
+  .filter(c=>!c.parent_key)
+  .map(c=>(
 
-  <option value="LANDSCAPE">
-    景觀燈系列
-  </option>
+<option
+key={c.category_key}
+value={c.category_key}
+>
 
-  <option value="FESTIVAL">
-    節慶燈具
-  </option>
+{c.zh}
 
-  <option value="LIGHTING_DESIGN">
-    照明設計
-  </option>
+</option>
 
-  <option value="INSTALLATION">
-    施工安裝
-  </option>
-
-  <option value="CUSTOM">
-    訂製燈具
-  </option>
+))}
 
 </select>
-
 {/* ===== 修改2：子分類（固定存在，不再卸載） ===== */}
 
 <select
-  key={category}
-  className={`w-full p-3 mb-6 border bg-white text-black ${
-    [
-      "INDOOR",
-      "OUTDOOR_WALL",
-      "LANDSCAPE",
-      "FESTIVAL"
-    ].includes(category)
-      ? ""
-      : "hidden"
-  }`}
+  className="
+    w-full
+    p-3
+    mb-6
+    border
+    bg-white
+    text-black
+  "
   value={subCategory}
   onChange={(e)=>setSubCategory(e.target.value)}
 >
@@ -1035,47 +1049,40 @@ window.location.href =
     請選擇子分類
   </option>
 
-  {category === "INDOOR" && (
-    <>
-      <option value="LOBBY_PENDANT">大廳吊燈</option>
-      <option value="DINING_PENDANT">餐廳吊燈</option>
-      <option value="CUSTOM_PENDANT">訂製吊燈</option>
-      <option value="LIGHT_FILM">光膜</option>
-      <option value="CRYSTAL_FILM">晶膜屏</option>
-      <option value="LINEAR">線條燈</option>
-      <option value="WALL">壁燈</option>
-    </>
-  )}
+  {categories
 
-  {category === "LANDSCAPE" && (
-    <>
-      <option value="LANDSCAPE_POLE">景觀高燈</option>
-      <option value="LANDSCAPE_BOLLARD">景觀矮燈</option>
-      <option value="POST_TOP">柱頭燈</option>
-      <option value="LANDSCAPE_INGROUND">景觀地埋燈</option>
-      <option value="UNDERWATER">水底燈</option>
-    </>
-  )}
+    .filter(c => c.parent_key === category)
 
-  {category === "OUTDOOR_WALL" && (
-    <>
-      <option value="LINEAR_FACADE">外牆線型燈</option>
-      <option value="FLOOD">投光燈</option>
-      <option value="WALL_LIGHT">外牆壁燈</option>
-      <option value="RECESSED_WALL">崁壁燈</option>
-      <option value="STEP">階梯燈</option>
-      <option value="INGROUND">外牆地埋燈</option>
-    </>
-  )}
+    .flatMap(child => {
 
-  {category === "FESTIVAL" && (
-    <>
-      <option value="NET_LIGHT">網燈</option>
-      <option value="STRING">燈串</option>
-      <option value="FENCE_LIGHT">柵欄燈</option>
-      <option value="CURTAIN_LIGHT">窗簾燈</option>
-    </>
-  )}
+      const grandChildren =
+        categories.filter(
+          g => g.parent_key === child.category_key
+        );
+
+      return [
+
+        <option
+          key={child.category_key}
+          value={child.category_key}
+        >
+          {child.zh}
+        </option>,
+
+        ...grandChildren.map(g => (
+
+          <option
+            key={g.category_key}
+            value={g.category_key}
+          >
+           　└ {g.zh}
+          </option>
+
+        ))
+
+      ];
+
+    })}
 
 </select>
 
