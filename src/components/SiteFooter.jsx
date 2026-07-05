@@ -1,11 +1,38 @@
 import { Link } from "react-router-dom";
 import useLang from "../hooks/useLang";
-import { text } from "../data/text";
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabase";
+
 
 export default function SiteFooter() {
 
   const lang = useLang();
-  const t = text;
+  const [footer, setFooter] = useState(null);
+
+useEffect(() => {
+
+  async function loadFooter() {
+
+    const { data } = await supabase
+      .from("footer_settings")
+      .select("*")
+      .single();
+
+    if (data) {
+      setFooter(data);
+    }
+
+  }
+
+  loadFooter();
+
+}, []);
+
+if(!footer){
+
+  return null;
+
+}
 
   return (
     <footer className="bg-[#eceae6] text-[#444] pt-20 pb-12">
@@ -25,7 +52,11 @@ export default function SiteFooter() {
             </h3>
 
             <p className="text-[#6b6b6b] text-sm leading-7 max-w-[260px] mt-4">
-              {t?.footer?.desc?.[lang]}
+         {
+lang==="zh"
+? footer?.company_desc_zh || ""
+: footer?.company_desc_en || ""
+}
             </p>
           </div>
 
@@ -33,11 +64,11 @@ export default function SiteFooter() {
           {/* PRODUCTS */}
           <div>
             <h4 className="text-[#C8A46A] text-[11px] tracking-[0.35em] mb-6">
-              {t?.footer?.products?.title?.[lang]}
+           {lang === "zh" ? "產品" : "PRODUCTS"}
             </h4>
 
        <ul className="space-y-3 text-[13px]">
-  {t?.footer?.products?.items?.map((item,i)=>(
+  {footer?.products?.map((item,i)=>(
 
     <li key={i}>
       <Link
@@ -48,7 +79,11 @@ export default function SiteFooter() {
         }
         className="hover:text-[#C8A46A] transition"
       >
-        {item?.[lang]}
+      {
+lang==="zh"
+? item.zh
+: item.en
+}
       </Link>
     </li>
 
@@ -60,12 +95,12 @@ export default function SiteFooter() {
           {/* COMPANY（🔥已支援下載） */}
           <div>
             <h4 className="text-[#C8A46A] text-[11px] tracking-[0.35em] mb-6">
-              {t?.footer?.company?.title?.[lang]}
+         {lang === "zh" ? "下載" : "DOWNLOAD"}
             </h4>
 
             <ul className="space-y-3 text-[13px]">
 
-             {t?.footer?.company?.items?.map((item,i)=>{
+             {footer?.downloads?.map((item,i)=>{
 
   const textLabel = item?.label?.[lang];
 
@@ -117,12 +152,12 @@ className="
           {/* SOCIAL */}
           <div>
             <h4 className="text-[#C8A46A] text-[11px] tracking-[0.35em] mb-6">
-              {t?.footer?.connect?.title?.[lang]}
+         {lang === "zh" ? "聯絡我們" : "CONNECT"}
             </h4>
 
             <div className="flex gap-3">
 
-              {t?.footer?.connect?.items?.map((item,i)=>{
+              {footer?.connects?.map((item,i)=>{
 
                 const baseClass = `
                   text-[11px]
@@ -219,10 +254,14 @@ return (
 
           <div className="flex gap-6">
             <span className="hover:text-[#C8A46A] cursor-pointer">
-              {t?.footer?.privacy?.[lang]}
+              {lang==="zh"
+? footer?.privacy_zh
+: footer?.privacy_en}
             </span>
             <span className="hover:text-[#C8A46A] cursor-pointer">
-              {t?.footer?.terms?.[lang]}
+              {lang==="zh"
+? footer?.terms_zh
+: footer?.terms_en}
             </span>
           </div>
 

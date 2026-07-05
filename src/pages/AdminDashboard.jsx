@@ -51,8 +51,8 @@ export default function AdminDashboard(){
 },
 
 {
-  title: "📁 Footer",
-  desc: "管理型錄下載與產品連結",
+  title: "🦶 Footer",
+  desc: "管理 Footer 公司資訊、產品、型錄與聯絡方式",
   link: "/admin/footer"
 },
 

@@ -41,6 +41,7 @@ import AdminStorageCleaner from "./pages/AdminStorageCleaner";
 import AdminGuard from "./components/AdminGuard";
 import Login from "./pages/Login";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminFooter from "./components/admin/AdminFooter";
 
 
 function App() {
@@ -221,6 +222,11 @@ useLayoutEffect(() => {
   element={<NewsDetail />}
 />
           <Route path="contact" element={<Contact />} />
+
+          <Route
+path="admin/footer"
+  element={<AdminFooter />}
+/>
         </Route>
 
 
@@ -342,6 +348,14 @@ useLayoutEffect(() => {
   element={<NewsDetail />}
 />
           <Route path="contact" element={<Contact />} />
+
+          <Route
+path="admin/footer"
+  element={<AdminFooter />}
+/>
+
+
+
         </Route>
 
 
@@ -462,6 +476,11 @@ useLayoutEffect(() => {
 />
           <Route path="contact" element={<Contact />} />
         </Route>
+
+          <Route
+path="admin/footer"
+  element={<AdminFooter />}
+/>
 
 
         {/* fallback */}
