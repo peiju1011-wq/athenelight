@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-
+import AdminPassword from "./pages/AdminPassword";
 import ScrollToTop from "./components/ScrollToTop";
 import Intro from "./Intro";
 import MainLayout from "./layouts/MainLayout";
@@ -107,6 +107,14 @@ useLayoutEffect(() => {
 <Route
   path="admin/login"
   element={<Login />}
+/>
+
+<Route
+
+  path="admin/password"
+
+  element={<AdminPassword/>}
+
 />
 
 <Route
@@ -239,6 +247,14 @@ path="admin/footer"
 />
 
 <Route
+
+  path="/admin/password"
+  element={<AdminPassword/>}
+
+/>
+
+
+<Route
   path="admin"
   element={
     <AdminGuard>
@@ -365,6 +381,13 @@ path="admin/footer"
   path="admin/login"
   element={<Login />}
 />
+
+<Route
+  path="/admin/password"
+  element={<AdminPassword/>}
+
+/>
+
 
 <Route
   path="admin"
